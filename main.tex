@@ -1,0 +1,84 @@
+\let\ifdeutsch\iftrue
+\input{pre_document.tex}
+\documentclass[
+	ngerman,
+	a4paper,
+	twoside
+]{scrbook}	
+\input{config.tex}
+
+\input{glossar.tex}
+
+
+\begin{document}
+
+\begin{titlepage}
+	\maketitle
+	\begin{tabular}{ ll }
+		\multicolumn{2}{l}{\textbf{Sommersemester 2024}} \\
+		Firma: &  nemetris GmbH\\
+	   	& Hechinger Straße 48\\
+		& 72406 Bisingen\\
+		Betreuer: & Michael Grathwohl, M.Sc.\\
+		HS-Prüfer: & Prof. Dr. Joachim Gerlach
+	\end{tabular}
+	\vspace{0.5cm}
+	\begin{flushright}
+    	\includegraphics[width=8.0cm]{logoHsAS.png}
+	\end{flushright}	
+\end{titlepage}
+
+
+\input{abstract.tex}
+
+	\tableofcontents
+	\listoffigures
+	\addcontentsline{toc}{chapter}{Abbildungsverzeichnis}
+	\listoftables
+	\addcontentsline{toc}{chapter}{Tabellenverzeichnis}
+	\ifdeutsch
+		\listof{Listing}{Codeverzeichnis}
+	\else
+		\listtof{Listing}{Listing of Code}
+	\fi
+	\addcontentsline{toc}{chapter}{Codeverzeichnis}
+	\printacronyms	
+	\addcontentsline{toc}{chapter}{Abkürzungsverzeichnis}
+
+\chapter{Einleitung}
+\input{chap0_introduction.tex}	
+	
+\chapter{Motivation und Problemstellung}	
+\input{chap1_motivation_problemstellung.tex}
+	
+	
+\chapter{Aufgabenstellung}
+\input{chap2_aufgabenstellung.tex}
+
+
+\chapter{Grundlagen}
+\input{chap3_grundlagen.tex}
+
+
+\chapter{Stand der Technik}
+\input{chap4_stand_der_technik.tex}
+
+
+\chapter{Umsetzung}
+\input{chap5_umsetzung.tex}
+\gls{api}
+
+
+
+
+
+
+
+
+
+
+
+
+	\printbibliography
+
+\end{document}

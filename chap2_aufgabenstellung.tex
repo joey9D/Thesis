@@ -1,0 +1,53 @@
+Das Ziel dieser Arbeit ist es die Basis einer \gls{api}-Bibliothek zu erstellen, mit der je nach Zielplattform die richtigen/passenden Treiber integriert werden können.
+Dafür muss 
+Diese soll erste grundlegenden Funktionen für GPIO Input und Output, SPI, CAN und UART enthalten. 
+Auf diese Weise kann die Funktionsweise für generelles Lesen und Schreiben und die Kommunikation über Busse getestet werden.
+\\
+
+\textbf{Warum für diese Entschieden?}
+
+CAN damit ein anderes Projekt direkt integriert werden kann.
+GPIO für die simpelste Art für Lesen und Schreiben
+
+SPI und UART um Kommunikation via Bus zu testen
+
+
+
+
+\section{Rahmenbedingungen}
+Werkzeuge:
+\begin{itemize}
+	\item STM32CuebeIDE $\rightarrow$ VSCode
+	\item C $\rightarrow$ C++
+	\item CMake
+	\item Linker-Files
+\end{itemize}
+
+VSCode Erweiterungen:
+\begin{itemize}
+	\item by franneck94
+	\begin{itemize}
+		\item C/C++ Runner v9.4.10
+		\item C/C++ Config v6.3.0
+	\end{itemize}
+	\item Microsoft
+	\begin{itemize}
+		\item C/C++ Extension Pack v1.3.1
+		\item C/C++ v1.25.3
+		\item CMake Tools v1.20.53
+	\end{itemize}
+\end{itemize}
+
+Verwendete Microcontroller:
+\begin{itemize}
+	\item STM32C032C6
+	\item STm32G071RB
+	\item STM32G0B1RE
+	\item ESP32-C6 DevKitC-1
+\end{itemize}
+
+\section{Anforderungen an die Lösung}
+Erfolgreiche Implementierung der Grundfunktionen 
+von GPIO, SPI, UART, CAN. Das beinhaltet die Kommunikation über diese Technologien, d.h. Lesen und Schreiben.
+
+

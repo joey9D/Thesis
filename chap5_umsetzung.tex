@@ -1,0 +1,51 @@
+Die Umsetzung dieser Arbeit besteht aus mehreren Phase.
+
+Die Entwicklung einer benutzerfreundlichen und leistungsfähigen API-Library erfordert eine systematische Herangehensweise, die die einzelnen Phasen der Anforderungsanalyse, Architekturentwurf, Implementierung, Testing und Dokumentation integriert.
+ 
+
+\section{Anforderungsanalyse}
+
+
+
+
+\section{Einstellungen pro MCU}
+
+%TODO: informations in reference manual for each mcu
+
+\subsection{STM32C031C6}
+\begin{lstlisting}
+add_compile_options(
+	-mcpu=cortex-m0+
+	-mfloat-abi=hard
+	-mfpu=
+	-mthumb
+	-ffunction-sections
+	-fdata-sections
+	$<$<COMPILE_LANGUAGE:CXX>:-fno-exceptions>
+	$<$<COMPILE_LANGUAGE:CXX>:-fno-rtti>
+	$<$<COMPILE_LANGUAGE:CXX>:-fno-threadsafe-statics>
+	$<$<COMPILE_LANGUAGE:CXX>:-fno-use-cxa-atexit>		
+)
+\end{lstlisting}
+
+\subsection{STM32G071RB}
+\begin{lstlisting}
+add_compile_options(
+	-mcpu=
+	-mfloat-abi=
+	-mfpu=
+	-mthumb
+	-ffunction-sections
+	-fdata-sections
+	$<$<COMPILE_LANGUAGE:CXX>:-fno-exceptions>
+	$<$<COMPILE_LANGUAGE:CXX>:-fno-rtti>
+	$<$<COMPILE_LANGUAGE:CXX>:-fno-threadsafe-statics>
+	$<$<COMPILE_LANGUAGE:CXX>:-fno-use-cxa-atexit>
+)
+\end{lstlisting}
+
+
+\section{Anpassungen}
+Registeränderungen:\\
+Jede MCU-Familie hat
+

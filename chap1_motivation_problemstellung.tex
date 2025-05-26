@@ -1,0 +1,62 @@
+\section{Problemstellung}
+
+
+Uneinheitliche bzw. keine Wiederverwendbare Codebasis
+
+Durch große Variationen der Hardware -> unterschiedliche MCUs, müssen Programme immer wieder neu geschrieben werden. Dies kostet unnötig Zeit und Ressourcen.
+
+
+
+\section{Motivation}
+
+Welche (architektonischen) Eigenschaft sind wichtig/sollen umgesetzt werden?
+\begin{itemize}
+	\item keine/geringen Redundanz $\rightarrow$ z.B. Klassen sollen nicht immer neu implementiert werden.
+	\item einfache Benutzung $\rightarrow$ damit auch zukünftige neue Mitarbeiter einen schnellen Einstieg und Verständnis für die Umgebung bekommen.
+	\item Skalierbarkeit $\rightarrow$ soll auf möglichst viele MCUs/Hardwareboards funktionieren/kompatibel sein.
+	\item Portabilität $\rightarrow$ mit Blick auf unterschiedliche Betriebssysteme (hier: Windows, Linux und MacOS), sollt die erstellte Library auf möglichst vielen bekannten Betriebssystemen laufen. Die damit verbundene Installation der benötigten Tools sollte dementsprechend dokumentiert sein.
+	\item Erweiterbarkeit $\rightarrow$ Leistungsstärkere MCUs bringen oft weitere Funktionen mit. Es muss einfach sein, die implementierten Klassen um diese neuen Funktionen zu erweitern.
+	\item Modularität $\rightarrow$ das Strukturieren der Library in klare Module hilft nicht nur der Trennung von Funktionen und dem damit gewonnen Überblick, sondern dient auch der Wartbarkeit, indem sie es ermöglicht Fehlerquellen schneller zu lokalisieren und diese dann zu beheben.
+	\item Effizienz $\rightarrow$ die Ressourcen, die eine Microcontroller mit bringt sind sehr begrenzt. So muss darauf geachtet werden, dass die Applikation und ihre Abhängigkeiten, z.B. externe Libraries nicht  groß werden und den gesamte Speicher einnehmen.
+\end{itemize}
+ 
+Wie wird der jeweilige Punkte umgesetzt?
+
+Welche Tools werden benutzt/eignen sich besonders für die Umsetzung?
+Welche Tools eignen sich für welchen Arbeitsschritt?
+
+Warum wird etwas gerade auf diese Weise umgesetzt?
+
+\section{Ablauf}
+Im Kapitel Aufgabenstellung
+	\begin{itemize}
+		\item Klärung der genauen Aufgabenstellung,
+		\item Anschauen welche Werkzeuge verwendet werden,
+		\item Ab wann die Aufgabe erfüllt ist.
+	\end{itemize}
+	
+Danach geht man über die Grundlagen
+	\begin{itemize}
+		\item Hardwareentwicklung
+		\begin{itemize}
+			\item Ports
+			\item Register
+			\item Funktionen
+			\item . . .
+		\end{itemize}
+		\item 
+	\end{itemize}
+
+Mit dem Grundlagenwissen wird im nächsten Kapitel sich der aktuelle Stand der Technik angeschaut.
+Dabei wird sich angeschaut welche relevanten Lösungen und Ansätze es bereits gibt und diese mit einander verglichen.
+Warum sich für diesen Ansatz entschieden wurden?
+
+Danach geht es im Hauptteil der Arbeit um die Umsetzung des API mit eigenen Anpassungen und Erweiterungen.
+
+
+
+
+
+
+
+
