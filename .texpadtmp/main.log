@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.15)  27 MAY 2025 13:51
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.15)  27 MAY 2025 14:16
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -2393,28 +2393,27 @@ LaTeX Font Info:    Font shape `T1/qhv/b/n' will be
 (Font)              scaled to size 13.53603pt on input line 1.
 
 
-[17]
-LaTeX Font Info:    Trying to load font information for TS1+ntxtlf on input line 35.
- (/usr/local/texlive/2025/texmf-dist/tex/latex/newtx/ts1ntxtlf.fd
-File: ts1ntxtlf.fd 2015/01/18 v1.0 fd file for TS1/ntxtlf
-)
-LaTeX Font Info:    Font shape `TS1/ntxtlf/m/n' will be
-(Font)              scaled to size 10.95pt on input line 35.
-)
+[17])
 
-[18{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/tex-gyre/q-ts1.enc}]
+[18]
 chapter 3.
 (./chap2_aufgabenstellung.tex
 Underfull \hbox (badness 10000) in paragraph at lines 1--6
 
  []
 
+LaTeX Font Info:    Trying to load font information for TS1+ntxtlf on input line 20.
+(/usr/local/texlive/2025/texmf-dist/tex/latex/newtx/ts1ntxtlf.fd
+File: ts1ntxtlf.fd 2015/01/18 v1.0 fd file for TS1/ntxtlf
+)
+LaTeX Font Info:    Font shape `TS1/ntxtlf/m/n' will be
+(Font)              scaled to size 10.95pt on input line 20.
 
 
 [19
 
 
-])
+{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/tex-gyre/q-ts1.enc}])
 
 [20]
 chapter 4.
@@ -2496,15 +2495,15 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 83721 strings out of 473190
- 1953600 string characters out of 5715800
+ 83727 strings out of 473190
+ 1953718 string characters out of 5715800
  3190777 words of memory out of 5000000
  105430 multiletter control sequences out of 15000+600000
- 618775 words of font info for 180 fonts, out of 8000000 for 9000
+ 619051 words of font info for 183 fonts, out of 8000000 for 9000
  1143 hyphenation exceptions out of 8191
  108i,20n,120p,10917b,3132s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2025/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4r.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/tex-gyre/qhvb.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/tex-gyre/qhvr.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/tex-gyre/qtmr.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/newtx/ztmb.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/newtx/ztmr.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/newtx/ztmri.pfb>
-Output written on /Users/joey/Documents/Studium/8_Sem/Thesis/Thesis/.texpadtmp/main.pdf (26 pages, 223217 bytes).
+Output written on /Users/joey/Documents/Studium/8_Sem/Thesis/Thesis/.texpadtmp/main.pdf (26 pages, 224570 bytes).
 PDF statistics:
  402 PDF objects out of 1000 (max. 8388607)
  353 compressed objects within 4 object streams
