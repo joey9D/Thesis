@@ -3,6 +3,12 @@ Die Umsetzung dieser Arbeit besteht aus mehreren Phase.
 Die Entwicklung einer benutzerfreundlichen und leistungsfähigen API-Library erfordert eine systematische Herangehensweise, die die einzelnen Phasen der Anforderungsanalyse, Architekturentwurf, Implementierung, Testing und Dokumentation integriert.
  
 
+
+Um dieses Problem und die in vorherigem Abschnitt angesprochenen Probleme anzugehen, soll eine neue/weitere Zwischenschicht implementiert werden. 
+Die Zwischenschicht wählt zur Kompilierzeit die richtige Hardware aus, damit das nicht zur Runtime geschieht; und bekommt so die richtigen Treiber mit.
+Die Zwischenschicht soll eine Art default-Klasse für die jeweilige Funktion bereitstellen.
+Mit der ausgewählten Hardware können die Default-Klassen die richtigen Treiber ansprechen.
+
 \section{Anforderungsanalyse}
 $\rightarrow$ ein Klasse pro Funktion \\
 $\rightarrow$ Auswahl der Hardware muss vorher bestimmt werden $\rightarrow$ cmake target \\
