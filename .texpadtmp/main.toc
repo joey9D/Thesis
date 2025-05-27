@@ -10,7 +10,7 @@
 \contentsline {section}{\numberline {2.3}Ablauf}{18}{section.2.3}%
 \contentsline {chapter}{\numberline {3}Aufgabenstellung}{19}{chapter.3}%
 \contentsline {section}{\numberline {3.1}Rahmenbedingungen}{19}{section.3.1}%
-\contentsline {section}{\numberline {3.2}Eigenschaften}{20}{section.3.2}%
+\contentsline {section}{\numberline {3.2}Welche Eigenschaften muss die Treiber-API haben?}{20}{section.3.2}%
 \contentsline {section}{\numberline {3.3}Anforderungen an die Lösung}{20}{section.3.3}%
 \contentsline {chapter}{\numberline {4}Grundlagen}{21}{chapter.4}%
 \contentsline {section}{\numberline {4.1}Einführung}{21}{section.4.1}%

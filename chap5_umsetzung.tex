@@ -19,6 +19,21 @@ $\rightarrow$
 \section{Einstellungen pro MCU}
 
 %TODO: informations in reference manual for each mcu
+% CONFIG Abschnitt im cmake
+%\begin{lstlisting}
+%add_compile_options(
+%	-mcpu=
+%	-mfloat-abi=
+%	-mfpu=
+%	-mthumb
+%	-ffunction-sections
+%	-fdata-sections
+%	$<$<COMPILE_LANGUAGE:CXX>:-fno-exceptions>
+%	$<$<COMPILE_LANGUAGE:CXX>:-fno-rtti>
+%	$<$<COMPILE_LANGUAGE:CXX>:-fno-threadsafe-statics>
+%	$<$<COMPILE_LANGUAGE:CXX>:-fno-use-cxa-atexit>
+%)
+%\end{lstlisting}
 
 \subsection{STM32C031C6}
 \begin{lstlisting}
@@ -55,9 +70,51 @@ add_compile_options(
 
 
 \subsection{STM32G0B1RE}
-
+\begin{lstlisting}
+add_compile_options(
+	-mcpu=
+	-mfloat-abi=
+	-mfpu=
+	-mthumb
+	-ffunction-sections
+	-fdata-sections
+	$<$<COMPILE_LANGUAGE:CXX>:-fno-exceptions>
+	$<$<COMPILE_LANGUAGE:CXX>:-fno-rtti>
+	$<$<COMPILE_LANGUAGE:CXX>:-fno-threadsafe-statics>
+	$<$<COMPILE_LANGUAGE:CXX>:-fno-use-cxa-atexit>
+)
+\end{lstlisting}
 
 \section{Anpassungen}
-%Registeränderungen:\\
-%Jede MCU-Familie hat
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
