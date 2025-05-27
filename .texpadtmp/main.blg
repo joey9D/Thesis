@@ -1,9 +1,9 @@
 [0] Config.pm:308> INFO - This is Biber 2.20
 [0] Config.pm:311> INFO - Logfile is '/Users/joey/Documents/Studium/8_Sem/Thesis/Thesis/.texpadtmp/main.blg'
-[36] biber-darwin:340> INFO - === Mon May 26, 2025, 17:21:56
-[45] Biber.pm:420> INFO - Reading '/Users/joey/Documents/Studium/8_Sem/Thesis/Thesis/.texpadtmp/main.bcf'
-[80] Biber.pm:994> INFO - Found 0 citekeys in bib section 0
-[87] bbl.pm:676> INFO - Writing '/Users/joey/Documents/Studium/8_Sem/Thesis/Thesis/.texpadtmp/main.bbl' with encoding 'UTF-8'
-[87] bbl.pm:779> INFO - Output to /Users/joey/Documents/Studium/8_Sem/Thesis/Thesis/.texpadtmp/main.bbl
-[88] Biber.pm:131> WARN - The file '/Users/joey/Documents/Studium/8_Sem/Thesis/Thesis/.texpadtmp/main.bcf' does not contain any citations!
-[88] Biber.pm:133> INFO - WARNINGS: 1
+[33] biber-darwin:340> INFO - === Tue May 27, 2025, 13:13:00
+[40] Biber.pm:420> INFO - Reading '/Users/joey/Documents/Studium/8_Sem/Thesis/Thesis/.texpadtmp/main.bcf'
+[74] Biber.pm:994> INFO - Found 0 citekeys in bib section 0
+[82] bbl.pm:676> INFO - Writing '/Users/joey/Documents/Studium/8_Sem/Thesis/Thesis/.texpadtmp/main.bbl' with encoding 'UTF-8'
+[82] bbl.pm:779> INFO - Output to /Users/joey/Documents/Studium/8_Sem/Thesis/Thesis/.texpadtmp/main.bbl
+[82] Biber.pm:131> WARN - The file '/Users/joey/Documents/Studium/8_Sem/Thesis/Thesis/.texpadtmp/main.bcf' does not contain any citations!
+[82] Biber.pm:133> INFO - WARNINGS: 1

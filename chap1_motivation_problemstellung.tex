@@ -1,73 +1,23 @@
 \section{Problemstellung}
-
-%\gls{mcus} unterscheiden sich in Aufbau etc., und auch in der Ansteuerung ihrer Register.
-%
-%Diese Register sind verantwortlich für % TODO: vervollständigen
-%
-%Durch große Variationen der Hardware -> unterschiedliche MCUs, müssen Programme, Klassen etc. immer wieder neu geschrieben bzw. eingebundenwerden (z.B. HAL Treiber bei STM32 MCUs). Dies kostet unnötig Zeit und Ressourcen.
 Mikrocontroller unterscheiden sich in vielerlei Hinsicht, unter anderem in ihrer Architektur, der verfügbaren Peripherie, dem Befehlssatz sowie in der Art und Weise, wie ihre Hardwarekomponenten über Register angesteuert werden.
 Die Aufgabe dieser Register besteht in der Konfiguration und Steuerung grundlegender Funktionen, wie etwa der digitalen Ein- und Ausgänge, der Taktung, der Kommunikationsschnittstellen oder der Interrupt-Verwaltung.
 Die konkrete Implementierung sowie die Adressierung und Bedeutung einzelner Bits und Bitfelder variieren jedoch von Hersteller zu Hersteller und sogar zwischen verschiedenen Serien desselben Herstellers erheblich.
 
-Die signifikante Varianz in Bezug auf die Hardware-Komponenten führt dazu, dass Softwarelösungen – insbesondere Treiber und deren Schnittstellen – für jede neue Plattform entweder vollständig neu entwickelt oder zumindest aufwendig angepasst werden müssen.
-Obwohl solche HALs eine gewisse Erleichterung bei der Entwicklung bieten, resultieren daraus gleichzeitig starke Bindungen an die zugrunde liegende Hardwareplattform.
+Die signifikante Varianz in Bezug auf die Hardware-Komponenten führt dazu, dass Softwarelösungen und Applikationen, für jede neue Plattform entweder vollständig neu entwickelt oder zumindest aufwendig angepasst werden müssen.
+Obwohl \gls{hals} eine gewisse Erleichterung bei der Entwicklung bieten, resultieren daraus gleichzeitig starke Bindungen an die zugrunde liegende Hardwareplattform.
 
 Die wiederholte Implementierung oder Integration plattformspezifischer Klassen, Module und Bibliotheken erfordert einen erheblichen Aufwand in Bezug auf Entwicklungszeit und Ressourcen.
 Zusätzlich ist eine Zunahme an Komplexität bei der Wartung sowie eine Erschwernis bezüglich der Wiederverwendbarkeit von Softwarekomponenten über verschiedene Projekte hinweg zu beobachten.
+
  In Anbetracht dessen ist die Entwicklung einer abstrahierten, plattformübergreifenden Architektur erforderlich, die diese Herausforderungen adressiert und eine einheitliche, modulare Schnittstelle für die Treiberauswahl bereitstellt.
 
 
 
-
 \section{Motivation}
-%Welche (architektonischen) Eigenschaft sind wichtig/sollen umgesetzt werden?
-%\begin{itemize}
-%	\item keine/geringen Redundanz $\rightarrow$ z.B. Klassen sollen nicht immer neu implementiert werden.
-%	\item einfache Benutzung $\rightarrow$ damit auch zukünftige neue Mitarbeiter einen schnellen Einstieg und Verständnis für die Umgebung bekommen.
-%	\item Skalierbarkeit $\rightarrow$ soll auf möglichst viele MCUs/Hardwareboards funktionieren/kompatibel sein.
-%	\item Portabilität $\rightarrow$ mit Blick auf unterschiedliche Betriebssysteme (hier: Windows, Linux und MacOS), sollt die erstellte Library auf möglichst vielen bekannten Betriebssystemen laufen. Die damit verbundene Installation der benötigten Tools sollte dementsprechend dokumentiert sein.
-%	\item Erweiterbarkeit $\rightarrow$ Leistungsstärkere MCUs bringen oft weitere Funktionen mit. Es muss einfach sein, die implementierten Klassen um diese neuen Funktionen zu erweitern.
-%	\item Modularität $\rightarrow$ das Strukturieren der Library in klare Module hilft nicht nur der Trennung von Funktionen und dem damit gewonnen Überblick, sondern dient auch der Wartbarkeit, indem sie es ermöglicht Fehlerquellen schneller zu lokalisieren und diese dann zu beheben.
-%	\item Effizienz $\rightarrow$ die Ressourcen, die eine Microcontroller mit bringt sind sehr begrenzt. So muss darauf geachtet werden, dass die Applikation und ihre Abhängigkeiten, z.B. externe Libraries nicht  groß werden und den gesamte Speicher einnehmen.
-%\end{itemize}
- 
-Wie wird der jeweilige Punkt umgesetzt?
+In der Embedded-Entwicklung stellt die effiziente und wartbare Bereitstellung von Software für eine wachsende Zahl unterschiedlicher Mikrocontroller-Plattformen eine zunehmende Herausforderung dar.
+Die Vielzahl verfügbarer Mikrocontroller mit unterschiedlichen Architekturen, Peripheriekomponenten und Entwicklungsumgebungen führt zu einem hohen Aufwand bei der Anpassung und Pflege von Software und Applikationen.
 
-Welche Tools werden benutzt/eignen sich besonders für die Umsetzung?
-Welche Tools eignen sich für welchen Arbeitsschritt?
 
-Warum wird etwas gerade auf diese Weise umgesetzt?
-\newline
-\newline
-Die Entwicklung einer plattformunabhängigen, wiederverwendbaren Treiber-API für Mikrocontroller stellt hohe Anforderungen an die Architektur der Softwarebibliothek.
-Das Ziel besteht darin, eine Lösung zu schaffen, die sich durch eine geringe Redundanz auszeichnet. 
-Die Konzeption von Klassen und Funktionen sollte derart erfolgen, dass eine erneute Implementierung für jede neue Plattform oder Anwendung nicht erforderlich ist.
-Die Wiederverwendbarkeit zentraler Komponenten führt zu einer Reduktion des Entwicklungsaufwands und einer Erhöhung der Konsistenz im Code.
-
-Ein weiteres zentrales Anliegen ist die einfache Benutzbarkeit. 
-Die API ist so zu gestalten, dass eine effiziente Nutzung gewährleistet ist. 
-Dies fördert nicht nur die Effizienz in der Erstellung neuer Applikationen, sondern erleichtert auch langfristig die Wartung und Weiterentwicklung der Software.
-
-Im Sinne der Skalierbarkeit wird angestrebt, die Lösung auf möglichst viele Mikrocontroller-Architekturen und Hardwareplattformen anwendbar zu machen.
-Die Vielfalt verfügbarer MCUs erfordert eine abstrahierte und flexibel erweiterbare Struktur, die die Integration neuer Plattformen mit minimalem Aufwand ermöglicht.
-
-Auch die Portabilität spielt eine wichtige Rolle.
-Die Bibliothek sollte nicht nur hardware-, sondern auch betriebssystemunabhängig konzipiert werden.
-Aus diesem Grund wird bei der Entwicklung der Lösung darauf geachtet, dass diese erst unter Windows, später auch unter Linux und macOS einsetzbar ist.
-Die Installation und Konfiguration der dafür benötigten Werkzeuge wird nachvollziehbar dokumentiert, um den Einstieg für die Nutzer zu erleichtern.
-
-Darüber hinaus ist die Erweiterbarkeit ein wesentliches Architekturprinzip
-Der Einsatz von leistungsstärkeren Mikrocontrollern hängt in der Regel mit einer Erweiterung der Funktionalitäten zusammen, die in die bestehenden Treiber- und API-Strukturen integriert werden müssen.
-Daher wird großer Wert auf eine modulare und offen gestaltete Architektur gelegt, die neue Features ohne grundlegende Umbauten aufnehmen kann.
-
-Modularität trägt wesentlich zur Übersichtlichkeit und Wartbarkeit des Systems bei. 
-Eine saubere Trennung funktionaler Einheiten ermöglicht eine schnellere Lokalisierung und Behebung von Fehlern, was wiederum die langfristige Pflege und Weiterentwicklung der Software erleichtert.
-
-Schließlich ist auch die Effizienz ein kritischer Aspekt.
-Da Mikrocontroller in der Regel nur über begrenzte Ressourcen verfügen, ist es essenziell, dass die Bibliothek möglichst kompakt und ressourcenschonend implementiert wird. 
-Externe Abhängigkeiten werden bewusst auf ein Minimum reduziert, um Speicherplatz zu sparen und unnötige Komplexität zu vermeiden.
-
-Diese architektonischen Prinzipien bilden die Grundlage für die Konzeption und Umsetzung der in dieser Arbeit vorgestellten Treiber-API.
 
 \section{Ablauf}
 Im Kapitel Aufgabenstellung
