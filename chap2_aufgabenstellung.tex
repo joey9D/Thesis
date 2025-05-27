@@ -1,5 +1,7 @@
 Das Ziel dieser Arbeit ist es die Basis eine Treiber-API zu erstellen, mit der je nach Zielhardware die passenden Treiber integriert werden können.
+
 Dafür muss 
+
 Diese soll erste grundlegenden Funktionen für GPIO, SPI, CAN und UART enthalten. 
 Auf diese Weise kann die Funktionsweise für generelles Lesen und Schreiben und die Kommunikation über Busse getestet werden.
 \\
@@ -18,7 +20,7 @@ SPI und UART um Kommunikation via Bus zu testen
 \section{Rahmenbedingungen}
 Werkzeuge:
 \begin{itemize}
-	\item STM32CuebeIDE $\rightarrow$ VSCode
+	\item STM32CubeIDE $\rightarrow$ VSCode
 	\item C $\rightarrow$ C++
 	\item CMake
 	\item Linker-Files
@@ -48,20 +50,33 @@ Verwendete Microcontroller:
 \end{itemize}
 
 
-\section{Welche Eigenschaften muss die Treiber-API haben?}
-%Welche (architektonischen) Eigenschaft sind wichtig/sollen umgesetzt werden?
-%\begin{itemize}
-%	\item keine/geringen Redundanz $\rightarrow$ z.B. Klassen sollen nicht immer neu implementiert werden.
-%	\item einfache Benutzung $\rightarrow$ damit auch zukünftige neue Mitarbeiter einen schnellen Einstieg und Verständnis für die Umgebung bekommen.
-%	\item Skalierbarkeit $\rightarrow$ soll auf möglichst viele MCUs/Hardwareboards funktionieren/kompatibel sein.
-%	\item Portabilität $\rightarrow$ mit Blick auf unterschiedliche Betriebssysteme (hier: Windows, Linux und MacOS), sollt die erstellte Library auf möglichst vielen bekannten Betriebssystemen laufen. Die damit verbundene Installation der benötigten Tools sollte dementsprechend dokumentiert sein.
-%	\item Erweiterbarkeit $\rightarrow$ Leistungsstärkere MCUs bringen oft weitere Funktionen mit. Es muss einfach sein, die implementierten Klassen um diese neuen Funktionen zu erweitern.
-%	\item Modularität $\rightarrow$ das Strukturieren der Library in klare Module hilft nicht nur der Trennung von Funktionen und dem damit gewonnen Überblick, sondern dient auch der Wartbarkeit, indem sie es ermöglicht Fehlerquellen schneller zu lokalisieren und diese dann zu beheben.
-%	\item Effizienz $\rightarrow$ die Ressourcen, die eine Microcontroller mit bringt sind sehr begrenzt. So muss darauf geachtet werden, dass die Applikation und ihre Abhängigkeiten, z.B. externe Libraries nicht  groß werden und den gesamte Speicher einnehmen.
-%\end{itemize}
+\section{Architektonische Eigenschaften die Treiber-API}
+Moderen Softwarelösungen bestehen meist aus vielen, großen Dateien, die untereinander von einander abhängig sind.
+Um bei solch großen Projekten den Überblick zu behalten, werden/sollten diese Softwarelösungen nach gewissen Eigenschaften erstellt werden.
+Diese \emph{architektonischen Eigenschaften} lassen sich (grob) in drei Teilbereiche unterteilen: Betriebsrelevante, Strukturelle und Bereichsübergreifende, wie in Tabelle~\ref{tab:architektonische_eigenschaften} aufgeführt. % Eigenschaften. 
+
+\begin{table}[H]
+	\begin{center}
+		\begin{tabular}{ c | c | c }
+			\textbf{Betriebsrelevante} & \textbf{Strukturelle} & \textbf{Bereichsübergreifende}\\
+			%\midrule
+			\hline
+			Verfügbarkeit & Erweiterbarkeit & Sicherheit\\
+			Performance & Modularität & Rechtliches\\
+			Skalierbarkeit & Wartbarkeit & Usability\\
+			$\cdots$ & $\cdots$ & $\cdots$\\
+		\end{tabular}
+		\caption{Teilbereiche architektonischer Eigenschaften}
+	    \label{tab:architektonische_eigenschaften}
+	\end{center}
+\end{table}
+
+Aus diesen Eigenschaften gilt es, die wichtigsten für die Treiber-API zu identifizieren. 
+Mit diesem Hintergrund lässt sich ein Struktur für das Projekt bilden.
 
 Die Entwicklung einer plattformunabhängigen, wiederverwendbaren Treiber-API für Mikro-controller stellt hohe Anforderungen an die Architektur der Softwarebibliothek.
 
+% Welche (architektonischen) Eigenschaft sind wichtig/sollen umgesetzt werden?
 % geringe Redundanz
 Das Ziel besteht darin, eine Lösung zu schaffen, die sich durch eine geringe Redundanz auszeichnet. 
 Die Konzeption von Klassen und Funktionen sollte derart erfolgen, dass eine erneute Implementierung der Applikation für jede neue Plattform nicht erforderlich ist.
@@ -97,7 +112,8 @@ Da Mikrocontroller in der Regel nur über begrenzte Ressourcen verfügen, ist es
 Externe Abhängigkeiten werden bewusst auf ein Minimum reduziert, um Speicherplatz zu sparen und unnötige Komplexität zu vermeiden.
 
 Diese architektonischen Prinzipien bilden die Grundlage für die Konzeption und Umsetzung der in dieser Arbeit vorgestellten Treiber-API.
- % Fragen
+
+% Fragen
 Wie wird der jeweilige Punkt umgesetzt?
 
 Welche Tools werden benutzt/eignen sich besonders für die Umsetzung?

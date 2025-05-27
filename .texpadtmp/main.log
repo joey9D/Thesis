@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.15)  27 MAY 2025 16:35
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.15)  27 MAY 2025 17:49
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -1050,7 +1050,7 @@ Package biblatex Info: ... and expl3
  (/usr/local/texlive/2025/texmf-dist/tex/latex/biblatex/blx-case-expl3.sty
 Package: blx-case-expl3 2024/03/21 v3.20 expl3 case changing code for biblatex
 ))
-Package biblatex Info: Redefining '\citeauthor' on input line 575.
+Package biblatex Info: Redefining '\citeauthor' on input line 576.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/blindtext/blindtext.sty
 Package: blindtext 2012/01/06 V2.0 blindtext-Package
 \c@blindtext=\count480
@@ -1153,10 +1153,10 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 28
 )
 \Hy@SectionHShift=\skip126
 )
-Package hyperref Info: Option `bookmarksnumbered' set `true' on input line 634.
-Package hyperref Info: Option `bookmarksopen' set `true' on input line 634.
-Package hyperref Info: Option `breaklinks' set `true' on input line 634.
-Package hyperref Info: Option `colorlinks' set `true' on input line 634.
+Package hyperref Info: Option `bookmarksnumbered' set `true' on input line 635.
+Package hyperref Info: Option `bookmarksopen' set `true' on input line 635.
+Package hyperref Info: Option `breaklinks' set `true' on input line 635.
+Package hyperref Info: Option `colorlinks' set `true' on input line 635.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/glossaries/base/glossaries.sty
 Package: glossaries 2025/03/03 v4.56 (NLCT)
  (/usr/local/texlive/2025/texmf-dist/tex/latex/mfirstuc/mfirstuc.sty
@@ -2398,42 +2398,51 @@ LaTeX Font Info:    Font shape `T1/qhv/b/n' will be
 [18]
 chapter 3.
 (./chap2_aufgabenstellung.tex
-Underfull \hbox (badness 10000) in paragraph at lines 1--6
+Underfull \hbox (badness 10000) in paragraph at lines 5--8
 
  []
 
-LaTeX Font Info:    Trying to load font information for TS1+ntxtlf on input line 21.
+LaTeX Font Info:    Trying to load font information for TS1+ntxtlf on input line 23.
 (/usr/local/texlive/2025/texmf-dist/tex/latex/newtx/ts1ntxtlf.fd
 File: ts1ntxtlf.fd 2015/01/18 v1.0 fd file for TS1/ntxtlf
 )
 LaTeX Font Info:    Font shape `TS1/ntxtlf/m/n' will be
-(Font)              scaled to size 10.95pt on input line 21.
+(Font)              scaled to size 10.95pt on input line 23.
+
+
+Package nag Warning: `center' environment in table.
+(nag)                Maybe you want \centering instead on input line 71.
+
 
 
 [19
 
 
-{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/tex-gyre/q-ts1.enc}])
+{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/tex-gyre/q-ts1.enc}]
 
-[20]
-chapter 4.
-(./chap3_grundlagen.tex)
+[20])
 
-[21
+[21]
+
+[22
 
 
 ]
+chapter 4.
+(./chap3_grundlagen.tex)
 
-[22
+[23]
+
+[24
 
 
 ]
 chapter 5.
 (./chap4_stand_der_technik.tex)
 
-[23]
+[25]
 
-[24
+[26
 
 
 ]
@@ -2456,7 +2465,7 @@ Package csquotes Info: Input encoding change on input line 56.
 File: latin1.def 2024/02/08 v1.3d Input encoding file
 )
 
-[25{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/inconsolata/i4-t1-1.enc}]
+[27{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/inconsolata/i4-t1-1.enc}]
 Package csquotes Info: Input encoding change on input line 73.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/base/latin1.def
 File: latin1.def 2024/02/08 v1.3d Input encoding file
@@ -2467,10 +2476,12 @@ LaTeX Warning: Empty bibliography on input line 83.
 \tf@thm=\write9
 \openout9 = `main.thm'.
 
-No complaints by nag.
+
+Package nag Warning: 1 complaints in total.
 
 
-[26]
+
+[28]
 \openout2 = `main.wrt'.
 
  (/Users/joey/Documents/Studium/8_Sem/Thesis/Thesis/.texpadtmp/main.aux
@@ -2499,18 +2510,18 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 83741 strings out of 473190
- 1954009 string characters out of 5715800
- 3205740 words of memory out of 5000000
- 105429 multiletter control sequences out of 15000+600000
- 619051 words of font info for 183 fonts, out of 8000000 for 9000
+ 83762 strings out of 473190
+ 1954537 string characters out of 5715800
+ 3205866 words of memory out of 5000000
+ 105445 multiletter control sequences out of 15000+600000
+ 619143 words of font info for 184 fonts, out of 8000000 for 9000
  1143 hyphenation exceptions out of 8191
  108i,20n,120p,10917b,3132s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2025/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4r.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/tex-gyre/qhvb.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/tex-gyre/qhvr.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/tex-gyre/qtmr.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/newtx/ztmb.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/newtx/ztmr.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/newtx/ztmri.pfb>
-Output written on /Users/joey/Documents/Studium/8_Sem/Thesis/Thesis/.texpadtmp/main.pdf (26 pages, 225426 bytes).
+Output written on /Users/joey/Documents/Studium/8_Sem/Thesis/Thesis/.texpadtmp/main.pdf (28 pages, 227846 bytes).
 PDF statistics:
- 417 PDF objects out of 1000 (max. 8388607)
- 368 compressed objects within 4 object streams
- 111 named destinations out of 1000 (max. 500000)
+ 429 PDF objects out of 1000 (max. 8388607)
+ 378 compressed objects within 4 object streams
+ 114 named destinations out of 1000 (max. 500000)
  47342 words of extra memory for PDF output out of 51595 (max. 10000000)
 

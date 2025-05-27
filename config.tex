@@ -429,6 +429,7 @@
 %     Anpassung wird unten bei den newfloat-Deklarationen vorgenommen
 %     https://www.ctan.org/pkg/caption2 is superseeded by this package.
 \usepackage{caption}
+%\captionsetup[table]{position=bottom}
 
 % DE: Ermoeglicht es, Abbildungen um 90 Grad zu drehen
 %     Alternatives Paket: rotating Allerdings wird hier nur das Bild gedreht, während bei lscape auch die PDF-Seite gedreht wird.
@@ -711,7 +712,8 @@
   labelfont=bf,
   justification=justified,
   %single line captions should be centered, multiline captions justified
-  singlelinecheck=true
+  singlelinecheck=true,
+  position=bottom
 }
 
 
