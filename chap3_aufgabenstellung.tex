@@ -32,20 +32,21 @@ Um einen leichteren Einstieg in die Umgebungen der einzelnen \gls{mcu}s zu haben
 Damit die \gls{api} direkt auf dem aktuellen Stand ist, soll sie in C++ implementiert werden.
 Um über VSCode für das Arbeiten mit C++ vorzubereiten und anzupassen empfiehlt es sich Extension zu installieren.
 Der User franneck94 hat dafür bereits ein Paket gebunden, dass die wichtigsten Extensions beinhaltet.
-
-VSCode Erweiterungen:
+In dem Paket enthalten sind:
 \begin{itemize}
-	\item by franneck94
-	\begin{itemize}
-		\item C/C++ Runner v9.4.10
-		\item C/C++ Config v6.3.0
-	\end{itemize}
-	\item Microsoft
-	\begin{itemize}
-		\item C/C++ Extension Pack v1.3.1
-		\item C/C++ v1.25.3
-		\item CMake Tools v1.20.53
-	\end{itemize}
+	\item C/C++ Extension Pack  v1.3.1 by Microsoft
+	\item C/C++ Themes  v2.0.0 by Microsoft
+	\item C/C++  v1.25.3  by Microsoft
+	\item CMake Tools  v1.20.53  by Microsoft
+	\item C/C++ Runner  v9.4.10 by franneck94
+	\item C/C++ Config  v6.3.0 by franneck94
+	\item CMake  v0.0.17 by twxs
+	\item Doxygen  v1.0.0 by Baptist BENOIST
+	\item Doxygen Documentation Generator  v1.4.0 by Christopher Schlosser
+	\item CodeLLDB  v1.11.4 by Vadim Chugunov
+	\item Better C++ Syntax  v1.27.1  by Jeff Hyklin
+	\item x86 and x86\_64 Assembly  v3.1.5 by 13xforever
+	\item cmake-format  v0.6.11 by cheshirekow
 \end{itemize}
 
 Verwendete Microcontroller:
@@ -55,78 +56,6 @@ Verwendete Microcontroller:
 	\item STM32G0B1RE
 	\item ESP32-C6 DevKitC-1
 \end{itemize}
-
-
-\section{Architektonische Eigenschaften die Treiber-API}
-Moderen Softwarelösungen bestehen meist aus vielen, großen Dateien, die untereinander von einander abhängig sind.
-Um bei solch großen Projekten den Überblick zu behalten, werden/sollten diese Softwarelösungen nach gewissen Eigenschaften erstellt werden.
-Diese \emph{architektonischen Eigenschaften} lassen sich (grob) in drei Teilbereiche unterteilen: Betriebsrelevante, Strukturelle und Bereichsübergreifende, wie in Tabelle~\ref{tab:architektonische_eigenschaften} aufgeführt. % Eigenschaften. 
-
-\begin{table}[H]
-	\begin{center}
-		\begin{tabular}{ c | c | c }
-			\textbf{Betriebsrelevante} & \textbf{Strukturelle} & \textbf{Bereichsübergreifende}\\
-			%\midrule
-			\hline
-			Verfügbarkeit & Erweiterbarkeit & Sicherheit\\
-			Performance & Modularität & Rechtliches\\
-			Skalierbarkeit & Wartbarkeit & Usability\\
-			$\cdots$ & $\cdots$ & $\cdots$\\
-		\end{tabular}
-		\caption{Teilbereiche architektonischer Eigenschaften}
-	    \label{tab:architektonische_eigenschaften}
-	\end{center}
-\end{table}
-
-Aus diesen Eigenschaften gilt es, die wichtigsten für die Treiber-API zu identifizieren. 
-Mit diesem Hintergrund lässt sich ein Struktur für das Projekt bilden.
-
-Die Entwicklung einer plattformunabhängigen, wiederverwendbaren Treiber-API für Mikro-controller stellt hohe Anforderungen an die Architektur der Softwarebibliothek.
-
-% Welche (architektonischen) Eigenschaft sind wichtig/sollen umgesetzt werden?
-% geringe Redundanz
-Das Ziel besteht darin, eine Lösung zu schaffen, die sich durch eine geringe Redundanz auszeichnet. 
-Die Konzeption von Klassen und Funktionen sollte derart erfolgen, dass eine erneute Implementierung der Applikation für jede neue Plattform nicht erforderlich ist.
-Die Wiederverwendbarkeit zentraler Komponenten führt zu einer Reduktion des Entwicklungsaufwands und einer Erhöhung der Konsistenz im Code.
-
-% Usability - Benutzerfreundlichkeit
-Ein weiteres zentrales Anliegen ist die einfache Benutzbarkeit. 
-Die API ist so zu gestalten, dass eine effiziente Nutzung gewährleistet ist. 
-Dies fördert nicht nur die Effizienz in der Erstellung neuer Applikationen, sondern erleichtert auch langfristig die Wartung und Weiterentwicklung der Software.
-
-% Skalierbarkeit
-Im Sinne der Skalierbarkeit wird angestrebt, die Lösung auf möglichst viele Mikrocontroller-Architekturen und Hardwareplattformen anwendbar zu machen.
-Die Vielfalt verfügbarer MCUs erfordert eine abstrahierte und flexibel erweiterbare Struktur, die die Integration neuer Plattformen mit minimalem Aufwand ermöglicht.
-
-% Portabilität - nochmal anpassen; OS Bezug passt nicht richtig
-Auch die Portabilität spielt eine wichtige Rolle.
-Die Bibliothek sollte nicht nur hardware-, sondern auch betriebssystemunabhängig konzipiert werden.
-Aus diesem Grund wird bei der Entwicklung der Lösung darauf geachtet, dass diese erst unter Windows, später auch unter Linux und macOS einsetzbar ist.
-Die Installation und Konfiguration der dafür benötigten Werkzeuge wird nachvollziehbar dokumentiert, um den Einstieg für die Nutzer zu erleichtern.
-
-% Erweiterbarkeit
-Darüber hinaus ist die Erweiterbarkeit ein wesentliches Architekturprinzip
-Der Einsatz von leistungsstärkeren Mikrocontrollern hängt in der Regel mit einer Erweiterung der Funktionalitäten zusammen, die in die bestehenden Treiber- und API-Strukturen integriert werden müssen.
-Daher wird großer Wert auf eine modulare und offen gestaltete Architektur gelegt, die neue Features ohne grundlegende Umbauten aufnehmen kann.
-
-% Modularität
-Modularität trägt wesentlich zur Übersichtlichkeit und Wartbarkeit des Systems bei. 
-Eine saubere Trennung funktionaler Einheiten ermöglicht eine schnellere Lokalisierung und Behebung von Fehlern, was wiederum die langfristige Pflege und Weiterentwicklung der Software erleichtert.
-
-% (Ressourcen-)Effizienz
-Schließlich ist auch die Effizienz ein kritischer Aspekt.
-Da Mikrocontroller in der Regel nur über begrenzte Ressourcen verfügen, ist es essenziell, dass die Bibliothek möglichst kompakt und ressourcenschonend implementiert wird. 
-Externe Abhängigkeiten werden bewusst auf ein Minimum reduziert, um Speicherplatz zu sparen und unnötige Komplexität zu vermeiden.
-
-Diese architektonischen Prinzipien bilden die Grundlage für die Konzeption und Umsetzung der in dieser Arbeit vorgestellten Treiber-API.
-
-% Fragen
-Wie wird der jeweilige Punkt umgesetzt?
-
-Welche Tools werden benutzt/eignen sich besonders für die Umsetzung?
-Welche Tools eignen sich für welchen Arbeitsschritt?
-
-Warum wird etwas gerade auf diese Weise umgesetzt?
 
 
 \section{Anforderungen an die Lösung}
