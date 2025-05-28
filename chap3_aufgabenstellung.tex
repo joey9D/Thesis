@@ -1,18 +1,15 @@
 Das Ziel dieser Arbeit ist es die Basis eine Treiber-API zu erstellen, mit der je nach Zielhardware die passenden Treiber integriert werden können.
-
-Dafür muss 
-
-Diese soll erste grundlegenden Funktionen für GPIO, SPI, CAN und UART enthalten. 
-Auf diese Weise kann die Funktionsweise für generelles Lesen und Schreiben und die Kommunikation über Busse getestet werden.
+Dafür muss eine Programmstruktur entwickelt werden, die es ermöglicht erstellte Softwarelösungen und Applikationen auf verschiedenen Microkontrollern verwenden zu können, indem die spezifischen Hardwaretreiber, nach geringer Konfiguration, automatisch in den Buildprozess mit integriert werden.
+Die Struktur soll erste grundlegenden Funktionen für GPIO, SPI, CAN und UART enthalten. 
+Damit können die Funktionen für generelles Lesen und Schreiben und die Kommunikation über Busse getestet werden.
 \\
-
-\textbf{Warum für diese Entschieden?}
-GPIO für die simpelste Art für Lesen und Schreiben
-
-CAN damit ein anderes Projekt direkt integriert werden kann.
-
-
-SPI und UART um Kommunikation via Bus zu testen
+%\textbf{Warum für diese Entschieden?}
+%GPIO für die simpelste Art für Lesen und Schreiben
+%
+%CAN damit ein anderes Projekt direkt integriert werden kann.
+%
+%
+%SPI und UART um Kommunikation via Bus zu testen
 
 
 
@@ -23,7 +20,7 @@ Die Firma sorgt mit ihren Custom-Designs von Aufzugkontrollpanels dafür, dass j
 In diesen Kontrollpanels kommen unterschiedliche \gls{mcu}s zum Einsatz um die jeweiligen Softwarelösungen umzusetzen.
 Da die Lösung plattformübergreifend funktionieren soll, wird als \gls{ide} VSCode verwendet, dass weltweit genutzt wird und durch Extension für den gewünschten Gebrauch/Projekt angepasst werden kann. 
 Außerdem ist VSCode auf den großen Betriebssytemen lauffähig.
-Um einen leichteren Einstieg in die Umgebungen der einzelnen \gls{mcu}s zu haben, werden neben VSCode auch die \gls{ide}s der \gls{mcu}s verwendet.
+Um einen leichteren Einstieg in die Umgebungen der einzelnen \gls{mcu}s zu haben, werden neben VSCode auch die \gls{ide}s der \gls{mcu}s verwendet:
 \begin{itemize}
 	\item STM32CubeIDE für STM32 \gls{mcu}s
 	\item Espressif IDE und ESP-IDF für ESP32 \gls{mcu}s
@@ -62,14 +59,17 @@ In dem Paket enthalten sind:
 %		\label{tab:vscode_extensions}
 %	\end{center}
 %\end{table}
-Diese 13 Extensions lassen sich so zusammenfassen
-zu C/C++ relevant, Buildsystem, Dokumentation und Formatierung \& Optik.
+Dabei handelt es sich überall um die aktuellste Version.
+Diese 13 Extensions lassen sich zusammenfassen zu C/C++ relevant, Buildsystem, Dokumentation und Formatierung \& Optik.
 Für die Nutzung mit den verwendeten MCUs gibt es entsprechende Extension.
-
-Um über VSCode STM32-\gls{mcu}s zu programmieren gibt es offizielle Extensions von \\STMicroelectronics.
+Um über VSCode STM32-\gls{mcu}s zu programmieren gibt es offizielle Extensions von\\STMicroelectronics.
 Zu installieren ist hier \emph{STM32Cube for Visual Studio Code}.
+Zusätzlich empfiehlt es sich zu den bereits genannt \gls{ide}s, STM32CubeIDE und Espressif-IDE, auch deren Umgebungen mit zu installieren.
+Für ST-Hardware sind das STM32CubeMX um die \gls{mcu}s zu konfigurieren, STM32Programmer um die Hardware zu Programmieren % STM32-Finder um die richtigen \gls{mcu}s auswählen zu können.
 
-Verwendete Microcontroller:
+Damit man die \gls{api} auch entsprechend testen kann, gilt es unterschiedliche Hardware zu haben.
+In dieser Arbeit werden Microkontroller von STMicroelectronics und Espressif Systems verwendet:
+
 \begin{itemize}
 	\item STM32C032C6
 	\item STm32G071RB
@@ -79,7 +79,7 @@ Verwendete Microcontroller:
 
 
 \section{Anforderungen an die Lösung}
-Erfolgreiche Implementierung der Grundfunktionen 
-von GPIO, SPI, UART, CAN. Das beinhaltet die Kommunikation über diese Technologien, d.h. Lesen und Schreiben.
+Erfolgreiche Implementierung der Grundfunktionen von GPIO, SPI, UART, CAN. 
+Das beinhaltet die Kommunikation über diese Technologien, d.h. Lesen und Schreiben.
 
 
