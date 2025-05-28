@@ -6,7 +6,7 @@ Die Aufgabe dieser Register besteht in der Konfiguration und Steuerung grundlege
 Die konkrete Implementierung sowie die Adressierung und Bedeutung einzelner Bits und Bitfelder variieren jedoch von Hersteller zu Hersteller und sogar zwischen verschiedenen Serien desselben Herstellers erheblich.
 % Kernproblem: Neu-Implementierung von Applikationen pro Hardware
 Die signifikante Varianz in Bezug auf die Hardware-Komponenten führt dazu, dass Softwarelösungen und Applikationen, für jede neue Plattform entweder vollständig neu entwickelt oder zumindest aufwendig angepasst werden müssen.
-Obwohl \gls{hals} eine gewisse Erleichterung bei der Entwicklung bieten, resultieren daraus gleichzeitig starke Bindungen an die zugrunde liegende Hardwareplattform.
+Obwohl \gls{hal}s eine gewisse Erleichterung bei der Entwicklung bieten, resultieren daraus gleichzeitig starke Bindungen an die zugrunde liegende Hardwareplattform.
 
 Die wiederholte Implementierung oder Integration plattformspezifischer Klassen, Module und Bibliotheken erfordert einen erheblichen Aufwand in Bezug auf Entwicklungszeit und Ressourcen.
 Zusätzlich ist eine Zunahme an Komplexität bei der Wartung sowie eine Erschwernis bezüglich der Wiederverwendbarkeit von Softwarekomponenten über verschiedene Projekte hinweg zu beobachten.
@@ -19,7 +19,7 @@ Zusätzlich ist eine Zunahme an Komplexität bei der Wartung sowie eine Erschwer
 In der Embedded-Entwicklung stellt die effiziente und wartbare Bereitstellung von Software für eine wachsende Zahl unterschiedlicher Mikrocontroller-Plattformen eine zunehmende Herausforderung dar.
 Die Vielzahl verfügbarer Mikrocontroller mit unterschiedlichen Architekturen, Peripheriekomponenten und Entwicklungsumgebungen führt zu einem hohen Aufwand bei der Anpassung und Pflege von Software und Applikationen.
 % TODO: Ab hier nochmal überarbeiten
-In der Praxis zeigt sich, dass Softwarelösungen teils komplett neu implementiert werden müssen, wenn andere Hardware verwendet werden soll oder die Applikation auf mehreren unterschiedlichen \gls{mcus} laufen soll.
+In der Praxis zeigt sich, dass Softwarelösungen teils komplett neu implementiert werden müssen, wenn andere Hardware verwendet werden soll oder die Applikation auf mehreren unterschiedlichen \gls{mcu}s laufen soll.
 Dies führt zu redundantem Code, erschwerter Wartbarkeit und geringerer Flexibilität bei der Weiterentwicklung und Portierung von Anwendungen.
 % TODO: viele MCUs pro Projekt? Nochmal Michael fragen
 Gerade in Projekten, in denen verschiedene Hardwareplattformen parallel zum Einsatz kommen oder ein Wechsel der Zielplattform absehbar ist, besteht ein starkes Bedürfnis nach wiederverwendbaren und portablen Lösungen. Eine gut durchdachte Treiber-API kann hier einen entscheidenden Beitrag leisten, indem sie die Entwicklung beschleunigt, Fehler reduziert und den langfristigen Pflegeaufwand minimiert. 

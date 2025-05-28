@@ -18,10 +18,21 @@ SPI und UART um Kommunikation via Bus zu testen
 
 
 \section{Rahmenbedingungen}
+Die Arbeit wird in der Schaefer GmbH erstellt. 
+Die Firma sorgt mit ihren Custom-Designs von Aufzugkontrollpanels dafür, dass jeder Kunde seinen spezifischen Wunsch erfüllt bekommt.
+In diesen Kontrollpanels kommen unterschiedliche \gls{mcu}s zum Einsatz um die jeweiligen Softwarelösungen umzusetzen.
+Da die Lösung plattformübergreifend funktionieren soll, wird als \gls{ide} VSCode verwendet, dass weltweit genutzt wird und durch Extension für den gewünschten Gebrauch/Projekt angepasst werden kann. 
+Außerdem ist VSCode auf den großen Betriebssytemen lauffähig.
+Um einen leichteren Einstieg in die Umgebungen der einzelnen \gls{mcu}s zu haben, werden neben VSCode auch die \gls{ide}s der \gls{mcu}s verwendet.
+\begin{itemize}
+	\item STM32CubeIDE für STM32 \gls{mcu}s
+	\item Espressif IDE und ESP-IDF für ESP32 \gls{mcu}s
+\end{itemize}
+
 Werkzeuge:
 \begin{itemize}
 	\item STM32CubeIDE $\rightarrow$ VSCode
-	\item C $\rightarrow$ C++
+	\item C++: Damit die \gls{api} direkt auf dem aktuellen Stand ist, soll sie in C++ implementiert werden.
 	\item CMake
 	\item Linker-Files
 \end{itemize}
