@@ -72,7 +72,7 @@ In dieser Arbeit werden Microkontroller von STMicroelectronics und Espressif Sys
 
 \begin{itemize}
 	\item STM32C032C6
-	\item STm32G071RB
+	\item STM32G071RB
 	\item STM32G0B1RE
 	\item ESP32-C6 DevKitC-1
 \end{itemize}
@@ -81,5 +81,38 @@ In dieser Arbeit werden Microkontroller von STMicroelectronics und Espressif Sys
 \section{Anforderungen an die Lösung}
 Erfolgreiche Implementierung der Grundfunktionen von GPIO, SPI, UART, CAN. 
 Das beinhaltet die Kommunikation über diese Technologien, d.h. Lesen und Schreiben.
+In eine Schaltkreis sind eine LED und ein Button/Taster verbaut. 
+Um die Kommunikation über \gls{gpio} zu testen soll das Betätigen des Tasters die LED zum leuchten bringen.
+Auf diese Weise kann das Lesen, der Input, des Tasters und die Schreiben, der Output über das Leuchten der LED überprüft/getestet werden.
+Damit der SPI Bus getestet werden kann Master via Oszi % siehe AE1 Skript
+
+Damit der UART Bus getestet werden kann via HTerm Datentransfer am PC beobachten.
+
+Damit der CAN Bus getestet werden kann Ixxat Dongel, CAN Mini 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
