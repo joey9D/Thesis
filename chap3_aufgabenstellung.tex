@@ -84,11 +84,20 @@ Das beinhaltet die Kommunikation über diese Technologien, d.h. Lesen und Schrei
 In eine Schaltkreis sind eine LED und ein Button/Taster verbaut. 
 Um die Kommunikation über \gls{gpio} zu testen soll das Betätigen des Tasters die LED zum leuchten bringen.
 Auf diese Weise kann das Lesen, der Input, des Tasters und die Schreiben, der Output über das Leuchten der LED überprüft/getestet werden.
-Damit der SPI Bus getestet werden kann Master via Oszi % siehe AE1 Skript
 
-Damit der UART Bus getestet werden kann via HTerm Datentransfer am PC beobachten.
+% TODO: Bedingungen für die Bussysteme nochmal überarbeiten; wenn es dann so weit ist.
+% 		[ ] SPI
+% 		[ ] UART
+% 		[ ] CAN
+% siehe auch AE1 Skript
+Damit nachvollzogen werden kann, ob die Kommunikation über den SPI-Bus funktioniert, 
+wird über ein Oszilloskop der Datenverkehr des Masters beobachtet. 
+Kommt das Datensignal in beide Richtungen erfolgreich durch, zeigt das Oszilloskop die Signalveränderung.
 
-Damit der CAN Bus getestet werden kann Ixxat Dongel, CAN Mini 
+Ähnlich zu SPI kann der Datenverkehr auch bei UART und CAN mit passenden Software beobachtet und überprüft werden.
+Für den UART-Bus wird HTerm verwendet. % Datentransfer am PC beobachten.
+
+Für CAN kommt ein Ixxat-Dongel zum Einsatz. % Ixxat Dongel, CAN Mini (oder so ähnlich) :)
 
 
 
