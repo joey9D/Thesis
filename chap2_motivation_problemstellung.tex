@@ -1,12 +1,13 @@
 \section{Problemstellung}
 % Unterschied von MCUs
-Mikrocontroller unterscheiden sich in vielerlei Hinsicht, unter anderem in ihrer Architektur, der verfügbaren Peripherie, dem Befehlssatz sowie in der Art und Weise, wie ihre Hardwarekomponenten über Register angesteuert werden.
+Mikrocontroller (eng. \gls{mcu}) unterscheiden sich in vielerlei Hinsicht, unter anderem in ihrer Architektur, der verfügbaren Peripherie, dem Befehlssatz sowie in der Art und Weise, wie ihre Hardwarekomponenten über Register angesteuert werden.
 % Fokus auf Register
 Die Aufgabe dieser Register besteht in der Konfiguration und Steuerung grundlegender Funktionen, wie etwa der digitalen Ein- und Ausgänge, der Taktung, der Kommunikationsschnittstellen oder der Interrupt-Verwaltung.
 Die konkrete Implementierung sowie die Adressierung und Bedeutung einzelner Bits und Bitfelder variieren jedoch von Hersteller zu Hersteller und sogar zwischen verschiedenen Serien desselben Herstellers erheblich.
+
 % Kernproblem: Neu-Implementierung von Applikationen pro Hardware
-Die signifikante Varianz in Bezug auf die Hardware-Komponenten führt dazu, dass Softwarelösungen und Applikationen, für jede neue Plattform entweder vollständig neu entwickelt oder zumindest aufwendig angepasst werden müssen.
-Obwohl \gls{hal}s eine gewisse Erleichterung bei der Entwicklung bieten, resultieren daraus gleichzeitig starke Bindungen an die zugrunde liegende Hardwareplattform.
+Diese signifikante Varianz in Bezug auf die Hardware-Komponenten führt dazu, dass Softwarelösungen und Applikationen, für jede neue Plattform entweder vollständig neu entwickelt oder zumindest aufwendig angepasst werden müssen.
+Obwohl Abstraktionschichten, sog. \gls{hal}, eine gewisse Erleichterung bei der Entwicklung bieten, resultieren daraus gleichzeitig starke Bindungen an die zugrunde liegende Hardwareplattform.
 
 Die wiederholte Implementierung oder Integration plattformspezifischer Klassen, Module und Bibliotheken erfordert einen erheblichen Aufwand in Bezug auf Entwicklungszeit und Ressourcen.
 Zusätzlich ist eine Zunahme an Komplexität bei der Wartung sowie eine Erschwernis bezüglich der Wiederverwendbarkeit von Softwarekomponenten über verschiedene Projekte hinweg zu beobachten.
@@ -16,21 +17,25 @@ Zusätzlich ist eine Zunahme an Komplexität bei der Wartung sowie eine Erschwer
 
 
 \section{Motivation}
-In der Embedded-Entwicklung stellt die effiziente und wartbare Bereitstellung von Software für eine wachsende Zahl unterschiedlicher Mikrocontroller-Plattformen eine zunehmende Herausforderung dar.
-Die Vielzahl verfügbarer Mikrocontroller mit unterschiedlichen Architekturen, Peripheriekomponenten und Entwicklungsumgebungen führt zu einem hohen Aufwand bei der Anpassung und Pflege von Software und Applikationen.
+In der Embedded-Entwicklung stellt die effiziente und wartbare Bereitstellung von Software für eine wachsende Zahl unterschiedlicher Mikrokontroller-Plattformen eine zunehmende Herausforderung dar.
+Die Vielzahl verfügbarer \gls{mcu}s %Mikrokontroller
+ mit unterschiedlichen Architekturen, Peripheriekomponenten und Entwicklungsumgebungen führt zu einem hohen Aufwand bei der Anpassung und Pflege von Software und Applikationen.
 % TODO: Ab hier nochmal überarbeiten
 In der Praxis zeigt sich, dass Softwarelösungen teils komplett neu implementiert werden müssen, wenn andere Hardware verwendet werden soll oder die Applikation auf mehreren unterschiedlichen \gls{mcu}s laufen soll.
 Dies führt zu redundantem Code, erschwerter Wartbarkeit und geringerer Flexibilität bei der Weiterentwicklung und Portierung von Anwendungen.
 % TODO: viele MCUs pro Projekt? Nochmal Michael fragen
-Gerade in Projekten, in denen verschiedene Hardwareplattformen parallel zum Einsatz kommen oder ein Wechsel der Zielplattform absehbar ist, besteht ein starkes Bedürfnis nach wiederverwendbaren und portablen Lösungen. Eine gut durchdachte Treiber-API kann hier einen entscheidenden Beitrag leisten, indem sie die Entwicklung beschleunigt, Fehler reduziert und den langfristigen Pflegeaufwand minimiert. 
+Gerade in Projekten, in denen verschiedene Hardwareplattformen parallel zum Einsatz kommen oder ein Wechsel der Zielplattform absehbar ist, besteht ein starkes Bedürfnis nach wiederverwendbaren und portablen Lösungen. Eine gut durchdachte Treiber-Schnittstelle kann hier einen entscheidenden Beitrag leisten, indem sie 
+% TODO: nochmal drüber schauen: einfach nur beschleunigt -> ... beschleunigt durch automatische Treiberauswahl und -integration ...
+die Entwicklung beschleunigt, Fehler reduziert und den langfristigen Pflegeaufwand minimiert. 
  
 In dieser Arbeit wird ein systematischer, praxisnaher Ansatz verfolgt, um diesen Herausforderungen zu begegnen:
 
-Eine modulare, plattformunabhängige und ressourceneffiziente Treiberbibliothek soll die Basis für eine nachhaltige und flexible Embedded-Softwareentwicklung bilden. 
+Eine modulare, plattformunabhängige und ressourceneffiziente Treiberbibliothek und -schnittstelle soll die Basis für eine nachhaltige und flexible Embedded-Softwareentwicklung bilden. 
 
 
 \section{Ablauf}
 Der Aufbau dieser Bachelorarbeit folgt einer klar strukturierten Herangehensweise, die im Folgenden erläutert wird. 
+
 Aufbauend auf der zuvor beschriebenen Problemstellung wird im Kapitel „Aufgabenstellung” die konkrete Zielsetzung der Arbeit definiert.
 Es werden die Anforderungen an die Entwicklung einer plattformunabhängigen Treiber-API beschrieben und die Rahmenbedingungen der Umsetzung definiert.
 Darüber hinaus wird dargelegt, welche Werkzeuge im Entwicklungsprozess eingesetzt werden und anhand welcher Kriterien die Erfüllung der Aufgabe bewertet werden kann.
@@ -46,7 +51,8 @@ Ziel ist es, daraus Erkenntnisse für die eigene Umsetzung zu gewinnen und bewä
 Der Hauptteil der Arbeit widmet sich der praktischen Umsetzung der API.
 Auf Grundlage der zuvor erarbeiteten Anforderungen und Erkenntnisse wird eine eigene Architektur entworfen, die vorhandene Treiber integriert, hardwarespezifische Funktionen abstrahiert und eine flexible Erweiterbarkeit ermöglicht.
 Dabei kommen etablierte Open-Source-Werkzeuge zum Einsatz.
-Mit dem Einsatz von etablierten Open-Source-Werkzeugen, wird eine modulare, portable und ressourcenschonende Lösung realisiert.
+
+Mit Hilfe dieser Werkzeuge wird eine modulare, portable und ressourcenschonende Lösung realisiert.
 
 
 
