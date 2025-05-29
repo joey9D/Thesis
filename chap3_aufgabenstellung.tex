@@ -18,7 +18,7 @@ Damit können die Funktionen für generelles Lesen und Schreiben und die Kommuni
 Die Arbeit wird in der Schaefer GmbH erstellt. 
 Die Firma sorgt mit ihren Custom-Designs von Aufzugkontrollpanels dafür, dass jeder Kunde seinen spezifischen Wunsch erfüllt bekommt.
 In diesen Kontrollpanels kommen unterschiedliche \gls{mcu}s zum Einsatz um die jeweiligen Softwarelösungen umzusetzen.
-Da die Lösung plattformübergreifend funktionieren soll, wird als \gls{ide} VSCode verwendet, dass weltweit genutzt wird und durch Extension für den gewünschten Gebrauch/Projekt angepasst werden kann. 
+Da die Lösung plattformübergreifend funktionieren soll, wird als Entwicklungsumgebung (\gls{ide}) VSCode verwendet, das weltweit genutzt wird und durch Extension für den gewünschten Gebrauch/Projekt angepasst werden kann. 
 Außerdem ist VSCode auf den großen Betriebssytemen lauffähig.
 Um einen leichteren Einstieg in die Umgebungen der einzelnen \gls{mcu}s zu haben, werden neben VSCode auch die \gls{ide}s der \gls{mcu}s verwendet:
 \begin{itemize}
@@ -26,9 +26,9 @@ Um einen leichteren Einstieg in die Umgebungen der einzelnen \gls{mcu}s zu haben
 	\item Espressif IDE und ESP-IDF für ESP32 \gls{mcu}s
 \end{itemize}
 
-Damit die \gls{api} direkt auf dem aktuellen Stand ist, soll sie in C++ implementiert werden.
-Um über VSCode für das Arbeiten mit C++ vorzubereiten und anzupassen empfiehlt es sich Extension zu installieren.
-Der User franneck94 hat dafür bereits ein Paket gebunden, dass die wichtigsten Extensions beinhaltet.
+Damit die API direkt auf einem aktuellen Stand ist, soll sie in C++ programmiert werden.
+Um über VSCode für das Arbeiten mit C++ vorzubereiten und anzupassen, empfiehlt es sich Erweiterungen (Extensions) zu installieren.
+Der User franneck94 hat dafür bereits ein Paket gebunden, dass die wichtigsten Extensions für die moderne C++-Entwicklung beinhaltet.
 In dem Paket enthalten sind:
 \begin{itemize}
 	\item C/C++ Extension Pack  v1.3.1 by Microsoft
@@ -59,15 +59,15 @@ In dem Paket enthalten sind:
 %		\label{tab:vscode_extensions}
 %	\end{center}
 %\end{table}
-Dabei handelt es sich überall um die aktuellste Version.
+Dabei handelt es sich bei jeder Extension um die aktuellste Version.
 Diese 13 Extensions lassen sich zusammenfassen zu C/C++ relevant, Buildsystem, Dokumentation und Formatierung \& Optik.
-Für die Nutzung mit den verwendeten MCUs gibt es entsprechende Extension.
-Um über VSCode STM32-\gls{mcu}s zu programmieren gibt es offizielle Extensions von\\STMicroelectronics.
+Für die Nutzung von VSCode mit den verwendeten MCUs gibt es ebenfalls entsprechende Extensions.
+Um STM32-\gls{mcu}s zu programmieren gibt es offizielle Extensions von\\STMicroelectronics.
 Zu installieren ist hier \emph{STM32Cube for Visual Studio Code}.
 Zusätzlich empfiehlt es sich zu den bereits genannt \gls{ide}s, STM32CubeIDE und Espressif-IDE, auch deren Umgebungen mit zu installieren.
 Für ST-Hardware sind das STM32CubeMX um die \gls{mcu}s zu konfigurieren, STM32Programmer um die Hardware zu Programmieren % STM32-Finder um die richtigen \gls{mcu}s auswählen zu können.
 
-Damit man die \gls{api} auch entsprechend testen kann, gilt es unterschiedliche Hardware zu haben.
+Damit man die API auch entsprechend testen kann, gilt es unterschiedliche Hardware zu haben.
 In dieser Arbeit werden Microkontroller von STMicroelectronics und Espressif Systems verwendet:
 
 \begin{itemize}
