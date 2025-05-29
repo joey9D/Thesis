@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.15)  29 MAY 2025 14:30
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.15)  29 MAY 2025 14:41
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -2494,17 +2494,17 @@ Package logreq Info: Writing requests to 'main.run.xml'.
  ) 
 Here is how much of TeX's memory you used:
  83676 strings out of 473190
- 1953060 string characters out of 5715800
+ 1953058 string characters out of 5715800
  3211789 words of memory out of 5000000
  105377 multiletter control sequences out of 15000+600000
  614702 words of font info for 163 fonts, out of 8000000 for 9000
  1143 hyphenation exceptions out of 8191
  108i,20n,120p,10917b,3132s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2025/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4r.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/tex-gyre/qhvb.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/tex-gyre/qhvr.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/tex-gyre/qtmr.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/newtx/ztmb.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/newtx/ztmr.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/newtx/ztmri.pfb>
-Output written on /Users/joey/Documents/Studium/8_Sem/Thesis/Thesis/.texpadtmp/main.pdf (27 pages, 234315 bytes).
+Output written on /Users/joey/Documents/Studium/8_Sem/Thesis/Thesis/.texpadtmp/main.pdf (27 pages, 234103 bytes).
 PDF statistics:
- 436 PDF objects out of 1000 (max. 8388607)
- 386 compressed objects within 4 object streams
+ 430 PDF objects out of 1000 (max. 8388607)
+ 380 compressed objects within 4 object streams
  113 named destinations out of 1000 (max. 500000)
  41190 words of extra memory for PDF output out of 42996 (max. 10000000)
 
