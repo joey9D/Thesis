@@ -12,7 +12,8 @@
 \contentsline {section}{\numberline {3.1}Rahmenbedingungen}{19}{section.3.1}%
 \contentsline {section}{\numberline {3.2}Anforderungen an die Lösung}{20}{section.3.2}%
 \contentsline {chapter}{\numberline {4}Grundlagen}{21}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Embedded Entwicklung}{21}{section.4.1}%
+\contentsline {section}{\numberline {4.1}Embedded Systems}{21}{section.4.1}%
+\contentsline {paragraph}{\nonumberline Embedded System:}{21}{paragraph*.8}%
 \contentsline {section}{\numberline {4.2}Begriffe und Definitionen}{21}{section.4.2}%
 \contentsline {section}{\numberline {4.3}Hintergrundwissen}{22}{section.4.3}%
 \contentsline {chapter}{\numberline {5}Stand der Technik}{23}{chapter.5}%

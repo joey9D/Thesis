@@ -9,24 +9,33 @@ Angefangen damit, was Embedded-Softwareentwicklung ist,
 gefolgt von Definitionen und Erklärung wichtiger Begriffe aus diesem Bereich,
 und zusätzlichem Hintergrundwissen rund um die Implementierung und Entwicklung von Hardware.
 
-\section{Embedded Entwicklung}
+\section{Embedded Systems}
 Bevor man sich um die Entwicklung von Embedded Systems Gedanken machen kann, muss geklärt werden, um was es sich bei diesen Systemen handelt.
 Sog. \emph{eingebettete Systeme} sind Computersysteme, die aus Hardware und Software bestehen und in komplexe technische Umgebungen eingebettet sind.
 Diese Umgebungen sind meist maschinelle Systeme, in denen das eingebettete System mit Interaktionen durch einen Benutzer oder auch vollautomatisch agiert.
-Die Systeme übernehmen komplexe Steuerungs-, Regelungs- und Datenverarbeitungsaufgaben für oder innerhalb der technischen Systemen.
+Die eingebetteten Systeme übernehmen komplexe Steuerungs-, Regelungs- und Datenverarbeitungsaufgaben für oder innerhalb der technischen/maschinellen Systeme.
+Damit lässt sich ein Embedded System kurz wie folgt zusammenfassen:
 
-Hier beschäftigt man sich (unteranderem) mit der Hardwareprogrammierung.
+\paragraph{Embedded System:}
+Ein eingebettetes System (eng. embedded system) ist ein in sich geschlossenes System, dass für eine spezifische Aufgabe gemacht ist.
+
+\vspace{6 mm}
+
+Die Entwicklung von Software für diese Systeme steht vor zusätzlichen und anderen Hürden als die Entwicklung von Lösungen, die beispielsweise im Bereich des Webs oder der Applikationen benötigt werden.
+
+So muss hier darauf geachtet werden, dass die richtigen Treiber der \gls{mcu}s mit eingebunden werden. 
+Die Funktionen, die die Treiber beinhalten sind so implementiert, dass damit die Register in den \gls{mcu}s angesteuert werden.
+Diese Register steuern das Verhalten der Hardware und bestimmt wie einzelne Bits gesetzt werden müssen, damit ein Signal gelesen/empfangen z.B. das Drücken eines Tasters oder geschrieben/gesendet z.B. die Ausgabe eines Textes auf dem Bildschirm, werden kann.
+
 
 
 \section{Begriffe und Definitionen}
 Begriffe bezüglich Softwareentwicklung allgemein:
 \begin{itemize}
-	\item namespace
+%	\item namespace
 	\item Compiler
 	\item build
-	\item make/cmake
-	\item IDE
-	\item 
+%	\item make/cmake
 \end{itemize}
 
 
