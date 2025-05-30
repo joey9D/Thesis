@@ -12,9 +12,9 @@
 \contentsline {section}{\numberline {3.1}Rahmenbedingungen}{19}{section.3.1}%
 \contentsline {section}{\numberline {3.2}Anforderungen an die Lösung}{20}{section.3.2}%
 \contentsline {chapter}{\numberline {4}Grundlagen}{21}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Einführung}{21}{section.4.1}%
-\contentsline {section}{\numberline {4.2}Hintergrundwissen}{21}{section.4.2}%
-\contentsline {section}{\numberline {4.3}Begriffe und Definitionen}{21}{section.4.3}%
+\contentsline {section}{\numberline {4.1}Embedded Entwicklung}{21}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Begriffe und Definitionen}{21}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Hintergrundwissen}{22}{section.4.3}%
 \contentsline {chapter}{\numberline {5}Stand der Technik}{23}{chapter.5}%
 \contentsline {section}{\numberline {5.1}Recherche}{23}{section.5.1}%
 \contentsline {section}{\numberline {5.2}Bewertung von Alternativlösungen}{23}{section.5.2}%
