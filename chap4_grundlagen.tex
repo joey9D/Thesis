@@ -136,7 +136,22 @@ Die Sammlung ist in mehrere Module unterteilt, darunter:
 Damit bildet CMSIS die Grundlage einer Vielzahl von Entwicklungsumgebungen, wie beispielsweise Keil MDK, STM32CubeIDE oder CMSIS-kompatibler CMake-basierter.
 
 
-\subsection*{Build/Toolchain}
+\subsection*{Toolchain}
+Der Begriff "Toolchain" bezeichnet eine Sammlung von aufeinander abgestimmten Softwarewerkzeugen, die gemeinsam zur Übersetzung, Verlinkung und Bereitstellung von lauffähiger Software auf einem Zielsystem verwendet werden. 
+Insbesondere in der Entwicklung von Embedded Systems spielt die Toolchain eine entscheidende Rolle im Entwicklungsprozess, da sie die Verbindung zwischen der Hochsprachenprogrammierung und der spezifischen Hardwareumgebung herstellt.
+
+Zu den typischen Bestandteilen einer Toolchain gehören:
+\begin{itemize}
+	\item Compiler
+	\item Assembler
+	\item Linker
+	\item Debugger
+\end{itemize}
+
+Zusätzlich kommen im Prozess Hilfswerkzeuge wie Make- oder CMake-System, Flash-Tools und Binärkonverter zum Einsatz.
+In der Entwicklung von Mikrocontrollern findet in der Regel der Einsatz sogenannter Cross-Toolchains statt, die auf einem Host-System ausgeführt werden (beispielsweise Windows oder Linux). 
+Diese erzeugen Code für eine andere Zielarchitektur, wie beispielsweise einen Arm-Cortex-M-Prozessor. 
+Ein verbreitetes Beispiel ist die GNU Arm Embedded Toolchain, die aus den Komponenten arm-none-eabi-gcc, arm-none-eabi-ld, arm-none-eabi-gdb und weiteren Elementen besteht.
 
 \subsection*{Compiler/Cross-Compiler}
 Bei einem \emph{Compiler} handelt es sich um Werkzeug der Softwareentwicklung, das Quellcode, der in einer Hochsprache wie C oder C++ verfasst wurde, in Maschinencode übersetzt. 
