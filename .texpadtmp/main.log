@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.15)  30 MAY 2025 16:34
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.15)  4 JUN 2025 08:25
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -2401,7 +2401,7 @@ LaTeX Font Info:    Font shape `TS1/ntxtlf/m/n' will be
 chapter 4.
 (./chap4_grundlagen.tex
 LaTeX Font Info:    Font shape `T1/qhv/b/n' will be
-(Font)              scaled to size 11.28003pt on input line 42.
+(Font)              scaled to size 11.28003pt on input line 41.
 
 
 [21
@@ -2493,18 +2493,18 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 83686 strings out of 473190
- 1953458 string characters out of 5715800
+ 83690 strings out of 473190
+ 1953520 string characters out of 5715800
  3211752 words of memory out of 5000000
  105386 multiletter control sequences out of 15000+600000
- 614702 words of font info for 163 fonts, out of 8000000 for 9000
+ 614794 words of font info for 164 fonts, out of 8000000 for 9000
  1143 hyphenation exceptions out of 8191
  108i,20n,120p,10917b,3132s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2025/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4r.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/tex-gyre/qhvb.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/tex-gyre/qhvr.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/tex-gyre/qtmr.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/newtx/ztmb.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/newtx/ztmr.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/newtx/ztmri.pfb>
-Output written on /Users/joey/Documents/Studium/8_Sem/Thesis/Thesis/.texpadtmp/main.pdf (27 pages, 236495 bytes).
+Output written on /Users/joey/Documents/Studium/8_Sem/Thesis/Thesis/.texpadtmp/main.pdf (27 pages, 237046 bytes).
 PDF statistics:
- 432 PDF objects out of 1000 (max. 8388607)
- 382 compressed objects within 4 object streams
- 114 named destinations out of 1000 (max. 500000)
+ 435 PDF objects out of 1000 (max. 8388607)
+ 385 compressed objects within 4 object streams
+ 116 named destinations out of 1000 (max. 500000)
  41190 words of extra memory for PDF output out of 42996 (max. 10000000)
 

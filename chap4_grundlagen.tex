@@ -1,14 +1,15 @@
 
-Der Bereich der Informatik umfasst  sehr viele Teilgebiete.
-% TODO: Beschreibung der einzelnen Teilgebiete hinzufügen
-So gibt es unteranderem die Web- und die Anwendungsentwicklung; den Bereich der IT-Security, der sich mit der Sicherheit beschäftigt.
-Im Falle dieser Arbeit befindet man sich in der Embedded Bereich.
-Was genau es damit auf sich hat, welche Fachbegriffe dabei mit auftauchen und was diese bedeuten, wird in den jeweiligen Abschnitten in diesem Kapitel erklärt.
-% Ablauf des Kapitels
-Angefangen damit, was Embedded-Softwareentwicklung ist,
-gefolgt von Definitionen und Erklärung wichtiger Begriffe aus diesem Bereich,
-und zusätzlichem Hintergrundwissen rund um die Implementierung und Entwicklung von Hardware.
+Die Informatik umfasst eine Vielzahl unterschiedlicher Fachgebiete mit teils stark variierenden Schwerpunkten. 
+Dazu zählen unter anderem die Web- und Anwendungsentwicklung sowie der Bereich der IT-Sicherheit und viele weitere Disziplinen. 
+Im Rahmen dieser Arbeit liegt der Fokus auf dem speziellen Teilbereich der Embedded-Softwareentwicklung.
 
+In diesem Kapitel werden die grundlegenden fachlichen und technischen Konzepte vermittelt, die zum Verständnis der weiteren Inhalte erforderlich sind
+% Ablauf des Kapitels
+Zu Beginn wird eine Einführung in das Themenfeld der Embedded-Softwareentwicklung gegeben, um ein klares Verständnis dafür zu schaffen, welche Unterschiede diesen Bereich kennzeichnen und wie er sich von anderen Teilgebieten der Informatik unterscheidet.
+Darauffolgend werden zentrale Begriffe und Konzepte erläutert, die in der Embedded-Entwicklung eine signifikante Rolle spielen, wie beispielsweise Register, Ports, Peripherieansteuerung und hardwarenahe Programmierung.
+Darüber hinaus wird technisches Hintergrundwissen vermittelt, das für das Verständnis der späteren Implementierungsschritte und der Architekturentscheidungen von Relevanz ist.
+
+Das Ziel dieses Kapitels besteht darin, eine solide Wissensbasis zu schaffen, auf der die Analyse bestehender Lösungen sowie die Entwicklung einer eigenen Treiber-API aufbauen können.
 \section{Embedded Systems}
 Bevor man sich um die Entwicklung von Embedded Systems Gedanken machen kann, muss geklärt werden, um was es sich bei diesen Systemen handelt.
 Sog. \emph{eingebettete Systeme} sind Computersysteme, die aus Hardware und Software bestehen und in komplexe technische Umgebungen eingebettet sind.
@@ -30,13 +31,11 @@ Diese Register steuern das Verhalten der Hardware und bestimmt wie einzelne Bits
 
 
 \section{Begriffe und Definitionen}
-Begriffe bezüglich Softwareentwicklung allgemein:
-\begin{itemize}
+
+%\begin{itemize}
 %	\item namespace
-	\item Compiler
-	\item build
 %	\item make/cmake
-\end{itemize}
+%\end{itemize}
 
 
 \subsection*{Microcontroller Unit (MCU)}
@@ -58,6 +57,9 @@ Begriffe bezüglich Softwareentwicklung allgemein:
 	\item Register % erstmal nicht vergessen; mal schauen wie/ob das mit rein kommt.
 \end{itemize}
 
+\subsection*{Compiler}
+
+\subsection*{Build}
 
 \section{Hintergrundwissen}
 C++
