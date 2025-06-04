@@ -34,34 +34,122 @@ Durch das gezielte Setzen oder Auslesen einzelner Bits in diesen Registern ist e
 
 \section{Begriffe und Definitionen}
 
-%\begin{itemize}
-%	\item namespace
-%	\item make/cmake
-%\end{itemize}
+\subsection{Grundbegriffe}
+\subsubsection*{Microprozessor Unit (MPU)}
+Ein Mikroprozessor ist ein vollständig auf einem einzigen integrierten Schaltkreis (Chip) realisierter Prozessor.
+Der Prozessor ist die zentrale Recheneinheit eines Computersystems.
+Seine Funktion umfasst die Ausführung von Befehlen sowie die Steuerung des Datenflusses innerhalb des Systems. 
+Ein Mikroprozessor beinhaltet in der Regel Komponenten wie das Rechenwerk (ALU), Register, Steuerwerk und gegebenenfalls Caches, jedoch keine Peripheriefunktionen wie Speicher oder Schnittstellen. 
+Diese müssen extern angebunden werden.
+Der Begriff "Mikrocomputer" wird verwendet, um ein auf Basis eines Mikroprozessors aufgebautes Gesamtsystem zu definieren. 
+Derartige Systeme sind in klassischen Personal Computern, Laptops oder Servern häufig anzutreffen.
+In diesen Geräten wird der Mikroprozessor mit externem RAM, ROM, I/O-Komponenten und weiteren Funktionseinheiten kombiniert.
 
+Demgegenüber ist der Mikrocontroller für spezifische Steuerungsaufgaben mit integrierten Peripheriefunktionen konzipiert. 
+Der Mikroprozessor findet dagegen meist in leistungsfähigen, aber nicht auf eine konkrete Aufgabe spezialisierten Systemen Anwendung. 
+Insbesondere für allgemeine Rechenaufgaben, komplexe Betriebssysteme sowie Anwendungen mit hohem Ressourcenbedarf erweist sich dieser Prozessor als geeignet.
 
-\subsection*{Microcontroller Unit (MCU)}
+\subsubsection*{Microcontroller Unit (MCU)}
+Ein Mikrocontroller ist ein vollständig auf einem einzigen Chip realisierter Mikrocomputer, der neben dem eigentlichen Prozessor (CPU) auch sämtliche für den Betrieb notwendigen Komponenten integriert. 
+Zu den Komponenten eines solchen Systems zählen in der Regel Programmspeicher (Flash), Datenspeicher (RAM), digitale Ein- und Ausgänge (GPIO), Timer, Kommunikationsschnittstellen (wie UART, SPI, I2C, CAN) sowie in vielen Fällen analoge Peripheriekomponenten wie A/D-Wandler oder PWM-Einheiten.
 
-\subsection*{Hardware Architektur}
+Mikrocontroller werden für spezifische Steuerungs- und Regelungsaufgaben konzipiert und finden typischerweise Anwendung in eingebetteten Systemen, wie beispielsweise Haushaltsgeräten, Fahrzeugsteuerungen, Industrieanlagen oder IoT-Geräten. 
+Die Geräte zeichnen sich durch einen geringen Energieverbrauch, eine kompakte Bauform, niedrige Kosten und eine direkte Hardwareansteuerung aus. 
+Im Vergleich zu Mikroprozessoren sind für den Grundbetrieb von Mikrocontrollern keine externen Komponenten erforderlich, was besonders kompakte und zuverlässige Systemlösungen ermöglicht.
 
-\subsection*{Hardware Abstraction Layer (HAL)}
+%\subsubsection*{Firmware}
+%Der Begriff "Firmware" bezeichnet eine spezielle Form von Software, die dauerhaft auf einem Gerät gespeichert ist und dort grundlegende Steuerungs- und Betriebsfunktionen übernimmt. Im Gegensatz zu klassischer Anwendungssoftware, die typischerweise eine größere Distanz zur Hardware aufweist, ist Firmware in der Regel sehr nah an der Hardware angesiedelt und direkt auf die jeweilige Plattform zugeschnitten. Sie stellt somit die funktionale Verbindung zwischen der Hardware und höherliegenden Softwareschichten oder der Anwendungslogik her.
+%
+%In Embedded-Systemen ist die Firmware typischerweise in einem nichtflüchtigen Speicher des Mikrocontrollers abgelegt und wird unmittelbar nach dem Einschalten des Systems ausgeführt. Der Quelltext beinhaltet eine Reihe von Komponenten, darunter Initialisierungsroutinen, Treiber für die Peripherie, Kommunikationsschnittstellen sowie zeitkritische Steuerungsalgorithmen. Änderungen an der Firmware werden in der Regel durch gezielte Updates initiiert, die entweder über ein externes Programmiergerät oder über eine serielle Schnittstelle implementiert werden.
+%
+%Da Firmware eine zentrale Rolle im zuverlässigen Betrieb von eingebetteten Systemen spielt, wird bei ihrer Entwicklung besonderer Wert auf Stabilität, Effizienz und Robustheit gelegt. In Bereichen, die sich durch eine hohe Relevanz für die Sicherheit charakterisieren lassen (wie beispielsweise die Automobilindustrie oder die Medizintechnik), unterliegt sie strengen Qualitäts- und Testanforderungen.
 
-\subsection*{Bus/Bussysteme}
+\subsubsection*{Echtzeit und echzeitfähige Betriebssysteme (\gls{rtos})}
+In eingebetteten Systemen ist es von zentraler Bedeutung, dass Aufgaben nicht nur korrekt, sondern auch innerhalb einer genau definierten Zeit ausgeführt werden.
+Derartige Systeme unterliegen den sogenannten Echtzeitanforderungen.
+Ein System wird als in Echtzeit arbeitend bezeichnet, wenn es die Fähigkeit besitzt, innerhalb einer garantierten Zeitspanne auf Ereignisse zu reagieren.
+In diesem Kontext ist nicht die absolute Geschwindigkeit von Bedeutung, sondern die Vorhersagbarkeit des zeitlichen Verhaltens.
+In Abhängigkeit von den jeweiligen Anforderungen wird eine Unterscheidung zwischen harter Echtzeit und weicher Echtzeit vorgenommen. \\
+% weiche Echtzeit
+Bei letzterem Fall, der eine geringere Priorität auf die Einhaltung der Zeitvorgaben legt, werden gelegentliche Überschreitungen der vorgegebenen Zeit toleriert, solange das Gesamtsystem funktionsfähig bleibt.
+Dies ist beispielsweise bei Audio- oder Videostreaming der Fall. \\
+% harte Echtzeit
+Demgegenüber steht harter Echtzeit, bei der das Einhalten der Zeitvorgaben zwingend erforderlich ist. 
+Sie findet Anwendung in Bereichen, in denen die zeitnahe Ausführung von entscheidender Bedeutung ist, wie beispielsweise im Fall von Airbagsystemen oder medizinischer Notfalltechnik.
 
-\subsection*{Echtzeit und echzeitfähige Betriebssysteme (\gls{rtos})}
+Ein echtzeitfähiges Betriebssystem, auch bekannt als Real-Time Operating System (RTOS), unterstützt die genannten Anforderungen, indem es deterministische Ablaufgarantien bietet. 
+Dies impliziert, dass ein spezifischer Input stets zu einem präzise definierten Output innerhalb einer festgelegten Zeit führt. 
+Späte oder unerwartete Reaktionen sind in Echtzeitsystemen inakzeptabel, beispielsweise die bereits genannte Steuerung von Airbagsystemen oder medizinischer Notfalltechnik.
+Prozesse sind derart organisiert, dass zeitkritische Tasks priorisiert und fristgerecht abgeschlossen werden können. 
+Dies wird durch ein planbares Multitasking mit klar definierten Reaktionszeiten und synchronisierter Ressourcenzuteilung ermöglicht. 
+% Redundanz
+In sicherheitskritischen Anwendungen werden Systeme so konstruiert, dass sie auch im Falle von Teilfehlern weiterhin funktionsfähig bleiben.
+Die Realisierung erfolgt durch eine redundante Implementierung, wobei zentrale Komponenten doppelt vorhanden sind oder im Fehlerfall durch andere Einheiten ersetzt werden können, um einen vollständigen Systemausfall zu verhindern.
 
-\subsection*{Peripherie}
+\subsection{Hardware und Architektur}
+\subsubsection*{Hardware Architektur}
+- CISC vs. RISC
+
+- Cortex Familie
+
+\subsubsection*{Bus/Bussysteme}
+- Kommunikation einzelner Bauteile via Datenleitungen
+
+\subsection*{Register}
+- Speicherzellen mit kleiner Zugriffszeit
+
+- innerhalb des Prozessors untergebracht
+
+- oft an bestimmte Zwecke gebunden
+
+\subsubsection*{Peripherie}
 \begin{itemize}
 	\item GPIO
 	\item SPI
 	\item UART
 	\item CAN
-	\item Register % erstmal nicht vergessen; mal schauen wie/ob das mit rein kommt.
 \end{itemize}
 
-\subsection*{Compiler}
+\subsection{Abstraktion- und Schnittstellenkonzepte}
+\subsubsection*{Hardware Abstraction Layer (HAL)}
 
-\subsection*{Build}
+- abstrahiert den Anwendungscode auf Hardwarenahen Code.
+
+- beinhaltet Funktionen um die Register des Spezifischen MCU anzusprechen/zu steuern.
+
+- für STM32 Hardwareboards
+
+\subsubsection*{Common Microcontroller Software Interface Standard (CMSIS)}
+
+\subsection{Software-Werkzeuge und Buildprozess}
+\subsubsection*{Compiler}
+- Präprozessor
+
+- Lexikalische Analyse
+
+- Syntaktische Analyse
+
+- semantische Analyse
+
+- Zwischencode Erzeugung
+
+- Code Optimierung
+
+- Code Generierung
+
+\subsubsection*{Build/Toolchain}
+
+\subsubsection*{Linker}
+
+\subsubsection*{Debugger}
+
+\subsubsection*{CMake/Make}
+
+
+\subsection{Speicher und Ressourcen}
+\subsubsection*{Flash/RAM/ROM}
+
+\subsubsection*{Ressourcenbeschränkungen bei MCUs}
 
 \section{Hintergrundwissen}
 C++
