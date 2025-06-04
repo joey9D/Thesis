@@ -138,20 +138,13 @@ Damit bildet CMSIS die Grundlage einer Vielzahl von Entwicklungsumgebungen, wie 
 
 \subsection*{Build/Toolchain}
 
-\subsection*{Compiler}
-- Präprozessor
+\subsection*{Compiler/Cross-Compiler}
+Bei einem \emph{Compiler} handelt es sich um Werkzeug der Softwareentwicklung, das Quellcode, der in einer Hochsprache wie C oder C++ verfasst wurde, in Maschinencode übersetzt. 
+Dieser kann direkt vom Zielprozessor ausgeführt werden. Im Gegensatz zur Ausführung durch einen Interpreter, welcher den Code zur Laufzeit Zeile für Zeile ausführt, erfolgt beim Kompilieren eine vollständige Übersetzung des Codes vor der Ausführung des Programms.
 
-- Lexikalische Analyse
-
-- Syntaktische Analyse
-
-- semantische Analyse
-
-- Zwischencode Erzeugung
-
-- Code Optimierung
-
-- Code Generierung
+Im Bereich der Embedded-Systems-Entwicklung finden häufig sogenannte Cross-Compiler Anwendung, da die Software typischerweise auf einem anderen System (Host) entwickelt wird als jenem, auf dem sie später ausgeführt wird (Target).
+Ein bekanntes Beispiel ist GCC (GNU Compiler Collection), das in Toolchains wie \texttt{arm-none-eabi-gcc} zum Einsatz kommt.
+Neben der reinen Übersetzung ermöglichen sie auch statische Codeanalysen, Optimierungen hinsichtlich Laufzeit oder Speicherbedarf und tragen damit maßgeblich zur Qualität eingebetteter Software bei.
 
 \subsection*{Linker}
 
@@ -164,6 +157,34 @@ Damit bildet CMSIS die Grundlage einer Vielzahl von Entwicklungsumgebungen, wie 
 C++
 
 Assembler
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
