@@ -10,23 +10,25 @@ Darauffolgend werden zentrale Begriffe und Konzepte erläutert, die in der Embed
 Darüber hinaus wird technisches Hintergrundwissen vermittelt, das für das Verständnis der späteren Implementierungsschritte und der Architekturentscheidungen von Relevanz ist.
 
 Das Ziel dieses Kapitels besteht darin, eine solide Wissensbasis zu schaffen, auf der die Analyse bestehender Lösungen sowie die Entwicklung einer eigenen Treiber-API aufbauen können.
-\section{Embedded Systems}
-Bevor man sich um die Entwicklung von Embedded Systems Gedanken machen kann, muss geklärt werden, um was es sich bei diesen Systemen handelt.
-Sog. \emph{eingebettete Systeme} sind Computersysteme, die aus Hardware und Software bestehen und in komplexe technische Umgebungen eingebettet sind.
-Diese Umgebungen sind meist maschinelle Systeme, in denen das eingebettete System mit Interaktionen durch einen Benutzer oder auch vollautomatisch agiert.
-Die eingebetteten Systeme übernehmen komplexe Steuerungs-, Regelungs- und Datenverarbeitungsaufgaben für oder innerhalb der technischen/maschinellen Systeme.
-Damit lässt sich ein Embedded System kurz wie folgt zusammenfassen:
 
-\paragraph{Embedded System:}
-Ein eingebettetes System (eng. embedded system) ist ein in sich geschlossenes System, dass für eine spezifische Aufgabe gemacht ist.
+\section{Embedded Systems}
+Bevor auf die Entwicklung eingebetteter Systeme eingegangen werden kann, ist zunächst zu klären, worum es sich bei diesen Systemen handelt.
+Der Begriff \emph{''Embedded System''} (deutsch: eingebettetes System) bezeichnet ein Computersystem, das aus Hardware und Software besteht und fest in einen übergeordneten technischen Kontext integriert ist. 
+Typischerweise handelt es sich dabei um Maschinen, Geräte oder Anlagen, in denen das eingebettete System spezifische Steuerungs-, Regelungs- oder Datenverarbeitungsaufgaben übernimmt.
+Ein wesentliches Merkmal eingebetteter Systeme besteht darin, dass sie nicht als eigenständige Recheneinheiten agieren, sondern als integraler Bestandteil eines übergeordneten Gesamtsystems dienen.
+In der Regel operieren sie im Hintergrund und sind nicht direkt mit den Benutzern verbunden. In einigen Fällen erfolgt die Interaktion automatisch, in anderen durch Eingaben des Nutzers.
+
+\paragraph{Definition:}
+Ein Embedded System ist ein spezialisiertes, in sich geschlossenes Computersystem, das für eine klar definierte Aufgabe innerhalb eines übergeordneten technischen Systems konzipiert wurde.
 
 \vspace{6 mm}
 
-Die Entwicklung von Software für diese Systeme steht vor zusätzlichen und anderen Hürden als die Entwicklung von Lösungen, die beispielsweise im Bereich des Webs oder der Applikationen benötigt werden.
-
-So muss hier darauf geachtet werden, dass die richtigen Treiber der \gls{mcu}s mit eingebunden werden. 
-Die Funktionen, die die Treiber beinhalten sind so implementiert, dass damit die Register in den \gls{mcu}s angesteuert werden.
-Diese Register steuern das Verhalten der Hardware und bestimmt wie einzelne Bits gesetzt werden müssen, damit ein Signal gelesen/empfangen z.B. das Drücken eines Tasters oder geschrieben/gesendet z.B. die Ausgabe eines Textes auf dem Bildschirm, werden kann.
+Die Entwicklung von Software für eingebettete Systeme ist mit besonderen Anforderungen verbunden, die sich signifikant von denen unterscheiden, die etwa in der Web- oder Anwendungsentwicklung üblich sind.
+Es ist von besonderer Bedeutung, hardwarenahe Aspekte zu berücksichtigen, da die Software unmittelbar mit der zugrunde liegenden Mikrocontroller-Hardware interagiert.
+Ein zentraler Aspekt dabei ist die Integration geeigneter Treiber für die jeweilige Mikrocontroller-Architektur.
+Die betreffenden Treiber beinhalten Funktionen, welche den Zugriff auf die Hardware mittels sogenannter Register erlauben.
+Register sind spezifische Speicherbereiche innerhalb des Mikrocontrollers, welche eine unmittelbare Manipulation des Hardware-Verhaltens ermöglichen.
+Durch das gezielte Setzen oder Auslesen einzelner Bits in diesen Registern ist es möglich, beispielsweise Sensorwerte zu erfassen (z. B. das Drücken eines Tasters) oder Ausgaben zu erzeugen (z. B. das Anzeigen eines Textes auf einem Display).
 
 
 
@@ -40,7 +42,7 @@ Diese Register steuern das Verhalten der Hardware und bestimmt wie einzelne Bits
 
 \subsection*{Microcontroller Unit (MCU)}
 
-\subsection*{Architektur}
+\subsection*{Hardware Architektur}
 
 \subsection*{Hardware Abstraction Layer (HAL)}
 
