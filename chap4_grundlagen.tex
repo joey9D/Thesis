@@ -34,8 +34,7 @@ Durch das gezielte Setzen oder Auslesen einzelner Bits in diesen Registern ist e
 
 \section{Begriffe und Definitionen}
 
-\subsection{Grundbegriffe}
-\subsubsection*{Microprozessor Unit (MPU)}
+\subsection*{Microprozessor Unit (MPU)}
 Ein Mikroprozessor ist ein vollständig auf einem einzigen integrierten Schaltkreis (Chip) realisierter Prozessor.
 Der Prozessor ist die zentrale Recheneinheit eines Computersystems.
 Seine Funktion umfasst die Ausführung von Befehlen sowie die Steuerung des Datenflusses innerhalb des Systems. 
@@ -49,80 +48,84 @@ Demgegenüber ist der Mikrocontroller für spezifische Steuerungsaufgaben mit in
 Der Mikroprozessor findet dagegen meist in leistungsfähigen, aber nicht auf eine konkrete Aufgabe spezialisierten Systemen Anwendung. 
 Insbesondere für allgemeine Rechenaufgaben, komplexe Betriebssysteme sowie Anwendungen mit hohem Ressourcenbedarf erweist sich dieser Prozessor als geeignet.
 
-\subsubsection*{Microcontroller Unit (MCU)}
+\subsection*{Microcontroller Unit (MCU)}
 Ein Mikrocontroller ist ein vollständig auf einem einzigen Chip realisierter Mikrocomputer, der neben dem eigentlichen Prozessor (CPU) auch sämtliche für den Betrieb notwendigen Komponenten integriert. 
-Zu den Komponenten eines solchen Systems zählen in der Regel Programmspeicher (Flash), Datenspeicher (RAM), digitale Ein- und Ausgänge (GPIO), Timer, Kommunikationsschnittstellen (wie UART, SPI, I2C, CAN) sowie in vielen Fällen analoge Peripheriekomponenten wie A/D-Wandler oder PWM-Einheiten.
+Zu den Komponenten eines solchen Systems zählen in der Regel Programmspeicher (Flash), Datenspeicher (RAM), digitale Ein- und Ausgänge (GPIO), Timer, Kommunikationsschnittstellen (wie UART, SPI, I$^2$C, CAN) sowie in vielen Fällen analoge Peripheriekomponenten wie A/D-Wandler oder PWM-Einheiten.
 
 Mikrocontroller werden für spezifische Steuerungs- und Regelungsaufgaben konzipiert und finden typischerweise Anwendung in eingebetteten Systemen, wie beispielsweise Haushaltsgeräten, Fahrzeugsteuerungen, Industrieanlagen oder IoT-Geräten. 
 Die Geräte zeichnen sich durch einen geringen Energieverbrauch, eine kompakte Bauform, niedrige Kosten und eine direkte Hardwareansteuerung aus. 
 Im Vergleich zu Mikroprozessoren sind für den Grundbetrieb von Mikrocontrollern keine externen Komponenten erforderlich, was besonders kompakte und zuverlässige Systemlösungen ermöglicht.
 
-%\subsubsection*{Firmware}
-%Der Begriff "Firmware" bezeichnet eine spezielle Form von Software, die dauerhaft auf einem Gerät gespeichert ist und dort grundlegende Steuerungs- und Betriebsfunktionen übernimmt. Im Gegensatz zu klassischer Anwendungssoftware, die typischerweise eine größere Distanz zur Hardware aufweist, ist Firmware in der Regel sehr nah an der Hardware angesiedelt und direkt auf die jeweilige Plattform zugeschnitten. Sie stellt somit die funktionale Verbindung zwischen der Hardware und höherliegenden Softwareschichten oder der Anwendungslogik her.
+
+%\subsection*{Hardware Architektur}
+%- CISC vs. RISC
 %
-%In Embedded-Systemen ist die Firmware typischerweise in einem nichtflüchtigen Speicher des Mikrocontrollers abgelegt und wird unmittelbar nach dem Einschalten des Systems ausgeführt. Der Quelltext beinhaltet eine Reihe von Komponenten, darunter Initialisierungsroutinen, Treiber für die Peripherie, Kommunikationsschnittstellen sowie zeitkritische Steuerungsalgorithmen. Änderungen an der Firmware werden in der Regel durch gezielte Updates initiiert, die entweder über ein externes Programmiergerät oder über eine serielle Schnittstelle implementiert werden.
-%
-%Da Firmware eine zentrale Rolle im zuverlässigen Betrieb von eingebetteten Systemen spielt, wird bei ihrer Entwicklung besonderer Wert auf Stabilität, Effizienz und Robustheit gelegt. In Bereichen, die sich durch eine hohe Relevanz für die Sicherheit charakterisieren lassen (wie beispielsweise die Automobilindustrie oder die Medizintechnik), unterliegt sie strengen Qualitäts- und Testanforderungen.
+%- Cortex Familie
 
-\subsubsection*{Echtzeit und echzeitfähige Betriebssysteme (\gls{rtos})}
-In eingebetteten Systemen ist es von zentraler Bedeutung, dass Aufgaben nicht nur korrekt, sondern auch innerhalb einer genau definierten Zeit ausgeführt werden.
-Derartige Systeme unterliegen den sogenannten Echtzeitanforderungen.
-Ein System wird als in Echtzeit arbeitend bezeichnet, wenn es die Fähigkeit besitzt, innerhalb einer garantierten Zeitspanne auf Ereignisse zu reagieren.
-In diesem Kontext ist nicht die absolute Geschwindigkeit von Bedeutung, sondern die Vorhersagbarkeit des zeitlichen Verhaltens.
-In Abhängigkeit von den jeweiligen Anforderungen wird eine Unterscheidung zwischen harter Echtzeit und weicher Echtzeit vorgenommen. \\
-% weiche Echtzeit
-Bei letzterem Fall, der eine geringere Priorität auf die Einhaltung der Zeitvorgaben legt, werden gelegentliche Überschreitungen der vorgegebenen Zeit toleriert, solange das Gesamtsystem funktionsfähig bleibt.
-Dies ist beispielsweise bei Audio- oder Videostreaming der Fall. \\
-% harte Echtzeit
-Demgegenüber steht harter Echtzeit, bei der das Einhalten der Zeitvorgaben zwingend erforderlich ist. 
-Sie findet Anwendung in Bereichen, in denen die zeitnahe Ausführung von entscheidender Bedeutung ist, wie beispielsweise im Fall von Airbagsystemen oder medizinischer Notfalltechnik.
-
-Ein echtzeitfähiges Betriebssystem, auch bekannt als Real-Time Operating System (RTOS), unterstützt die genannten Anforderungen, indem es deterministische Ablaufgarantien bietet. 
-Dies impliziert, dass ein spezifischer Input stets zu einem präzise definierten Output innerhalb einer festgelegten Zeit führt. 
-Späte oder unerwartete Reaktionen sind in Echtzeitsystemen inakzeptabel, beispielsweise die bereits genannte Steuerung von Airbagsystemen oder medizinischer Notfalltechnik.
-Prozesse sind derart organisiert, dass zeitkritische Tasks priorisiert und fristgerecht abgeschlossen werden können. 
-Dies wird durch ein planbares Multitasking mit klar definierten Reaktionszeiten und synchronisierter Ressourcenzuteilung ermöglicht. 
-% Redundanz
-In sicherheitskritischen Anwendungen werden Systeme so konstruiert, dass sie auch im Falle von Teilfehlern weiterhin funktionsfähig bleiben.
-Die Realisierung erfolgt durch eine redundante Implementierung, wobei zentrale Komponenten doppelt vorhanden sind oder im Fehlerfall durch andere Einheiten ersetzt werden können, um einen vollständigen Systemausfall zu verhindern.
-
-\subsection{Hardware und Architektur}
-\subsubsection*{Hardware Architektur}
-- CISC vs. RISC
-
-- Cortex Familie
-
-\subsubsection*{Bus/Bussysteme}
-- Kommunikation einzelner Bauteile via Datenleitungen
 
 \subsection*{Register}
-- Speicherzellen mit kleiner Zugriffszeit
+Register sind kleine, besonders schnell zugängliche Speicherzellen, die direkt im Prozessor untergebracht sind. 
+Im Gegensatz zu anderen Speicherformen, wie etwa RAM oder Flash, zeichnen sich Register durch extrem kurze Zugriffszeiten aus. 
+Dies ist darauf zurückzuführen, dass sie Teil des zentralen Rechenwerks sind. 
+Die Nähe zur Recheneinheit ist dabei von entscheidender Bedeutung, insbesondere für grundlegende Operationen wie das Zwischenspeichern von Werten, Adressen oder Zustandsinformationen während der Programmausführung.
 
-- innerhalb des Prozessors untergebracht
+Im Kontext eingebetteter Systeme und insbesondere bei der Treiberentwicklung spielen sogenannte speicherabbildende Register (Memory-Mapped Registers) eine zentrale Rolle. 
+Diese sind Teil der Hardwareperipherie (wie GPIO, SPI oder UART) und über spezifische Speicheradressen ansprechbar. 
+Durch das Schreiben in oder Lesen aus solchen Registern können spezifische Hardwarefunktionen aktiviert, deaktiviert oder abgefragt werden.
 
-- oft an bestimmte Zwecke gebunden
+Ein konkretes Beispiel ist ein GPIO-Ausgangsregister: Wird ein bestimmtes Bit darin gesetzt, liegt am zugeordneten Pin ein logisches High-Signal an. 
+Die exakte Kenntnis über die Position und Signifikanz dieser Bits ist essenziell für die direkte Hardwareprogrammierung und die korrekte Umsetzung von Treibern.
+\\
+Register werden somit nicht nur für die interne Funktionsweise des Prozessors relevant, sondern bilden auch die Schnittstelle zwischen Software und Hardware. Es sei darauf hingewiesen, dass diese Elemente die Konfiguration, Steuerung und das Auslesen externer Peripheriekomponenten ermöglichen und somit das zentrale Element bei der Low-Level-Programmierung darstellen.
 
-\subsubsection*{Peripherie}
+\subsection*{Peripherie}
+Unter dem Begriff der \emph{Peripherie} versteht man im Kontext der Embedded-Softwareentwicklung sämtliche Ein- und Ausgabeschnittstellen, die eine Interaktion des Mikrocontrollers mit seiner Umwelt ermöglichen.
+
+% TODO: Parallel/Seriell; synchron/asynchron; für alle nochmal drüber gehen
+\subsubsection*{GPIO}
+Der Begriff \emph{General Purpose Input/Output} (GPIO) bezeichnet universelle digitale Ein- und Ausgänge, die sich durch eine hohe Flexibilität für verschiedenste Aufgaben auszeichnen.
+Sie ermöglichen es dem Mikrocontroller zum Beispiel, digitale Signale zu lesen (Input) oder zu erzeugen (Output), um etwa Taster auszuwerten oder LEDs anzusteuern. 
+GPIOs stellen somit die einfachste Form der Peripherieanbindung dar.
+
+\subsubsection*{SPI}
+Die Schnittstellen des \emph{Serial Peripheral Interface} (SPI) ist ein synchrones, serielles Kommunikationsprotokoll, das insbesondere für die schnelle Datenübertragung zwischen einem Master- und mehreren Slave-Geräten eingesetzt wird. 
+Zu den typischen Einsatzgebieten zählen die Anbindung von Sensoren, Displays oder Speichern. 
+SPI zeichnet sich durch eine hohe Übertragungsgeschwindigkeit und einfache Implementierung aus.
+
+\subsubsection*{UART}
+Der \emph{Universal Asynchronous Receiver Transmitter} (UART) ist ein asynchrones Kommunikationsprotokoll, das insbesondere für die serielle Punkt-zu-Punkt-Kommunikation eingesetzt wird. 
+Das Gerät eignet sich für verschiedene Anwendungsbereiche, darunter das Debugging, der Anschluss von GPS-Modulen sowie die Kommunikation mit Computern über USB-zu-Seriell-Wandler. 
+UART zeichnet sich durch eine hohe Verbreitung aus und erfordert im Gegensatz zu SPI oder I2C keine zusätzliche Taktleitung.
+
+\subsubsection*{CAN}
+Das \emph{Controller Area Network} (CAN) ist ein robustes, asynchrones Bussystem, das insbesondere in der Automobilindustrie eine weite Verbreitung findet. 
+Es ermöglicht eine zuverlässige Kommunikation zwischen mehreren Steuergeräten (Nodes), auch unter schwierigen elektromagnetischen Bedingungen. 
+Der Einsatz von CAN in sicherheitskritischen Anwendungen beruht auf zwei wesentlichen Eigenschaften: 
 \begin{itemize}
-	\item GPIO
-	\item SPI
-	\item UART
-	\item CAN
+	\item der prioritätsbasierten Arbitrierung
+	\item der integrierten Fehlererkennung
 \end{itemize}
+ 
+ Diese Eigenschaften gewährleisten eine hohe Ausfallsicherheit.
 
-\subsection{Abstraktion- und Schnittstellenkonzepte}
-\subsubsection*{Hardware Abstraction Layer (HAL)}
+%\subsection*{Hardware Abstraction Layer (HAL)}
+%
+%- abstrahiert den Anwendungscode auf Hardwarenahen Code.
+%
+%- beinhaltet Funktionen um die Register des Spezifischen MCU anzusprechen/zu steuern.
+%
+%- für STM32 Hardwareboards
 
-- abstrahiert den Anwendungscode auf Hardwarenahen Code.
+% TODO: CMSIS nochmal überarbeiten
+\subsection*{Common Microcontroller Software Interface Standard (CMSIS)}
+Der \emph{Common Microcontroller Software Interface Standard} ist eine Sammlung von APIs, Softwarekomponenten, Werkzeugen und Arbeitsabläufen.
+Es ermöglicht konsistente Softwareschichten und Geräteunterstützung für eine breite Palette von Entwicklungswerkzeugen und Mikrocontrollern. 
+In der Sammlung enthalten sind Pakete um den Zugang zu und die Entwicklung mit den Prozessoren erleichtern.
+Die einzelnen Pakete liefern Funktionen und Schnittstellen für unterschiedliche Bereiche.
 
-- beinhaltet Funktionen um die Register des Spezifischen MCU anzusprechen/zu steuern.
+\subsection*{Build/Toolchain}
 
-- für STM32 Hardwareboards
-
-\subsubsection*{Common Microcontroller Software Interface Standard (CMSIS)}
-
-\subsection{Software-Werkzeuge und Buildprozess}
-\subsubsection*{Compiler}
+\subsection*{Compiler}
 - Präprozessor
 
 - Lexikalische Analyse
@@ -137,19 +140,12 @@ Die Realisierung erfolgt durch eine redundante Implementierung, wobei zentrale K
 
 - Code Generierung
 
-\subsubsection*{Build/Toolchain}
+\subsection*{Linker}
 
-\subsubsection*{Linker}
+\subsection*{Debugger}
 
-\subsubsection*{Debugger}
+\subsection*{CMake/Make}
 
-\subsubsection*{CMake/Make}
-
-
-\subsection{Speicher und Ressourcen}
-\subsubsection*{Flash/RAM/ROM}
-
-\subsubsection*{Ressourcenbeschränkungen bei MCUs}
 
 \section{Hintergrundwissen}
 C++

@@ -15,11 +15,6 @@
 \contentsline {section}{\numberline {4.1}Embedded Systems}{21}{section.4.1}%
 \contentsline {paragraph}{\nonumberline Definition:}{21}{paragraph*.8}%
 \contentsline {section}{\numberline {4.2}Begriffe und Definitionen}{22}{section.4.2}%
-\contentsline {subsection}{\numberline {4.2.1}Grundbegriffe}{22}{subsection.4.2.1}%
-\contentsline {subsection}{\numberline {4.2.2}Hardware und Architektur}{23}{subsection.4.2.2}%
-\contentsline {subsection}{\numberline {4.2.3}Abstraktion- und Schnittstellenkonzepte}{24}{subsection.4.2.3}%
-\contentsline {subsection}{\numberline {4.2.4}Software-Werkzeuge und Buildprozess}{24}{subsection.4.2.4}%
-\contentsline {subsection}{\numberline {4.2.5}Speicher und Ressourcen}{24}{subsection.4.2.5}%
 \contentsline {section}{\numberline {4.3}Hintergrundwissen}{24}{section.4.3}%
 \contentsline {chapter}{\numberline {5}Stand der Technik}{25}{chapter.5}%
 \contentsline {section}{\numberline {5.1}Recherche}{25}{section.5.1}%
