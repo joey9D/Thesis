@@ -118,10 +118,23 @@ Der Einsatz von CAN in sicherheitskritischen Anwendungen beruht auf zwei wesentl
 
 % TODO: CMSIS nochmal überarbeiten
 \subsection*{Common Microcontroller Software Interface Standard (CMSIS)}
-Der \emph{Common Microcontroller Software Interface Standard} ist eine Sammlung von APIs, Softwarekomponenten, Werkzeugen und Arbeitsabläufen.
-Es ermöglicht konsistente Softwareschichten und Geräteunterstützung für eine breite Palette von Entwicklungswerkzeugen und Mikrocontrollern. 
-In der Sammlung enthalten sind Pakete um den Zugang zu und die Entwicklung mit den Prozessoren erleichtern.
-Die einzelnen Pakete liefern Funktionen und Schnittstellen für unterschiedliche Bereiche.
+Der \emph{Common Microcontroller Software Interface Standard} stellt einen von Arm entwickelten Industriestandard dar, der eine einheitliche Softwarearchitektur für Mikrocontroller auf Basis der Arm-Cortex-Prozessorfamilie bereitstellt.
+Der Begriff "CMSIS" bezeichnet eine Sammlung von Schnittstellen, Softwarekomponenten, Header-Dateien, Entwicklungswerkzeugen und Workflows.
+ Die Sammlung soll die Portabilität, Wiederverwendbarkeit und Effizienz im Bereich der Softwareentwicklung für eingebettete Systeme steigern.
+Das Ziel von CMSIS besteht darin, eine konsistente und herstellerübergreifende Abstraktion der zugrunde liegenden Hardware bereitzustellen, um die Integration verschiedener Entwicklungswerkzeuge und Bibliotheken zu erleichtern.
+Die Standardisierung ermöglicht es Entwicklerinnen und Entwicklern, auf einheitliche Weise auf Prozessorfunktionen, Peripherie und Betriebssystemfunktionen zuzugreifen, unabhängig vom konkreten Mikrocontrollerhersteller.
+
+Die Sammlung ist in mehrere Module unterteilt, darunter:
+\begin{itemize}
+	\item \textbf{CMSIS-Core:} Definieret standardisierter Zugriffsmöglichkeiten auf CPU-Register und Systemfunktionen sowie auf Start- und Systeminitialisierungscode.
+	\item \textbf{CMSIS-Driver:} Definiert eine einheitliche Schnittstelle für Peripherietreiber wie UART, SPI oder I$^2$C.
+	\item \textbf{CMSIS-DSP:} Stellt eine optimierte Lösung für die digitale Signalverarbeitung bereit und unterstützt sowohl Vektor- als auch Matrizenoperationen.
+	\item \textbf{CMSIS-RTOS:} Stellt eine standardisierte API für Echtzeitbetriebssysteme zur Verfügung, um portierbare RTOS-Anwendungen zu ermöglichen.
+	\item \textbf{CMSIS-Pack:} Fungiert als Infrastruktur, die der Bereitstellung und Verwaltung von Softwarepaketen sowie der Verwaltung von Gerätedaten in Entwicklungsumgebungen dient.
+\end{itemize}
+
+Damit bildet CMSIS die Grundlage einer Vielzahl von Entwicklungsumgebungen, wie beispielsweise Keil MDK, STM32CubeIDE oder CMSIS-kompatibler CMake-basierter.
+
 
 \subsection*{Build/Toolchain}
 
