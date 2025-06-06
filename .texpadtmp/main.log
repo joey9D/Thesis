@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.15)  4 JUN 2025 14:55
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.15)  6 JUN 2025 12:27
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -1153,10 +1153,10 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 28
 )
 \Hy@SectionHShift=\skip126
 )
-Package hyperref Info: Option `bookmarksnumbered' set `true' on input line 635.
-Package hyperref Info: Option `bookmarksopen' set `true' on input line 635.
-Package hyperref Info: Option `breaklinks' set `true' on input line 635.
-Package hyperref Info: Option `colorlinks' set `true' on input line 635.
+Package hyperref Info: Option `bookmarksnumbered' set `true' on input line 638.
+Package hyperref Info: Option `bookmarksopen' set `true' on input line 638.
+Package hyperref Info: Option `breaklinks' set `true' on input line 638.
+Package hyperref Info: Option `colorlinks' set `true' on input line 638.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/glossaries/base/glossaries.sty
 Package: glossaries 2025/03/03 v4.56 (NLCT)
  (/usr/local/texlive/2025/texmf-dist/tex/latex/mfirstuc/mfirstuc.sty
@@ -2420,18 +2420,23 @@ File: t1zi4.fd 2018/01/14 T1/zi4 (Inconsolata)
 )
 LaTeX Font Info:    Font shape `T1/zi4/m/n' will be
 (Font)              scaled to size 9.85492pt on input line 161.
-)
+<Pics/cmake_generators.png, id=242, 614.295pt x 141.52875pt>
+File: Pics/cmake_generators.png Graphic file (type png)
+<use Pics/cmake_generators.png>
+Package pdftex.def Info: Pics/cmake_generators.png  used on input line 175.
+(pdftex.def)             Requested size: 426.79135pt x 98.33087pt.
 
-[25{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/inconsolata/i4-t1-1.enc}]
 
-[26
+[25{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/inconsolata/i4-t1-1.enc}])
 
-
-]
+[26 <./Pics/cmake_generators.png>]
 chapter 5.
 (./chap5_stand_der_technik.tex)
 
-[27]
+[27
+
+
+]
 
 [28
 
@@ -2504,18 +2509,18 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 83751 strings out of 473190
- 1954655 string characters out of 5715800
- 3211752 words of memory out of 5000000
- 105408 multiletter control sequences out of 15000+600000
+ 83771 strings out of 473190
+ 1955164 string characters out of 5715800
+ 3211901 words of memory out of 5000000
+ 105426 multiletter control sequences out of 15000+600000
  616723 words of font info for 179 fonts, out of 8000000 for 9000
  1143 hyphenation exceptions out of 8191
  108i,20n,120p,10917b,3132s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2025/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4r.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/tex-gyre/qhvb.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/tex-gyre/qhvr.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/tex-gyre/qtmr.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/newtx/ztmb.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/newtx/ztmr.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/newtx/ztmri.pfb>
-Output written on /Users/joey/Documents/Studium/8_Sem/Thesis/Thesis/.texpadtmp/main.pdf (31 pages, 261888 bytes).
+Output written on /Users/joey/Documents/Studium/8_Sem/Thesis/Thesis/.texpadtmp/main.pdf (31 pages, 273540 bytes).
 PDF statistics:
- 463 PDF objects out of 1000 (max. 8388607)
- 406 compressed objects within 5 object streams
- 126 named destinations out of 1000 (max. 500000)
- 45286 words of extra memory for PDF output out of 51595 (max. 10000000)
+ 472 PDF objects out of 1000 (max. 8388607)
+ 413 compressed objects within 5 object streams
+ 128 named destinations out of 1000 (max. 500000)
+ 45291 words of extra memory for PDF output out of 51595 (max. 10000000)
 

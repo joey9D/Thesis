@@ -609,7 +609,10 @@
 %     Alle Optionen nach \hypersetup verschoben, sonst crash
 %     Siehe auch: "Praktisches LaTeX" - www.itp.uni-hannover.de/~kreutzm
 \usepackage[unicode]{hyperref}
-
+\addto\extrasngerman{
+	  \renewcommand{\figurename}{Abb.}
+	  \renewcommand{\figureautorefname}{Abb.}
+  }
 % DE: Da es mit KOMA 3 und xcolor zu Problemen mit den global Options kommt MÜSSEN die Optionen so gesetzt werden.
 %     Eigene Farbdefinitionen ohne die Namen des xcolor packages
 \definecolor{darkblue}{rgb}{0,0,.5}

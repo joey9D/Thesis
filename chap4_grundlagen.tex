@@ -32,7 +32,7 @@ Durch das gezielte Setzen oder Auslesen einzelner Bits in diesen Registern ist e
 
 
 
-\section{Begriffe und Definitionen}
+\section{Begriffe und Erklärungen}
 
 \subsection*{Microprozessor Unit (MPU)}
 Ein Mikroprozessor ist ein vollständig auf einem einzigen integrierten Schaltkreis (Chip) realisierter Prozessor.
@@ -163,15 +163,59 @@ Neben der reinen Übersetzung ermöglichen sie auch statische Codeanalysen, Opti
 
 \subsection*{Linker}
 
+% TODO: Debugger; vllt auch nicht mal schauen
 \subsection*{Debugger}
 
-\subsection*{CMake/Make}
+\subsection*{CMake}
+CMake ist ein plattformübergreifendes Open-Source-Werkzeug zur Automatisierung des Buildprozesses in der Softwareentwicklung
+Der sogenannte Metabuild-Generator (\autoref{fig:cmake_generators}) dient als eine Art universeller Konfigurator, der mithilfe Konfigurationsdateien, den \texttt{CMakeLists.txt}-Dateien, spezifische Build-Systeme für eine Vielzahl unterschiedlicher Plattformen und Entwicklungsumgebungen generiert.
+Unter diesen Build-Systemen finden sich beispielsweise Makefiles für Unix/Linux, Projektdateien für Visual Studio oder Xcode.
+
+\begin{figure}[H]
+	\includegraphics[width=\textwidth]{cmake_generators.png}
+	\caption{Ausschnitt einer Liste von verfügbaren Generatoren.}
+	\label{fig:cmake_generators}
+\end{figure}
+
+Ein wesentlicher Vorteil von CMake liegt in der Trennung von Quell- und Build-Verzeichnissen, was sogenannte Out-of-Source-Builds ermöglicht.
+Diese Vorgehensweise trägt zur Schaffung einer übersichtlichen Projektstruktur bei und vereinfacht die Verwaltung von Build-Artefakten.
+Zusätlich fördert CMake die hierarchische Strukturierung von Projekten mittels der Implementierung von modularen CMakeLists.txt-Dateien in Unterverzeichnissen.
+Dieser Ansatz steigert die Wartbarkeit und Skalierbarkeit komplexer Softwareprojekte.
+
+\subsection*{Make und Makefiles}
+
+% TODO: Build: unklar ob der rein soll; muss noch überarbeitet werden.
+%\subsection*{Build}
+%Der Begriff Build bezeichnet in der Softwareentwicklung den Prozess, bei dem aus dem Quellcode eines Projekts ein ausführbares Programm, eine Bibliothek oder ein anderes Binärartefakt erzeugt wird. Dieser Vorgang umfasst typischerweise mehrere aufeinanderfolgende Schritte wie Kompilierung, Assemblierung, Verlinkung und optional zusätzliche Nachbearbeitungen wie das Erzeugen von Binär- oder Hex-Dateien für Embedded-Systeme.
+%
+%Der Build-Prozess wird in der Regel durch ein Build-System automatisiert, das die notwendigen Abhängigkeiten zwischen den Quelldateien verwaltet und auf Änderungen reagiert. Werkzeuge wie make, ninja oder cmake generieren und steuern diesen Prozess, wobei sogenannte Build-Skripte oder Makefiles die Regeln und Schritte definieren. In modernen Entwicklungsumgebungen ist der Build-Prozess oft vollständig integriert und wird durch einen einzigen Befehl oder Mausklick ausgelöst.
+%
+%Im Kontext der Embedded-Entwicklung besteht ein vollständiger Build-Prozess häufig aus:
+%
+%dem Übersetzen der Quellcodes (*.c, .cpp) in Objektdateien (.o),
+%
+%dem Verlinken dieser Objektdateien zu einem ausführbaren Programm (z. B. *.elf),
+%
+%dem Erzeugen einer herunterladbaren Binär- oder Hex-Datei (z. B. *.bin, *.hex),
+%
+%sowie optionalen Schritten wie der Speicheranalyse oder der automatisierten Codeprüfung.
+%
+%Build-Prozesse können zusätzlich durch sogenannte Build-Konfigurationen beeinflusst werden, etwa zur Unterscheidung von Debug- und Release-Versionen mit unterschiedlichen Optimierungs- und Diagnoseoptionen.
+%
+%Ein effizient organisierter Build-Prozess ist entscheidend für die Wiederholbarkeit, Wartbarkeit und Skalierbarkeit von Softwareprojekten und bildet die Grundlage für weiterführende Konzepte wie Continuous Integration (CI) und automatisiertes Testen.
 
 
+
+% TODO: Bis jetzt unklar was hier reingeschrieben werden soll;
 \section{Hintergrundwissen}
 C++
 
 Assembler
+
+Hochsprache
+
+Hochsprache vs. Assembler/Maschinencode
+
 
 
 

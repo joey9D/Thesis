@@ -34,8 +34,9 @@
 \@writefile{lopytx}{\addvspace {10\p@ }}
 \@writefile{toc}{\contentsline {section}{\numberline {4.1}Embedded Systems}{21}{section.4.1}\protected@file@percent }
 \@writefile{toc}{\contentsline {paragraph}{\nonumberline Definition:}{21}{paragraph*.8}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {4.2}Begriffe und Definitionen}{22}{section.4.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {4.3}Hintergrundwissen}{25}{section.4.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {4.2}Begriffe und Erklärungen}{22}{section.4.2}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {4.1}{\ignorespaces Ausschnitt einer Liste von verfügbaren Generatoren.}}{26}{figure.caption.23}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {4.3}Hintergrundwissen}{26}{section.4.3}\protected@file@percent }
 \@writefile{toc}{\contentsline {chapter}{\numberline {5}Stand der Technik}{27}{chapter.5}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
@@ -59,7 +60,7 @@
 \@writefile{toc}{\contentsline {subsection}{\numberline {6.2.2}STM32G071RB}{29}{subsection.6.2.2}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {6.2.3}STM32G0B1RE}{30}{subsection.6.2.3}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {6.3}Architektonische Eigenschaften die Treiber-API}{30}{section.6.3}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {6.1}{\ignorespaces Teilbereiche architektonischer Eigenschaften}}{30}{table.caption.23}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {6.1}{\ignorespaces Teilbereiche architektonischer Eigenschaften}}{30}{table.caption.25}\protected@file@percent }
 \@writefile{toc}{\providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file }
 \@writefile{lof}{\providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file }
 \@writefile{lot}{\providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file }
