@@ -183,6 +183,14 @@ Zusätlich fördert CMake die hierarchische Strukturierung von Projekten mittels
 Dieser Ansatz steigert die Wartbarkeit und Skalierbarkeit komplexer Softwareprojekte.
 
 \subsection*{Make und Makefiles}
+Make ist ein traditionelles Werkzeug zur Automatisierung von Build-Prozessen, das sogenannte Makefiles zur Steuerung dieser Prozesse einsetzt.
+Die Makefiles definieren Regeln, mit deren Hilfe der Quellcode, abhängig davon ob sich etwas im Code geändert hat, kompiliert und verlinkt wird.
+Make findet für gewöhnlich Anwendung in der direkten Steuerung von Kompilierungsprozessen.
+ Es besteht jedoch auch die Möglichkeit, es zur Steuerung anderer Build-Systeme einzusetzen.
+In einigen Projekten findet ein manuelles Makefile Verwendung, welches ausschließlich CMake mit spezifischen Parametern aufruft, um den eigentlichen Build-Prozess zu initialisieren.
+In einem solchen Szenario fungiert Make als Wrapper über CMake und ersetzt nicht dessen eigentliche Build-Logik.
+
+
 
 % TODO: Build: unklar ob der rein soll; muss noch überarbeitet werden.
 %\subsection*{Build}
