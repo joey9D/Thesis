@@ -117,23 +117,23 @@ Der Einsatz von CAN in sicherheitskritischen Anwendungen beruht auf zwei wesentl
 %- für STM32 Hardwareboards
 
 % TODO: CMSIS nochmal überarbeiten
-\subsection*{Common Microcontroller Software Interface Standard (CMSIS)}
-Der \emph{Common Microcontroller Software Interface Standard} stellt einen von Arm entwickelten Industriestandard dar, der eine einheitliche Softwarearchitektur für Mikrocontroller auf Basis der Arm-Cortex-Prozessorfamilie bereitstellt.
-Der Begriff "CMSIS" bezeichnet eine Sammlung von Schnittstellen, Softwarekomponenten, Header-Dateien, Entwicklungswerkzeugen und Workflows.
- Die Sammlung soll die Portabilität, Wiederverwendbarkeit und Effizienz im Bereich der Softwareentwicklung für eingebettete Systeme steigern.
-Das Ziel von CMSIS besteht darin, eine konsistente und herstellerübergreifende Abstraktion der zugrunde liegenden Hardware bereitzustellen, um die Integration verschiedener Entwicklungswerkzeuge und Bibliotheken zu erleichtern.
-Die Standardisierung ermöglicht es Entwicklerinnen und Entwicklern, auf einheitliche Weise auf Prozessorfunktionen, Peripherie und Betriebssystemfunktionen zuzugreifen, unabhängig vom konkreten Mikrocontrollerhersteller.
-
-Die Sammlung ist in mehrere Module unterteilt, darunter:
-\begin{itemize}
-	\item \textbf{CMSIS-Core:} Definieret standardisierter Zugriffsmöglichkeiten auf CPU-Register und Systemfunktionen sowie auf Start- und Systeminitialisierungscode.
-	\item \textbf{CMSIS-Driver:} Definiert eine einheitliche Schnittstelle für Peripherietreiber wie UART, SPI oder I$^2$C.
-	\item \textbf{CMSIS-DSP:} Stellt eine optimierte Lösung für die digitale Signalverarbeitung bereit und unterstützt sowohl Vektor- als auch Matrizenoperationen.
-	\item \textbf{CMSIS-RTOS:} Stellt eine standardisierte API für Echtzeitbetriebssysteme zur Verfügung, um portierbare RTOS-Anwendungen zu ermöglichen.
-	\item \textbf{CMSIS-Pack:} Fungiert als Infrastruktur, die der Bereitstellung und Verwaltung von Softwarepaketen sowie der Verwaltung von Gerätedaten in Entwicklungsumgebungen dient.
-\end{itemize}
-
-Damit bildet CMSIS die Grundlage einer Vielzahl von Entwicklungsumgebungen, wie beispielsweise Keil MDK, STM32CubeIDE oder CMSIS-kompatibler CMake-basierter.
+%\subsection*{Common Microcontroller Software Interface Standard (CMSIS)}
+%Der \emph{Common Microcontroller Software Interface Standard} stellt einen von Arm entwickelten Industriestandard dar, der eine einheitliche Softwarearchitektur für Mikrocontroller auf Basis der Arm-Cortex-Prozessorfamilie bereitstellt.
+%Der Begriff "CMSIS"  bezeichnet eine Sammlung von Schnittstellen, Softwarekomponenten, Header-Dateien, Entwicklungswerkzeugen und Workflows.
+% Die Sammlung soll die Portabilität, Wiederverwendbarkeit und Effizienz im Bereich der Softwareentwicklung für eingebettete Systeme steigern.
+%Das Ziel von CMSIS besteht darin, eine konsistente und herstellerübergreifende Abstraktion der zugrunde liegenden Hardware bereitzustellen, um die Integration verschiedener Entwicklungswerkzeuge und Bibliotheken zu erleichtern.
+%Die Standardisierung ermöglicht es Entwicklerinnen und Entwicklern, auf einheitliche Weise auf Prozessorfunktionen, Peripherie und Betriebssystemfunktionen zuzugreifen, unabhängig vom konkreten Mikrocontrollerhersteller.
+%
+%Die Sammlung ist in mehrere Module unterteilt, darunter:
+%\begin{itemize}
+%	\item \textbf{CMSIS-Core:} Definieret standardisierter Zugriffsmöglichkeiten auf CPU-Register und Systemfunktionen sowie auf Start- und Systeminitialisierungscode.
+%	\item \textbf{CMSIS-Driver:} Definiert eine einheitliche Schnittstelle für Peripherietreiber wie UART, SPI oder I$^2$C.
+%	\item \textbf{CMSIS-DSP:} Stellt eine optimierte Lösung für die digitale Signalverarbeitung bereit und unterstützt sowohl Vektor- als auch Matrizenoperationen.
+%	\item \textbf{CMSIS-RTOS:} Stellt eine standardisierte API für Echtzeitbetriebssysteme zur Verfügung, um portierbare RTOS-Anwendungen zu ermöglichen.
+%	\item \textbf{CMSIS-Pack:} Fungiert als Infrastruktur, die der Bereitstellung und Verwaltung von Softwarepaketen sowie der Verwaltung von Gerätedaten in Entwicklungsumgebungen dient.
+%\end{itemize}
+%
+%Damit bildet CMSIS die Grundlage einer Vielzahl von Entwicklungsumgebungen, wie beispielsweise Keil MDK, STM32CubeIDE oder CMSIS-kompatibler CMake-basierter.
 
 
 \subsection*{Toolchain}
@@ -151,20 +151,17 @@ Zu den typischen Bestandteilen einer Toolchain gehören:
 Zusätzlich kommen im Prozess Hilfswerkzeuge wie Make- oder CMake-System, Flash-Tools und Binärkonverter zum Einsatz.
 In der Entwicklung von Mikrocontrollern findet in der Regel der Einsatz sogenannter Cross-Toolchains statt, die auf einem Host-System ausgeführt werden (beispielsweise Windows oder Linux). 
 Diese erzeugen Code für eine andere Zielarchitektur, wie beispielsweise einen Arm-Cortex-M-Prozessor. 
-Ein verbreitetes Beispiel ist die GNU Arm Embedded Toolchain, die aus den Komponenten arm-none-eabi-gcc, arm-none-eabi-ld, arm-none-eabi-gdb und weiteren Elementen besteht.
+Ein verbreitetes Beispiel ist die GNU Arm Embedded Toolchain, die aus den Komponenten \texttt{arm-none-eabi-gcc}, \texttt{arm-none-eabi-ld}, \texttt{arm-none-eabi-gdb} und weiteren Elementen besteht.
 
-\subsection*{Compiler/Cross-Compiler}
-Bei einem \emph{Compiler} handelt es sich um Werkzeug der Softwareentwicklung, das Quellcode, der in einer Hochsprache wie C oder C++ verfasst wurde, in Maschinencode übersetzt. 
-Dieser kann direkt vom Zielprozessor ausgeführt werden. Im Gegensatz zur Ausführung durch einen Interpreter, welcher den Code zur Laufzeit Zeile für Zeile ausführt, erfolgt beim Kompilieren eine vollständige Übersetzung des Codes vor der Ausführung des Programms.
+%\subsection*{Compiler/Cross-Compiler}
+%Bei einem \emph{Compiler} handelt es sich um Werkzeug der Softwareentwicklung, das Quellcode, der in einer Hochsprache wie C oder C++ verfasst wurde, in Maschinencode übersetzt. 
+%Dieser kann direkt vom Zielprozessor ausgeführt werden. Im Gegensatz zur Ausführung durch einen Interpreter, welcher den Code zur Laufzeit Zeile für Zeile ausführt, erfolgt beim Kompilieren eine vollständige Übersetzung des Codes vor der Ausführung des Programms.
+%
+%Im Bereich der Embedded-Systems-Entwicklung finden häufig sogenannte Cross-Compiler Anwendung, da die Software typischerweise auf einem anderen System (Host) entwickelt wird als jenem, auf dem sie später ausgeführt wird (Target).
+%Ein bekanntes Beispiel ist GCC (GNU Compiler Collection), das in Toolchains wie \texttt{arm-none-eabi-gcc} zum Einsatz kommt.
+%Neben der reinen Übersetzung ermöglichen sie auch statische Codeanalysen, Optimierungen hinsichtlich Laufzeit oder Speicherbedarf und tragen damit maßgeblich zur Qualität eingebetteter Software bei.
 
-Im Bereich der Embedded-Systems-Entwicklung finden häufig sogenannte Cross-Compiler Anwendung, da die Software typischerweise auf einem anderen System (Host) entwickelt wird als jenem, auf dem sie später ausgeführt wird (Target).
-Ein bekanntes Beispiel ist GCC (GNU Compiler Collection), das in Toolchains wie \texttt{arm-none-eabi-gcc} zum Einsatz kommt.
-Neben der reinen Übersetzung ermöglichen sie auch statische Codeanalysen, Optimierungen hinsichtlich Laufzeit oder Speicherbedarf und tragen damit maßgeblich zur Qualität eingebetteter Software bei.
 
-\subsection*{Linker}
-
-% TODO: Debugger; vllt auch nicht mal schauen
-\subsection*{Debugger}
 
 \subsection*{CMake}
 CMake ist ein plattformübergreifendes Open-Source-Werkzeug zur Automatisierung des Buildprozesses in der Softwareentwicklung
@@ -191,42 +188,17 @@ In einigen Projekten findet ein manuelles Makefile Verwendung, welches ausschlie
 In einem solchen Szenario fungiert Make als Wrapper über CMake und ersetzt nicht dessen eigentliche Build-Logik.
 
 
-
-% TODO: Build: unklar ob der rein soll; muss noch überarbeitet werden.
-%\subsection*{Build}
-%Der Begriff Build bezeichnet in der Softwareentwicklung den Prozess, bei dem aus dem Quellcode eines Projekts ein ausführbares Programm, eine Bibliothek oder ein anderes Binärartefakt erzeugt wird. Dieser Vorgang umfasst typischerweise mehrere aufeinanderfolgende Schritte wie Kompilierung, Assemblierung, Verlinkung und optional zusätzliche Nachbearbeitungen wie das Erzeugen von Binär- oder Hex-Dateien für Embedded-Systeme.
-%
-%Der Build-Prozess wird in der Regel durch ein Build-System automatisiert, das die notwendigen Abhängigkeiten zwischen den Quelldateien verwaltet und auf Änderungen reagiert. Werkzeuge wie make, ninja oder cmake generieren und steuern diesen Prozess, wobei sogenannte Build-Skripte oder Makefiles die Regeln und Schritte definieren. In modernen Entwicklungsumgebungen ist der Build-Prozess oft vollständig integriert und wird durch einen einzigen Befehl oder Mausklick ausgelöst.
-%
-%Im Kontext der Embedded-Entwicklung besteht ein vollständiger Build-Prozess häufig aus:
-%
-%dem Übersetzen der Quellcodes (*.c, .cpp) in Objektdateien (.o),
-%
-%dem Verlinken dieser Objektdateien zu einem ausführbaren Programm (z. B. *.elf),
-%
-%dem Erzeugen einer herunterladbaren Binär- oder Hex-Datei (z. B. *.bin, *.hex),
-%
-%sowie optionalen Schritten wie der Speicheranalyse oder der automatisierten Codeprüfung.
-%
-%Build-Prozesse können zusätzlich durch sogenannte Build-Konfigurationen beeinflusst werden, etwa zur Unterscheidung von Debug- und Release-Versionen mit unterschiedlichen Optimierungs- und Diagnoseoptionen.
-%
-%Ein effizient organisierter Build-Prozess ist entscheidend für die Wiederholbarkeit, Wartbarkeit und Skalierbarkeit von Softwareprojekten und bildet die Grundlage für weiterführende Konzepte wie Continuous Integration (CI) und automatisiertes Testen.
-
-
-
-% TODO: Bis jetzt unklar was hier reingeschrieben werden soll;
+% TODO: Hintergrundwissen: Embedded Kontext; Software-Architektur Kontext; ...
 \section{Hintergrundwissen}
-C++
-
-Assembler
-
-Hochsprache
-
-Hochsprache vs. Assembler/Maschinencode
-
-
-
-
+Die Entwicklung eingebetteter Systeme erfordert ein grundlegendes Verständnis sowohl der Hardwarearchitektur als auch der zugrunde liegenden Softwarewerkzeuge.
+Der zentrale Baustein solcher Systeme ist der Mikrocontroller, der typischerweise aus einem Prozessor, Speicher und integrierten Peripherieeinheiten, wie beispielsweise GPIO, UART, SPI oder CAN, aufgebaut ist.
+Die Ansteuerung dieser Peripherie erfolgt durch Register, auf die über definierte Adressen zugegriffen werden kann.
+Der unmittelbare Zugriff auf Register findet in der Regel in Maschinensprache oder Assemblersprache statt;
+je größer und komplexere Projekte werden, desto schwieriger wird die Wartung und Portierbarkeit.
+Aus diesem Grund werden Hochsprachen wie C oder C++ eingesetzt, die eine abstraktere, strukturierte Programmierung ermöglichen. 
+Die Übersetzung dieser Hochsprachen in den erforderlichen Maschinencode erfolgt mittels eines Compilers, der anschließend vom Prozessor ausgeführt werden kann.
+Für die genannte Zielarchitektur, z.B. auf einem ARM-Mikrocontroller, werden sogenannte Cross-Compiler eingesetzt, da die Zielarchitektur von der Entwicklungsplattform, z.B. PC, abweichen kann.
+Ein wesentlicher Bestandteil der Toolchain ist in der Regel ein Assembler, ein Linker sowie ein Debugger.
 
 
 

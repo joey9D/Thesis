@@ -15,7 +15,7 @@
 \contentsline {section}{\numberline {4.1}Embedded Systems}{21}{section.4.1}%
 \contentsline {paragraph}{\nonumberline Definition:}{21}{paragraph*.8}%
 \contentsline {section}{\numberline {4.2}Begriffe und Erklärungen}{22}{section.4.2}%
-\contentsline {section}{\numberline {4.3}Hintergrundwissen}{26}{section.4.3}%
+\contentsline {section}{\numberline {4.3}Hintergrundwissen}{25}{section.4.3}%
 \contentsline {chapter}{\numberline {5}Stand der Technik}{27}{chapter.5}%
 \contentsline {section}{\numberline {5.1}Recherche}{27}{section.5.1}%
 \contentsline {section}{\numberline {5.2}Bewertung von Alternativlösungen}{27}{section.5.2}%
