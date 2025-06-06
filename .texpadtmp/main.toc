@@ -18,7 +18,7 @@
 \contentsline {section}{\numberline {4.3}Hintergrundwissen}{25}{section.4.3}%
 \contentsline {chapter}{\numberline {5}Stand der Technik}{27}{chapter.5}%
 \contentsline {section}{\numberline {5.1}Recherche}{27}{section.5.1}%
-\contentsline {section}{\numberline {5.2}Bewertung von Alternativlösungen}{27}{section.5.2}%
+\contentsline {section}{\numberline {5.2}Bewertung der Alternativlösungen}{27}{section.5.2}%
 \contentsline {subsection}{\numberline {5.2.1}mcu-cpp}{27}{subsection.5.2.1}%
 \contentsline {subsection}{\numberline {5.2.2}modm}{27}{subsection.5.2.2}%
 \contentsline {section}{\numberline {5.3}Abgrenzung des eigenen Ansatzes}{27}{section.5.3}%
