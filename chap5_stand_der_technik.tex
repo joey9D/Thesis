@@ -52,9 +52,17 @@ Keine Verwendung der existierenden Treiber $\rightarrow$ z.b. HAL; statt dessen 
 Führt dazu, dass für jede neue Hardware eine neue Wrapper geschrieben werden muss, was den Anfordungen widerspricht.
 
 \subsection{modm}
+Codegenerierung via .in-Dateien.
+
+Bevor mit der Implementierung den Applikation begonnen werden kann, muss die Hardware ausgewählt werden.
+Dieses Projekt macht das, indem es der Prozess im Terminal gestartet wird.
+Nachdem die MCU ausgewählt wurde, kann und müssen alle Funktionen ausgewählt werden, die mit benutzt werden sollen.
+D.h. wenn die GPIO-Pins in der Applikation verwendet werden sollen, müssen diese auch im Konfigurationsprozess ausgewählt werden; und so auch alle weiteren Funktionen.
+Sobald man alles ausgewählt hat, beginnt der Installations- bzw. der Generierungsprozess der Library. 
+Hierbei werden alle Treiber der ausgewählten Funktionen erstellt; sodass man diese dann in seiner Anwendungsimplementierung verwenden kann.
 
 
 \section{Abgrenzung des eigenen Ansatzes}
-\subsection{modm}
+
 
 
