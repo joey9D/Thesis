@@ -16,6 +16,20 @@ Wie machen das andere; auch in Form kommerzieller Werkzeuge (cubeIDE, Espressif)
 
 \section{Bewertung der Alternativlösungen}
 \subsection{STM32CubeIDE}
+Prozess via UI ermöglicht:
+\begin{itemize}
+	\item Auswahl der Hardware
+	\item Konfiguration der Pins
+\end{itemize}
+
+Sobald die Konfiguration und das Projekt das erste mal bestätigt wird, werden die entsprechenden Treiber (CMSIS und HAL) automatisch mit heruntergeladen und dem Projekt hinzugefügt.
++ Funktioniert für alle STM32 MCUs
+- \textbf{nur} für STM32 MCUs
+
+Für allgemeine Projekte bzw. st-fremde Hardware besteht die Möglichkeit, leere CMake-Projekte erstellt werden.
+Hier müssen die benötigten Pakete und Treiber selber inkludiert werden; die Build-Befehle müssen selber in eigenen CMakeLists.txt Dateien implementiert werden.
+
+Für zukünftigen Einsatz von Zephyr
 
 
 \subsectionm{Espressif-IDE}
@@ -26,6 +40,9 @@ Pro:
 Interface-/virtuelle Klasse, die als Basis dienen.
 
 Verwendung von eigenen \texttt{namespaces} $\rightarrow$ sorgt für klaren, lesbaren Code in der Implementierung von Anwendungen.
+
+Aktuelle wird FreeRTOS verwendet; in Zukunft sollte dies durch Zephyr ersetzt werden.
+Da FreeRTOS aber stark in den bisherigen Code integriert ist, wär dieser Wechsel erneut mit erhöhtem Aufwand verbunden.
 
 
 
