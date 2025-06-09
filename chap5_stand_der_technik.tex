@@ -61,6 +61,11 @@ D.h. wenn die GPIO-Pins in der Applikation verwendet werden sollen, müssen dies
 Sobald man alles ausgewählt hat, beginnt der Installations- bzw. der Generierungsprozess der Library. 
 Hierbei werden alle Treiber der ausgewählten Funktionen erstellt; sodass man diese dann in seiner Anwendungsimplementierung verwenden kann.
 
+Pro:
+Auf diese Weise bestehen die Treiber-Libraries nur aus den Funktionen, die man tatsächlich braucht, ohne unnötigen Überhang.
+
+Con:
+Mit diesem Verfahren wird die zukünftige Integration eines RTOS wie Zephyr sehr schwierig.
 
 \section{Abgrenzung des eigenen Ansatzes}
 
