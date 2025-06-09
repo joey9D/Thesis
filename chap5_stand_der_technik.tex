@@ -22,9 +22,17 @@ Wie machen das andere; auch in Form kommerzieller Werkzeuge (cubeIDE, Espressif)
 
 
 \subsection{mcu-cpp}
-Umsetzung der ersten Idee/Gedanken.
+Pro:
+Interface-/virtuelle Klasse, die als Basis dienen.
 
-Generelle Struktur bereits vorhanden.
+Verwendung von eigenen \texttt{namespaces} $\rightarrow$ sorgt für klaren, lesbaren Code in der Implementierung von Anwendungen.
+
+
+
+Con:
+Keine Verwendung der existierenden Treiber $\rightarrow$ z.b. HAL; statt dessen selbst geschriebene Treiber bzw. Wrapperklassen.
+
+Führt dazu, dass für jede neue Hardware eine neue Wrapper geschrieben werden muss, was den Anfordungen widerspricht.
 
 \subsection{modm}
 
