@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.15)  6 JUN 2025 16:37
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.15)  10 JUN 2025 16:38
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -2440,11 +2440,22 @@ Package cleveref Info: loaded `ngerman' language definitions on input line 78.
 
 ]
 chapter 5.
-(./chap5_stand_der_technik.tex)
+(./chap5_stand_der_technik.tex
+Underfull \hbox (badness 10000) in paragraph at lines 20--34
 
-[27]
+ []
 
-[28
+
+
+[27])
+
+Package cleveref Info: loaded `ngerman' language definitions on input line 82.
+[28]
+
+Package cleveref Info: loaded `ngerman' language definitions on input line 82.
+[29]
+
+[30
 
 
 ]
@@ -2463,7 +2474,7 @@ Package csquotes Info: Input encoding change on input line 56.
 File: latin1.def 2024/02/08 v1.3d Input encoding file
 )
 
-[29]
+[31]
 Package csquotes Info: Input encoding change on input line 73.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/base/latin1.def
 File: latin1.def 2024/02/08 v1.3d Input encoding file
@@ -2475,7 +2486,7 @@ Package nag Warning: `center' environment in table.
 
 
 Package cleveref Info: loaded `ngerman' language definitions on input line 122.
-[30])
+[32])
 
 LaTeX Warning: Empty bibliography on input line 96.
 
@@ -2488,7 +2499,7 @@ Package nag Warning: 1 complaints in total.
 
 
 Package cleveref Info: loaded `ngerman' language definitions on input line 98.
-[31]
+[33]
 \openout2 = `main.wrt'.
 
  (/Users/joey/Documents/Studium/8_Sem/Thesis/Thesis/.texpadtmp/main.aux
@@ -2517,18 +2528,18 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 83764 strings out of 473190
- 1955068 string characters out of 5715800
+ 83766 strings out of 473190
+ 1955082 string characters out of 5715800
  3211893 words of memory out of 5000000
  105427 multiletter control sequences out of 15000+600000
  616498 words of font info for 177 fonts, out of 8000000 for 9000
  1143 hyphenation exceptions out of 8191
  108i,20n,120p,10917b,3132s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2025/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4r.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/tex-gyre/qhvb.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/tex-gyre/qhvr.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/tex-gyre/qtmr.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/newtx/ztmb.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/newtx/ztmr.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/newtx/ztmri.pfb>
-Output written on /Users/joey/Documents/Studium/8_Sem/Thesis/Thesis/.texpadtmp/main.pdf (31 pages, 270789 bytes).
+Output written on /Users/joey/Documents/Studium/8_Sem/Thesis/Thesis/.texpadtmp/main.pdf (33 pages, 276276 bytes).
 PDF statistics:
- 467 PDF objects out of 1000 (max. 8388607)
- 408 compressed objects within 5 object streams
- 124 named destinations out of 1000 (max. 500000)
+ 475 PDF objects out of 1000 (max. 8388607)
+ 414 compressed objects within 5 object streams
+ 126 named destinations out of 1000 (max. 500000)
  45291 words of extra memory for PDF output out of 51595 (max. 10000000)
 
