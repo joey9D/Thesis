@@ -20,12 +20,12 @@ Zusätzlich ist eine Zunahme an Komplexität bei der Wartung sowie eine Erschwer
 In der Embedded-Entwicklung stellt die effiziente und wartbare Bereitstellung von Software für eine wachsende Zahl unterschiedlicher Mikrokontroller-Plattformen eine zunehmende Herausforderung dar.
 Die Vielzahl verfügbarer \gls{mcu}s %Mikrokontroller
  mit unterschiedlichen Architekturen, Peripheriekomponenten und Entwicklungsumgebungen führt zu einem hohen Aufwand bei der Anpassung und Pflege von Software und Applikationen.
-% TODO: Ab hier nochmal überarbeiten
+% TODO: chap2 Motivation: Ab hier nochmal überarbeiten
 In der Praxis zeigt sich, dass Softwarelösungen teils komplett neu implementiert werden müssen, wenn andere Hardware verwendet werden soll oder die Applikation auf mehreren unterschiedlichen \gls{mcu}s laufen soll.
 Dies führt zu redundantem Code, erschwerter Wartbarkeit und geringerer Flexibilität bei der Weiterentwicklung und Portierung von Anwendungen.
-% TODO: viele MCUs pro Projekt? Nochmal Michael fragen
+% TODO: chap2 Motivation: viele MCUs pro Projekt? Nochmal Michael fragen
 Gerade in Projekten, in denen verschiedene Hardwareplattformen parallel zum Einsatz kommen oder ein Wechsel der Zielplattform absehbar ist, besteht ein starkes Bedürfnis nach wiederverwendbaren und portablen Lösungen. Eine gut durchdachte Treiber-Schnittstelle kann hier einen entscheidenden Beitrag leisten, indem sie 
-% TODO: nochmal drüber schauen: einfach nur beschleunigt -> ... beschleunigt durch automatische Treiberauswahl und -integration ...
+% TODO: chap2 Motivation: nochmal drüber schauen: einfach nur beschleunigt -> ... beschleunigt durch automatische Treiberauswahl und -integration ...
 die Entwicklung beschleunigt, Fehler reduziert und den langfristigen Pflegeaufwand minimiert. 
  
 In dieser Arbeit wird ein systematischer, praxisnaher Ansatz verfolgt, um diesen Herausforderungen zu begegnen:

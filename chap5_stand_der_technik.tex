@@ -54,16 +54,24 @@ Für zukünftigen Einsatz von Zephyr
 
 
 \subsection{mcu-cpp}
+% TODO: chap5 mcu-cpp: Quellen-Verlinkung
+Das Projekt \emph{mcu-cpp} verwendet einen eigenen \texttt{namespace} um die einzelnen Funktionen und Klassen zu gruppieren.
+\emph{Namespaces} sind eine Möglichkeit in C++ um Variablen, Klasse und Funktionen zu gruppieren, damit Konflikte bei der Benennung solcher Identifizierer zu vermeiden.
+Die ermöglicht einen sauber-strukturierten und lesbaren Applikationscode zu schreiben, in dem man nachvollziehen kann, wer was aufruft.
+Basierend auf den virtuellen Klassen, implementieren die jeweiligen MCUs die Methoden damit diese für sich funktionieren.
+Damit innerhalb einer Produktfamilie, z.B. STM32F0 MCUs, die richtigen bzw. alle notwendigen Ports aktiviert werden, gibt es eine zusätzliche Datei \texttt{gpio\_hw\_mapping.hpp}.
+In dieser werden einzelne Ports, die nicht auf jeder MCU verfügbar sind, durch bedingte Kompilierung aktiviert oder nicht.
+Die Information, welche Hardware verwendet wird, muss entweder in der \texttt{CMakeLists.txt} oder im Code mit \texttt{\#define} angegeben sein.
+\\
+\\
 Pro:
 Interface-/virtuelle Klasse, die als Basis dienen.
 
-Verwendung von eigenen \texttt{namespaces} $\rightarrow$ sorgt für klaren, lesbaren Code in der Implementierung von Anwendungen.
 
 Aktuelle wird FreeRTOS verwendet; in Zukunft sollte dies durch Zephyr ersetzt werden.
 Da FreeRTOS aber stark in den bisherigen Code integriert ist, wär dieser Wechsel erneut mit erhöhtem Aufwand verbunden.
-
-
-
+\\
+\\
 Con:
 Keine Verwendung der existierenden Treiber $\rightarrow$ z.b. HAL; statt dessen selbst geschriebene Treiber bzw. Wrapperklassen.
 

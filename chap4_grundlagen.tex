@@ -81,7 +81,7 @@ Register werden somit nicht nur für die interne Funktionsweise des Prozessors r
 \subsection*{Peripherie}
 Unter dem Begriff der \emph{Peripherie} versteht man im Kontext der Embedded-Softwareentwicklung sämtliche Ein- und Ausgabeschnittstellen, die eine Interaktion des Mikrocontrollers mit seiner Umwelt ermöglichen.
 
-% TODO: Parallel/Seriell; synchron/asynchron; für alle nochmal drüber gehen
+% TODO: chap4 Peripherie: Parallel/Seriell; synchron/asynchron; für alle nochmal drüber gehen
 \subsubsection*{GPIO}
 Der Begriff \emph{General Purpose Input/Output} (GPIO) bezeichnet universelle digitale Ein- und Ausgänge, die sich durch eine hohe Flexibilität für verschiedenste Aufgaben auszeichnen.
 Sie ermöglichen es dem Mikrocontroller zum Beispiel, digitale Signale zu lesen (Input) oder zu erzeugen (Output), um etwa Taster auszuwerten oder LEDs anzusteuern. 
@@ -108,7 +108,6 @@ Der Einsatz von CAN in sicherheitskritischen Anwendungen beruht auf zwei wesentl
  
  Diese Eigenschaften gewährleisten eine hohe Ausfallsicherheit.
 
-% TODO: CMSIS nochmal überarbeiten
 %\subsection*{Common Microcontroller Software Interface Standard (CMSIS)}
 %Der \emph{Common Microcontroller Software Interface Standard} stellt einen von Arm entwickelten Industriestandard dar, der eine einheitliche Softwarearchitektur für Mikrocontroller auf Basis der Arm-Cortex-Prozessorfamilie bereitstellt.
 %Der Begriff "CMSIS"  bezeichnet eine Sammlung von Schnittstellen, Softwarekomponenten, Header-Dateien, Entwicklungswerkzeugen und Workflows.
@@ -180,7 +179,7 @@ In einigen Projekten findet ein manuelles Makefile Verwendung, welches ausschlie
 In einem solchen Szenario fungiert Make als Wrapper über CMake und ersetzt nicht dessen eigentliche Build-Logik.
 
 
-% TODO: Hintergrundwissen: Embedded Kontext; Software-Architektur Kontext; ...
+% TODO: chap4 Hintergrundwissen: Embedded Kontext; Software-Architektur Kontext; ...
 \section{Hintergrundwissen}
 Die Entwicklung eingebetteter Systeme erfordert ein grundlegendes Verständnis sowohl der Hardwarearchitektur als auch der zugrunde liegenden Softwarewerkzeuge.
 Der zentrale Baustein solcher Systeme ist der Mikrocontroller, der typischerweise aus einem Prozessor, Speicher und integrierten Peripherieeinheiten, wie beispielsweise GPIO, UART, SPI oder CAN, aufgebaut ist.
