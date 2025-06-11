@@ -83,19 +83,25 @@ Um eine Bibliothek zu erstellen, muss ein Prozess über die Konsole gestartet we
 modm hat bereits vordefinierten Konfigurationen für eine große Auswahl an MCUs.
 Mit diesen kann die Bibliothek für ein Projekt erstellt/gebuildet werden.
 
-Will man aber Module verwenden, die in der vordefinierten Konfiguration nicht enthalt sind, kann man Modulen einzeln zu der \texttt{project.xml} hinzufügen.
+Will man aber Module verwenden, die in der vordefinierten Konfiguration nicht enthalt sind, kann man Module einzeln zu der \texttt{project.xml} hinzufügen.
 Um sehen zu können welche Module zur Verfügung stehen muss folgende Zeile in der Konsole ausgeführt werden:
 
 \vspace{3mm}
-\begin{lstlisting}[language=bash, caption={Konsolenbefehl um verfügbare Module aufgelistet zu bekommen; hier für den STM32C031C6T6 Mikrokontroller.}, label={lst:modm_lbild_discover}]
+\begin{lstlisting}[language=bash, caption={Konsolenbefehl um verf\"ugbare Module aufgelistet zu bekommen; hier f\"ur den STM32C031C6T6 Mikrokontroller.}, label={lst:modm_lbild_discover}]
 \modm\app\project>
 	lbuild --option modm:target=stm32c031c6t6 discover
 \end{lstlisting}
 
-Nachdem die MCU ausgewählt und in der \texttt{project.xml}-Datei als Target definierwurde, kann und müssen alle Funktionen ausgewählt werden, die mit benutzt werden sollen.
-D.h. wenn die GPIO-Pins in der Applikation verwendet werden sollen, müssen diese auch im Konfigurationsprozess ausgewählt werden; und so auch alle weiteren Funktionen.
-Sobald man alles ausgewählt hat, beginnt der Installations- bzw. der Generierungsprozess der Library. 
-Hierbei werden alle Treiber der ausgewählten Funktionen erstellt; sodass man diese dann in seiner Anwendungsimplementierung verwenden kann.
+Sobald die gewünschten Module hinzugefügt wurde, beginnt der Installations- bzw. der Generierungsprozess der Library. 
+Gibt man nun \texttt{lbuild builld} in der Konsole ein wenn man sich im \texttt{app/project}-Verzeichnis kann die Bibliothek erstellt werden.
+Nach erfolgreichem Build erscheint in dem Projektverzeichnis ein neuer Ordner \emph{modm}.
+Dieser enthält die generierten Dateien der ausgewählten Module.
+
+Positiv hervorzuheben ist hier das (vordergründige) simple Hinzufügen von Modulen.
+Da das Projekt aktuell bereits sehr umfangreich ist und sehr viele Mikrokontroller und Optionen unterstützt, bietet es eine große Auswahl an Modulen, die beliebig zu einem Projekt hinzugefügt werden können.
+
+Allerdings ist zu beachten, dass falls man zukünftig neue Module oder Mikrokontroller hinzufügen will, müssen diese an die bestehende Struktur angepasst und in das Zusammenspiel von Python, Jinja2 und den YAML/JSON-Dateien integriert werden.
+Dies ist mit einem sehr hohen Aufwand verbunden.
 
 
 
