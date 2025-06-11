@@ -77,20 +77,27 @@ Das Open-Source-Projekt \emph{modm} dient als Baukasten um zugeschnittene und an
 Dadurch ist es möglich, dass eine Bibliothek nur aus den Teilen besteht, die tatsächlich in der Applikation und im Code verwendet werden müssen, ohne das es einen unnötig großen Overhead gibt.
 Um das zu bewerkstelligen wird eine Kombination aus \texttt{Jinja2}-Template-Dateien, \texttt{lbuild}-Pyhton-Skripte und eigenen Moduldefinitionen verwendet, mit der der Code für die Bibliotheken generiert wird.
 Die Templatedateien enthalten Platzhalter.
-Die Werte kommen aus \texttt{YAML} und \texttt{JSON}-Dateien, die von den \texttt{lbuild}-Pyhtonskripten gelesen werden und in die entsprechenden Positionen der Platzhalten, während des Buildprozesses, eingefügt.
+Die Werte kommen aus \texttt{YAML} und \texttt{JSON}-Dateien, die von den \texttt{lbuild}-Pyhtonskripten gelesen und in die entsprechenden Positionen der Platzhalter, während des Buildprozesses, eingefügt werden.
 
-Bevor mit der Implementierung den Applikation begonnen werden kann, muss die Hardware ausgewählt werden.
-Dieses Projekt macht das, indem es der Prozess im Terminal gestartet wird.
-Nachdem die MCU ausgewählt wurde, kann und müssen alle Funktionen ausgewählt werden, die mit benutzt werden sollen.
+Um eine Bibliothek zu erstellen, muss ein Prozess über die Konsole gestartet werden.
+modm hat bereits vordefinierten Konfigurationen für eine große Auswahl an MCUs.
+Mit diesen kann die Bibliothek für ein Projekt erstellt/gebuildet werden.
+
+Will man aber Module verwenden, die in der vordefinierten Konfiguration nicht enthalt sind, kann man Modulen einzeln zu der \texttt{project.xml} hinzufügen.
+Um sehen zu können welche Module zur Verfügung stehen muss folgende Zeile in der Konsole ausgeführt werden:
+
+\vspace{3mm}
+\begin{lstlisting}[language=bash, caption={Konsolenbefehl um verfügbare Module aufgelistet zu bekommen; hier für den STM32C031C6T6 Mikrokontroller.}, label={lst:modm_lbild_discover}]
+\modm\app\project>
+	lbuild --option modm:target=stm32c031c6t6 discover
+\end{lstlisting}
+
+Nachdem die MCU ausgewählt und in der \texttt{project.xml}-Datei als Target definierwurde, kann und müssen alle Funktionen ausgewählt werden, die mit benutzt werden sollen.
 D.h. wenn die GPIO-Pins in der Applikation verwendet werden sollen, müssen diese auch im Konfigurationsprozess ausgewählt werden; und so auch alle weiteren Funktionen.
 Sobald man alles ausgewählt hat, beginnt der Installations- bzw. der Generierungsprozess der Library. 
 Hierbei werden alle Treiber der ausgewählten Funktionen erstellt; sodass man diese dann in seiner Anwendungsimplementierung verwenden kann.
 
-Pro:
-Auf diese Weise bestehen die Treiber-Libraries nur aus den Funktionen, die man tatsächlich braucht, ohne unnötigen Überhang.
 
-Con:
-Mit diesem Verfahren wird die zukünftige Integration eines RTOS wie Zephyr sehr schwierig.
 
 \section{Abgrenzung des eigenen Ansatzes}
 Ähnlich zu dem Projekt mcu-cpp soll die eigene Lösung auch Interfaces bzw. virtuelle Klassen als Basis verwenden, die dann von allen MCUs abstrahiert werden können.
