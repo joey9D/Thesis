@@ -1,4 +1,3 @@
-\section{Problemstellung}
 % Unterschied von MCUs
 Mikrocontroller (eng. \gls{mcu}) unterscheiden sich in vielerlei Hinsicht, unter anderem in ihrer Architektur, der verfügbaren Peripherie, dem Befehlssatz sowie in der Art und Weise, wie ihre Hardwarekomponenten über Register angesteuert werden.
 % Fokus auf Register
@@ -9,28 +8,31 @@ Die konkrete Implementierung sowie die Adressierung und Bedeutung einzelner Bits
 Diese signifikante Varianz in Bezug auf die Hardware-Komponenten führt dazu, dass Softwarelösungen und Applikationen, für jede neue Plattform entweder vollständig neu entwickelt oder zumindest aufwendig angepasst werden müssen.
 Obwohl Abstraktionschichten, sog. \gls{hal}, eine gewisse Erleichterung bei der Entwicklung bieten, resultieren daraus gleichzeitig starke Bindungen an die zugrunde liegende Hardwareplattform.
 
-Die wiederholte Implementierung oder Integration plattformspezifischer Klassen, Module und Bibliotheken erfordert einen erheblichen Aufwand in Bezug auf Entwicklungszeit und Ressourcen.
-Zusätzlich ist eine Zunahme an Komplexität bei der Wartung sowie eine Erschwernis bezüglich der Wiederverwendbarkeit von Softwarekomponenten über verschiedene Projekte hinweg zu beobachten.
-
- In Anbetracht dessen ist die Entwicklung einer abstrahierten, plattformübergreifenden Architektur erstrebenswert, die diese Herausforderungen adressiert und eine einheitliche, modulare Schnittstelle für die Treiberauswahl bereitstellt.
-
-
-
-\section{Motivation}
-In der Embedded-Entwicklung stellt die effiziente und wartbare Bereitstellung von Software für eine wachsende Zahl unterschiedlicher Mikrokontroller-Plattformen eine zunehmende Herausforderung dar.
-Die Vielzahl verfügbarer \gls{mcu}s %Mikrokontroller
- mit unterschiedlichen Architekturen, Peripheriekomponenten und Entwicklungsumgebungen führt zu einem hohen Aufwand bei der Anpassung und Pflege von Software und Applikationen.
-% TODO: chap2 Motivation: Ab hier nochmal überarbeiten
-In der Praxis zeigt sich, dass Softwarelösungen teils komplett neu implementiert werden müssen, wenn andere Hardware verwendet werden soll oder die Applikation auf mehreren unterschiedlichen \gls{mcu}s laufen soll.
-Dies führt zu redundantem Code, erschwerter Wartbarkeit und geringerer Flexibilität bei der Weiterentwicklung und Portierung von Anwendungen.
 % TODO: chap2 Motivation: viele MCUs pro Projekt? Nochmal Michael fragen
-Gerade in Projekten, in denen verschiedene Hardwareplattformen parallel zum Einsatz kommen oder ein Wechsel der Zielplattform absehbar ist, besteht ein starkes Bedürfnis nach wiederverwendbaren und portablen Lösungen. Eine gut durchdachte Treiber-Schnittstelle kann hier einen entscheidenden Beitrag leisten, indem sie 
-% TODO: chap2 Motivation: nochmal drüber schauen: einfach nur beschleunigt -> ... beschleunigt durch automatische Treiberauswahl und -integration ...
-die Entwicklung beschleunigt, Fehler reduziert und den langfristigen Pflegeaufwand minimiert. 
- 
-In dieser Arbeit wird ein systematischer, praxisnaher Ansatz verfolgt, um diesen Herausforderungen zu begegnen:
+% TODO: chap2: Quellen zu den Behauptungen finden/raussuchen. Dieses Wissen kommt nur von Michaels Erzählung
+Insbesondere in Projekten, in denen mehrere Mikrocontroller-Plattformen parallel eingesetzt werden oder ein Wechsel der Zielplattform absehbar ist, steigt der Bedarf an portabler und modularer Software signifikant an. 
+In der Praxis zeigt sich, dass das Fehlen von Abstraktion häufig zu redundantem Code, fehleranfälliger Portierung und ineffizienter Entwicklung führt.
 
-Eine modulare, plattformunabhängige und ressourceneffiziente Treiberbibliothek und -schnittstelle soll die Basis für eine nachhaltige und flexible Embedded-Softwareentwicklung bilden. 
+% Ziel
+Das Ziel dieser Arbeit besteht somit in der Entwicklung einer modularen, plattformunabhängigen und ressourceneffizienten Treiberbibliothek mit einer einheitlichen Schnittstelle. 
+Diese soll eine nachhaltige, wartbare und flexible Softwarebasis schaffen, die den Herausforderungen der modernen Embedded-Entwicklung adäquat begegnen kann.
+
+%
+%\section{Motivation}
+%In der Embedded-Entwicklung stellt die effiziente und wartbare Bereitstellung von Software für eine wachsende Zahl unterschiedlicher Mikrokontroller-Plattformen eine zunehmende Herausforderung dar.
+%Die Vielzahl verfügbarer \gls{mcu}s %Mikrokontroller
+% mit unterschiedlichen Architekturen, Peripheriekomponenten und Entwicklungsumgebungen führt zu einem hohen Aufwand bei der Anpassung und Pflege von Software und Applikationen.
+%% TODO: chap2 Motivation: Ab hier nochmal überarbeiten
+%In der Praxis zeigt sich, dass Softwarelösungen teils komplett neu implementiert werden müssen, wenn andere Hardware verwendet werden soll oder die Applikation auf mehreren unterschiedlichen \gls{mcu}s laufen soll.
+%Dies führt zu redundantem Code, erschwerter Wartbarkeit und geringerer Flexibilität bei der Weiterentwicklung und Portierung von Anwendungen.
+%% TODO: chap2 Motivation: viele MCUs pro Projekt? Nochmal Michael fragen
+%Gerade in Projekten, in denen verschiedene Hardwareplattformen parallel zum Einsatz kommen oder ein Wechsel der Zielplattform absehbar ist, besteht ein starkes Bedürfnis nach wiederverwendbaren und portablen Lösungen. Eine gut durchdachte Treiber-Schnittstelle kann hier einen entscheidenden Beitrag leisten, indem sie 
+%% TODO: chap2 Motivation: nochmal drüber schauen: einfach nur beschleunigt -> ... beschleunigt durch automatische Treiberauswahl und -integration ...
+%die Entwicklung beschleunigt, Fehler reduziert und den langfristigen Pflegeaufwand minimiert. 
+% 
+%In dieser Arbeit wird ein systematischer, praxisnaher Ansatz verfolgt, um diesen Herausforderungen zu begegnen:
+%
+%Eine modulare, plattformunabhängige und ressourceneffiziente Treiberbibliothek und -schnittstelle soll die Basis für eine nachhaltige und flexible Embedded-Softwareentwicklung bilden. 
 
 
 \section{Ablauf}
