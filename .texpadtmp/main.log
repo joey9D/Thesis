@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.15)  12 JUN 2025 09:00
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.15)  12 JUN 2025 10:11
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -1050,7 +1050,7 @@ Package biblatex Info: ... and expl3
  (/usr/local/texlive/2025/texmf-dist/tex/latex/biblatex/blx-case-expl3.sty
 Package: blx-case-expl3 2024/03/21 v3.20 expl3 case changing code for biblatex
 ))
-Package biblatex Info: Redefining '\citeauthor' on input line 592.
+Package biblatex Info: Redefining '\citeauthor' on input line 593.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/blindtext/blindtext.sty
 Package: blindtext 2012/01/06 V2.0 blindtext-Package
 \c@blindtext=\count480
@@ -1153,10 +1153,10 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 28
 )
 \Hy@SectionHShift=\skip126
 )
-Package hyperref Info: Option `bookmarksnumbered' set `true' on input line 654.
-Package hyperref Info: Option `bookmarksopen' set `true' on input line 654.
-Package hyperref Info: Option `breaklinks' set `true' on input line 654.
-Package hyperref Info: Option `colorlinks' set `true' on input line 654.
+Package hyperref Info: Option `bookmarksnumbered' set `true' on input line 655.
+Package hyperref Info: Option `bookmarksopen' set `true' on input line 655.
+Package hyperref Info: Option `breaklinks' set `true' on input line 655.
+Package hyperref Info: Option `colorlinks' set `true' on input line 655.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/glossaries/base/glossaries.sty
 Package: glossaries 2025/03/03 v4.56 (NLCT)
  (/usr/local/texlive/2025/texmf-dist/tex/latex/mfirstuc/mfirstuc.sty
@@ -2451,18 +2451,23 @@ Underfull \hbox (badness 10000) in paragraph at lines 20--31
 
 
 ]
+Underfull \hbox (badness 10000) in paragraph at lines 49--55
 
-Package cleveref Info: loaded `ngerman' language definitions on input line 80.
+ []
+
+
+
+Package cleveref Info: loaded `ngerman' language definitions on input line 83.
 [28] (/usr/local/texlive/2025/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2024/09/23 1.10c listings language file
 ) (/usr/local/texlive/2025/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2024/09/23 1.10c listings language file
 )
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 10.0pt on input line 88.
+(Font)              scaled to size 10.0pt on input line 99.
 LaTeX Font Info:    Font shape `T1/zi4/m/n' will be
-(Font)              scaled to size 8.99994pt on input line 88.
-Package csquotes Info: Input encoding change on input line 88.
+(Font)              scaled to size 8.99994pt on input line 99.
+Package csquotes Info: Input encoding change on input line 99.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/base/latin1.def
 File: latin1.def 2024/02/08 v1.3d Input encoding file
 ))
@@ -2539,18 +2544,18 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 83899 strings out of 473190
- 1956861 string characters out of 5715800
- 3213547 words of memory out of 5000000
+ 83911 strings out of 473190
+ 1956991 string characters out of 5715800
+ 3213544 words of memory out of 5000000
  105539 multiletter control sequences out of 15000+600000
- 616607 words of font info for 183 fonts, out of 8000000 for 9000
+ 616886 words of font info for 186 fonts, out of 8000000 for 9000
  1143 hyphenation exceptions out of 8191
  108i,20n,120p,10917b,3132s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2025/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4r.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/tex-gyre/qhvb.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/tex-gyre/qhvr.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/tex-gyre/qtmr.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/newtx/ztmb.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/newtx/ztmr.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/newtx/ztmri.pfb>
-Output written on /Users/joey/Documents/Studium/8_Sem/Thesis/Thesis/.texpadtmp/main.pdf (33 pages, 287086 bytes).
+Output written on /Users/joey/Documents/Studium/8_Sem/Thesis/Thesis/.texpadtmp/main.pdf (33 pages, 287339 bytes).
 PDF statistics:
- 512 PDF objects out of 1000 (max. 8388607)
- 451 compressed objects within 5 object streams
- 129 named destinations out of 1000 (max. 500000)
+ 519 PDF objects out of 1000 (max. 8388607)
+ 458 compressed objects within 5 object streams
+ 135 named destinations out of 1000 (max. 500000)
  45339 words of extra memory for PDF output out of 51595 (max. 10000000)
 

@@ -32,13 +32,24 @@ In den folgenden Absätzen werden die einzelnen Plattformen bewertet und potenti
 \section{Bewertung der Alternativlösungen}
 \subsection{STM32Cube}
 Die STM32Cube-Umgebung der Firma STMicroelectronics bietet ein gesamtes System, von der Auswahl und der Konfiguration der Hardware bis hin zu einer IDE zur Softwareentwicklung und einer Software um den internen Speicher der MCUs zu programmieren.
-Aufgeteilt auf 
-\begin{itemize}
-	\item \textbf{STMCUFinder} um die verwendete Hardware zu bestimmen.
-	\item \textbf{STM32CubeMX} zur Konfiguration der Hardware, d.h. Benennung und Funktionszuweisung der Pins, Anpassung von Regiestern, Bestimmung u. Und nach der Konfiguration kann  
-\end{itemize}
+Aufgeteilt auf:
+\paragraph{STMCUFinder}
+	um die Hardware zu finden, die den notwendigen Anforderungen gerecht werden kann.
+	Dafür gibt es die Möglichkeit, mit verschiedenen Filtern die Auswahl derart einzuschränken, dass nur noch die passenden Mikrokontroller übrig bleiben.
+	Diesen Schritt kann man nicht nur allein für die MCUs und MPUs machen, sondern auch für gesamte Hardwareboards.
+	Hier kommen Filter hinzu, welche Funktionen die Hardware bereits integriert hat.
+	Ist die passende Hardware ausgewählt, kann aus dieser Übersicht direkt der STM32CubeMX gestartet werden.
 
-Sobald die Konfiguration und das Projekt das erste mal bestätigt wird, werden die entsprechenden Treiber (CMSIS und HAL) automatisch mit heruntergeladen und dem Projekt hinzugefügt.
+\paragraph{STM32CubeMX} 
+	zur Konfiguration der Hardware, d.h. Benennung und Funktionszuweisung der Pins, Aktivieren oder Deaktivieren von Registern und Protokollen, Konfiguration der internen Frequenzen. 
+	Nach der Konfiguration kann der Code für das Projekt generiert werden.
+	In diesem Schritt werden die notwendigen Pakete, Treiber (HAL, CMSIS) und Firmware für die ausgewählte Hardware geladen.
+
+\paragraph{STM32CubeIDE}
+	um Anwendungen und Software für die MCUs zu entwickeln und implementieren.
+	Die Entwicklungsumgebung, basierend auf Eclipse, bietet neben dem Codeeditor ein eigenes Buildsystem, das mit Make und der \texttt{arm-none-ebai-gcc}-Toolchain 
+\\
+\\
 + Funktioniert für alle STM32 MCUs
 - \textbf{nur} für STM32 MCUs
 
