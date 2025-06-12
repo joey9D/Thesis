@@ -44,7 +44,7 @@
 \@writefile{lopytx}{\addvspace {10\p@ }}
 \@writefile{toc}{\contentsline {section}{\numberline {5.1}Recherche}{27}{section.5.1}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {5.2}Bewertung der Alternativlösungen}{28}{section.5.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.2.1}STM32CubeIDE}{28}{subsection.5.2.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2.1}STM32Cube}{28}{subsection.5.2.1}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {5.2.2}mcu-cpp}{28}{subsection.5.2.2}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {5.2.3}modm}{28}{subsection.5.2.3}\protected@file@percent }
 \@writefile{lol}{\contentsline {lstlisting}{\numberline {5.1}{\ignorespaces Konsolenbefehl um verf\"ugbare Module aufgelistet zu bekommen; hier f\"ur den STM32C031C6T6 Mikrokontroller.}}{29}{lstlisting.5.1}\protected@file@percent }

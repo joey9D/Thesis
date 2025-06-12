@@ -19,7 +19,7 @@
 \contentsline {chapter}{\numberline {5}Stand der Technik}{27}{chapter.5}%
 \contentsline {section}{\numberline {5.1}Recherche}{27}{section.5.1}%
 \contentsline {section}{\numberline {5.2}Bewertung der Alternativlösungen}{28}{section.5.2}%
-\contentsline {subsection}{\numberline {5.2.1}STM32CubeIDE}{28}{subsection.5.2.1}%
+\contentsline {subsection}{\numberline {5.2.1}STM32Cube}{28}{subsection.5.2.1}%
 \contentsline {subsection}{\numberline {5.2.2}mcu-cpp}{28}{subsection.5.2.2}%
 \contentsline {subsection}{\numberline {5.2.3}modm}{28}{subsection.5.2.3}%
 \contentsline {section}{\numberline {5.3}Abgrenzung des eigenen Ansatzes}{29}{section.5.3}%

@@ -9,7 +9,7 @@ Die Analyse dient zudem der Identifikation möglicher Lücken oder Einschränkun
 \section{Recherche}
 Im Rahmen der Untersuchung wurden sowohl wissenschaftliche Publikationen als auch praxisnahe Quellen herangezogen. 
 Zu den praxisnahen Quellen zählen technische Dokumentationen, Open-Source-Projekte und Herstellerdokumentationen.
-Der Fokus der Recherche lag auf bestehenden Lösungen für die plattformübergreifende Entwicklung von Hardwaretreibern für Mikrocontroller.
+Der Fokus der Recherche lag auf bestehenden Lösungen für die plattformübergreifende Auswahl von Hardwaretreibern für Mikrocontroller.
 Die im Rahmen der Untersuchung verwendeten relevanten Schlüsselbegriffe umfassten unter anderem \textit{Hardware Abstraction Layer, Embedded Driver Portability, CMSIS, Arduino Core, Zephyr RTOS,C++ Hardware API Design}.
 
 Auf diese Weise wurden verschiedene Ansätze zur Hardwareabstraktion und Treiberbereitstellung gefunden.
@@ -26,18 +26,16 @@ In den folgenden Absätzen werden die einzelnen Plattformen bewertet und potenti
 %Wie machen das andere; auch in Form kommerzieller Werkzeuge (cubeIDE, Espressif):
 %\begin{itemize}
 % 	\item CMSIS
-%	\item stm32CubeIDE
 %	\item Espressif IDE
-%	\item mcu-cpp
-%	\item modm
 %\end{itemize}
 
 \section{Bewertung der Alternativlösungen}
-\subsection{STM32CubeIDE}
-Prozess via UI ermöglicht:
+\subsection{STM32Cube}
+Die STM32Cube-Umgebung der Firma STMicroelectronics bietet ein gesamtes System, von der Auswahl und der Konfiguration der Hardware bis hin zu einer IDE zur Softwareentwicklung und einer Software um den internen Speicher der MCUs zu programmieren.
+Aufgeteilt auf 
 \begin{itemize}
-	\item Auswahl der Hardware
-	\item Konfiguration der Pins
+	\item \textbf{STMCUFinder} um die verwendete Hardware zu bestimmen.
+	\item \textbf{STM32CubeMX} zur Konfiguration der Hardware, d.h. Benennung und Funktionszuweisung der Pins, Anpassung von Regiestern, Bestimmung u. Und nach der Konfiguration kann  
 \end{itemize}
 
 Sobald die Konfiguration und das Projekt das erste mal bestätigt wird, werden die entsprechenden Treiber (CMSIS und HAL) automatisch mit heruntergeladen und dem Projekt hinzugefügt.
@@ -78,7 +76,7 @@ Dadurch ist es möglich, dass eine Bibliothek nur aus den Teilen besteht, die ta
 Um das zu bewerkstelligen wird eine Kombination aus \texttt{Jinja2}-Template-Dateien, \texttt{lbuild}-Pyhton-Skripte und eigenen Moduldefinitionen verwendet, mit der der Code für die Bibliotheken generiert wird.
 Die Templatedateien enthalten Platzhalter.
 Die Werte kommen aus \texttt{YAML} und \texttt{JSON}-Dateien, die von den \texttt{lbuild}-Pyhtonskripten gelesen und in die entsprechenden Positionen der Platzhalter, während des Buildprozesses, eingefügt werden.
-
+ 
 Um eine Bibliothek zu erstellen, muss ein Prozess über die Konsole gestartet werden.
 modm hat bereits vordefinierten Konfigurationen für eine große Auswahl an MCUs.
 Mit diesen kann die Bibliothek für ein Projekt erstellt/gebuildet werden.
