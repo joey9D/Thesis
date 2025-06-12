@@ -47,16 +47,19 @@ Aufgeteilt auf:
 
 \paragraph{STM32CubeIDE}
 	um Anwendungen und Software für die MCUs zu entwickeln und implementieren.
-	Die Entwicklungsumgebung, basierend auf Eclipse, bietet neben dem Codeeditor ein eigenes Buildsystem, das mit Make und der \texttt{arm-none-ebai-gcc}-Toolchain 
+	Die Entwicklungsumgebung, basierend auf Eclipse, bietet neben dem Codeeditor ein eigenes Buildsystem, das mit Make und der \texttt{arm-none-ebai-gcc}-Toolchain arbeitet und einen Debugger hat, mit dem nicht nur Code sondern auch das Verhalten der Hardware beobachtet werden kann um Fehler zu erkennen.
 \\
 \\
-+ Funktioniert für alle STM32 MCUs
-- \textbf{nur} für STM32 MCUs
+Hier ist Positiv hervorzuheben, dass sehr viel über eine Benutzeroberfläche eingerichtet werden kann, was den Einstieg in die Embedded-Entwicklung etwas leichter gestaltet.
+Durch das große Portfolio an an MCUs und Hardwareboards, die alle mit der STM32Cube-Umgebung kompatibel sind, ist es nicht direkt notwendig andere Optionen in betracht zu ziehen. 
+Allerdings ist das auch ein Aspekt, der bedacht werden muss. 
+Das Softwarepaket funktioniert nur mit der STM32-Hardware.
+Der Einsatz mit MCUs anderer Hersteller ist damit nicht vorgesehen.
 
-Für allgemeine Projekte bzw. st-fremde Hardware besteht die Möglichkeit, leere CMake-Projekte erstellt werden.
-Hier müssen die benötigten Pakete und Treiber selber inkludiert werden; die Build-Befehle müssen selber in eigenen CMakeLists.txt Dateien implementiert werden.
+Für allgemeine Projekte bzw. st-fremde Hardware besteht die Möglichkeit, in der STM32CubeIDE leere CMake-Projekte zu erstellen.
+Hier müssen dann die benötigten Pakete und Treiber selber inkludiert werden.
+Ein Buildsystem müsste selber eingebunden und mit eigenen CMake-Dateien implementiert werden.
 
-Für zukünftigen Einsatz von Zephyr
 
 % TODO: chap5 Espressif-IDE
 %\subsection{Espressif-IDE}
