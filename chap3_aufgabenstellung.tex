@@ -1,7 +1,7 @@
 Das Ziel dieser Arbeit ist es die Basis eine Treiber-API zu erstellen, mit der je nach Zielhardware die passenden Treiber integriert werden können.
 Dafür muss eine Programmstruktur entwickelt werden, die es ermöglicht erstellte Softwarelösungen und Applikationen auf verschiedenen Microkontrollern verwenden zu können, indem die spezifischen Hardwaretreiber, nach geringer Konfiguration, automatisch in den Buildprozess mit integriert werden.
 Die Struktur soll erste grundlegenden Funktionen für GPIO, SPI, CAN und UART enthalten. 
-Damit können die Funktionen für generelles Lesen und Schreiben und die Kommunikation über Busse getestet werden.
+Damit können die Funktionen für generelles Lesen, Schreiben und die Kommunikation über Busse getestet werden.
 \\
 %\textbf{Warum für diese Entschieden?}
 %GPIO für die simpelste Art für Lesen und Schreiben
@@ -19,17 +19,17 @@ Die Arbeit wird in der Schaefer GmbH erstellt.
 Die Firma sorgt mit ihren Custom-Designs von Aufzugkontrollpanels dafür, dass jeder Kunde seinen spezifischen Wunsch erfüllt bekommt.
 In diesen Kontrollpanels kommen unterschiedliche \gls{mcu}s zum Einsatz um die jeweiligen Softwarelösungen umzusetzen.
 Da die Lösung plattformübergreifend funktionieren soll, wird als Entwicklungsumgebung (\gls{ide}) VSCode verwendet, das weltweit genutzt wird und durch Extension für den gewünschten Gebrauch/Projekt angepasst werden kann. 
-Außerdem ist VSCode auf den großen Betriebssytemen lauffähig.
+Außerdem ist VSCode auf den gängigen Betriebssytemen lauffähig.
 Um einen leichteren Einstieg in die Umgebungen der einzelnen \gls{mcu}s zu haben, werden neben VSCode auch die \gls{ide}s der \gls{mcu}s verwendet:
 \begin{itemize}
 	\item STM32CubeIDE für STM32 \gls{mcu}s
 	\item Espressif IDE und ESP-IDF für ESP32 \gls{mcu}s
 \end{itemize}
 
-Damit die API direkt auf einem aktuellen Stand ist, soll sie in C++ programmiert werden.
+Damit die API direkt auf einem etablierten Stand ist, soll sie in C++ dem Standard 17 nach, programmiert werden.
 Um über VSCode für das Arbeiten mit C++ vorzubereiten und anzupassen, empfiehlt es sich Erweiterungen (Extensions) zu installieren.
-Der User franneck94 hat dafür bereits ein Paket gebunden, dass die wichtigsten Extensions für die moderne C++-Entwicklung beinhaltet.
-In dem Paket enthalten sind:
+Im Rahmen dieser Arbeit wird das Paket von frannekXX verwendet.
+Dieses beinhaltet alle für die moderne C++-Entwicklung relevanten Paket:
 \begin{itemize}
 	\item C/C++ Extension Pack  v1.3.1 by Microsoft
 	\begin{itemize}
@@ -37,8 +37,8 @@ In dem Paket enthalten sind:
 		\item CMake Tools  v1.20.53  by Microsoft
 		\item C/C++ Themes  v2.0.0 by Microsoft 
 	\end{itemize}
-	\item C/C++ Runner  v9.4.10 by franneck94
-	\item C/C++ Config  v6.3.0 by franneck94
+	\item C/C++ Runner  v9.4.10 by franneckXX
+	\item C/C++ Config  v6.3.0 by franneckXX
 	\item CMake  v0.0.17 by twxs
 	\item Doxygen  v1.0.0 by Baptist BENOIST
 	\item Doxygen Documentation Generator  v1.4.0 by Christopher Schlosser
@@ -67,9 +67,7 @@ Zu installieren ist hier \emph{STM32Cube for Visual Studio Code}.
 Zusätzlich empfiehlt es sich zu den bereits genannt \gls{ide}s, STM32CubeIDE und Espressif-IDE, auch deren Umgebungen mit zu installieren.
 Für ST-Hardware sind das STM32CubeMX um die \gls{mcu}s zu konfigurieren, STM32Programmer um die Hardware zu Programmieren % STM32-Finder um die richtigen \gls{mcu}s auswählen zu können.
 
-Damit man die API auch entsprechend testen kann, gilt es unterschiedliche Hardware zu haben.
-In dieser Arbeit werden Microkontroller von STMicroelectronics und Espressif Systems verwendet:
-
+Um eine erstellte API testen zu können wird im Rahmen dieser Arbeit auf folgende Hardware der Firmen STMicroelectronics und Espressif Systems zurückgegriffen:
 \begin{itemize}
 	\item STM32C032C6
 	\item STM32G071RB
@@ -79,11 +77,17 @@ In dieser Arbeit werden Microkontroller von STMicroelectronics und Espressif Sys
 
 
 \section{Anforderungen an die Lösung}
-Erfolgreiche Implementierung der Grundfunktionen von GPIO, SPI, UART, CAN. 
-Das beinhaltet die Kommunikation über diese Technologien, d.h. Lesen und Schreiben.
-In eine Schaltkreis sind eine LED und ein Button/Taster verbaut. 
+Im Rahmen dieser Arbeit sollen die grundlegenden Funktionen wie Lesen und Schreiben der folgenden Kommunikationsprotokolle implementiert werden:
+\begin{itemize}
+	\item \gls{gpio}
+	\item \gls{can}
+	\item \gls{spi}
+	\item \gls{uart}
+\end{itemize}
+
+In eine Schaltkreis sind eine LED und ein Taster verbaut. 
 Um die Kommunikation über \gls{gpio} zu testen soll das Betätigen des Tasters die LED zum leuchten bringen.
-Auf diese Weise kann das Lesen, der Input, des Tasters und die Schreiben, der Output über das Leuchten der LED überprüft/getestet werden.
+Auf diese Weise kann das Lesen, der Input, des Tasters und das Schreiben, der Output über das Leuchten der LED getestet werden.
 
 % TODO: chap3: Bedingungen für die Bussysteme nochmal überarbeiten; wenn es dann so weit ist.
 % 		[ ] SPI
@@ -92,7 +96,7 @@ Auf diese Weise kann das Lesen, der Input, des Tasters und die Schreiben, der Ou
 % siehe auch AE1 Skript
 Damit nachvollzogen werden kann, ob die Kommunikation über den SPI-Bus funktioniert, 
 wird über ein Oszilloskop der Datenverkehr des Masters beobachtet. 
-Kommt das Datensignal in beide Richtungen erfolgreich durch, zeigt das Oszilloskop die Signalveränderung.
+Bei erfolgreicher Signaleübertragung zeigt das Oszilloskop die Signalveränderung.
 
 Ähnlich zu SPI kann der Datenverkehr auch bei UART und CAN mit passenden Software beobachtet und überprüft werden.
 Für den UART-Bus wird HTerm verwendet. % Datentransfer am PC beobachten.

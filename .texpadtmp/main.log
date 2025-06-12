@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.15)  12 JUN 2025 13:32
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.15)  12 JUN 2025 13:56
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -2342,7 +2342,7 @@ Package cleveref Info: loaded `ngerman' language definitions on input line 1.
 )
 
 Package glossaries Info: Preparing to sort glossary `acronym' (total number of
-(glossaries)             referenced entries: 6)
+(glossaries)             referenced entries: 9)
 
 
 
@@ -2427,7 +2427,7 @@ File: t1zi4.fd 2018/01/14 T1/zi4 (Inconsolata)
 )
 LaTeX Font Info:    Font shape `T1/zi4/m/n' will be
 (Font)              scaled to size 9.85492pt on input line 145.
-<Pics/cmake_generators.png, id=259, 614.295pt x 141.52875pt>
+<Pics/cmake_generators.png, id=269, 614.295pt x 141.52875pt>
 File: Pics/cmake_generators.png Graphic file (type png)
 <use Pics/cmake_generators.png>
 Package pdftex.def Info: Pics/cmake_generators.png  used on input line 163.
@@ -2545,18 +2545,18 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 83911 strings out of 473190
- 1957003 string characters out of 5715800
- 3213581 words of memory out of 5000000
- 105538 multiletter control sequences out of 15000+600000
+ 83977 strings out of 473190
+ 1957927 string characters out of 5715800
+ 3214459 words of memory out of 5000000
+ 105601 multiletter control sequences out of 15000+600000
  616890 words of font info for 187 fonts, out of 8000000 for 9000
  1143 hyphenation exceptions out of 8191
  108i,20n,120p,10917b,3132s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2025/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4r.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/tex-gyre/qhvb.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/tex-gyre/qhvr.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/tex-gyre/qtmr.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/newtx/ztmb.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/newtx/ztmr.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/newtx/ztmri.pfb>
-Output written on /Users/joey/Documents/Studium/8_Sem/Thesis/Thesis/.texpadtmp/main.pdf (33 pages, 286869 bytes).
+Output written on /Users/joey/Documents/Studium/8_Sem/Thesis/Thesis/.texpadtmp/main.pdf (33 pages, 287263 bytes).
 PDF statistics:
- 508 PDF objects out of 1000 (max. 8388607)
- 447 compressed objects within 5 object streams
- 134 named destinations out of 1000 (max. 500000)
+ 517 PDF objects out of 1000 (max. 8388607)
+ 456 compressed objects within 5 object streams
+ 137 named destinations out of 1000 (max. 500000)
  45323 words of extra memory for PDF output out of 51595 (max. 10000000)
 
