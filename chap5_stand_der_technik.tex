@@ -125,9 +125,28 @@ Auf diese Weise bekommt jede MCU eine eigene Kindklasse, über die die richtigen
 
 \begin{itemize}
 	\item Interface/virtuelle Klassen als Basis
+	\item Adapter-Pattern um auf die einzelnen MCUs/Boards zuzugreifen
 	\item einfache Make commands rufen CMake build commands auf
+	\item Ninja als Generator $\rightarrow$ wird von ESP, mcu-cpp, Zephyr schon benutzt. STM32 nutzt make, kann aber getauscht/angepasst/konfiguriert werden
 	\item Treiber (HAL, vllt. CMSIS) als Submodule
-	\item 
+\end{itemize}
+
+class GpioInterface
+
+$\rightarrow$ class STM32gpio : public GpioInterface
+
+$\rightarrow$ class ESP32gpio : public GpioInterface
+\\
+\\
+Keine \texttt{setter}
+\begin{itemize}
+	\item Pin wird nur einmal initialisiert
+	\item normalerweise keine nachträgliche Änderungen zur Laufzeit
+\end{itemize}
+
+\textbf{Probleme, die es zu lösen gilt:}
+\begin{itemize}
+	\item Interruptfunktionen $\rightarrow$ werden automatische aufgerufen und nicht vom Entwickler. Wenn ein Interrupt auftritt wird der Rest der HAL \& der MCU informiert.\\ \textbf{Frage:} Wie kann es umgesetzt werden, dass das GPIO-Objekt der API und der Code der Anwendungsschicht aus der HAL und den Registern über einen Interrupt informiert werden?
 \end{itemize}
 
 
