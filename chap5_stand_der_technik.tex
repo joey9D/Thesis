@@ -147,16 +147,43 @@ Keine \texttt{setter}
 \textbf{Probleme, die es zu lösen gilt:}
 \begin{itemize}
 	\item Interruptfunktionen $\rightarrow$ werden automatische aufgerufen und nicht vom Entwickler. Wenn ein Interrupt auftritt wird der Rest der HAL \& der MCU informiert.\\ \textbf{Frage:} Wie kann es umgesetzt werden, dass das GPIO-Objekt der API und der Code der Anwendungsschicht aus der HAL und den Registern über einen Interrupt informiert werden?
+	\item GPIO init $\rightarrow$ MX\_GPIO\_Init() startet mit \texttt{iocurrent} bei $0$. Mit dem Aufruf durch das Objekt startet \texttt{iocurrent} auf etwas exterem Hohen. \\ $\Longrightarrow$ Ist Egal. \texttt{iocurrent} bekommt direkt einen richtigen Startwert zugewiesen.
+	\item Statt \texttt{ID15} für Pin 15 zu wechseln, werden die \texttt{ID0-3} gewechselt. Diese ersten $4$ Pin ergeben binär auch $15\ =\ 1111\ =\ 1*2^3\ +\ 1*2^2\ +\ 1*2^1\ +\ 1*2^0$ \\ \textbf{Lösung:} Nicht den Wert $15$ dem Pin Attribut geben sondern am Bit $15$, dass diese Bit dann auf $1$ gesetzt wird.
+	\item Wenn die LED an ist, d.h. wenn der Pin gesetzt ist, verändert sich der Pin des Tasters, ohne dass dieser betätigt wurde. Wieso?\\ \textbf{Beobachtung:} Ob bei \texttt{readPin()} Register ID$14$ oder ID$9$ verwendet wird (es sollte $9$ sein; $14$ ist nur im Debugger aktiv und für uns uninteressant) schon zufällig zu sein.
+	\item \texttt{\_\_HAL\_RCC\_GPIOA\_CLK\_ENABLE()} setzt den Pin im Inputregister IDR $\rightarrow$ ID14.
+	
 \end{itemize}
 
+\vspace{3mm}
 
+mapping $\rightarrow$ stm32c0xx.h $\rightarrow$ stm32c031xx.h mit allen TypeDefs $\rightarrow$ system\_stm32c031xx.h
 
+$\Longrightarrow$ include Fehler: statt nur stm32\_hal\_gpio.h, besser stm32\_hal.h einbinden.
+\\
 
+Verwendung von STM32CubeIDE für bessere Übersicht beim Debuggen über die Register.
+\\
 
+\vspace{3mm}
+\begin{figure}[H]
+	\includegraphics[width=\textwidth]{stm32_c031c6_clean_registers_setPin.PNG}
+	\caption{Register beim setzen des Pin.}
+	\label{fig:stm32_register_setPin}
+\end{figure}
 
+\vspace{3mm}
+\begin{figure}[H]
+	\includegraphics[width=\textwidth]{stm32_c031c6_clean_registers_resetPin.PNG}
+	\caption{Register beim zurücksetzen des Pin.}
+	\label{fig:stm32_register_resetPin}
+\end{figure}
 
+In den Abbildungen \autoref{fig:stm32_register_setPin} und \autoref{fig:stm32_register_resetPin} ist der Wert von Pin 15 (ID15 \& OD15) zu beobachten. Bei \texttt{0x0} wird der Pin zurückgesetzt und die LED leuchtet nicht mehr. Bei \texttt{0x1} wird der Wert auf $1$ gesetzt und die LED beginnt zu leuchten.
 
+Die Funktionen \texttt{HAL\_GPIO\_WritePin(GPIO\_TypeDef \*GPIOx, uint16\_t GPIO\_Pin, GPIO\_PinState PinState)} steuern nicht die in \autoref{fig:stm32_register_setPin} und \autoref{fig:stm32_register_resetPin} gezeigten Register IDR und ODR an, sondern die Set- und Reset-Register BSRR und BRR. 
 
+Diese Register sind \emph{write only}, d.h. sie können nicht ausgelesen werden.
+Wird die Funktion korrekt ausgeführt, kann dass Verhalten an den Registern IDR und ODR beobachtet werden.
 
 
 
