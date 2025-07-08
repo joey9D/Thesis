@@ -5,7 +5,7 @@ Im Rahmen dieser Arbeit liegt der Fokus auf dem speziellen Teilbereich der Embed
 
 In diesem Kapitel werden die grundlegenden fachlichen und technischen Konzepte vermittelt, die zum Verständnis der weiteren Inhalte erforderlich sind.
 % Ablauf des Kapitels
-Zu Beginn wird eine Einführung in das Themenfeld der Embedded-Softwareentwicklung gegeben, um ein klares Verständnis dafür zu schaffen, welche Unterschiede diesen Bereich kennzeichnen und wie er sich von anderen Teilgebieten der Informatik unterscheidet.
+Zu Beginn wird eine Einführung in das Themenfeld der Embedded-Systeme gegeben, um ein klares Verständnis dafür zu schaffen, welche Unterschiede diesen Bereich kennzeichnen und wie er sich von anderen Teilgebieten der Informatik unterscheidet.
 Darauffolgend werden zentrale Begriffe und Konzepte erläutert, die in der Embedded-Entwicklung eine signifikante Rolle spielen, wie beispielsweise Register, Ports, Peripherieansteuerung und hardwarenahe Programmierung.
 Darüber hinaus wird technisches Hintergrundwissen vermittelt, das für das Verständnis der späteren Implementierungsschritte und der Architekturentscheidungen von Relevanz ist.
 
@@ -13,7 +13,7 @@ Darüber hinaus wird technisches Hintergrundwissen vermittelt, das für das Vers
 
 \section{Eingebettete Systeme}
 Bevor auf die Entwicklung eingebetteter Systeme eingegangen werden kann, ist zunächst zu klären, worum es sich bei diesen Systemen handelt.
-Der Begriff \emph{''Embedded System''} (deutsch: eingebettetes System) bezeichnet ein Computersystem, das aus Hardware und Software besteht und fest in einen übergeordneten technischen Kontext integriert ist. 
+Der Begriff \emph{Embedded System} (deutsch: eingebettetes System) bezeichnet ein Computersystem, das aus Hardware und Software besteht und fest in einen übergeordneten technischen Kontext integriert ist. 
 Typischerweise handelt es sich dabei um Maschinen, Geräte oder Anlagen, in denen das eingebettete System spezifische Steuerungs-, Regelungs- oder Datenverarbeitungsaufgaben übernimmt.
 Ein wesentliches Merkmal eingebetteter Systeme besteht darin, dass sie nicht als eigenständige Recheneinheiten agieren, sondern als integraler Bestandteil eines übergeordneten Gesamtsystems dienen.
 In der Regel operieren sie im Hintergrund und sind nicht direkt mit den Benutzern verbunden. In einigen Fällen erfolgt die Interaktion automatisch, in anderen durch Eingaben des Nutzers.
@@ -38,10 +38,10 @@ Durch das gezielte Setzen oder Auslesen einzelner Bits in diesen Registern ist e
 Ein Mikroprozessor ist ein vollständig auf einem einzigen integrierten Schaltkreis (Chip) realisierter Prozessor.
 Der Prozessor ist die zentrale Recheneinheit eines Computersystems.
 Seine Funktion umfasst die Ausführung von Befehlen sowie die Steuerung des Datenflusses innerhalb des Systems. 
-Ein Mikroprozessor beinhaltet in der Regel Komponenten wie das Rechenwerk (ALU), Register, Steuerwerk und gegebenenfalls Caches, jedoch keine Peripheriefunktionen wie Speicher oder Schnittstellen. 
+Ein Mikroprozessor beinhaltet in der Regel Komponenten wie das Rechenwerk (\gls{alu}), Register, Steuerwerk und gegebenenfalls Zwischenspeicher (Caches), jedoch keine Peripheriefunktionen wie Speicher oder Schnittstellen. 
 Diese müssen extern angebunden werden.
 Der Begriff "Mikrocomputer" wird verwendet, um ein auf Basis eines Mikroprozessors aufgebautes Gesamtsystem zu definieren. 
-Derartige Systeme sind in klassischen Personal Computern, Laptops oder Servern häufig anzutreffen.
+Derartige Systeme sind in klassischen PCs, Laptops oder Servern häufig anzutreffen.
 In diesen Geräten wird der Mikroprozessor mit externem RAM, ROM, I/O-Komponenten und weiteren Funktionseinheiten kombiniert.
 
 Demgegenüber ist der Mikrocontroller für spezifische Steuerungsaufgaben mit integrierten Peripheriefunktionen konzipiert. 
@@ -50,7 +50,7 @@ Insbesondere für allgemeine Rechenaufgaben, komplexe Betriebssysteme sowie Anwe
 
 \subsection*{Microcontroller Unit (MCU)}
 Ein Mikrocontroller ist ein vollständig auf einem einzigen Chip realisierter Mikrocomputer, der neben dem eigentlichen Prozessor (CPU) auch sämtliche für den Betrieb notwendigen Komponenten integriert. 
-Zu den Komponenten eines solchen Systems zählen in der Regel Programmspeicher (Flash), Datenspeicher (RAM), digitale Ein- und Ausgänge (GPIO), Timer, Kommunikationsschnittstellen (wie UART, SPI, I$^2$C, CAN) sowie in vielen Fällen analoge Peripheriekomponenten wie A/D-Wandler oder PWM-Einheiten.
+Zu den Komponenten eines solchen Systems zählen in der Regel Programmspeicher (Flash), Datenspeicher (\gls{ram}), digitale Ein- und Ausgänge (\gls{gpio}), Timer, Kommunikationsschnittstellen (wie \gls{uart}, \gls{spi}, \gls{i2c}, \gls{can}) sowie in vielen Fällen analoge Peripheriekomponenten wie Analog/Digital-Wandler oder Pulsweitenmodulation-Einheiten.
 
 Mikrocontroller werden für spezifische Steuerungs- und Regelungsaufgaben konzipiert und finden typischerweise Anwendung in eingebetteten Systemen, wie beispielsweise Haushaltsgeräten, Fahrzeugsteuerungen, Industrieanlagen oder IoT-Geräten. 
 Die Geräte zeichnen sich durch einen geringen Energieverbrauch, eine kompakte Bauform, niedrige Kosten und eine direkte Hardwareansteuerung aus. 
@@ -70,34 +70,78 @@ Dies ist darauf zurückzuführen, dass sie Teil des zentralen Rechenwerks sind.
 Die Nähe zur Recheneinheit ist dabei von entscheidender Bedeutung, insbesondere für grundlegende Operationen wie das Zwischenspeichern von Werten, Adressen oder Zustandsinformationen während der Programmausführung.
 
 Im Kontext eingebetteter Systeme und insbesondere bei der Treiberentwicklung spielen sogenannte speicherabbildende Register (Memory-Mapped Registers) eine zentrale Rolle. 
-Diese sind Teil der Hardwareperipherie (wie GPIO, SPI oder UART) und über spezifische Speicheradressen ansprechbar. 
+Diese sind Teil der Hardwareperipherie (wie \gls{gpio}, \gls{spi} oder \gls{uart}) und über spezifische Speicheradressen ansprechbar. 
 Durch das Schreiben in oder Lesen aus solchen Registern können spezifische Hardwarefunktionen aktiviert, deaktiviert oder abgefragt werden.
 
-Ein konkretes Beispiel ist ein GPIO-Ausgangsregister: Wird ein bestimmtes Bit darin gesetzt, liegt am zugeordneten Pin ein logisches High-Signal an. 
+Ein konkretes Beispiel ist ein \gls{gpio}-Ausgangsregister: Wird ein bestimmtes Bit darin gesetzt, liegt am zugeordneten Pin ein logisches High-Signal an. 
 Die exakte Kenntnis über die Position und Signifikanz dieser Bits ist essenziell für die direkte Hardwareprogrammierung und die korrekte Umsetzung von Treibern.
 \\
 Register werden somit nicht nur für die interne Funktionsweise des Prozessors relevant, sondern bilden auch die Schnittstelle zwischen Software und Hardware. Es sei darauf hingewiesen, dass diese Elemente die Konfiguration, Steuerung und das Auslesen externer Peripheriekomponenten ermöglichen und somit das zentrale Element bei der Low-Level-Programmierung darstellen.
 
 \subsection*{Peripherie}
 Unter dem Begriff der \emph{Peripherie} versteht man im Kontext der Embedded-Softwareentwicklung sämtliche Ein- und Ausgabeschnittstellen, die eine Interaktion des Mikrocontrollers mit seiner Umwelt ermöglichen.
+Peripheriegeräte stellen die Verbindung zwischen der digitalen Rechenlogik des Mikrokontrollers und der realen Welt her.
+Sie ermöglichen die Erfassung, Verarbeitung und Ausgabe physikalischer Signale wie Temperatur, Licht oder der Betätigung eines Tasters.
+Ein moderner Mikrocontroller, wie etwa ein STM32, ist bereits mit einer Vielzahl an integrierten Peripherieeinheiten ausgestattet, darunter digitale Ein-/Ausgänge (GPIOs), serielle Kommunikationsschnittstellen (UART, SPI, I2C, CAN), analoge Wandler (ADC, DAC), Timer oder PWM-Module. 
+Die als \emph{On-Chip} bezeichneten Komponenten sind integraler Bestandteil des Mikrocontrollers und können über zugehörige Register programmiert und gesteuert werden.
+Zusätzlich zur integrierten Peripherie besteht die Möglichkeit, über die physischen Pins des Mikrocontrollers auch externe Peripheriegeräte anzuschließen. 
+Die Verbindung erfolgt in der Regel mittels Steckverbindungen, wie etwa Jumper-Kabeln, Steckbrücken, Pin-Headern oder speziellen Anschlussleisten auf Entwicklungsboards. 
+In der Regel werden zu diesem Zweck Steckbretter (Breadboards) oder Lochrasterplatinen verwendet, um eine übersichtliche und flexible Verdrahtung zu gewährleisten. 
+Externe Bauteile, wie etwa Sensoren (Temperatursensor), Aktoren (LED), Displays oder Speicherbausteine, werden über gängige Schnittstellen wie I2C, SPI, UART oder digitale GPIOs mit dem Mikrocontroller verbunden.
+Die Kommunikation mit externen Geräten wird durch die Peripheriemodule des Mikrocontrollers realisiert. 
+Für den zuverlässigen Betrieb sind in der Regel spezifische Softwaretreiber erforderlich, die die Initialisierung, Datenübertragung und gegebenenfalls die Fehlerbehandlung übernehmen.
 
 % TODO: chap4 Peripherie: Parallel/Seriell; synchron/asynchron; für alle nochmal drüber gehen
-\subsubsection*{GPIO}
+\subsubsection*{General Purpose Input Output}
 Der Begriff \emph{General Purpose Input/Output} (GPIO) bezeichnet universelle digitale Ein- und Ausgänge, die sich durch eine hohe Flexibilität für verschiedenste Aufgaben auszeichnen.
 Sie ermöglichen es dem Mikrocontroller zum Beispiel, digitale Signale zu lesen (Input) oder zu erzeugen (Output), um etwa Taster auszuwerten oder LEDs anzusteuern. 
 GPIOs stellen somit die einfachste Form der Peripherieanbindung dar.
 
-\subsubsection*{SPI}
-Die Schnittstellen des \emph{Serial Peripheral Interface} (SPI) ist ein synchrones, serielles Kommunikationsprotokoll, das insbesondere für die schnelle Datenübertragung zwischen einem Master- und mehreren Slave-Geräten eingesetzt wird. 
-Zu den typischen Einsatzgebieten zählen die Anbindung von Sensoren, Displays oder Speichern. 
-SPI zeichnet sich durch eine hohe Übertragungsgeschwindigkeit und einfache Implementierung aus.
+\subsubsection*{Serial Peripheral Interface}
+Die Schnittstellen des \emph{Serial Peripheral Interface} (SPI) ist ein synchrones, serielles Kommunikationsprotokoll, das insbesondere für die schnelle und effiziente Datenübertragung über kurze Distanz zwischen einem Master- und einem oder mehreren Slave-Geräten eingesetzt wird. 
+Die primäre Aufgabe des Protokolls besteht in der Verbindung von \gls{mcu}s mit integrierten oder externen Komponenten, zu denen unteranderem  Sensoren, Speicher, Aktoren sowie Displays zählen.
+SPI arbeitet synchron, d.h. Sender und Empfänger teilen sich ein gemeinsames Taktsignal.
+Der Master ist derjenige, der diesen Takt vorgibt und bereitgestellt.
+Dadurch wird eine präzise, zeit-sensitive Übertragung ermöglicht. 
+Die zentrale Eigenschaft von \gls{spi}, die das gleichzeitige Senden und Empfangen ermöglicht ist die Unterstützung der Voll-Duplex-Kommunikation.
+Der \gls{spi}-Bus verwendet meistens vier physikalische Leitungen:
+\begin{itemize}
+	\item \gls{miso} / \gls{cipo} für die Kommunikation vom Master zu den Peripheriegeräten (Slaves).
+	\item \gls{mosi} / \gls{copi} für die Kommunikation von den Peripheriegeräten zum Master.
+	\item \gls{ss} / \gls{cs} für die Auswahl des gewünschten Peripheriegerätes.
+	\item \gls{sclk} als Taktleitung, die den vom Master vorgegebenen Takt enthält.
+\end{itemize}
 
-\subsubsection*{UART}
+In der Regel dient der Mikrokontroller als Master, der den Datenfluss steuert.
+Mittels des Slave-Signals ist es der \gls{mcu} möglich, gezielt Slaves anzusprechen.
+Dabei ist darauf zu achten, dass jeweils nur ein Slave die Kommunikation aktiv durchführen darf, um eine Kollision auf Bus zu vermeiden.
+
+\gls{spi} zeichnet sich im Vergleich zu anderen seriellen Protokollen wie \gls{i2c} durch eine vereinfachte Implementierung und eine deutlich höhere Datenübertragungsrate aus. 
+Allerdings fehlen eine standardisierte Adressierung und Fehlerprüfung, was den Einsatz auf kurze Distanzen und überschaubare Topologien begrenzt. 
+
+
+%\begin{itemize}
+%	\item erleichtert die Kommunikation über kurze Entfernungen zwischen integrierten Peripherieschaltungen und Mikrocontrollern.
+%	\item synchrone serielle Kommunikation
+%	\item kann gleichzeitig Daten empfangen und senden
+%	\item erleichtert Voll-Duplex, synchrone serielle Kommunikation zwischen einem oder mehreren Slave-Geräten und einem Mikrokontroller
+%	\item hauptsächlich genutzt um MCU und Peripherie zu verbinden
+%	\item Master: meist MCU, kontrolliert den Datenfluss und generiert ein Taktsignal
+%	\item Slave: Peripheriegeräte; vom Master kontrolliert via slave select wann wer kommunizieren will
+%	\item SPI Bus: physikalische Verbindung über die der Datenaustausch stattfindet
+%	\item 4-wire: Slave/Chip Select, MOSI/COPI, MSIO/CIPO, Serial Clock
+%	\item Einfachheit, Hochgeschwindigkeitsfähigkeit und Flexibilität
+%	\item Master ist das Gerät, das das Taktsignal generiert
+%	\item 
+%\end{itemize}
+
+
+\subsubsection*{Universal Asynchronous Receiver Transmitter}
 Der \emph{Universal Asynchronous Receiver Transmitter} (UART) ist ein asynchrones Kommunikationsprotokoll, das insbesondere für die serielle Punkt-zu-Punkt-Kommunikation eingesetzt wird. 
 Das Gerät eignet sich für verschiedene Anwendungsbereiche, darunter das Debugging, der Anschluss von GPS-Modulen sowie die Kommunikation mit Computern über USB-zu-Seriell-Wandler. 
 UART zeichnet sich durch eine hohe Verbreitung aus und erfordert im Gegensatz zu SPI oder I2C keine zusätzliche Taktleitung.
 
-\subsubsection*{CAN}
+\subsubsection*{Controller Area Network}
 Das \emph{Controller Area Network} (CAN) ist ein robustes, asynchrones Bussystem, das insbesondere in der Automobilindustrie eine weite Verbreitung findet. 
 Es ermöglicht eine zuverlässige Kommunikation zwischen mehreren Steuergeräten (Nodes), auch unter schwierigen elektromagnetischen Bedingungen. 
 Der Einsatz von CAN in sicherheitskritischen Anwendungen beruht auf zwei wesentlichen Eigenschaften: 

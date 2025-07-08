@@ -1,3 +1,4 @@
+\section{Motivation und Problemstellung}
 % Unterschied von MCUs
 Mikrocontroller (eng. \gls{mcu}) unterscheiden sich in vielerlei Hinsicht, unter anderem in ihrer Architektur, der verfügbaren Peripherie, dem Befehlssatz sowie in der Art und Weise, wie ihre Hardwarekomponenten über Register angesteuert werden.
 % Fokus auf Register
@@ -13,44 +14,42 @@ Obwohl Abstraktionschichten, sog. \gls{hal}, eine gewisse Erleichterung bei der 
 Insbesondere in Projekten, in denen mehrere Mikrocontroller-Plattformen parallel eingesetzt werden oder ein Wechsel der Zielplattform absehbar ist, steigt der Bedarf an portabler und modularer Software signifikant an. 
 In der Praxis zeigt sich, dass das Fehlen von Abstraktion häufig zu redundantem Code, fehleranfälliger Portierung und ineffizienter Entwicklung führt.
 
+\clearpage
+
+\section{Ausgangssituation und Zielsetzung}
+% Ausgangssituation in der Firma
+\begin{itemize}
+	\item Hauptsächlich STM32
+	\item Cube Umgebung: Stm32CubeIDE, STM32CubeM
+	\item eigene Klassen werden schon verwendet
+	\item Programme müssen für jede Hardware neu implementiert werden.
+	\item 
+\end{itemize}
+
 % Ziel
 Das Ziel dieser Arbeit besteht somit in der Entwicklung einer modularen, plattformunabhängigen und ressourceneffizienten Treiberbibliothek mit einer einheitlichen Schnittstelle. 
 Diese soll eine nachhaltige, wartbare und flexible Softwarebasis schaffen, die den Herausforderungen der modernen Embedded-Entwicklung adäquat begegnen kann.
 
-%
-%\section{Motivation}
-%In der Embedded-Entwicklung stellt die effiziente und wartbare Bereitstellung von Software für eine wachsende Zahl unterschiedlicher Mikrokontroller-Plattformen eine zunehmende Herausforderung dar.
-%Die Vielzahl verfügbarer \gls{mcu}s %Mikrokontroller
-% mit unterschiedlichen Architekturen, Peripheriekomponenten und Entwicklungsumgebungen führt zu einem hohen Aufwand bei der Anpassung und Pflege von Software und Applikationen.
-%% TODO: chap2 Motivation: Ab hier nochmal überarbeiten
-%In der Praxis zeigt sich, dass Softwarelösungen teils komplett neu implementiert werden müssen, wenn andere Hardware verwendet werden soll oder die Applikation auf mehreren unterschiedlichen \gls{mcu}s laufen soll.
-%Dies führt zu redundantem Code, erschwerter Wartbarkeit und geringerer Flexibilität bei der Weiterentwicklung und Portierung von Anwendungen.
-%% TODO: chap2 Motivation: viele MCUs pro Projekt? Nochmal Michael fragen
-%Gerade in Projekten, in denen verschiedene Hardwareplattformen parallel zum Einsatz kommen oder ein Wechsel der Zielplattform absehbar ist, besteht ein starkes Bedürfnis nach wiederverwendbaren und portablen Lösungen. Eine gut durchdachte Treiber-Schnittstelle kann hier einen entscheidenden Beitrag leisten, indem sie 
-%% TODO: chap2 Motivation: nochmal drüber schauen: einfach nur beschleunigt -> ... beschleunigt durch automatische Treiberauswahl und -integration ...
-%die Entwicklung beschleunigt, Fehler reduziert und den langfristigen Pflegeaufwand minimiert. 
-% 
-%In dieser Arbeit wird ein systematischer, praxisnaher Ansatz verfolgt, um diesen Herausforderungen zu begegnen:
-%
-%Eine modulare, plattformunabhängige und ressourceneffiziente Treiberbibliothek und -schnittstelle soll die Basis für eine nachhaltige und flexible Embedded-Softwareentwicklung bilden. 
+% TODO: Ausgangssituation und Zielsetzung: Rechereche
+% Recherche
 
 
-\section{Ablauf}
+\section{Aufbau der Arbeit}
 Der Aufbau dieser Bachelorarbeit folgt einer klar strukturierten Herangehensweise, die im Folgenden erläutert wird. 
 
-Aufbauend auf der zuvor beschriebenen Problemstellung wird im Kapitel „Aufgabenstellung” die konkrete Zielsetzung der Arbeit definiert.
+Aufbauend auf der Kapitel 1 ''Einleitung'' beschriebenen Motivation und Problemstellung wird im Kapitel 2 ''Aufgabenstellung'' die konkrete Zielsetzung der Arbeit definiert.
 Es werden die Anforderungen an die Entwicklung einer plattformunabhängigen Treiber-API beschrieben und die Rahmenbedingungen der Umsetzung definiert.
 Darüber hinaus wird dargelegt, welche Werkzeuge im Entwicklungsprozess eingesetzt werden und anhand welcher Kriterien die Erfüllung der Aufgabe bewertet werden kann.
 
-Darauf folgt das Kapitel „Grundlagen”, das relevante technische Konzepte und Begriffe einführt. 
+Darauf folgt das Kapitel 3 „Grundlagen”, das relevante technische Konzepte und Begriffe einführt. 
 Im Fokus stehen hierbei insbesondere Aspekte der Mikrocontroller-Programmierung, wie die Verwendung von Ports und Registern, der Zugriff auf die Peripherie und grundlegende Prinzipien der hardwarenahen Softwareentwicklung. 
 Dieses Kapitel schafft das notwendige Fachwissen, um die weiteren Inhalte der Arbeit in ihrem technischen Kontext zu verstehen, und bildet somit die Grundlage für das Verständnis der nachfolgenden Themengebiete.
 
-Anschließend gibt das Kapitel „Stand der Technik” einen Überblick über bestehende Lösungen zur plattformübergreifenden Ansteuerung von Mikrocontrollern und der Bereitstellung der plattformabhängigen Hardwaretreibern.
+Anschließend gibt das Kapitel 4 „Stand der Technik” einen Überblick über bestehende Lösungen zur plattformübergreifenden Ansteuerung von Mikrocontrollern und der Bereitstellung der plattformabhängigen Hardwaretreibern.
 Dabei werden verschiedene Ansätze analysiert, verglichen und hinsichtlich ihrer Stärken und Schwächen bewertet. 
 Ziel ist es, daraus Erkenntnisse für die eigene Umsetzung zu gewinnen und bewährte Konzepte zu identifizieren.
 
-Der Hauptteil der Arbeit widmet sich der praktischen Umsetzung der API.
+Kapitel 5 ''Umsetzung'' widmet sich der praktischen Umsetzung der API.
 Auf Grundlage der zuvor erarbeiteten Anforderungen und Erkenntnisse wird eine eigene Architektur entworfen, die vorhandene Treiber integriert, hardwarespezifische Funktionen abstrahiert und eine flexible Erweiterbarkeit ermöglicht.
 Dabei kommen etablierte Open-Source-Werkzeuge zum Einsatz.
 

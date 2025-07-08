@@ -1,5 +1,5 @@
 Das Ziel dieser Arbeit ist es die Basis eine Treiber-API zu erstellen, mit der je nach Zielhardware die passenden Treiber integriert werden können.
-Dafür muss eine Programmstruktur entwickelt werden, die es ermöglicht erstellte Softwarelösungen und Applikationen auf verschiedenen Microkontrollern verwenden zu können, indem die spezifischen Hardwaretreiber, nach geringer Konfiguration, automatisch in den Buildprozess mit integriert werden.
+Dafür muss eine Programmstruktur entwickelt werden, die es ermöglicht erstellte Softwarelösungen und Applikationen auf verschiedenen Microkontrollern anwenden zu können, indem die spezifischen Hardwaretreiber, nach geringer Konfiguration, automatisch in den Buildprozess mit integriert werden.
 Die Struktur soll erste grundlegenden Funktionen für GPIO, SPI, CAN und UART enthalten. 
 Damit können die Funktionen für generelles Lesen, Schreiben und die Kommunikation über Busse getestet werden.
 \\
@@ -18,13 +18,16 @@ Damit können die Funktionen für generelles Lesen, Schreiben und die Kommunikat
 Die Arbeit wird in der Schaefer GmbH erstellt. 
 Die Firma sorgt mit ihren Custom-Designs von Aufzugkontrollpanels dafür, dass jeder Kunde seinen spezifischen Wunsch erfüllt bekommt.
 In diesen Kontrollpanels kommen unterschiedliche \gls{mcu}s zum Einsatz um die jeweiligen Softwarelösungen umzusetzen.
-Da die Lösung plattformübergreifend funktionieren soll, wird als Entwicklungsumgebung (\gls{ide}) VSCode verwendet, das weltweit genutzt wird und durch Extension für den gewünschten Gebrauch/Projekt angepasst werden kann. 
+Als Entwicklungsumgebung (\gls{ide}) wird anfangs die STM32CubeIDE verwendet.
+Mit den bereits integrierten Tools zum Bauen (Builden) und Debuggen von hardware-orientierter Software, eignet sich diese \gls{ide} besonders gut um einen erleichterten Einstieg zu erhalten.
+Da die Lösung plattformübergreifend funktionieren soll, wird auch Visual Studio Code (VSCode) verwendet.
+Diese \gls{ide} wird weltweit genutzt und kann durch Extension für den gewünschten Gebrauch angepasst werden kann. 
 Außerdem ist VSCode auf den gängigen Betriebssytemen lauffähig.
-Um einen leichteren Einstieg in die Umgebungen der einzelnen \gls{mcu}s zu haben, werden neben VSCode auch die \gls{ide}s der \gls{mcu}s verwendet:
-\begin{itemize}
-	\item STM32CubeIDE für STM32 \gls{mcu}s
-	\item Espressif IDE und ESP-IDF für ESP32 \gls{mcu}s
-\end{itemize}
+%Um einen leichteren Einstieg in die Umgebungen der einzelnen \gls{mcu}s zu haben, werden neben VSCode auch die \gls{ide}s der \gls{mcu}s verwendet:
+%\begin{itemize}
+%	\item STM32CubeIDE für STM32 \gls{mcu}s
+%	\item Espressif IDE und ESP-IDF für ESP32 \gls{mcu}s
+%\end{itemize}
 
 Damit die API direkt auf einem etablierten Stand ist, soll sie in C++ dem Standard 17 nach, programmiert werden.
 Um über VSCode für das Arbeiten mit C++ vorzubereiten und anzupassen, empfiehlt es sich Erweiterungen (Extensions) zu installieren.
@@ -60,7 +63,7 @@ Dieses beinhaltet alle für die moderne C++-Entwicklung relevanten Paket:
 %	\end{center}
 %\end{table}
 Dabei handelt es sich bei jeder Extension um die aktuellste Version.
-Diese 13 Extensions lassen sich zusammenfassen zu C/C++ relevant, Buildsystem, Dokumentation und Formatierung \& Optik.
+Diese dreizehn Erweiterungen lassen sich zusammenfassen zu C/C++ relevant, Buildsystem, Dokumentation und Formatierung \& Optik.
 Für die Nutzung von VSCode mit den verwendeten MCUs gibt es ebenfalls entsprechende Extensions.
 Um STM32-\gls{mcu}s zu programmieren gibt es offizielle Extensions von\\STMicroelectronics.
 Zu installieren ist hier \emph{STM32Cube for Visual Studio Code}.
@@ -72,7 +75,7 @@ Um eine erstellte API testen zu können wird im Rahmen dieser Arbeit auf folgend
 	\item STM32C032C6
 	\item STM32G071RB
 	\item STM32G0B1RE
-	\item ESP32-C6 DevKitC-1
+%	\item ESP32-C6 DevKitC-1
 \end{itemize}
 
 
@@ -85,7 +88,7 @@ Im Rahmen dieser Arbeit sollen die grundlegenden Funktionen wie Lesen und Schrei
 	\item \gls{uart}
 \end{itemize}
 
-In eine Schaltkreis sind eine LED und ein Taster verbaut. 
+In einen Schaltkreis sind eine LED und ein Taster verbaut. 
 Um die Kommunikation über \gls{gpio} zu testen soll das Betätigen des Tasters die LED zum leuchten bringen.
 Auf diese Weise kann das Lesen, der Input, des Tasters und das Schreiben, der Output über das Leuchten der LED getestet werden.
 
