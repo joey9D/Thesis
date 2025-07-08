@@ -3,68 +3,68 @@
 \@writefile{lot}{\babel@toc {ngerman}{}\relax }
 \@writefile{lol}{\babel@toc {ngerman}{}\relax }
 \@writefile{lopytx}{\babel@toc {ngerman}{}\relax }
-\@writefile{toc}{\contentsline {chapter}{Abbildungsverzeichnis}{9}{chapter*.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {chapter}{Tabellenverzeichnis}{11}{chapter*.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {chapter}{Codeverzeichnis}{13}{chapter*.5}\protected@file@percent }
-\@writefile{toc}{\contentsline {chapter}{Abkürzungsverzeichnis}{15}{chapter*.7}\protected@file@percent }
-\@writefile{toc}{\contentsline {chapter}{\numberline {1}Einleitung}{17}{chapter.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{Abbildungsverzeichnis}{7}{chapter*.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{Tabellenverzeichnis}{8}{chapter*.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{Codeverzeichnis}{9}{chapter*.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{Abkürzungsverzeichnis}{10}{chapter*.8}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{\numberline {1}Einleitung}{11}{chapter.1}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \@writefile{lol}{\addvspace {10\p@ }}
 \@writefile{lopytx}{\addvspace {10\p@ }}
-\@writefile{toc}{\contentsline {chapter}{\numberline {2}Motivation und Problemstellung}{19}{chapter.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{\numberline {2}Motivation und Problemstellung}{12}{chapter.2}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \@writefile{lol}{\addvspace {10\p@ }}
 \@writefile{lopytx}{\addvspace {10\p@ }}
-\@writefile{toc}{\contentsline {section}{\numberline {2.1}Ablauf}{19}{section.2.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {chapter}{\numberline {3}Aufgabenstellung}{21}{chapter.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {2.1}Ablauf}{12}{section.2.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{\numberline {3}Aufgabenstellung}{14}{chapter.3}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \@writefile{lol}{\addvspace {10\p@ }}
 \@writefile{lopytx}{\addvspace {10\p@ }}
-\@writefile{toc}{\contentsline {section}{\numberline {3.1}Rahmenbedingungen}{21}{section.3.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {3.2}Anforderungen an die Lösung}{22}{section.3.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {chapter}{\numberline {4}Grundlagen}{23}{chapter.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {3.1}Rahmenbedingungen}{14}{section.3.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {3.2}Anforderungen an die Lösung}{15}{section.3.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{\numberline {4}Grundlagen}{16}{chapter.4}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \@writefile{lol}{\addvspace {10\p@ }}
 \@writefile{lopytx}{\addvspace {10\p@ }}
-\@writefile{toc}{\contentsline {section}{\numberline {4.1}Eingebettete Systeme}{23}{section.4.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{\nonumberline Definition:}{23}{paragraph*.9}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {4.2}Begriffe und Erklärungen}{24}{section.4.2}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {4.1}{\ignorespaces Ausschnitt einer Liste von verfügbaren Generatoren.}}{27}{figure.caption.21}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {4.3}Hintergrundwissen}{28}{section.4.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {chapter}{\numberline {5}Stand der Technik}{29}{chapter.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {4.1}Eingebettete Systeme}{16}{section.4.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{\nonumberline Definition:}{16}{paragraph*.10}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {4.2}Begriffe und Erklärungen}{17}{section.4.2}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {4.1}{\ignorespaces Ausschnitt einer Liste von verfügbaren Generatoren.}}{20}{figure.caption.22}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {4.3}Hintergrundwissen}{21}{section.4.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{\numberline {5}Stand der Technik}{22}{chapter.5}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \@writefile{lol}{\addvspace {10\p@ }}
 \@writefile{lopytx}{\addvspace {10\p@ }}
-\@writefile{toc}{\contentsline {section}{\numberline {5.1}Recherche}{29}{section.5.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {5.2}Bewertung der Alternativlösungen}{30}{section.5.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.2.1}STM32Cube}{30}{subsection.5.2.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{\nonumberline STMCUFinder}{30}{paragraph*.24}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{\nonumberline STM32CubeMX}{30}{paragraph*.26}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{\nonumberline STM32CubeIDE}{30}{paragraph*.28}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.2.2}mcu-cpp}{30}{subsection.5.2.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.2.3}modm}{31}{subsection.5.2.3}\protected@file@percent }
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {5.1}{\ignorespaces Konsolenbefehl um verf\"ugbare Module aufgelistet zu bekommen; hier f\"ur den STM32C031C6T6 Mikrokontroller.}}{31}{lstlisting.5.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {5.3}Abgrenzung des eigenen Ansatzes}{32}{section.5.3}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {5.1}{\ignorespaces Register beim setzen des Pin.}}{34}{figure.caption.29}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {5.2}{\ignorespaces Register beim zurücksetzen des Pin.}}{35}{figure.caption.30}\protected@file@percent }
-\@writefile{toc}{\contentsline {chapter}{\numberline {6}Umsetzung}{37}{chapter.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5.1}Recherche}{22}{section.5.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5.2}Bewertung der Alternativlösungen}{23}{section.5.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2.1}STM32Cube}{23}{subsection.5.2.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{\nonumberline STMCUFinder}{23}{paragraph*.25}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{\nonumberline STM32CubeMX}{23}{paragraph*.27}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{\nonumberline STM32CubeIDE}{23}{paragraph*.29}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2.2}mcu-cpp}{23}{subsection.5.2.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2.3}modm}{24}{subsection.5.2.3}\protected@file@percent }
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {5.1}{\ignorespaces Konsolenbefehl um verf\"ugbare Module aufgelistet zu bekommen; hier f\"ur den STM32C031C6T6 Mikrokontroller.}}{24}{lstlisting.5.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5.3}Abgrenzung des eigenen Ansatzes}{25}{section.5.3}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {5.1}{\ignorespaces Register beim setzen des Pin.}}{27}{figure.caption.30}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {5.2}{\ignorespaces Register beim zurücksetzen des Pin.}}{28}{figure.caption.31}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{\numberline {6}Umsetzung}{29}{chapter.6}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \@writefile{lol}{\addvspace {10\p@ }}
 \@writefile{lopytx}{\addvspace {10\p@ }}
-\@writefile{toc}{\contentsline {section}{\numberline {6.1}Anforderungsanalyse}{37}{section.6.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {6.2}Ansatz}{37}{section.6.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {6.3}Einstellungen pro MCU}{37}{section.6.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.3.1}STM32C031C6}{37}{subsection.6.3.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.3.2}STM32G071RB}{38}{subsection.6.3.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.3.3}STM32G0B1RE}{38}{subsection.6.3.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {6.4}Architektonische Eigenschaften die Treiber-API}{38}{section.6.4}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {6.1}{\ignorespaces Teilbereiche architektonischer Eigenschaften}}{39}{table.caption.31}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {6.1}Anforderungsanalyse}{29}{section.6.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {6.2}Ansatz}{29}{section.6.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {6.3}Einstellungen pro MCU}{29}{section.6.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.3.1}STM32C031C6}{29}{subsection.6.3.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.3.2}STM32G071RB}{30}{subsection.6.3.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.3.3}STM32G0B1RE}{30}{subsection.6.3.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {6.4}Architektonische Eigenschaften die Treiber-API}{30}{section.6.4}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {6.1}{\ignorespaces Teilbereiche architektonischer Eigenschaften}}{31}{table.caption.32}\protected@file@percent }
 \@writefile{toc}{\providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file }
 \@writefile{lof}{\providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file }
 \@writefile{lot}{\providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file }

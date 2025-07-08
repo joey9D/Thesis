@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.15)  8 JUL 2025 09:00
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.15)  8 JUL 2025 09:53
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -56,6 +56,12 @@ Package: tocbasic 2024/10/24 v3.43 KOMA-Script package (handling toc-files)
 Package tocbasic Info: omitting babel extension for `toc'
 (tocbasic)             because of feature `nobabel' available
 (tocbasic)             for `toc' on input line 137.
+Class scrbook Info: You've used standard option `oneside'.
+(scrbook)           This is correct!
+(scrbook)           Internally I'm using `twoside=false'.
+(scrbook)           If you'd like to set the option with \KOMAoptions,
+(scrbook)           you'd have to use `twoside=false' there
+(scrbook)           instead of `oneside', too.
 Class scrbook Info: File `scrsize11pt.clo' used instead of
 (scrbook)           file `scrsize11.clo' to setup font sizes on input line 2716.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/koma-script/scrsize11pt.clo
@@ -70,6 +76,12 @@ Package typearea Info: You've used standard option `a4paper'.
 (typearea)             If you'd like to set the option with \KOMAoptions,
 (typearea)             you'd have to use `paper=a4' there
 (typearea)             instead of `a4paper', too.
+Package typearea Info: You've used standard option `oneside'.
+(typearea)             This is correct!
+(typearea)             Internally I'm using `twoside=false'.
+(typearea)             If you'd like to set the option with \KOMAoptions,
+(typearea)             you'd have to use `twoside=false' there
+(typearea)             instead of `oneside', too.
 \ta@hblk=\skip51
 \ta@vblk=\skip52
 \ta@temp=\skip53
@@ -80,8 +92,8 @@ Package typearea Info: These are the values describing the layout:
 (typearea)             \paperwidth      = 597.50793pt
 (typearea)              \textwidth      = 418.25555pt
 (typearea)              DIV departure   = -6%
-(typearea)              \evensidemargin = 47.2316pt
-(typearea)              \oddsidemargin  = -12.5192pt
+(typearea)              \evensidemargin = 17.3562pt
+(typearea)              \oddsidemargin  = 17.3562pt
 (typearea)             \paperheight     = 845.04694pt
 (typearea)              \textheight     = 595.80026pt
 (typearea)              \topmargin      = -25.16531pt
@@ -1937,12 +1949,12 @@ Package: framed 2011/10/22 v 0.96: framed or shaded text with page breaks
 \FrameRule=\dimen389
 \FrameSep=\dimen390
 ))) (./glossar.tex)
-LaTeX Font Info:    Trying to load font information for T1+ntxtlf on input line 13.
+LaTeX Font Info:    Trying to load font information for T1+ntxtlf on input line 14.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/newtx/t1ntxtlf.fd
 File: t1ntxtlf.fd 2021/05/24 v1.1 font definition file for T1/ntx/tlf
 )
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 10.95pt on input line 13.
+(Font)              scaled to size 10.95pt on input line 14.
 Package csquotes Info: Checking for multilingual support...
 Package csquotes Info: ... found 'babel' package.
 Package csquotes Info: Adjusting default style.
@@ -1960,52 +1972,52 @@ Package lscapeenhanced Info: \landscape patched to make \textheight change optio
 )
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/ntxmi/m/it on input line 13.
-LaTeX Font Info:    Trying to load font information for OML+ntxmi on input line 13.
+LaTeX Font Info:    Checking defaults for OML/ntxmi/m/it on input line 14.
+LaTeX Font Info:    Trying to load font information for OML+ntxmi on input line 14.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/newtx/omlntxmi.fd
 File: omlntxmi.fd 2015/08/25 Fontinst v1.933 font definitions for OML/ntxmi.
 )
-LaTeX Font Info:    ... okay on input line 13.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 13.
-LaTeX Font Info:    ... okay on input line 13.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 13.
-LaTeX Font Info:    ... okay on input line 13.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 13.
-LaTeX Font Info:    ... okay on input line 13.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 13.
-LaTeX Font Info:    ... okay on input line 13.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 13.
-LaTeX Font Info:    ... okay on input line 13.
-LaTeX Font Info:    Checking defaults for U/ntxexa/m/n on input line 13.
-LaTeX Font Info:    Trying to load font information for U+ntxexa on input line 13.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for U/ntxexa/m/n on input line 14.
+LaTeX Font Info:    Trying to load font information for U+ntxexa on input line 14.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/newtx/untxexa.fd
 File: untxexa.fd 2012/04/16 Fontinst v1.933 font definitions for U/ntxexa.
 )
-LaTeX Font Info:    ... okay on input line 13.
-LaTeX Font Info:    Checking defaults for LMS/ntxsy/m/n on input line 13.
-LaTeX Font Info:    Trying to load font information for LMS+ntxsy on input line 13.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for LMS/ntxsy/m/n on input line 14.
+LaTeX Font Info:    Trying to load font information for LMS+ntxsy on input line 14.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/newtx/lmsntxsy.fd
 File: lmsntxsy.fd 2016/07/02 Fontinst v1.933 font definitions for LMS/ntxsy.
 )
-LaTeX Font Info:    ... okay on input line 13.
-LaTeX Font Info:    Checking defaults for LMX/ntxexx/m/n on input line 13.
-LaTeX Font Info:    Trying to load font information for LMX+ntxexx on input line 13.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for LMX/ntxexx/m/n on input line 14.
+LaTeX Font Info:    Trying to load font information for LMX+ntxexx on input line 14.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/newtx/lmxntxexx.fd
 File: lmxntxexx.fd 2016/07/03 Fontinst v1.933 font definitions for LMX/ntxexx.
 )
-LaTeX Font Info:    ... okay on input line 13.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 13.
-LaTeX Font Info:    ... okay on input line 13.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 13.
-LaTeX Font Info:    ... okay on input line 13.
-Package nag Info: pgf.sty is broken: disabling dollar check on input line 13.
-Package nag Info: Command \bf not defined, skipping amendment on input line 13.
-Package nag Info: Command \it not defined, skipping amendment on input line 13.
-Package nag Info: Command \rm not defined, skipping amendment on input line 13.
-Package nag Info: Command \sc not defined, skipping amendment on input line 13.
-Package nag Info: Command \sf not defined, skipping amendment on input line 13.
-Package nag Info: Command \sl not defined, skipping amendment on input line 13.
-Package nag Info: Command \tt not defined, skipping amendment on input line 13.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+Package nag Info: pgf.sty is broken: disabling dollar check on input line 14.
+Package nag Info: Command \bf not defined, skipping amendment on input line 14.
+Package nag Info: Command \it not defined, skipping amendment on input line 14.
+Package nag Info: Command \rm not defined, skipping amendment on input line 14.
+Package nag Info: Command \sc not defined, skipping amendment on input line 14.
+Package nag Info: Command \sf not defined, skipping amendment on input line 14.
+Package nag Info: Command \sl not defined, skipping amendment on input line 14.
+Package nag Info: Command \tt not defined, skipping amendment on input line 14.
  (/usr/local/texlive/2025/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count652
@@ -2022,25 +2034,25 @@ Package nag Info: Command \tt not defined, skipping amendment on input line 13.
 )
 \c@mv@tabular=\count658
 \c@mv@boldtabular=\count659
-LaTeX Info: Command `\dddot' is already robust on input line 13.
-LaTeX Info: Command `\ddddot' is already robust on input line 13.
+LaTeX Info: Command `\dddot' is already robust on input line 14.
+LaTeX Info: Command `\ddddot' is already robust on input line 14.
 Package microtype Info: Patching varwidth to enable character protrusion.
 \MT@vwid@leftmargin=\dimen393
 \MT@vwid@rightmargin=\dimen394
-LaTeX Info: Redefining \microtypecontext on input line 13.
-Package microtype Info: Applying patch `item' on input line 13.
-Package microtype Info: Applying patch `toc' on input line 13.
-Package microtype Info: Applying patch `eqnum' on input line 13.
-Package microtype Info: Applying patch `footnote' on input line 13.
-Package microtype Info: Applying patch `verbatim' on input line 13.
-LaTeX Info: Redefining \microtypesetup on input line 13.
+LaTeX Info: Redefining \microtypecontext on input line 14.
+Package microtype Info: Applying patch `item' on input line 14.
+Package microtype Info: Applying patch `toc' on input line 14.
+Package microtype Info: Applying patch `eqnum' on input line 14.
+Package microtype Info: Applying patch `footnote' on input line 14.
+Package microtype Info: Applying patch `verbatim' on input line 14.
+LaTeX Info: Redefining \microtypesetup on input line 14.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using protrusion set `alltext-nott'.
 Package microtype Info: Automatic font expansion enabled (level 2),
 (microtype)             stretch: 20, shrink: 20, step: 1, non-selected.
 Package microtype Info: Using expansion set `alltext'.
-LaTeX Info: Redefining \showhyphens on input line 13.
+LaTeX Info: Redefining \showhyphens on input line 14.
 Package microtype Info: No adjustment of tracking.
 Package microtype Info: No adjustment of interword spacing.
 Package microtype Info: No adjustment of character kerning.
@@ -2048,17 +2060,17 @@ Package microtype Info: Redefining babel's language switching commands.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/microtype/mt-ptm.cfg
 File: mt-ptm.cfg 2006/04/20 v1.7 microtype config. file: Times (RS)
 )
-Package scrwfile Info: Using immediate redefinition of `\@starttoc' on input line 13.
-Package scrwfile Info: Extending `\@starttoc`  on input line 13.
+Package scrwfile Info: Using immediate redefinition of `\@starttoc' on input line 14.
+Package scrwfile Info: Extending `\@starttoc`  on input line 14.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/translations/translations-basic-dictionary-german.trsl
 File: translations-basic-dictionary-german.trsl (german translation file `translations-basic-dictionary')
 )
-Package translations Info: loading dictionary `translations-basic-dictionary' for `german'. on input line 13.
+Package translations Info: loading dictionary `translations-basic-dictionary' for `german'. on input line 14.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/translations/translations-basic-dictionary-english.trsl
 File: translations-basic-dictionary-english.trsl (english translation file `translations-basic-dictionary')
 )
 \c@lstlisting=\count660
-Package tocbasic Info: setting babel extension for `lol' on input line 13.
+Package tocbasic Info: setting babel extension for `lol' on input line 14.
 \scr@dte@lstlisting@maxnumwidth=\skip268
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: float package is loaded.
@@ -2102,9 +2114,9 @@ Package biblatex Info: Automatic encoding selection.
 Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'main.bbl' found.
  (/Users/joey/Documents/Studium/8_Sem/Thesis/Thesis/.texpadtmp/main.bbl)
-Package biblatex Info: Reference section=0 on input line 13.
-Package biblatex Info: Reference segment=0 on input line 13.
-Package hyperref Info: Link coloring ON on input line 13.
+Package biblatex Info: Reference section=0 on input line 14.
+Package biblatex Info: Reference segment=0 on input line 14.
+Package hyperref Info: Link coloring ON on input line 14.
  (/Users/joey/Documents/Studium/8_Sem/Thesis/Thesis/.texpadtmp/main.out) (/Users/joey/Documents/Studium/8_Sem/Thesis/Thesis/.texpadtmp/main.out)
 \@outlinefile=\write8
 \openout8 = `main.out'.
@@ -2116,7 +2128,7 @@ Class scrbook Info: loading recommended package `bookmark'.
 (scrbook)           `bookmarkpackage=false' before \begin{document} and
 (scrbook)           you can avoid this message adding:
 (scrbook)             \usepackage{bookmark}
-(scrbook)           before \begin{document} on input line 13.
+(scrbook)           before \begin{document} on input line 14.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/bookmark/bookmark.sty
 Package: bookmark 2023-12-10 v1.31 PDF bookmarks (HO)
  (/usr/local/texlive/2025/texmf-dist/tex/latex/bookmark/bkm-pdftex.def
@@ -2130,7 +2142,7 @@ File: bkm-pdftex.def 2023-12-10 v1.31 bookmark driver for pdfTeX and luaTeX (HO)
 * paper: a4paper
 * layout: <same size as paper>
 * layoutoffset:(h,v)=(0.0pt,0.0pt)
-* modes: includehead includefoot twoside 
+* modes: includehead includefoot 
 * h-part:(L,W,R)=(85.35826pt, 426.79135pt, 85.35826pt)
 * v-part:(T,H,B)=(71.13188pt, 702.78308pt, 71.13188pt)
 * \paperwidth=597.50787pt
@@ -2152,8 +2164,8 @@ File: bkm-pdftex.def 2023-12-10 v1.31 bookmark driver for pdfTeX and luaTeX (HO)
 * \voffset=0.0pt
 * \mag=1000
 * \@twocolumnfalse
-* \@twosidetrue
-* \@mparswitchtrue
+* \@twosidefalse
+* \@mparswitchfalse
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
@@ -2167,11 +2179,11 @@ Package pgfplots notification 'compat/show suggested version=true': you might be
 Package newfloat Info: `float' package detected.
 No file pythontex-files-main/main.pytxmcr.
 Run PythonTeX to create it.
-Package newfloat Info: New float `listing' with options `fileext=lopytx' on input line 13.
+Package newfloat Info: New float `listing' with options `fileext=lopytx' on input line 14.
 \c@listing=\count662
-Package newfloat Info: float type `listing'=64 on input line 13.
-Package tocbasic Info: setting babel extension for `lopytx' on input line 13.
-Package caption Info: New subtype `sublisting' on input line 13.
+Package newfloat Info: float type `listing'=64 on input line 14.
+Package tocbasic Info: setting babel extension for `lopytx' on input line 14.
+Package caption Info: New subtype `sublisting' on input line 14.
 \c@sublisting=\count663
 (/usr/local/texlive/2025/texmf-dist/tex/latex/doctools/doctools.sty
 Package: doctools 2012/12/01 v0.1 commands and packages for documenting LaTeX Code
@@ -2194,86 +2206,86 @@ File: lstlang3.sty 2024/09/23 1.10c listings language file
 \c@file=\count667
 )
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 24.88pt on input line 19.
+(Font)              scaled to size 24.88pt on input line 20.
 LaTeX Font Info:    Font shape `T1/ntxtlf/b/n' will be
-(Font)              scaled to size 24.88pt on input line 19.
+(Font)              scaled to size 24.88pt on input line 20.
 LaTeX Font Info:    Font shape `T1/ntxtlf/b/n' will be
-(Font)              scaled to size 12.0pt on input line 19.
-LaTeX Font Info:    Trying to load font information for OT1+ppl on input line 59.
+(Font)              scaled to size 12.0pt on input line 20.
+LaTeX Font Info:    Trying to load font information for OT1+ppl on input line 60.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/psnfss/ot1ppl.fd
 File: ot1ppl.fd 2001/06/04 font definitions for OT1/ppl.
 )<<ot1.cmap>> (/usr/local/texlive/2025/texmf-dist/tex/latex/microtype/mt-ppl.cfg
 File: mt-ppl.cfg 2005/11/16 v1.6 microtype config. file: Palatino (RS)
 )
-LaTeX Font Info:    Trying to load font information for OML+zplm on input line 59.
+LaTeX Font Info:    Trying to load font information for OML+zplm on input line 60.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/psnfss/omlzplm.fd
 File: omlzplm.fd 2002/09/08 Fontinst v1.914 font definitions for OML/zplm.
 )<<oml.cmap>>
-LaTeX Font Info:    Trying to load font information for OMS+zplm on input line 59.
+LaTeX Font Info:    Trying to load font information for OMS+zplm on input line 60.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/psnfss/omszplm.fd
 File: omszplm.fd 2002/09/08 Fontinst v1.914 font definitions for OMS/zplm.
 )<<oms.cmap>>
-LaTeX Font Info:    Trying to load font information for OMX+zplm on input line 59.
+LaTeX Font Info:    Trying to load font information for OMX+zplm on input line 60.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/psnfss/omxzplm.fd
 File: omxzplm.fd 2002/09/08 Fontinst v1.914 font definitions for OMX/zplm.
 )<<omx.cmap>>
-LaTeX Font Info:    Trying to load font information for U+ntxmia on input line 59.
+LaTeX Font Info:    Trying to load font information for U+ntxmia on input line 60.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/newtx/untxmia.fd
 File: untxmia.fd 2024/04/09 Fontinst v1.933 font definitions for U/ntxmia.
 )
 LaTeX Font Info:    Font shape `U/ntxmia/m/it' will be
-(Font)              scaled to size 10.95pt on input line 59.
+(Font)              scaled to size 10.95pt on input line 60.
 LaTeX Font Info:    Font shape `U/ntxmia/m/it' will be
-(Font)              scaled to size 8.0pt on input line 59.
+(Font)              scaled to size 8.0pt on input line 60.
 LaTeX Font Info:    Font shape `U/ntxmia/m/it' will be
-(Font)              scaled to size 6.0pt on input line 59.
-LaTeX Font Info:    Trying to load font information for U+ntxsym on input line 59.
+(Font)              scaled to size 6.0pt on input line 60.
+LaTeX Font Info:    Trying to load font information for U+ntxsym on input line 60.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/newtx/untxsym.fd
 File: untxsym.fd 2023/08/16 Fontinst v1.933 font definitions for U/ntxsym.
 )
 LaTeX Font Info:    Font shape `U/ntxsym/m/n' will be
-(Font)              scaled to size 10.95pt on input line 59.
+(Font)              scaled to size 10.95pt on input line 60.
 LaTeX Font Info:    Font shape `U/ntxsym/m/n' will be
-(Font)              scaled to size 8.0pt on input line 59.
+(Font)              scaled to size 8.0pt on input line 60.
 LaTeX Font Info:    Font shape `U/ntxsym/m/n' will be
-(Font)              scaled to size 6.0pt on input line 59.
-LaTeX Font Info:    Trying to load font information for U+ntxsyc on input line 59.
+(Font)              scaled to size 6.0pt on input line 60.
+LaTeX Font Info:    Trying to load font information for U+ntxsyc on input line 60.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/newtx/untxsyc.fd
 File: untxsyc.fd 2012/04/12 Fontinst v1.933 font definitions for U/ntxsyc.
 )
 LaTeX Font Info:    Font shape `U/ntxsyc/m/n' will be
-(Font)              scaled to size 10.95pt on input line 59.
+(Font)              scaled to size 10.95pt on input line 60.
 LaTeX Font Info:    Font shape `U/ntxsyc/m/n' will be
-(Font)              scaled to size 8.0pt on input line 59.
+(Font)              scaled to size 8.0pt on input line 60.
 LaTeX Font Info:    Font shape `U/ntxsyc/m/n' will be
-(Font)              scaled to size 6.0pt on input line 59.
+(Font)              scaled to size 6.0pt on input line 60.
 LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
-(Font)              scaled to size 10.95pt on input line 59.
+(Font)              scaled to size 10.95pt on input line 60.
 LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
-(Font)              scaled to size 8.0pt on input line 59.
+(Font)              scaled to size 8.0pt on input line 60.
 LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
-(Font)              scaled to size 6.0pt on input line 59.
-LaTeX Font Info:    Trying to load font information for OT1+zplm on input line 59.
+(Font)              scaled to size 6.0pt on input line 60.
+LaTeX Font Info:    Trying to load font information for OT1+zplm on input line 60.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/psnfss/ot1zplm.fd
 File: ot1zplm.fd 2002/09/08 Fontinst v1.914 font definitions for OT1/zplm.
 )
 Package microtype Info: Fixing zero \fontdimen 6 for font `U/MnSymbolC/m/n/10.95'
-(microtype)             (new value: 10.95pt) on input line 59.
+(microtype)             (new value: 10.95pt) on input line 60.
 Package microtype Info: Fixing zero \fontdimen 6 for font `U/MnSymbolC/m/n/8'
-(microtype)             (new value: 8.0pt) on input line 59.
+(microtype)             (new value: 8.0pt) on input line 60.
 Package microtype Info: Fixing zero \fontdimen 6 for font `U/MnSymbolC/m/n/6'
-(microtype)             (new value: 6.0pt) on input line 59.
+(microtype)             (new value: 6.0pt) on input line 60.
 <Pics/logoHsAS.png, id=12, 333.245pt x 84.315pt>
 File: Pics/logoHsAS.png Graphic file (type png)
 <use Pics/logoHsAS.png>
-Package pdftex.def Info: Pics/logoHsAS.png  used on input line 60.
+Package pdftex.def Info: Pics/logoHsAS.png  used on input line 61.
 (pdftex.def)             Requested size: 213.39568pt x 53.99228pt.
 File: Pics/logoHsAS.png Graphic file (type png)
 <use Pics/logoHsAS.png>
-Package pdftex.def Info: Pics/logoHsAS.png  used on input line 62.
+Package pdftex.def Info: Pics/logoHsAS.png  used on input line 63.
 (pdftex.def)             Requested size: 213.39568pt x 53.99228pt.
 
-Overfull \hbox (34.95003pt too wide) in paragraph at lines 59--64
+Overfull \hbox (34.95003pt too wide) in paragraph at lines 60--65
 [][] 
  []
 
@@ -2284,25 +2296,20 @@ Overfull \hbox (34.95003pt too wide) in paragraph at lines 59--64
 
 
 {/usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/newtx/ntx-ec-tlf.enc} <./Pics/logoHsAS.png>]
-
-[2
-
-
-]
-LaTeX Font Info:    Trying to load font information for T1+qhv on input line 69.
+LaTeX Font Info:    Trying to load font information for T1+qhv on input line 70.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/tex-gyre/t1qhv.fd
 File: t1qhv.fd 2009/09/25 v1.2 font definition file for T1/qhv
 )
 LaTeX Font Info:    Font shape `T1/qhv/m/n' will be
-(Font)              scaled to size 10.29301pt on input line 69.
+(Font)              scaled to size 10.29301pt on input line 70.
 Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `qhv' (encoding: T1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
 LaTeX Font Info:    Font shape `T1/qhv/b/n' will be
-(Font)              scaled to size 10.29301pt on input line 69.
+(Font)              scaled to size 10.29301pt on input line 70.
 LaTeX Font Info:    Font shape `T1/qhv/b/n' will be
-(Font)              scaled to size 19.49565pt on input line 69.
+(Font)              scaled to size 19.49565pt on input line 70.
  (./eigenstaendigkeits_erklaering.tex
 LaTeX Font Info:    Trying to load font information for TS1+ntxtlf on input line 4.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/newtx/ts1ntxtlf.fd
@@ -2312,26 +2319,41 @@ LaTeX Font Info:    Font shape `TS1/ntxtlf/m/n' will be
 (Font)              scaled to size 10.95pt on input line 4.
 ) (./abstract.tex
 
-[3{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/tex-gyre/q-ec.enc}{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/tex-gyre/q-ts1.enc}]
-
-[4
+[2
 
 
-]
+{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/tex-gyre/q-ec.enc}{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/tex-gyre/q-ts1.enc}]
 LaTeX Font Info:    Font shape `T1/ntxtlf/b/n' will be
 (Font)              scaled to size 10.95pt on input line 1.
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/it' will be
 (Font)              scaled to size 10.95pt on input line 1.
 
 
-[5]
+[3
+
+
+])
+
+[4
+
+
+] (./vorwort.tex)
+
+[5
+
+
+]
+Package tocbasic Info: character protrusion at toc deactivated on input line 78.
+ (/Users/joey/Documents/Studium/8_Sem/Thesis/Thesis/.texpadtmp/main.toc
+Package cleveref Info: loaded `ngerman' language definitions on input line 1.
+)
 
 [6
 
 
-])
-Package tocbasic Info: character protrusion at toc deactivated on input line 74.
- (/Users/joey/Documents/Studium/8_Sem/Thesis/Thesis/.texpadtmp/main.toc
+]
+Package tocbasic Info: character protrusion at lof deactivated on input line 79.
+ (/Users/joey/Documents/Studium/8_Sem/Thesis/Thesis/.texpadtmp/main.lof
 Package cleveref Info: loaded `ngerman' language definitions on input line 1.
 )
 
@@ -2339,34 +2361,16 @@ Package cleveref Info: loaded `ngerman' language definitions on input line 1.
 
 
 ]
+Package tocbasic Info: character protrusion at lot deactivated on input line 81.
+ (/Users/joey/Documents/Studium/8_Sem/Thesis/Thesis/.texpadtmp/main.lot
+Package cleveref Info: loaded `ngerman' language definitions on input line 1.
+)
 
 [8
 
 
 ]
-Package tocbasic Info: character protrusion at lof deactivated on input line 75.
- (/Users/joey/Documents/Studium/8_Sem/Thesis/Thesis/.texpadtmp/main.lof
-Package cleveref Info: loaded `ngerman' language definitions on input line 1.
-)
-
-[9]
-
-[10
-
-
-]
-Package tocbasic Info: character protrusion at lot deactivated on input line 77.
- (/Users/joey/Documents/Studium/8_Sem/Thesis/Thesis/.texpadtmp/main.lot
-Package cleveref Info: loaded `ngerman' language definitions on input line 1.
-)
-
-[11]
-
-[12
-
-
-]
-Package tocbasic Info: character protrusion at lol deactivated on input line 79.
+Package tocbasic Info: character protrusion at lol deactivated on input line 83.
  (/Users/joey/Documents/Studium/8_Sem/Thesis/Thesis/.texpadtmp/main.lol
 Package cleveref Info: loaded `ngerman' language definitions on input line 1.
 )
@@ -2376,28 +2380,21 @@ Package glossaries Info: Preparing to sort glossary `acronym' (total number of
 
 
 
-[13]
-
-[14
+[9
 
 
 ]
 
-[15
+[10
 
 
-]
-
-[16
 
 
 ]
 chapter 1.
 (./chap1_introduction.tex)
 
-[17]
-
-[18
+[11
 
 
 ]
@@ -2407,10 +2404,14 @@ LaTeX Font Info:    Font shape `T1/qhv/b/n' will be
 (Font)              scaled to size 13.53603pt on input line 38.
 
 
-[19])
+[12
 
-Package cleveref Info: loaded `ngerman' language definitions on input line 94.
-[20]
+
+])
+
+Package cleveref Info: loaded `ngerman' language definitions on input line 98.
+Package cleveref Info: loaded `ngerman' language definitions on input line 98.
+[13]
 chapter 3.
 (./chap3_aufgabenstellung.tex
 Underfull \hbox (badness 10000) in paragraph at lines 1--13
@@ -2419,17 +2420,18 @@ Underfull \hbox (badness 10000) in paragraph at lines 1--13
 
 
 
-[21
+[14
 
 
 ])
 
-Package cleveref Info: loaded `ngerman' language definitions on input line 98.
-[22]
+Package cleveref Info: loaded `ngerman' language definitions on input line 102.
+Package cleveref Info: loaded `ngerman' language definitions on input line 102.
+[15]
 chapter 4.
 (./chap4_grundlagen.tex
 
-[23
+[16
 
 
 ]
@@ -2438,20 +2440,23 @@ LaTeX Font Info:    Font shape `T1/qhv/b/n' will be
 
 
 Package cleveref Info: loaded `ngerman' language definitions on input line 72.
-[24{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/base/8r.enc}]
+Package cleveref Info: loaded `ngerman' language definitions on input line 72.
+[17{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/base/8r.enc}]
 
 Package cleveref Info: loaded `ngerman' language definitions on input line 105.
-[25]
+Package cleveref Info: loaded `ngerman' language definitions on input line 105.
+[18]
 
 Package cleveref Info: loaded `ngerman' language definitions on input line 134.
-[26]
+Package cleveref Info: loaded `ngerman' language definitions on input line 134.
+[19]
 LaTeX Font Info:    Trying to load font information for T1+zi4 on input line 145.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/inconsolata/t1zi4.fd
 File: t1zi4.fd 2018/01/14 T1/zi4 (Inconsolata)
 )
 LaTeX Font Info:    Font shape `T1/zi4/m/n' will be
 (Font)              scaled to size 9.85492pt on input line 145.
-<Pics/cmake_generators.png, id=288, 614.295pt x 141.52875pt>
+<Pics/cmake_generators.png, id=259, 614.295pt x 141.52875pt>
 File: Pics/cmake_generators.png Graphic file (type png)
 <use Pics/cmake_generators.png>
 Package pdftex.def Info: Pics/cmake_generators.png  used on input line 163.
@@ -2459,10 +2464,12 @@ Package pdftex.def Info: Pics/cmake_generators.png  used on input line 163.
 
 
 Package cleveref Info: loaded `ngerman' language definitions on input line 180.
-[27{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/inconsolata/i4-t1-1.enc} <./Pics/cmake_generators.png>])
+Package cleveref Info: loaded `ngerman' language definitions on input line 180.
+[20{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/inconsolata/i4-t1-1.enc} <./Pics/cmake_generators.png>])
 
-Package cleveref Info: loaded `ngerman' language definitions on input line 102.
-[28]
+Package cleveref Info: loaded `ngerman' language definitions on input line 106.
+Package cleveref Info: loaded `ngerman' language definitions on input line 106.
+[21]
 chapter 5.
 (./chap5_stand_der_technik.tex
 Underfull \hbox (badness 10000) in paragraph at lines 20--31
@@ -2471,7 +2478,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 20--31
 
 
 
-[29
+[22
 
 
 ]
@@ -2482,7 +2489,8 @@ Underfull \hbox (badness 10000) in paragraph at lines 49--58
 
 
 Package cleveref Info: loaded `ngerman' language definitions on input line 83.
-[30] (/usr/local/texlive/2025/texmf-dist/tex/latex/listings/lstlang1.sty
+Package cleveref Info: loaded `ngerman' language definitions on input line 83.
+[23] (/usr/local/texlive/2025/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2024/09/23 1.10c listings language file
 ) (/usr/local/texlive/2025/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2024/09/23 1.10c listings language file
@@ -2497,7 +2505,8 @@ File: latin1.def 2024/02/08 v1.3d Input encoding file
 )
 
 Package cleveref Info: loaded `ngerman' language definitions on input line 127.
-[31]
+Package cleveref Info: loaded `ngerman' language definitions on input line 127.
+[24]
 Underfull \hbox (badness 10000) in paragraph at lines 138--143
 
  []
@@ -2505,7 +2514,8 @@ Underfull \hbox (badness 10000) in paragraph at lines 138--143
 
 
 Package cleveref Info: loaded `ngerman' language definitions on input line 156.
-[32]
+Package cleveref Info: loaded `ngerman' language definitions on input line 156.
+[25]
 Underfull \hbox (badness 10000) in paragraph at lines 168--170
 
  []
@@ -2515,7 +2525,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 171--173
 
  []
 
-<Pics/stm32_c031c6_clean_registers_setPin.PNG, id=330, 317.68687pt x 356.0803pt>
+<Pics/stm32_c031c6_clean_registers_setPin.PNG, id=302, 317.68687pt x 356.0803pt>
 File: Pics/stm32_c031c6_clean_registers_setPin.PNG Graphic file (type png)
 <use Pics/stm32_c031c6_clean_registers_setPin.PNG>
 Package pdftex.def Info: Pics/stm32_c031c6_clean_registers_setPin.PNG  used on input line 176.
@@ -2523,10 +2533,11 @@ Package pdftex.def Info: Pics/stm32_c031c6_clean_registers_setPin.PNG  used on i
 
 
 Package cleveref Info: loaded `ngerman' language definitions on input line 180.
-[33
+Package cleveref Info: loaded `ngerman' language definitions on input line 180.
+[26
 
 ]
-<Pics/stm32_c031c6_clean_registers_resetPin.PNG, id=335, 315.42844pt x 356.83313pt>
+<Pics/stm32_c031c6_clean_registers_resetPin.PNG, id=307, 315.42844pt x 356.83313pt>
 File: Pics/stm32_c031c6_clean_registers_resetPin.PNG Graphic file (type png)
 <use Pics/stm32_c031c6_clean_registers_resetPin.PNG>
 Package pdftex.def Info: Pics/stm32_c031c6_clean_registers_resetPin.PNG  used on input line 183.
@@ -2534,15 +2545,12 @@ Package pdftex.def Info: Pics/stm32_c031c6_clean_registers_resetPin.PNG  used on
 
 
 Package cleveref Info: loaded `ngerman' language definitions on input line 187.
-[34 <./Pics/stm32_c031c6_clean_registers_setPin.PNG>])
+Package cleveref Info: loaded `ngerman' language definitions on input line 187.
+[27 <./Pics/stm32_c031c6_clean_registers_setPin.PNG>])
 
-Package cleveref Info: loaded `ngerman' language definitions on input line 106.
-[35 <./Pics/stm32_c031c6_clean_registers_resetPin.PNG>]
-
-[36
-
-
-]
+Package cleveref Info: loaded `ngerman' language definitions on input line 110.
+Package cleveref Info: loaded `ngerman' language definitions on input line 110.
+[28 <./Pics/stm32_c031c6_clean_registers_resetPin.PNG>]
 chapter 6.
 (./chap6_umsetzung.tex
 Package csquotes Info: Input encoding change on input line 53.
@@ -2550,7 +2558,10 @@ Package csquotes Info: Input encoding change on input line 53.
 File: latin1.def 2024/02/08 v1.3d Input encoding file
 )
 
-[37]
+[29
+
+
+]
 Package csquotes Info: Input encoding change on input line 70.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/base/latin1.def
 File: latin1.def 2024/02/08 v1.3d Input encoding file
@@ -2566,12 +2577,14 @@ Package nag Warning: `center' environment in table.
 
 
 Package cleveref Info: loaded `ngerman' language definitions on input line 123.
-[38]
+Package cleveref Info: loaded `ngerman' language definitions on input line 123.
+[30]
 
 Package cleveref Info: loaded `ngerman' language definitions on input line 172.
-[39])
+Package cleveref Info: loaded `ngerman' language definitions on input line 172.
+[31])
 
-LaTeX Warning: Empty bibliography on input line 120.
+LaTeX Warning: Empty bibliography on input line 124.
 
 \tf@thm=\write9
 \openout9 = `main.thm'.
@@ -2581,8 +2594,9 @@ Package nag Warning: 1 complaints in total.
 
 
 
-Package cleveref Info: loaded `ngerman' language definitions on input line 122.
-[40]
+Package cleveref Info: loaded `ngerman' language definitions on input line 126.
+Package cleveref Info: loaded `ngerman' language definitions on input line 126.
+[32]
 \openout2 = `main.wrt'.
 
  (/Users/joey/Documents/Studium/8_Sem/Thesis/Thesis/.texpadtmp/main.aux
@@ -2611,18 +2625,18 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 84187 strings out of 473190
- 1961563 string characters out of 5715800
- 3262329 words of memory out of 5000000
+ 84191 strings out of 473190
+ 1961640 string characters out of 5715800
+ 3262337 words of memory out of 5000000
  105752 multiletter control sequences out of 15000+600000
- 618347 words of font info for 209 fonts, out of 8000000 for 9000
+ 618891 words of font info for 213 fonts, out of 8000000 for 9000
  1143 hyphenation exceptions out of 8191
  108i,20n,120p,10917b,3211s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2025/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4r.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/tex-gyre/qhvb.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/tex-gyre/qhvr.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/tex-gyre/qtmr.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/newtx/ztmb.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/newtx/ztmr.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/newtx/ztmri.pfb>
-Output written on /Users/joey/Documents/Studium/8_Sem/Thesis/Thesis/.texpadtmp/main.pdf (40 pages, 326874 bytes).
+Output written on /Users/joey/Documents/Studium/8_Sem/Thesis/Thesis/.texpadtmp/main.pdf (32 pages, 326895 bytes).
 PDF statistics:
- 578 PDF objects out of 1000 (max. 8388607)
- 503 compressed objects within 6 object streams
- 148 named destinations out of 1000 (max. 500000)
+ 541 PDF objects out of 1000 (max. 8388607)
+ 475 compressed objects within 5 object streams
+ 141 named destinations out of 1000 (max. 500000)
  51485 words of extra memory for PDF output out of 51595 (max. 10000000)
 
