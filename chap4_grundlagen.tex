@@ -120,27 +120,15 @@ Dabei ist darauf zu achten, dass jeweils nur ein Slave die Kommunikation aktiv d
 Allerdings fehlen eine standardisierte Adressierung und Fehlerprüfung, was den Einsatz auf kurze Distanzen und überschaubare Topologien begrenzt. 
 
 
-%\begin{itemize}
-%	\item erleichtert die Kommunikation über kurze Entfernungen zwischen integrierten Peripherieschaltungen und Mikrocontrollern.
-%	\item synchrone serielle Kommunikation
-%	\item kann gleichzeitig Daten empfangen und senden
-%	\item erleichtert Voll-Duplex, synchrone serielle Kommunikation zwischen einem oder mehreren Slave-Geräten und einem Mikrokontroller
-%	\item hauptsächlich genutzt um MCU und Peripherie zu verbinden
-%	\item Master: meist MCU, kontrolliert den Datenfluss und generiert ein Taktsignal
-%	\item Slave: Peripheriegeräte; vom Master kontrolliert via slave select wann wer kommunizieren will
-%	\item SPI Bus: physikalische Verbindung über die der Datenaustausch stattfindet
-%	\item 4-wire: Slave/Chip Select, MOSI/COPI, MSIO/CIPO, Serial Clock
-%	\item Einfachheit, Hochgeschwindigkeitsfähigkeit und Flexibilität
-%	\item Master ist das Gerät, das das Taktsignal generiert
-%	\item 
-%\end{itemize}
-
-
 \subsubsection*{Universal Asynchronous Receiver Transmitter}
 Der \emph{Universal Asynchronous Receiver Transmitter} (UART) ist ein asynchrones Kommunikationsprotokoll, das insbesondere für die serielle Punkt-zu-Punkt-Kommunikation eingesetzt wird. 
 Das Gerät eignet sich für verschiedene Anwendungsbereiche, darunter das Debugging, der Anschluss von GPS-Modulen sowie die Kommunikation mit Computern über USB-zu-Seriell-Wandler. 
 UART zeichnet sich durch eine hohe Verbreitung aus und erfordert im Gegensatz zu SPI oder I2C keine zusätzliche Taktleitung.
 
+\begin{itemize}
+	\item s
+\end{itemize}
+ 
 \subsubsection*{Controller Area Network}
 Das \emph{Controller Area Network} (CAN) ist ein robustes, asynchrones Bussystem, das insbesondere in der Automobilindustrie eine weite Verbreitung findet. 
 Es ermöglicht eine zuverlässige Kommunikation zwischen mehreren Steuergeräten (Nodes), auch unter schwierigen elektromagnetischen Bedingungen. 
