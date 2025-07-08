@@ -14,6 +14,19 @@ $\rightarrow$ ein Klasse pro Funktion \\
 $\rightarrow$ Auswahl der Hardware muss vorher bestimmt werden $\rightarrow$ cmake target \\
 $\rightarrow$  
 
+\section{Ansatz}
+\begin{itemize}
+	\item Globales Interface
+	\item Verwendung von \texttt{namespaces}
+	\item HardwareInterface mit allen:
+	\begin{itemize}
+		\item vllt. Core: ClockInit, Delay, GetTick
+		\item Gpio
+		\item SPI
+		\item UART
+		\item CAN
+	\end{itemize}
+\end{itemize}
 
 
 \section{Einstellungen pro MCU}
@@ -35,6 +48,7 @@ $\rightarrow$
 %)
 %\end{lstlisting}
 
+% TODO: Kann eig. alles gelöscht werden.
 \subsection{STM32C031C6}
 \begin{lstlisting}
 add_compile_options(

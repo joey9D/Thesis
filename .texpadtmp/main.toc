@@ -24,11 +24,12 @@
 \contentsline {subsection}{\numberline {5.2.2}mcu-cpp}{28}{subsection.5.2.2}%
 \contentsline {subsection}{\numberline {5.2.3}modm}{29}{subsection.5.2.3}%
 \contentsline {section}{\numberline {5.3}Abgrenzung des eigenen Ansatzes}{30}{section.5.3}%
-\contentsline {chapter}{\numberline {6}Umsetzung}{33}{chapter.6}%
-\contentsline {section}{\numberline {6.1}Anforderungsanalyse}{33}{section.6.1}%
-\contentsline {section}{\numberline {6.2}Einstellungen pro MCU}{33}{section.6.2}%
-\contentsline {subsection}{\numberline {6.2.1}STM32C031C6}{33}{subsection.6.2.1}%
-\contentsline {subsection}{\numberline {6.2.2}STM32G071RB}{33}{subsection.6.2.2}%
-\contentsline {subsection}{\numberline {6.2.3}STM32G0B1RE}{34}{subsection.6.2.3}%
-\contentsline {section}{\numberline {6.3}Architektonische Eigenschaften die Treiber-API}{34}{section.6.3}%
+\contentsline {chapter}{\numberline {6}Umsetzung}{35}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Anforderungsanalyse}{35}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Ansatz}{35}{section.6.2}%
+\contentsline {section}{\numberline {6.3}Einstellungen pro MCU}{35}{section.6.3}%
+\contentsline {subsection}{\numberline {6.3.1}STM32C031C6}{35}{subsection.6.3.1}%
+\contentsline {subsection}{\numberline {6.3.2}STM32G071RB}{36}{subsection.6.3.2}%
+\contentsline {subsection}{\numberline {6.3.3}STM32G0B1RE}{36}{subsection.6.3.3}%
+\contentsline {section}{\numberline {6.4}Architektonische Eigenschaften die Treiber-API}{36}{section.6.4}%
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 
