@@ -10,8 +10,8 @@ Darauffolgend werden zentrale Begriffe und Konzepte erläutert, die in der Embed
 Darüber hinaus wird technisches Hintergrundwissen vermittelt, das für das Verständnis der späteren Implementierungsschritte und der Architekturentscheidungen von Relevanz ist.
 
 %Das Ziel dieses Kapitels besteht darin, eine solide Wissensbasis zu schaffen, auf der die Analyse bestehender Lösungen sowie die Entwicklung einer eigenen Treiber-API aufbauen können.
-
-\section{Eingebettete Systeme}
+\section{Hardware}
+\subsection{Eingebettete Systeme}
 Bevor auf die Entwicklung eingebetteter Systeme eingegangen werden kann, ist zunächst zu klären, worum es sich bei diesen Systemen handelt.
 Der Begriff \emph{Embedded System} (deutsch: eingebettetes System) bezeichnet ein Computersystem, das aus Hardware und Software besteht und fest in einen übergeordneten technischen Kontext integriert ist. 
 Typischerweise handelt es sich dabei um Maschinen, Geräte oder Anlagen, in denen das eingebettete System spezifische Steuerungs-, Regelungs- oder Datenverarbeitungsaufgaben übernimmt.
@@ -31,10 +31,7 @@ Register sind spezifische Speicherbereiche innerhalb des Mikrocontrollers, welch
 Durch das gezielte Setzen oder Auslesen einzelner Bits in diesen Registern ist es möglich, beispielsweise Sensorwerte zu erfassen (z. B. das Drücken eines Tasters) oder Ausgaben zu erzeugen (z. B. das Anzeigen eines Textes auf einem Display).
 
 
-
-\section{Begriffe und Erklärungen}
-
-\subsection*{Microprozessor Unit (MPU)}
+\subsection{Microprozessor Unit (MPU)}
 Ein Mikroprozessor ist ein vollständig auf einem einzigen integrierten Schaltkreis (Chip) realisierter Prozessor.
 Der Prozessor ist die zentrale Recheneinheit eines Computersystems.
 Seine Funktion umfasst die Ausführung von Befehlen sowie die Steuerung des Datenflusses innerhalb des Systems. 
@@ -48,7 +45,7 @@ Demgegenüber ist der Mikrocontroller für spezifische Steuerungsaufgaben mit in
 Der Mikroprozessor findet dagegen meist in leistungsfähigen, aber nicht auf eine konkrete Aufgabe spezialisierten Systemen Anwendung. 
 Insbesondere für allgemeine Rechenaufgaben, komplexe Betriebssysteme sowie Anwendungen mit hohem Ressourcenbedarf erweist sich dieser Prozessor als geeignet.
 
-\subsection*{Microcontroller Unit (MCU)}
+\subsection{Microcontroller Unit (MCU)}
 Ein Mikrocontroller ist ein vollständig auf einem einzigen Chip realisierter Mikrocomputer, der neben dem eigentlichen Prozessor (CPU) auch sämtliche für den Betrieb notwendigen Komponenten integriert. 
 Zu den Komponenten eines solchen Systems zählen in der Regel Programmspeicher (Flash), Datenspeicher (\gls{ram}), digitale Ein- und Ausgänge (\gls{gpio}), Timer, Kommunikationsschnittstellen (wie \gls{uart}, \gls{spi}, \gls{i2c}, \gls{can}) sowie in vielen Fällen analoge Peripheriekomponenten wie Analog/Digital-Wandler oder Pulsweitenmodulation-Einheiten.
 
@@ -63,7 +60,7 @@ Im Vergleich zu Mikroprozessoren sind für den Grundbetrieb von Mikrocontrollern
 %- Cortex Familie
 
 
-\subsection*{Register}
+\subsection{Register}
 \emph{Register} sind kleine, besonders schnell zugängliche Speicherzellen, die direkt im Prozessor untergebracht sind. 
 Im Gegensatz zu anderen Speicherformen, wie etwa RAM oder Flash, zeichnen sich Register durch extrem kurze Zugriffszeiten aus. 
 Dies ist darauf zurückzuführen, dass sie Teil des zentralen Rechenwerks sind. 
@@ -78,7 +75,7 @@ Die exakte Kenntnis über die Position und Signifikanz dieser Bits ist essenziel
 \\
 Register werden somit nicht nur für die interne Funktionsweise des Prozessors relevant, sondern bilden auch die Schnittstelle zwischen Software und Hardware. Es sei darauf hingewiesen, dass diese Elemente die Konfiguration, Steuerung und das Auslesen externer Peripheriekomponenten ermöglichen und somit das zentrale Element bei der Low-Level-Programmierung darstellen.
 
-\subsection*{Peripherie}
+\subsection{Peripherie}
 Unter dem Begriff der \emph{Peripherie} versteht man im Kontext der Embedded-Softwareentwicklung sämtliche Ein- und Ausgabeschnittstellen, die eine Interaktion des Mikrocontrollers mit seiner Umwelt ermöglichen.
 Peripheriegeräte stellen die Verbindung zwischen der digitalen Rechenlogik des Mikrokontrollers und der realen Welt her.
 Sie ermöglichen die Erfassung, Verarbeitung und Ausgabe physikalischer Signale wie Temperatur, Licht oder der Betätigung eines Tasters.
@@ -170,7 +167,12 @@ Ein Bit lässt sich in sogenannte Zeitquanten unterteilen.
 Diese sind in mehrere Segmente unterteilt, nämlich Synchronisation, Propagation, Phase 1 und Phase 2. 
 Der Abtastzeitpunkt befindet sich zwischen Phase 1 und Phase 2.
 
-\subsection*{Common Microcontroller Software Interface Standard (CMSIS)}
+
+\section{Software}
+
+\subsection{Application Programming Interface}
+
+\subsection{Common Microcontroller Software Interface Standard}
 Der \emph{Common Microcontroller Software Interface Standard} stellt einen von Arm entwickelten Industriestandard dar, der eine einheitliche Softwarearchitektur für Mikrocontroller auf Basis der Arm-Cortex-Prozessorfamilie bereitstellt.
 Der Begriff "CMSIS"  bezeichnet eine Sammlung von Schnittstellen, Softwarekomponenten, Header-Dateien, Entwicklungswerkzeugen und Workflows.
  Die Sammlung soll die Portabilität, Wiederverwendbarkeit und Effizienz im Bereich der Softwareentwicklung für eingebettete Systeme steigern.
@@ -189,7 +191,7 @@ Die Sammlung ist in mehrere Module unterteilt, darunter:
 Damit bildet CMSIS die Grundlage einer Vielzahl von Entwicklungsumgebungen, wie beispielsweise Keil MDK, STM32CubeIDE oder CMSIS-kompatibler CMake-basierter.
 
 
-\subsection*{Toolchain}
+\subsection{Toolchain}
 Der Begriff "Toolchain" bezeichnet eine Sammlung von aufeinander abgestimmten Softwarewerkzeugen, die gemeinsam zur Übersetzung, Verlinkung und Bereitstellung von lauffähiger Software auf einem Zielsystem verwendet werden. 
 Insbesondere in der Entwicklung von Embedded Systems spielt die Toolchain eine entscheidende Rolle im Entwicklungsprozess, da sie die Verbindung zwischen der Hochsprachenprogrammierung und der spezifischen Hardwareumgebung herstellt.
 
@@ -216,7 +218,7 @@ Ein verbreitetes Beispiel ist die GNU Arm Embedded Toolchain, die aus den Kompon
 
 
 
-\subsection*{CMake}
+\subsection{CMake}
 CMake ist ein plattformübergreifendes Open-Source-Werkzeug zur Automatisierung des Buildprozesses in der Softwareentwicklung
 Der sogenannte Metabuild-Generator (\autoref{fig:cmake_generators}) dient als eine Art universeller Konfigurator, der mithilfe Konfigurationsdateien, den \texttt{CMakeLists.txt}-Dateien, spezifische Build-Systeme für eine Vielzahl unterschiedlicher Plattformen und Entwicklungsumgebungen generiert.
 Unter diesen Build-Systemen finden sich beispielsweise Makefiles für Unix/Linux, Projektdateien für Visual Studio oder Xcode.
@@ -232,7 +234,7 @@ Diese Vorgehensweise trägt zur Schaffung einer übersichtlichen Projektstruktur
 Zusätlich fördert CMake die hierarchische Strukturierung von Projekten mittels der Implementierung von modularen CMakeLists.txt-Dateien in Unterverzeichnissen.
 Dieser Ansatz steigert die Wartbarkeit und Skalierbarkeit komplexer Softwareprojekte.
 
-\subsection*{Make und Makefiles}
+\subsection{Make und Makefiles}
 Make ist ein traditionelles Werkzeug zur Automatisierung von Build-Prozessen, das sogenannte Makefiles zur Steuerung dieser Prozesse einsetzt.
 Die Makefiles definieren Regeln, mit deren Hilfe der Quellcode, abhängig davon ob sich etwas im Code geändert hat, kompiliert und verlinkt wird.
 Make findet für gewöhnlich Anwendung in der direkten Steuerung von Kompilierungsprozessen.
