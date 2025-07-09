@@ -64,7 +64,7 @@ Im Vergleich zu Mikroprozessoren sind für den Grundbetrieb von Mikrocontrollern
 
 
 \subsection*{Register}
-Register sind kleine, besonders schnell zugängliche Speicherzellen, die direkt im Prozessor untergebracht sind. 
+\emph{Register} sind kleine, besonders schnell zugängliche Speicherzellen, die direkt im Prozessor untergebracht sind. 
 Im Gegensatz zu anderen Speicherformen, wie etwa RAM oder Flash, zeichnen sich Register durch extrem kurze Zugriffszeiten aus. 
 Dies ist darauf zurückzuführen, dass sie Teil des zentralen Rechenwerks sind. 
 Die Nähe zur Recheneinheit ist dabei von entscheidender Bedeutung, insbesondere für grundlegende Operationen wie das Zwischenspeichern von Werten, Adressen oder Zustandsinformationen während der Programmausführung.
@@ -143,7 +143,7 @@ Ein weiterer Vorteil von UART ist seine Einfachheit in Aufbau und Handhabung: Es
 Die Kommunikation ist prinzipiell auf zwei Geräte beschränkt (Punkt-zu-Punkt-Verbindung), da UART keine native Unterstützung für Bussysteme mit mehreren Teilnehmern bietet.
 
 \subsubsection*{Controller Area Network}
-Das \emph{Controller Area Network} (CAN) ist ein robustes, asynchrones Bussystem, das insbesondere in der Automobilindustrie eine weite Verbreitung findet. 
+Das \emph{Controller Area Network} (CAN) ist ein robustes, serielles, asynchrones Bussystem, das insbesondere in der Automobilindustrie eine weite Verbreitung findet. 
 Es ermöglicht eine zuverlässige Kommunikation zwischen mehreren Steuergeräten (Nodes), auch unter schwierigen elektromagnetischen Bedingungen. 
 Der Einsatz von CAN in sicherheitskritischen Anwendungen beruht auf zwei wesentlichen Eigenschaften: 
 \begin{itemize}
@@ -151,7 +151,24 @@ Der Einsatz von CAN in sicherheitskritischen Anwendungen beruht auf zwei wesentl
 	\item der integrierten Fehlererkennung
 \end{itemize}
  
- Diese Eigenschaften gewährleisten eine hohe Ausfallsicherheit.
+Diese Eigenschaften gewährleisten eine hohe Ausfallsicherheit.
+Die CAN-Technologie basiert auf einem \emph{shared medium} mit Bus-Topologie, bei der alle Teilnehmer über zwei Leitungen mit einander verbunden sind.
+Jedes angeschlossene Gerät ist dazu befähigt, Nachrichten auf den Bus zu senden und alle Nachrichten auf dem Bus zu empfangen, allerdings verarbeitet jeder Knoten lediglich die Informationen, die für ihn relevant sind. 
+Eine zielgerichtete Adressierung von Empfängern ist im Protokoll nicht vorgesehen.
+Stattdessen findet bei CAN ein nachrichtenbasiertes Kommunikationsmodell Anwendung, bei dem jede Nachricht durch eine eindeutige Identifier (ID) gekennzeichnet ist. 
+Diese ID dient nicht der Beschreibung des Absenders oder Empfängers der Nachricht, sondern gibt Aufschluss über den Inhalt der Nachricht, z.B. ob es sich um Geschwindigkeit, das Drehmoment oder die Sensordaten handelt.
+Es ist grundsätzlich möglich, dass mehrere Knoten auf dieselbe Nachricht reagieren.
+
+Ein wesentliches Merkmal ist die prioritätsbasierte Arbitrierung. 
+Jeder Knoten hat die Möglichkeit, eine Nachricht gleichzeitig zu senden. 
+Das Protokoll verwendet ein bitweises Arbitrierungsverfahren. 
+Nachrichten mit einer niedrigeren ID (höhere Priorität) durchdringen das System automatisch, ohne dass es zu Kollisionen oder Datenverlust kommt.
+Dieses Verfahren zeichnet sich durch seine besondere Effizienz aus und ist in der Lage, Echtzeitanforderungen zu erfüllen.
+
+Obwohl CAN asynchron ist, d. h. jeder Knoten hat seinen eigenen Takt, erfolgt die Synchronisation der Kommunikation durch ein fein abgestimmtes Zeitraster.
+Ein Bit lässt sich in sogenannte Zeitquanten unterteilen. 
+Diese sind in mehrere Segmente unterteilt, nämlich Synchronisation, Propagation, Phase 1 und Phase 2. 
+Der Abtastzeitpunkt befindet sich zwischen Phase 1 und Phase 2.
 
 \subsection*{Common Microcontroller Software Interface Standard (CMSIS)}
 Der \emph{Common Microcontroller Software Interface Standard} stellt einen von Arm entwickelten Industriestandard dar, der eine einheitliche Softwarearchitektur für Mikrocontroller auf Basis der Arm-Cortex-Prozessorfamilie bereitstellt.
