@@ -90,9 +90,12 @@ Für den zuverlässigen Betrieb sind in der Regel spezifische Softwaretreiber er
 
 % TODO: chap4 Peripherie: Parallel/Seriell; synchron/asynchron; für alle nochmal drüber gehen
 \subsubsection*{General Purpose Input Output}
-Der Begriff \emph{General Purpose Input/Output} (GPIO) bezeichnet universelle digitale Ein- und Ausgänge, die sich durch eine hohe Flexibilität für verschiedenste Aufgaben auszeichnen.
-Sie ermöglichen es dem Mikrocontroller zum Beispiel, digitale Signale zu lesen (Input) oder zu erzeugen (Output), um etwa Taster auszuwerten oder LEDs anzusteuern. 
-GPIOs stellen somit die einfachste Form der Peripherieanbindung dar.
+Der Begriff "General Purpose Input/Output" (GPIO) bezeichnet universelle, digitale Pins eines Mikrocontrollers, die flexibel als Eingang oder Ausgang konfiguriert werden können.
+Sie stellen die grundlegendste Form der Interaktion mit der Außenwelt dar und gestatten die Erfassung externer digitaler Signale, z.B. von Tastern oder Sensoren, sowie die Erzeugung entsprechender Signale etwa zur Steuerung von LEDs oder Relais.
+Grundsätzlich können GPIOs flexibel als Eingang oder Ausgang verwendet werden.
+Typischerweise erfolgt die Konfiguration solcher Embedded-Systeme statisch während der Initialisierung, entweder automatisch durch Codegeneratoren wie STM32CubeMX oder manuell in der Startkonfiguration der Firmware.
+Obwohl eine Änderung der GPIO-Funktionalität zur Laufzeit technisch möglich wäre, wird dies in der Praxis häufig vermieden, um ein deterministisches und stabiles Systemverhalten zu gewährleisten.
+In der praktischen Anwendung bilden sie die Grundlage für einfache Steuerungs- und Überwachungsaufgaben und sind daher von zentraler Bedeutung für die hardwarenahe Embedded-Programmierung.
 
 \subsubsection*{Serial Peripheral Interface}
 Die Schnittstellen des \emph{Serial Peripheral Interface} (SPI) ist ein synchrones, serielles Kommunikationsprotokoll, das insbesondere für die schnelle und effiziente Datenübertragung über kurze Distanz zwischen einem Master- und einem oder mehreren Slave-Geräten eingesetzt wird. 
