@@ -10,7 +10,7 @@
 \contentsline {chapter}{\numberline {2}Aufgabenstellung}{14}{chapter.2}%
 \contentsline {section}{\numberline {2.1}Rahmenbedingungen}{14}{section.2.1}%
 \contentsline {section}{\numberline {2.2}Anforderungen an die Lösung}{15}{section.2.2}%
-\contentsline {chapter}{\numberline {3}Grundlagen}{16}{chapter.3}%
+\contentsline {chapter}{\numberline {3}Technische Grundlagen}{16}{chapter.3}%
 \contentsline {section}{\numberline {3.1}Hardware}{16}{section.3.1}%
 \contentsline {subsection}{\numberline {3.1.1}Eingebettete Systeme}{16}{subsection.3.1.1}%
 \contentsline {paragraph}{\nonumberline Definition:}{16}{paragraph*.10}%
@@ -20,10 +20,11 @@
 \contentsline {subsection}{\numberline {3.1.5}Peripherie}{18}{subsection.3.1.5}%
 \contentsline {section}{\numberline {3.2}Software}{21}{section.3.2}%
 \contentsline {subsection}{\numberline {3.2.1}Application Programming Interface}{21}{subsection.3.2.1}%
-\contentsline {subsection}{\numberline {3.2.2}Common Microcontroller Software Interface Standard}{21}{subsection.3.2.2}%
-\contentsline {subsection}{\numberline {3.2.3}Toolchain}{21}{subsection.3.2.3}%
-\contentsline {subsection}{\numberline {3.2.4}CMake}{22}{subsection.3.2.4}%
-\contentsline {subsection}{\numberline {3.2.5}Make und Makefiles}{22}{subsection.3.2.5}%
+\contentsline {subsection}{\numberline {3.2.2}Bibliothek}{21}{subsection.3.2.2}%
+\contentsline {subsection}{\numberline {3.2.3}Common Microcontroller Software Interface Standard}{21}{subsection.3.2.3}%
+\contentsline {subsection}{\numberline {3.2.4}Toolchain}{21}{subsection.3.2.4}%
+\contentsline {subsection}{\numberline {3.2.5}CMake}{22}{subsection.3.2.5}%
+\contentsline {subsection}{\numberline {3.2.6}Make und Makefiles}{22}{subsection.3.2.6}%
 \contentsline {section}{\numberline {3.3}Hintergrundwissen}{23}{section.3.3}%
 \contentsline {chapter}{\numberline {4}Stand der Technik}{24}{chapter.4}%
 \contentsline {section}{\numberline {4.1}Recherche}{24}{section.4.1}%

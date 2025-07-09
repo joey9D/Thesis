@@ -22,7 +22,7 @@
 \@writefile{lopytx}{\addvspace {10\p@ }}
 \@writefile{toc}{\contentsline {section}{\numberline {2.1}Rahmenbedingungen}{14}{section.2.1}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {2.2}Anforderungen an die Lösung}{15}{section.2.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {chapter}{\numberline {3}Grundlagen}{16}{chapter.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{\numberline {3}Technische Grundlagen}{16}{chapter.3}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \@writefile{lol}{\addvspace {10\p@ }}
@@ -36,11 +36,12 @@
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.1.5}Peripherie}{18}{subsection.3.1.5}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {3.2}Software}{21}{section.3.2}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.2.1}Application Programming Interface}{21}{subsection.3.2.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.2}Common Microcontroller Software Interface Standard}{21}{subsection.3.2.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.3}Toolchain}{21}{subsection.3.2.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.4}CMake}{22}{subsection.3.2.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.2}Bibliothek}{21}{subsection.3.2.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.3}Common Microcontroller Software Interface Standard}{21}{subsection.3.2.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.4}Toolchain}{21}{subsection.3.2.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.5}CMake}{22}{subsection.3.2.5}\protected@file@percent }
 \@writefile{lof}{\contentsline {figure}{\numberline {3.1}{\ignorespaces Ausschnitt einer Liste von verfügbaren Generatoren.}}{22}{figure.caption.15}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.5}Make und Makefiles}{22}{subsection.3.2.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.6}Make und Makefiles}{22}{subsection.3.2.6}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {3.3}Hintergrundwissen}{23}{section.3.3}\protected@file@percent }
 \@writefile{toc}{\contentsline {chapter}{\numberline {4}Stand der Technik}{24}{chapter.4}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
