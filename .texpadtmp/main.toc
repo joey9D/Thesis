@@ -25,7 +25,6 @@
 \contentsline {subsection}{\numberline {3.2.4}Toolchain}{21}{subsection.3.2.4}%
 \contentsline {subsection}{\numberline {3.2.5}CMake}{22}{subsection.3.2.5}%
 \contentsline {subsection}{\numberline {3.2.6}Make und Makefiles}{22}{subsection.3.2.6}%
-\contentsline {section}{\numberline {3.3}Hintergrundwissen}{23}{section.3.3}%
 \contentsline {chapter}{\numberline {4}Stand der Technik}{24}{chapter.4}%
 \contentsline {section}{\numberline {4.1}Recherche}{24}{section.4.1}%
 \contentsline {section}{\numberline {4.2}Bewertung der Alternativlösungen}{25}{section.4.2}%

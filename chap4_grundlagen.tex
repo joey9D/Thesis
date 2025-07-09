@@ -248,18 +248,19 @@ In einigen Projekten findet ein manuelles Makefile Verwendung, welches ausschlie
 In einem solchen Szenario fungiert Make als Wrapper über CMake und ersetzt nicht dessen eigentliche Build-Logik.
 
 
-% TODO: chap4 Hintergrundwissen: Embedded Kontext; Software-Architektur Kontext; ...
-\section{Hintergrundwissen}
-Die Entwicklung eingebetteter Systeme erfordert ein grundlegendes Verständnis sowohl der Hardwarearchitektur als auch der zugrunde liegenden Softwarewerkzeuge.
-Der zentrale Baustein solcher Systeme ist der Mikrocontroller, der typischerweise aus einem Prozessor, Speicher und integrierten Peripherieeinheiten, wie beispielsweise GPIO, UART, SPI oder CAN, aufgebaut ist.
-Die Ansteuerung dieser Peripherie erfolgt durch Register, auf die über definierte Adressen zugegriffen werden kann.
-Der unmittelbare Zugriff auf Register findet in der Regel in Maschinensprache oder Assemblersprache statt;
-je größer und komplexere Projekte werden, desto schwieriger wird die Wartung und Portierbarkeit.
-Aus diesem Grund werden Hochsprachen wie C oder C++ eingesetzt, die eine abstraktere, strukturierte Programmierung ermöglichen. 
-Die Übersetzung dieser Hochsprachen in den erforderlichen Maschinencode erfolgt mittels eines Compilers, der anschließend vom Prozessor ausgeführt werden kann.
-Für die genannte Zielarchitektur, z.B. auf einem ARM-Mikrocontroller, werden sogenannte Cross-Compiler eingesetzt, da die Zielarchitektur von der Entwicklungsplattform, z.B. PC, abweichen kann.
-Ein wesentlicher Bestandteil der Toolchain ist in der Regel ein Assembler, ein Linker sowie ein Debugger.
-
+% TODO: chap3 Hintergrundwissen/Zusammenfassung: Embedded Kontext; Software-Architektur Kontext; ...
+% TODO: chap3 Hintergrundwissen/Zusammenfassung: Gefällt mir nicht. Soll das SO an die Stellen? Umschreiben, Verschieben oder so.
+%\paragraph{Zusammenfassung:}
+%Die Entwicklung eingebetteter Systeme erfordert ein grundlegendes Verständnis sowohl der Hardwarearchitektur als auch der zugrunde liegenden Softwarewerkzeuge.
+%Der zentrale Baustein solcher Systeme ist der Mikrocontroller, der typischerweise aus einem Prozessor, Speicher und integrierten Peripherieeinheiten, wie beispielsweise GPIO, UART, SPI oder CAN, aufgebaut ist.
+%Die Ansteuerung dieser Peripherie erfolgt durch Register, auf die über definierte Adressen zugegriffen werden kann.
+%Der unmittelbare Zugriff auf Register findet in der Regel in Maschinensprache oder Assemblersprache statt;
+%je größer und komplexere Projekte werden, desto schwieriger wird die Wartung und Portierbarkeit.
+%Aus diesem Grund werden Hochsprachen wie C oder C++ eingesetzt, die eine abstraktere, strukturierte Programmierung ermöglichen. 
+%Die Übersetzung dieser Hochsprachen in den erforderlichen Maschinencode erfolgt mittels eines Compilers, der anschließend vom Prozessor ausgeführt werden kann.
+%Für die genannte Zielarchitektur, z.B. auf einem ARM-Mikrocontroller, werden sogenannte Cross-Compiler eingesetzt, da die Zielarchitektur von der Entwicklungsplattform, z.B. PC, abweichen kann.
+%Ein wesentlicher Bestandteil der Toolchain ist in der Regel ein Assembler, ein Linker sowie ein Debugger.
+%
 
 
 
