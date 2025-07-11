@@ -1,6 +1,6 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.15)  11 JUL 2025 15:27
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.15)  11 JUL 2025 15:29
 entering extended mode
- \write18 enabled.
+ restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
 **main.tex
@@ -1832,7 +1832,7 @@ Package: filehook-2020 2022/10/25 v0.8b Hooks for input files
 \c@pytx@pylab@default@default=\count641
 \c@pytx@pylabcon@default@default=\count642
 \c@pytx@bash@default@default=\count643
-)) (/usr/local/texlive/2025/texmf-dist/tex/latex/latexdemo/latexdemo.sty
+) Restricted shell escape. PlantUML cannot be called. Start pdflatex/lualatex with -shell-escape.) (/usr/local/texlive/2025/texmf-dist/tex/latex/latexdemo/latexdemo.sty
 Package: latexdemo 2012/12/01 v0.1 typeset code and resulting output
  (/usr/local/texlive/2025/texmf-dist/tex/latex/mdframed/mdframed.sty
 Package: mdframed 2013/07/01 1.9b: mdframed
@@ -1967,7 +1967,7 @@ Package: floatbytocbasic 2023-08-16 v1.0 improved float package using tocbasic
 Package: lscapeenhanced 2024-04-16 v1.0 improved lscape package
 Package lscapeenhanced Info: \landscape patched to make \textheight change optional on input line 72.
 \@lscapeenhanced@textheight=\skip267
-)) (/Users/joey/Documents/Studium/8_Sem/Thesis/Thesis/.texpadtmp/main.aux
+)) (./main.aux
 \g__glossaries_gls_ref_acronym_int=\count651
 )
 \openout1 = `main.aux'.
@@ -2112,12 +2112,13 @@ Package biblatex Info: Automatic encoding selection.
 \openout4 = `main.bcf'.
 
 Package biblatex Info: Trying to load bibliographic data...
-Package biblatex Info: ... file 'main.bbl' found.
- (/Users/joey/Documents/Studium/8_Sem/Thesis/Thesis/.texpadtmp/main.bbl)
+Package biblatex Info: ... file 'main.bbl' not found.
+
+No file main.bbl.
 Package biblatex Info: Reference section=0 on input line 14.
 Package biblatex Info: Reference segment=0 on input line 14.
 Package hyperref Info: Link coloring ON on input line 14.
- (/Users/joey/Documents/Studium/8_Sem/Thesis/Thesis/.texpadtmp/main.out) (/Users/joey/Documents/Studium/8_Sem/Thesis/Thesis/.texpadtmp/main.out)
+(./main.out) (./main.out)
 \@outlinefile=\write8
 \openout8 = `main.out'.
 
@@ -2344,7 +2345,7 @@ LaTeX Font Info:    Font shape `T1/ntxtlf/m/it' will be
 
 ]
 Package tocbasic Info: character protrusion at toc deactivated on input line 68.
- (/Users/joey/Documents/Studium/8_Sem/Thesis/Thesis/.texpadtmp/main.toc
+ (./main.toc
 Package cleveref Info: loaded `ngerman' language definitions on input line 1.
 
 
@@ -2356,7 +2357,7 @@ Package cleveref Info: loaded `ngerman' language definitions on input line 1.
 Package cleveref Info: loaded `ngerman' language definitions on input line 69.
 [7]
 Package tocbasic Info: character protrusion at lof deactivated on input line 69.
- (/Users/joey/Documents/Studium/8_Sem/Thesis/Thesis/.texpadtmp/main.lof
+ (./main.lof
 Package cleveref Info: loaded `ngerman' language definitions on input line 1.
 )
 
@@ -2365,7 +2366,7 @@ Package cleveref Info: loaded `ngerman' language definitions on input line 1.
 
 ]
 Package tocbasic Info: character protrusion at lot deactivated on input line 71.
- (/Users/joey/Documents/Studium/8_Sem/Thesis/Thesis/.texpadtmp/main.lot
+ (./main.lot
 Package cleveref Info: loaded `ngerman' language definitions on input line 1.
 )
 
@@ -2374,7 +2375,7 @@ Package cleveref Info: loaded `ngerman' language definitions on input line 1.
 
 ]
 Package tocbasic Info: character protrusion at lol deactivated on input line 73.
- (/Users/joey/Documents/Studium/8_Sem/Thesis/Thesis/.texpadtmp/main.lol
+ (./main.lol
 Package cleveref Info: loaded `ngerman' language definitions on input line 1.
 )
 
@@ -2586,21 +2587,21 @@ Package nag Warning: 1 complaints in total.
 ]
 \openout2 = `main.wrt'.
 
- (/Users/joey/Documents/Studium/8_Sem/Thesis/Thesis/.texpadtmp/main.aux
+ (./main.aux
 Package cleveref Info: loaded `ngerman' language definitions on input line 16.
 )
 \openout2 = `main.toc'.
 
- (/Users/joey/Documents/Studium/8_Sem/Thesis/Thesis/.texpadtmp/main.wrt)
+ (./main.wrt)
 \openout2 = `main.lof'.
 
- (/Users/joey/Documents/Studium/8_Sem/Thesis/Thesis/.texpadtmp/main.wrt)
+ (./main.wrt)
 \openout2 = `main.lot'.
 
- (/Users/joey/Documents/Studium/8_Sem/Thesis/Thesis/.texpadtmp/main.wrt)
+ (./main.wrt)
 \openout2 = `main.lol'.
 
- (/Users/joey/Documents/Studium/8_Sem/Thesis/Thesis/.texpadtmp/main.wrt)
+ (./main.wrt)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2020/03/25>
@@ -2612,15 +2613,15 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 84509 strings out of 473190
- 1966137 string characters out of 5715800
- 3264594 words of memory out of 5000000
- 106047 multiletter control sequences out of 15000+600000
+ 84498 strings out of 473190
+ 1964199 string characters out of 5715800
+ 3264293 words of memory out of 5000000
+ 106039 multiletter control sequences out of 15000+600000
  619155 words of font info for 213 fonts, out of 8000000 for 9000
  1143 hyphenation exceptions out of 8191
  108i,20n,120p,10917b,3339s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2025/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4r.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/tex-gyre/qhvb.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/tex-gyre/qhvr.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/tex-gyre/qtmr.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/newtx/ztmb.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/newtx/ztmr.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/newtx/ztmri.pfb>
-Output written on /Users/joey/Documents/Studium/8_Sem/Thesis/Thesis/.texpadtmp/main.pdf (35 pages, 337227 bytes).
+Output written on main.pdf (35 pages, 337227 bytes).
 PDF statistics:
  660 PDF objects out of 1000 (max. 8388607)
  590 compressed objects within 6 object streams
