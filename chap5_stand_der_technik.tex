@@ -61,12 +61,13 @@ Hier müssen dann die benötigten Pakete und Treiber selber inkludiert werden.
 Ein Buildsystem müsste selber eingebunden und mit eigenen CMake-Dateien implementiert werden.
 
 
-% TODO: chap5 Espressif-IDE
+% TODO: chap4 Espressif-IDE
 %\subsection{Espressif-IDE}
 
+% TODO: chap4 mcu-cpp & modm: Tiefer Analyse: Wie ist der Code aufgebaut -> Architektur-Muster
 
 \subsection{mcu-cpp}
-% TODO: chap5 mcu-cpp: Quellen-Verlinkung
+% TODO: chap4 mcu-cpp: Quellen-Verlinkung
 Das Open-Source-Projekt \emph{mcu-cpp} verwendet einen eigenen \texttt{namespace} um die einzelnen Funktionen und Klassen zu gruppieren.
 \emph{Namespaces} sind eine Möglichkeit in C++ um Variablen, Klasse und Funktionen zu gruppieren, damit Konflikte bei der Benennung solcher Identifizierer zu vermeiden.
 Die ermöglicht einen sauber-strukturierten und lesbaren Applikationscode zu schreiben, in dem man nachvollziehen kann, wer was aufruft.
@@ -84,7 +85,7 @@ Das sorgt im weiteren Verlauf dafür, dass die Funktionen auf Basis der virtuell
 
 
 \subsection{modm}
-% TODO: chap5 modm: Quellen-Verlinkungß
+% TODO: chap4 modm: Quellen-Verlinkungß
 Das Open-Source-Projekt \emph{modm} dient als Baukasten um zugeschnittene und anpassbare Bibliotheken für Mikrocontroller zu generieren.
 Dadurch ist es möglich, dass eine Bibliothek nur aus den Teilen besteht, die tatsächlich in der Applikation und im Code verwendet werden müssen, ohne das es einen unnötig großen Overhead gibt.
 Um das zu bewerkstelligen wird eine Kombination aus \texttt{Jinja2}-Template-Dateien, \texttt{lbuild}-Pyhton-Skripte und eigenen Moduldefinitionen verwendet, mit der der Code für die Bibliotheken generiert wird.
@@ -149,9 +150,9 @@ Auf diese Weise bekommt jede MCU eine eigene Kindklasse, über die die richtigen
 	\item erstellt Instanz je nach Hardware $\rightarrow$ \texttt{\#ifdef}
 \end{itemize}
 
-\subsubsection*{Gpio}
+\subsubsection*{Peripherie: GPIO, SPI, UART}
 \begin{itemize}
-	\item eigen Klasse
+	\item eigene Klasse
 	\item erstmal für STM32 $\rightarrow$ danach Adapter für andere?
 \end{itemize}
 
@@ -177,11 +178,6 @@ Keine \texttt{setter}
 	\item Statt \texttt{ID15} für Pin 15 zu wechseln, werden die \texttt{ID0-3} gewechselt. Diese ersten $4$ Pin ergeben binär auch $15\ =\ 1111\ =\ 1*2^3\ +\ 1*2^2\ +\ 1*2^1\ +\ 1*2^0$ \\ \textbf{Lösung:} Nicht den Wert $15$ dem Pin Attribut geben sondern am Bit $15$, dass diese Bit dann auf $1$ gesetzt wird.
 	\item Wenn die LED an ist, d.h. wenn der Pin gesetzt ist, verändert sich der Pin des Tasters, ohne dass dieser betätigt wurde. Wieso?\\ \textbf{Beobachtung:} Ob bei \texttt{readPin()} Register ID$14$ oder ID$9$ verwendet wird (es sollte $9$ sein; $14$ ist nur im Debugger aktiv und für uns uninteressant) schon zufällig zu sein.\\ \textbf{Lösung:} Mit Pin-Debouncing und Implementierung einer Timer-Klasse konnte das zufällige Verhalten gelöst werden. 
 	\item Mit \texttt{time.hpp} und \texttt{stm32::Gpio::Pull::Up} funktioniert die Schaltung.\\ \textbf{Frage:} Wieso funktioniert das mit \texttt{Pull::Up} und nicht mit \texttt{Pull::None} od. \texttt{Pull::Down}?\\ \textbf{Antwort:} Mit \texttt{Pull::None} befindet sich der Schalter in einem \emph{float} Zustand. In diesem werden besonders Einflüsse der Umwelt, sog. Noise/Rauschen aufgenommen, die das Verhalten der Schaltung unberechenbar machen. Dieses zufällige Verhalten sollte vermieden werden, besonders in einem sicherheitskritischen Umfeld.
-\end{itemize}
-
-\subsection*{Fragen wegen der Implementierung:}
-\begin{itemize}
-	\item 
 \end{itemize}
 
 \vspace{3mm}

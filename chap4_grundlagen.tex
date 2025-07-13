@@ -88,7 +88,7 @@ Externe Bauteile, wie etwa Sensoren (Temperatursensor), Aktoren (LED), Displays 
 Die Kommunikation mit externen Geräten wird durch die Peripheriemodule des Mikrocontrollers realisiert. 
 Für den zuverlässigen Betrieb sind in der Regel spezifische Softwaretreiber erforderlich, die die Initialisierung, Datenübertragung und gegebenenfalls die Fehlerbehandlung übernehmen.
 
-% TODO: chap4 Peripherie: Parallel/Seriell; synchron/asynchron; für alle nochmal drüber gehen
+% TODO: chap3 Peripherie: Parallel/Seriell; synchron/asynchron; für alle nochmal drüber gehen
 \subsubsection*{General Purpose Input Output}
 Der Begriff "General Purpose Input/Output" (GPIO) bezeichnet universelle, digitale Pins eines Mikrocontrollers, die flexibel als Eingang oder Ausgang konfiguriert werden können.
 Sie stellen die grundlegendste Form der Interaktion mit der Außenwelt dar und gestatten die Erfassung externer digitaler Signale, z.B. von Tastern oder Sensoren, sowie die Erzeugung entsprechender Signale etwa zur Steuerung von LEDs oder Relais.
@@ -173,28 +173,31 @@ Der Abtastzeitpunkt befindet sich zwischen Phase 1 und Phase 2.
 
 \section{Software}
 
+\subsection{Architektur}
+
 \subsection{Application Programming Interface}
 
 
-\subsection{Bibliothek}
+% TODO: chap3 aufräumen: Hat alles eher mit dem Aufbau eines Projekts zu tun, als mit einer API selbst.
 
-\subsection{Common Microcontroller Software Interface Standard}
-Der \emph{Common Microcontroller Software Interface Standard} stellt einen von Arm entwickelten Industriestandard dar, der eine einheitliche Softwarearchitektur für Mikrocontroller auf Basis der Arm-Cortex-Prozessorfamilie bereitstellt.
-Der Begriff "CMSIS"  bezeichnet eine Sammlung von Schnittstellen, Softwarekomponenten, Header-Dateien, Entwicklungswerkzeugen und Workflows.
- Die Sammlung soll die Portabilität, Wiederverwendbarkeit und Effizienz im Bereich der Softwareentwicklung für eingebettete Systeme steigern.
-Das Ziel von CMSIS besteht darin, eine konsistente und herstellerübergreifende Abstraktion der zugrunde liegenden Hardware bereitzustellen, um die Integration verschiedener Entwicklungswerkzeuge und Bibliotheken zu erleichtern.
-Die Standardisierung ermöglicht es Entwicklerinnen und Entwicklern, auf einheitliche Weise auf Prozessorfunktionen, Peripherie und Betriebssystemfunktionen zuzugreifen, unabhängig vom konkreten Mikrocontrollerhersteller.
-
-Die Sammlung ist in mehrere Module unterteilt, darunter:
-\begin{itemize}
-	\item \textbf{CMSIS-Core:} Definieret standardisierter Zugriffsmöglichkeiten auf CPU-Register und Systemfunktionen sowie auf Start- und Systeminitialisierungscode.
-	\item \textbf{CMSIS-Driver:} Definiert eine einheitliche Schnittstelle für Peripherietreiber wie UART, SPI oder I$^2$C.
-	\item \textbf{CMSIS-DSP:} Stellt eine optimierte Lösung für die digitale Signalverarbeitung bereit und unterstützt sowohl Vektor- als auch Matrizenoperationen.
-	\item \textbf{CMSIS-RTOS:} Stellt eine standardisierte API für Echtzeitbetriebssysteme zur Verfügung, um portierbare RTOS-Anwendungen zu ermöglichen.
-	\item \textbf{CMSIS-Pack:} Fungiert als Infrastruktur, die der Bereitstellung und Verwaltung von Softwarepaketen sowie der Verwaltung von Gerätedaten in Entwicklungsumgebungen dient.
-\end{itemize}
-
-Damit bildet CMSIS die Grundlage einer Vielzahl von Entwicklungsumgebungen, wie beispielsweise Keil MDK, STM32CubeIDE oder CMSIS-kompatibler CMake-basierter.
+% TODO: chap3: CMSIS könnte gelöscht werden
+%\subsection{Common Microcontroller Software Interface Standard}
+%Der \emph{Common Microcontroller Software Interface Standard} stellt einen von Arm entwickelten Industriestandard dar, der eine einheitliche Softwarearchitektur für Mikrocontroller auf Basis der Arm-Cortex-Prozessorfamilie bereitstellt.
+%Der Begriff "CMSIS"  bezeichnet eine Sammlung von Schnittstellen, Softwarekomponenten, Header-Dateien, Entwicklungswerkzeugen und Workflows.
+% Die Sammlung soll die Portabilität, Wiederverwendbarkeit und Effizienz im Bereich der Softwareentwicklung für eingebettete Systeme steigern.
+%Das Ziel von CMSIS besteht darin, eine konsistente und herstellerübergreifende Abstraktion der zugrunde liegenden Hardware bereitzustellen, um die Integration verschiedener Entwicklungswerkzeuge und Bibliotheken zu erleichtern.
+%Die Standardisierung ermöglicht es Entwicklerinnen und Entwicklern, auf einheitliche Weise auf Prozessorfunktionen, Peripherie und Betriebssystemfunktionen zuzugreifen, unabhängig vom konkreten Mikrocontrollerhersteller.
+%
+%Die Sammlung ist in mehrere Module unterteilt, darunter:
+%\begin{itemize}
+%	\item \textbf{CMSIS-Core:} Definieret standardisierter Zugriffsmöglichkeiten auf CPU-Register und Systemfunktionen sowie auf Start- und Systeminitialisierungscode.
+%	\item \textbf{CMSIS-Driver:} Definiert eine einheitliche Schnittstelle für Peripherietreiber wie UART, SPI oder I$^2$C.
+%	\item \textbf{CMSIS-DSP:} Stellt eine optimierte Lösung für die digitale Signalverarbeitung bereit und unterstützt sowohl Vektor- als auch Matrizenoperationen.
+%	\item \textbf{CMSIS-RTOS:} Stellt eine standardisierte API für Echtzeitbetriebssysteme zur Verfügung, um portierbare RTOS-Anwendungen zu ermöglichen.
+%	\item \textbf{CMSIS-Pack:} Fungiert als Infrastruktur, die der Bereitstellung und Verwaltung von Softwarepaketen sowie der Verwaltung von Gerätedaten in Entwicklungsumgebungen dient.
+%\end{itemize}
+%
+%Damit bildet CMSIS die Grundlage einer Vielzahl von Entwicklungsumgebungen, wie beispielsweise Keil MDK, STM32CubeIDE oder CMSIS-kompatibler CMake-basierter.
 
 
 \subsection{Toolchain}

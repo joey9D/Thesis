@@ -9,15 +9,22 @@ Die Zwischenschicht wählt zur Kompilierzeit die richtige Hardware aus, damit da
 Die Zwischenschicht soll eine Art default-Klasse für die jeweilige Funktion bereitstellen.
 Mit der ausgewählten Hardware können die Default-Klassen die richtigen Treiber ansprechen.
 
-\section{Anforderungsanalyse}
-$\rightarrow$ ein Klasse pro Funktion \\
-$\rightarrow$ Auswahl der Hardware muss vorher bestimmt werden $\rightarrow$ cmake target \\
-$\rightarrow$  
+\section{Analyse}
+\begin{itemize}
+	\item Was muss die API können?
+	\item Welche Architektur eignet sich hier für?
+	\item C++ $\rightarrow$ Objekt-orientiert
+	\item Erstellung von Objekten?
+	\item Auswahl der Funktionen
+	\item 
+\end{itemize}
 
 \section{Ansatz}
 \begin{itemize}
 	\item Globales Interface
-	\item Verwendung von \texttt{namespaces}
+	\item Factory Architektur zur Erstellung von Objekten
+	\item Peripheriefunktionen (GPIO, SPI, etc.) als eigenständigen Klassen
+%	\item Verwendung von \texttt{namespaces}
 	\item HardwareInterface mit allen:
 	\begin{itemize}
 		\item vllt. Core: ClockInit, Delay, GetTick
@@ -26,10 +33,12 @@ $\rightarrow$
 		\item UART
 		\item CAN
 	\end{itemize}
+	\item Interface ruft Factory auf, die MCU spezifischen Treiber inkludiert und eine Instanz des HW-Objektes zurückgibt. Mit dieser kann gearbeitet werden.
+	\item 
 \end{itemize}
 
 
-\section{Einstellungen pro MCU}
+%\section{Einstellungen pro MCU}
 
 %TODO: informations in reference manual for each mcu
 % CONFIG Abschnitt im cmake
@@ -48,59 +57,9 @@ $\rightarrow$
 %)
 %\end{lstlisting}
 
-% TODO: Kann eig. alles gelöscht werden.
-\subsection{STM32C031C6}
-\begin{lstlisting}
-add_compile_options(
-	-mcpu=cortex-m0+
-	-mfloat-abi=hard
-	-mfpu=
-	-mthumb
-	-ffunction-sections
-	-fdata-sections
-	$<$<COMPILE_LANGUAGE:CXX>:-fno-exceptions>
-	$<$<COMPILE_LANGUAGE:CXX>:-fno-rtti>
-	$<$<COMPILE_LANGUAGE:CXX>:-fno-threadsafe-statics>
-	$<$<COMPILE_LANGUAGE:CXX>:-fno-use-cxa-atexit>		
-)
-\end{lstlisting}
 
 
-\subsection{STM32G071RB}
-\begin{lstlisting}
-add_compile_options(
-	-mcpu=
-	-mfloat-abi=
-	-mfpu=
-	-mthumb
-	-ffunction-sections
-	-fdata-sections
-	$<$<COMPILE_LANGUAGE:CXX>:-fno-exceptions>
-	$<$<COMPILE_LANGUAGE:CXX>:-fno-rtti>
-	$<$<COMPILE_LANGUAGE:CXX>:-fno-threadsafe-statics>
-	$<$<COMPILE_LANGUAGE:CXX>:-fno-use-cxa-atexit>
-)
-\end{lstlisting}
-
-
-\subsection{STM32G0B1RE}
-\begin{lstlisting}
-add_compile_options(
-	-mcpu=
-	-mfloat-abi=
-	-mfpu=
-	-mthumb
-	-ffunction-sections
-	-fdata-sections
-	$<$<COMPILE_LANGUAGE:CXX>:-fno-exceptions>
-	$<$<COMPILE_LANGUAGE:CXX>:-fno-rtti>
-	$<$<COMPILE_LANGUAGE:CXX>:-fno-threadsafe-statics>
-	$<$<COMPILE_LANGUAGE:CXX>:-fno-use-cxa-atexit>
-)
-\end{lstlisting}
-
-
-\section{Architektonische Eigenschaften die Treiber-API}
+\section{Architektonische Eigenschaften der Treiber-API}
 Moderen Softwarelösungen bestehen meist aus vielen, großen Dateien, die untereinander von einander abhängig sind.
 Um bei solch großen Projekten den Überblick zu behalten, werden/sollten diese Softwarelösungen nach gewissen Eigenschaften erstellt werden.
 Diese \emph{architektonischen Eigenschaften} lassen sich (grob) in drei Teilbereiche unterteilen: Betriebsrelevante, Strukturelle und Bereichsübergreifende, wie in Tabelle~\ref{tab:architektonische_eigenschaften} aufgeführt. % Eigenschaften. 
