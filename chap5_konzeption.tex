@@ -15,16 +15,16 @@ Anhand dieses Entwurfs wird ein neue Zwischenschicht implementiert.
 \section{Anforderungsanalyse}
 Um eine benutzerfreundlichen und leistungsfähigen API-Bibliothek entwickeln zu können, ist es wichtig die grundlegenden Funktionen klar zu definieren.
 So gilt es als erstes die Fragen zu klären: \emph{Was muss die API können?} und \emph{Welche Eigenschaften soll die API haben?}
-
+% Allgemeines Ziel; Pin-Objekte
 Es ist das übergeordnete Ziel, plattformunabhängigen Code schreiben zu können.
-Das bedeutet, es muss möglich sein ein Programm, das z.B. für eine Hardware mit einem STM32-MCU geschrieben wurde, auch für Hardware mit einer ESP32-MCU funktionsfähig zu haben.
+Das bedeutet, es muss möglich sein ein Programm, das z.B. für eine Hardware mit einem STM32-\gls{mcu} geschrieben wurde, auch für Hardware mit einer ESP32-MCU funktionsfähig zu haben.
 Die spezifische Konfiguration der Hardware und der Pins, wie sie beispielsweise mit STM32CubeMX gemacht werden kann, muss dennoch für jede Hardware, je nach Projekt, neu erstellt werden.
 Dies liegt unter anderem an den unterschiedlichen Prozessorarchitekturen, der Anzahl an Pins und deren Zuordnung zu spezifischen Funktionen oder der Registerkonfiguration.
 Um eine Pinkonfiguration mit Code zu lösen und von der graphischen Oberfläche wegzukommen, liegt der Gedanke, Objekte zu verwenden nahe.
 Besonders im Kontext der Verwendung von C++.
 Solche Objekt werden mittels eines Konstruktors, der die Werte für die Attribute der Pins übergeben bekommt, erstellt.
 Bevor eine Erstellung dieser Pin-Objekte stattfinden kann, Aufgrund der angesprochen Unterschiede, muss erst die Hardware ausgewählt werden.
-
+% Hardware- und Treiberauswahl
 Damit die Pin-Objekte auch verwendet werden können, muss vorher die Hardware ausgewählt und initialisiert werden.
 Beginnend mit der Auswahl, muss die API in der Lage sein nach einer Art der Definition, welche Hardware real zur Verfügung steht, die passenden Treiber auszuwählen, eine Instanz der Hardware zu erstellen, mit der im Programm gearbeitet werden kann und aus diesem heraus die Hardware über allgemein definierte Funktionen mit den richtigen Treibern zu initialisieren.
 Diese Definition kann beispielsweise über ein \texttt{\#define}, dass den Namen der Hardware beinhaltet gelöst werden.
@@ -33,13 +33,16 @@ Diese Veränderungen und Erweiterungen würden auch die jeweiligen Peripheriefun
 Um einen klaren Überblick über diese Funktionen zu behalten, ist der Gedanke an Module zu betrachten.
 So könnte für jede Peripheriefunktion (\gls{gpio}, \gls{spi}, \gls{uart}, \gls{can}) ein eigenes Modul implementiert werden.
 Auf diese Weise hat man neben dem Überblick auch eine klare Struktur, die Fehlersuchen und Wartungen der Software wiederum vereinfacht.
-
+% Peripheriemodule
+Die Peripheriemodule müssen ähnlich der Hardwareauswahl, die Funktionen der Hardware kapseln.
+Im Fall der STM32-\gls{mcu}s werden die Funktionen der eigenen \gls{hal}-Bibliothek verwendet.
+ESP32 Hardware hat hierbei seine eigen \gls{hal} mit zugeschnittenen Funktionen.
 
 
 \section{Architekturentwurf}
 
 \begin{itemize}
-%	\item Was muss die API können?
+	\item Architektonische Eigenschaften
 	\item Welche Grundarchitektur liegt vor?
 	\item Welches Architekturmuster eignet sich dafür?
 	\item Welche Architektur eignet sich hier für? $\rightarrow$ Aufbau des gesamten Systems
@@ -51,10 +54,6 @@ Auf diese Weise hat man neben dem Überblick auch eine klare Struktur, die Fehle
 	\item C++ $\rightarrow$ Objekt-orientiert
 	\item Erstellung von Objekten?
 	\item Auswahl der Funktionen
-	\item 
-\end{itemize}
-
-\begin{itemize}
 	\item Globales Interface
 	\item Factory Architektur zur Erstellung von Objekten
 	\item Peripheriefunktionen (GPIO, SPI, etc.) als eigenständigen Klassen
@@ -68,7 +67,6 @@ Auf diese Weise hat man neben dem Überblick auch eine klare Struktur, die Fehle
 		\item CAN
 	\end{itemize}
 	\item Interface ruft Factory auf, die MCU spezifischen Treiber inkludiert und eine Instanz des HW-Objektes zurückgibt. Mit dieser kann gearbeitet werden.
-	\item 
 \end{itemize}
 
 
@@ -93,7 +91,7 @@ Auf diese Weise hat man neben dem Überblick auch eine klare Struktur, die Fehle
 
 
 
-\section{Architektonische Eigenschaften der Treiber-API}
+\subsection{Architektonische Eigenschaften der Treiber-API}
 Moderen Softwarelösungen bestehen meist aus vielen, großen Dateien, die untereinander von einander abhängig sind.
 Um bei solch großen Projekten den Überblick zu behalten, werden/sollten diese Softwarelösungen nach gewissen Eigenschaften erstellt werden.
 Diese \emph{architektonischen Eigenschaften} lassen sich (grob) in drei Teilbereiche unterteilen: Betriebsrelevante, Strukturelle und Bereichsübergreifende, wie in Tabelle~\ref{tab:architektonische_eigenschaften} aufgeführt. % Eigenschaften. 
