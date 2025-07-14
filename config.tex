@@ -239,8 +239,13 @@
 \usepackage[automark]{scrlayer-scrpage}
 
 \automark[section]{chapter}
-\setkomafont{pageheadfoot}{\normalfont\sffamily}
-\setkomafont{pagenumber}{\normalfont\sffamily}
+%\setkomafont{pageheadfoot}{\normalfont\sffamily}
+%\setkomafont{pagenumber}{\normalfont\sffamily}
+\pagestyle{scrheadings}
+\clearpairofpagestyles
+\ihead{} \chead{} \ohead{}
+\ifoot{} \cfoot{\pagemark} \ofoot{}
+
 
 
 % DE: Intelligentes Leerzeichen um hinter Abkürzungen die richtigen Abstände zu erhalten, auch leere.
@@ -1102,7 +1107,7 @@
 \title{\Huge\bfseries\doctitle\\[1em]\large Dokumentation}
 \date{\today} %clear date
 \def\docauthor{Jan Kristel}
-%\ifoot{\leftmark}
-\cfoot{\pagemark}
-\ofoot{}
+\ifoot{\leftmark}
+\cfoot{}
+\ofoot{\pagemark}
 \ohead{}

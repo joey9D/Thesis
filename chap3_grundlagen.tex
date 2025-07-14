@@ -31,19 +31,7 @@ Register sind spezifische Speicherbereiche innerhalb des Mikrocontrollers, welch
 Durch das gezielte Setzen oder Auslesen einzelner Bits in diesen Registern ist es möglich, beispielsweise Sensorwerte zu erfassen (z. B. das Drücken eines Tasters) oder Ausgaben zu erzeugen (z. B. das Anzeigen eines Textes auf einem Display).
 
 
-\subsection{Microprozessor Unit (MPU)}
-Ein Mikroprozessor ist ein vollständig auf einem einzigen integrierten Schaltkreis (Chip) realisierter Prozessor.
-Der Prozessor ist die zentrale Recheneinheit eines Computersystems.
-Seine Funktion umfasst die Ausführung von Befehlen sowie die Steuerung des Datenflusses innerhalb des Systems. 
-Ein Mikroprozessor beinhaltet in der Regel Komponenten wie das Rechenwerk (\gls{alu}), Register, Steuerwerk und gegebenenfalls Zwischenspeicher (Caches), jedoch keine Peripheriefunktionen wie Speicher oder Schnittstellen. 
-Diese müssen extern angebunden werden.
-Der Begriff "Mikrocomputer" wird verwendet, um ein auf Basis eines Mikroprozessors aufgebautes Gesamtsystem zu definieren. 
-Derartige Systeme sind in klassischen PCs, Laptops oder Servern häufig anzutreffen.
-In diesen Geräten wird der Mikroprozessor mit externem RAM, ROM, I/O-Komponenten und weiteren Funktionseinheiten kombiniert.
 
-Demgegenüber ist der Mikrocontroller für spezifische Steuerungsaufgaben mit integrierten Peripheriefunktionen konzipiert. 
-Der Mikroprozessor findet dagegen meist in leistungsfähigen, aber nicht auf eine konkrete Aufgabe spezialisierten Systemen Anwendung. 
-Insbesondere für allgemeine Rechenaufgaben, komplexe Betriebssysteme sowie Anwendungen mit hohem Ressourcenbedarf erweist sich dieser Prozessor als geeignet.
 
 \subsection{Microcontroller Unit (MCU)}
 Ein Mikrocontroller ist ein vollständig auf einem einzigen Chip realisierter Mikrocomputer, der neben dem eigentlichen Prozessor (CPU) auch sämtliche für den Betrieb notwendigen Komponenten integriert. 
@@ -60,20 +48,7 @@ Im Vergleich zu Mikroprozessoren sind für den Grundbetrieb von Mikrocontrollern
 %- Cortex Familie
 
 
-\subsection{Register}
-\emph{Register} sind kleine, besonders schnell zugängliche Speicherzellen, die direkt im Prozessor untergebracht sind. 
-Im Gegensatz zu anderen Speicherformen, wie etwa RAM oder Flash, zeichnen sich Register durch extrem kurze Zugriffszeiten aus. 
-Dies ist darauf zurückzuführen, dass sie Teil des zentralen Rechenwerks sind. 
-Die Nähe zur Recheneinheit ist dabei von entscheidender Bedeutung, insbesondere für grundlegende Operationen wie das Zwischenspeichern von Werten, Adressen oder Zustandsinformationen während der Programmausführung.
 
-Im Kontext eingebetteter Systeme und insbesondere bei der Treiberentwicklung spielen sogenannte speicherabbildende Register (Memory-Mapped Registers) eine zentrale Rolle. 
-Diese sind Teil der Hardwareperipherie (wie \gls{gpio}, \gls{spi} oder \gls{uart}) und über spezifische Speicheradressen ansprechbar. 
-Durch das Schreiben in oder Lesen aus solchen Registern können spezifische Hardwarefunktionen aktiviert, deaktiviert oder abgefragt werden.
-
-Ein konkretes Beispiel ist ein \gls{gpio}-Ausgangsregister: Wird ein bestimmtes Bit darin gesetzt, liegt am zugeordneten Pin ein logisches High-Signal an. 
-Die exakte Kenntnis über die Position und Signifikanz dieser Bits ist essenziell für die direkte Hardwareprogrammierung und die korrekte Umsetzung von Treibern.
-\\
-Register werden somit nicht nur für die interne Funktionsweise des Prozessors relevant, sondern bilden auch die Schnittstelle zwischen Software und Hardware. Es sei darauf hingewiesen, dass diese Elemente die Konfiguration, Steuerung und das Auslesen externer Peripheriekomponenten ermöglichen und somit das zentrale Element bei der Low-Level-Programmierung darstellen.
 
 \subsection{Peripherie}
 Unter dem Begriff der \emph{Peripherie} versteht man im Kontext der Embedded-Softwareentwicklung sämtliche Ein- und Ausgabeschnittstellen, die eine Interaktion des Mikrocontrollers mit seiner Umwelt ermöglichen.
@@ -174,56 +149,18 @@ Der Abtastzeitpunkt befindet sich zwischen Phase 1 und Phase 2.
 \section{Software}
 
 \subsection{Architektur}
-
-\subsection{Application Programming Interface}
-
-
-% TODO: chap3 aufräumen: Hat alles eher mit dem Aufbau eines Projekts zu tun, als mit einer API selbst.
-
-% TODO: chap3: CMSIS könnte gelöscht werden
-%\subsection{Common Microcontroller Software Interface Standard}
-%Der \emph{Common Microcontroller Software Interface Standard} stellt einen von Arm entwickelten Industriestandard dar, der eine einheitliche Softwarearchitektur für Mikrocontroller auf Basis der Arm-Cortex-Prozessorfamilie bereitstellt.
-%Der Begriff "CMSIS"  bezeichnet eine Sammlung von Schnittstellen, Softwarekomponenten, Header-Dateien, Entwicklungswerkzeugen und Workflows.
-% Die Sammlung soll die Portabilität, Wiederverwendbarkeit und Effizienz im Bereich der Softwareentwicklung für eingebettete Systeme steigern.
-%Das Ziel von CMSIS besteht darin, eine konsistente und herstellerübergreifende Abstraktion der zugrunde liegenden Hardware bereitzustellen, um die Integration verschiedener Entwicklungswerkzeuge und Bibliotheken zu erleichtern.
-%Die Standardisierung ermöglicht es Entwicklerinnen und Entwicklern, auf einheitliche Weise auf Prozessorfunktionen, Peripherie und Betriebssystemfunktionen zuzugreifen, unabhängig vom konkreten Mikrocontrollerhersteller.
-%
-%Die Sammlung ist in mehrere Module unterteilt, darunter:
-%\begin{itemize}
-%	\item \textbf{CMSIS-Core:} Definieret standardisierter Zugriffsmöglichkeiten auf CPU-Register und Systemfunktionen sowie auf Start- und Systeminitialisierungscode.
-%	\item \textbf{CMSIS-Driver:} Definiert eine einheitliche Schnittstelle für Peripherietreiber wie UART, SPI oder I$^2$C.
-%	\item \textbf{CMSIS-DSP:} Stellt eine optimierte Lösung für die digitale Signalverarbeitung bereit und unterstützt sowohl Vektor- als auch Matrizenoperationen.
-%	\item \textbf{CMSIS-RTOS:} Stellt eine standardisierte API für Echtzeitbetriebssysteme zur Verfügung, um portierbare RTOS-Anwendungen zu ermöglichen.
-%	\item \textbf{CMSIS-Pack:} Fungiert als Infrastruktur, die der Bereitstellung und Verwaltung von Softwarepaketen sowie der Verwaltung von Gerätedaten in Entwicklungsumgebungen dient.
-%\end{itemize}
-%
-%Damit bildet CMSIS die Grundlage einer Vielzahl von Entwicklungsumgebungen, wie beispielsweise Keil MDK, STM32CubeIDE oder CMSIS-kompatibler CMake-basierter.
-
-
-\subsection{Toolchain}
-Der Begriff "Toolchain" bezeichnet eine Sammlung von aufeinander abgestimmten Softwarewerkzeugen, die gemeinsam zur Übersetzung, Verlinkung und Bereitstellung von lauffähiger Software auf einem Zielsystem verwendet werden. 
-Insbesondere in der Entwicklung von Embedded Systems spielt die Toolchain eine entscheidende Rolle im Entwicklungsprozess, da sie die Verbindung zwischen der Hochsprachenprogrammierung und der spezifischen Hardwareumgebung herstellt.
-
-Zu den typischen Bestandteilen einer Toolchain gehören:
 \begin{itemize}
-	\item Compiler
-	\item Assembler
-	\item Linker
-	\item Debugger
+	\item Was versteht man unter Architektur?
+	\item ... in der Softwareentwicklung?
 \end{itemize}
 
-Zusätzlich kommen im Prozess Hilfswerkzeuge wie Make- oder CMake-System, Flash-Tools und Binärkonverter zum Einsatz.
-In der Entwicklung von Mikrocontrollern findet in der Regel der Einsatz sogenannter Cross-Toolchains statt, die auf einem Host-System ausgeführt werden (beispielsweise Windows oder Linux). 
-Diese erzeugen Code für eine andere Zielarchitektur, wie beispielsweise einen Arm-Cortex-M-Prozessor. 
-Ein verbreitetes Beispiel ist die GNU Arm Embedded Toolchain, die aus den Komponenten \texttt{arm-none-eabi-gcc}, \texttt{arm-none-eabi-ld}, \texttt{arm-none-eabi-gdb} und weiteren Elementen besteht.
+\subsection{Application Programming Interface}
+\begin{itemize}
+	\item Was ist eine API?
+	\item Was kann eine API?
+	\item Wie wird eine API umgesetzt?
+\end{itemize}
 
-%\subsection*{Compiler/Cross-Compiler}
-%Bei einem \emph{Compiler} handelt es sich um Werkzeug der Softwareentwicklung, das Quellcode, der in einer Hochsprache wie C oder C++ verfasst wurde, in Maschinencode übersetzt. 
-%Dieser kann direkt vom Zielprozessor ausgeführt werden. Im Gegensatz zur Ausführung durch einen Interpreter, welcher den Code zur Laufzeit Zeile für Zeile ausführt, erfolgt beim Kompilieren eine vollständige Übersetzung des Codes vor der Ausführung des Programms.
-%
-%Im Bereich der Embedded-Systems-Entwicklung finden häufig sogenannte Cross-Compiler Anwendung, da die Software typischerweise auf einem anderen System (Host) entwickelt wird als jenem, auf dem sie später ausgeführt wird (Target).
-%Ein bekanntes Beispiel ist GCC (GNU Compiler Collection), das in Toolchains wie \texttt{arm-none-eabi-gcc} zum Einsatz kommt.
-%Neben der reinen Übersetzung ermöglichen sie auch statische Codeanalysen, Optimierungen hinsichtlich Laufzeit oder Speicherbedarf und tragen damit maßgeblich zur Qualität eingebetteter Software bei.
 
 
 
@@ -252,19 +189,7 @@ In einigen Projekten findet ein manuelles Makefile Verwendung, welches ausschlie
 In einem solchen Szenario fungiert Make als Wrapper über CMake und ersetzt nicht dessen eigentliche Build-Logik.
 
 
-% TODO: chap3 Hintergrundwissen/Zusammenfassung: Embedded Kontext; Software-Architektur Kontext; ...
-% TODO: chap3 Hintergrundwissen/Zusammenfassung: Gefällt mir nicht. Soll das SO an die Stellen? Umschreiben, Verschieben oder so.
-%\paragraph{Zusammenfassung:}
-%Die Entwicklung eingebetteter Systeme erfordert ein grundlegendes Verständnis sowohl der Hardwarearchitektur als auch der zugrunde liegenden Softwarewerkzeuge.
-%Der zentrale Baustein solcher Systeme ist der Mikrocontroller, der typischerweise aus einem Prozessor, Speicher und integrierten Peripherieeinheiten, wie beispielsweise GPIO, UART, SPI oder CAN, aufgebaut ist.
-%Die Ansteuerung dieser Peripherie erfolgt durch Register, auf die über definierte Adressen zugegriffen werden kann.
-%Der unmittelbare Zugriff auf Register findet in der Regel in Maschinensprache oder Assemblersprache statt;
-%je größer und komplexere Projekte werden, desto schwieriger wird die Wartung und Portierbarkeit.
-%Aus diesem Grund werden Hochsprachen wie C oder C++ eingesetzt, die eine abstraktere, strukturierte Programmierung ermöglichen. 
-%Die Übersetzung dieser Hochsprachen in den erforderlichen Maschinencode erfolgt mittels eines Compilers, der anschließend vom Prozessor ausgeführt werden kann.
-%Für die genannte Zielarchitektur, z.B. auf einem ARM-Mikrocontroller, werden sogenannte Cross-Compiler eingesetzt, da die Zielarchitektur von der Entwicklungsplattform, z.B. PC, abweichen kann.
-%Ein wesentlicher Bestandteil der Toolchain ist in der Regel ein Assembler, ein Linker sowie ein Debugger.
-%
+
 
 
 
