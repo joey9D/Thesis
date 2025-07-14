@@ -1,25 +1,58 @@
-Die Umsetzung dieser Arbeit besteht aus mehreren Phase.
-
-Die Entwicklung einer benutzerfreundlichen und leistungsfähigen API-Library erfordert eine systematische Herangehensweise, die die einzelnen Phasen der Anforderungsanalyse, Architekturentwurf, Implementierung, Testing und Dokumentation integriert.
+%Die Entwicklung einer benutzerfreundlichen und leistungsfähigen API-Library erfordert eine systematische Herangehensweise, die die einzelnen Phasen der Anforderungsanalyse, Architekturentwurf, Implementierung, Testing und Dokumentation integriert.
  
-
-
-Um dieses Problem und die in vorherigem Abschnitt angesprochenen Probleme anzugehen, soll eine neue/weitere Zwischenschicht implementiert werden. 
-Die Zwischenschicht wählt zur Kompilierzeit die richtige Hardware aus, damit das nicht zur Runtime geschieht; und bekommt so die richtigen Treiber mit.
-Die Zwischenschicht soll eine Art default-Klasse für die jeweilige Funktion bereitstellen.
-Mit der ausgewählten Hardware können die Default-Klassen die richtigen Treiber ansprechen.
-
-\section{Analyse}
+In diesem Teil der Arbeit wird ein Konzept der API erstellt.
+Der Aufbau dieses Konzepts passiert in mehreren Schritten:
 \begin{itemize}
-	\item Was muss die API können?
-	\item Welche Architektur eignet sich hier für?
+	\item [1.] Anforderungsanalyse: \\In diesem Abschnitt werden die wichtigen Eigenschaften, die die API haben muss zusammengetragen. Daneben wird analysiert, wie die Funktionen, die enthalten sein sollen aufgebaut und implementiert werden können.
+	\item [2.] Architekturentwurf: \\Hier werden Architekturmuster für das gesamte System der API und Designmuster für mögliche Module ausgewählt.
+\end{itemize}
+
+Anhand dieses Entwurfs wird ein neue Zwischenschicht implementiert.
+%Die Zwischenschicht wählt zur Kompilierzeit die richtige Hardware aus, damit das nicht zur Runtime geschehen muss (da dies Performanceeinbusen mit sich bringen würde) und bekommt so die richtigen Treiber mit.
+%Die Zwischenschicht soll eine Art Default-Klasse für die jeweilige Funktion bereitstellen.
+%Mit der ausgewählten Hardware können die Default-Klassen die richtigen Treiber ansprechen.
+
+\section{Anforderungsanalyse}
+Um eine benutzerfreundlichen und leistungsfähigen API-Bibliothek entwickeln zu können, ist es wichtig die grundlegenden Funktionen klar zu definieren.
+So gilt es als erstes die Fragen zu klären: \emph{Was muss die API können?} und \emph{Welche Eigenschaften soll die API haben?}
+
+Es ist das übergeordnete Ziel, plattformunabhängigen Code schreiben zu können.
+Das bedeutet, es muss möglich sein ein Programm, das z.B. für eine Hardware mit einem STM32-MCU geschrieben wurde, auch für Hardware mit einer ESP32-MCU funktionsfähig zu haben.
+Die spezifische Konfiguration der Hardware und der Pins, wie sie beispielsweise mit STM32CubeMX gemacht werden kann, muss dennoch für jede Hardware, je nach Projekt, neu erstellt werden.
+Dies liegt unter anderem an den unterschiedlichen Prozessorarchitekturen, der Anzahl an Pins und deren Zuordnung zu spezifischen Funktionen oder der Registerkonfiguration.
+Um eine Pinkonfiguration mit Code zu lösen und von der graphischen Oberfläche wegzukommen, liegt der Gedanke, Objekte zu verwenden nahe.
+Besonders im Kontext der Verwendung von C++.
+Solche Objekt werden mittels eines Konstruktors, der die Werte für die Attribute der Pins übergeben bekommt, erstellt.
+Bevor eine Erstellung dieser Pin-Objekte stattfinden kann, Aufgrund der angesprochen Unterschiede, muss erst die Hardware ausgewählt werden.
+
+Damit die Pin-Objekte auch verwendet werden können, muss vorher die Hardware ausgewählt und initialisiert werden.
+Beginnend mit der Auswahl, muss die API in der Lage sein nach einer Art der Definition, welche Hardware real zur Verfügung steht, die passenden Treiber auszuwählen, eine Instanz der Hardware zu erstellen mit der im Programm gearbeitet werden kann
+\\
+- Wie Hardware Initialisierung \\
+- Hardware als Objekte/Instanzen \\
+- Hardware-Objekte nutzen um  \\
+- automatische Auswahl \\
+- es muss definiert sein was ausgewählt werden soll \\
+- 
+
+
+\begin{itemize}
+%	\item Was muss die API können?
+	\item Welche Grundarchitektur liegt vor?
+	\item Welches Architekturmuster eignet sich dafür?
+	\item Welche Architektur eignet sich hier für? $\rightarrow$ Aufbau des gesamten Systems
+	\item Desgin Patterns $\rightarrow$ Aufbau der einzelnen Klassen
+	\begin{itemize}
+		\item Welche werden sonst eingesetzt; welches eignet sich für diesen Zweck
+		\item Wie sollen die Module der jeweiligen Peripherie aufgebaut sein?
+	\end{itemize}
 	\item C++ $\rightarrow$ Objekt-orientiert
 	\item Erstellung von Objekten?
 	\item Auswahl der Funktionen
 	\item 
 \end{itemize}
 
-\section{Ansatz}
+\section{Architekturentwurf}
 \begin{itemize}
 	\item Globales Interface
 	\item Factory Architektur zur Erstellung von Objekten

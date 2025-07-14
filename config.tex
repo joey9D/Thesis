@@ -239,12 +239,12 @@
 \usepackage[automark]{scrlayer-scrpage}
 
 \automark[section]{chapter}
-%\setkomafont{pageheadfoot}{\normalfont\sffamily}
-%\setkomafont{pagenumber}{\normalfont\sffamily}
+\setkomafont{pageheadfoot}{\normalfont\sffamily}
+\setkomafont{pagenumber}{\normalfont\sffamily}
 \pagestyle{scrheadings}
 \clearpairofpagestyles
 \ihead{} \chead{} \ohead{}
-\ifoot{} \cfoot{\pagemark} \ofoot{}
+\ifoot{\leftmark} \cfoot{} \ofoot{\pagemark}
 
 
 
@@ -702,18 +702,6 @@
 \makenoidxglossaries
 %\makeglossaries
 
-%\newglossarystyle{dotfillnoidx}{
-%  \setglossarystyle{list}
-%  \renewenvironment{theglossary}%
-%    {\begin{description}}%
-%    {\end{description}}%
-%  \renewcommand*{\glossentry}[2]{%
-%    \item[\glsentryshort{##1}\dotfill] \glsentrylong{##1}%
-%  }
-%  \renewcommand*{\glsgroupheading}[1]{}
-%}
-
-
 % EN: Extensions for references inside the document (\cref{fig:sample}, ...)
 % DE: cleveref für cref statt autoref, da cleveref auch bei Definitionen funktioniert
 \usepackage[capitalise,nameinlink,noabbrev]{cleveref}
@@ -1107,7 +1095,4 @@
 \title{\Huge\bfseries\doctitle\\[1em]\large Dokumentation}
 \date{\today} %clear date
 \def\docauthor{Jan Kristel}
-\ifoot{\leftmark}
-\cfoot{}
-\ofoot{\pagemark}
-\ohead{}
+
