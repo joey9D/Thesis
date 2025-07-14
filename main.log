@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.15)  14 JUL 2025 19:14
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.15)  14 JUL 2025 19:36
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -2517,7 +2517,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 190--192
 Package cleveref Info: loaded `ngerman' language definitions on input line 98.
 [27]
 chapter 5.
-(./chap5_umsetzung.tex
+(./chap5_konzeption.tex
 
 [28
 
@@ -2525,14 +2525,14 @@ chapter 5.
 ]
 
 Package nag Warning: `center' environment in table.
-(nag)                Maybe you want \centering instead on input line 113.
+(nag)                Maybe you want \centering instead on input line 114.
 
 
 
-Package cleveref Info: loaded `ngerman' language definitions on input line 115.
+Package cleveref Info: loaded `ngerman' language definitions on input line 116.
 [29]
 
-Package cleveref Info: loaded `ngerman' language definitions on input line 164.
+Package cleveref Info: loaded `ngerman' language definitions on input line 157.
 [30])
 
 Package cleveref Info: loaded `ngerman' language definitions on input line 102.
@@ -2582,17 +2582,17 @@ Package logreq Info: Writing requests to 'main.run.xml'.
  ) 
 Here is how much of TeX's memory you used:
  84256 strings out of 473190
- 1960333 string characters out of 5715800
- 3155901 words of memory out of 5000000
+ 1960339 string characters out of 5715800
+ 3156025 words of memory out of 5000000
  105868 multiletter control sequences out of 15000+600000
  618905 words of font info for 207 fonts, out of 8000000 for 9000
  1143 hyphenation exceptions out of 8191
  108i,20n,120p,10917b,2461s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2025/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4r.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/tex-gyre/qhvb.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/tex-gyre/qhvr.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/tex-gyre/qtmr.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/newtx/ztmb.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/newtx/ztmr.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/newtx/ztmri.pfb>
-Output written on main.pdf (32 pages, 305912 bytes).
+Output written on main.pdf (32 pages, 306817 bytes).
 PDF statistics:
- 528 PDF objects out of 1000 (max. 8388607)
- 466 compressed objects within 5 object streams
+ 532 PDF objects out of 1000 (max. 8388607)
+ 470 compressed objects within 5 object streams
  110 named destinations out of 1000 (max. 500000)
  51515 words of extra memory for PDF output out of 51595 (max. 10000000)
 

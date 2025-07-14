@@ -32,9 +32,9 @@
 \contentsline {subsection}{\numberline {4.2.3}modm}{25}{subsection.4.2.3}%
 \contentsline {section}{\numberline {4.3}Notizen}{26}{section.4.3}%
 \contentsline {subsection}{\numberline {4.3.1}Architektur}{26}{subsection.4.3.1}%
-\contentsline {chapter}{\numberline {5}Konzeptionelles Vorgehen}{28}{chapter.5}%
+\contentsline {chapter}{\numberline {5}Konzeption der API}{28}{chapter.5}%
 \contentsline {section}{\numberline {5.1}Anforderungsanalyse}{28}{section.5.1}%
 \contentsline {section}{\numberline {5.2}Architekturentwurf}{29}{section.5.2}%
-\contentsline {section}{\numberline {5.3}Architektonische Eigenschaften der Treiber-API}{29}{section.5.3}%
+\contentsline {section}{\numberline {5.3}Architektonische Eigenschaften der Treiber-API}{30}{section.5.3}%
 \contentsline {chapter}{\numberline {6}Implementierung}{32}{chapter.6}%
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 
