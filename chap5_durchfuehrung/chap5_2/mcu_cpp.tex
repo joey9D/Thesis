@@ -1,0 +1,14 @@
+Das Open-Source-Projekt \emph{mcu-cpp} verwendet einen eigenen \texttt{namespace} um die einzelnen Funktionen und Klassen zu gruppieren.
+\emph{Namespaces} sind eine Möglichkeit in C++ um Variablen, Klasse und Funktionen zu gruppieren, damit Konflikte bei der Benennung solcher Identifizierer zu vermeiden.
+Die ermöglicht einen sauber-strukturierten und lesbaren Applikationscode zu schreiben, in dem man nachvollziehen kann, wer was aufruft.
+Basierend auf den virtuellen Klassen, implementieren die jeweiligen MCUs die Methoden damit diese für sich funktionieren.
+Um innerhalb einer Produktfamilie, z.B. STM32F0 MCUs, die richtigen bzw. alle notwendigen Ports zu aktivieren, gibt es eine zusätzliche Datei \texttt{gpio\_hw\_mapping.hpp}.
+In dieser werden einzelne Ports, die nicht auf jeder MCU verfügbar sind, durch bedingte Kompilierung aktiviert oder nicht.
+Die Information, welche Hardware verwendet wird, muss entweder in der \texttt{CMakeLists.txt} oder im Code mit \texttt{\#define} angegeben sein.
+Zusätzlich werden die CMSIS-Treiber verwendet, die die Startdateien bereit stellen.
+Als RTOS wird aktuell FreeRTOS verwendet.
+%Dies ermöglicht
+Allerdings fehlen hier die offizielle \emph{Hardware-Abstracition-Layer} (HAL), die bereits vorgefertigte Strukturen und Funktionen für die einzeln Hardwarefunktionen implementiert haben.
+Stattdessen werden diese durch die Implementierung der virtuellen Klassen ersetzt.
+Das sorgt im weiteren Verlauf dafür, dass die Funktionen auf Basis der virtuellen Klassen für jede neue MCU-Familie neu implementiert werden muss, was einen für wiederholten Aufwand sorgt und den Anforderungen an die Lösung widerspricht.
+

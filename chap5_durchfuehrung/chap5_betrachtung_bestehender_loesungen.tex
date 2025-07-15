@@ -1,7 +1,13 @@
-Im Rahmen der Untersuchung wurden neben Onlinerecherchen speziell zwei praxisnahe Quellen herangezogen. 
+\section{Betrachtung bestehender Lösungen}
+In diesem Abschnitt erfolgt eine Untersuchung des aktuellen Stands der Technik im Bereich der hardwarenahen Softwareentwicklung für Mikrocontroller.
+Das Ziel besteht darin, gemeinsame Eigenschaften heraus zu arbeiten, verwendete Architekturmuster zu identifizieren und bestehende Ansätze und Konzepte zu analysieren, die das Problem der Treiberauswahl und -abstraktion lösen – insbesondere im Hinblick auf Portabilität und Wiederverwendbarkeit. 
+
+Die Analyse dient zudem der Identifikation möglicher Lücken oder Einschränkungen bestehender Lösungen und trägt somit zur Begründung der Relevanz und Zielsetzung dieser Arbeit bei.
+
+Im Rahmen der Untersuchung wurden neben Onlinerecherchen speziell praxisnahe Quellen herangezogen. 
 Zu den praxisnahen Quellen zählen technische Dokumentationen, Open-Source-Projekte und Herstellerdokumentationen.
 Der Fokus der Recherche lag auf bestehenden Lösungen für die plattformübergreifende Auswahl von Hardwaretreibern für Mikrocontroller.
-Die im Rahmen der Untersuchung verwendeten relevanten Schlüsselbegriffe umfassten unter anderem \textit{Hardware Abstraction Layer, Embedded Driver Portability, CMSIS, Arduino Core, Zephyr RTOS,C++ Hardware API Design}.
+Die im Rahmen der Untersuchung verwendeten relevanten Schlüsselbegriffe umfassten unter anderem \textit{Hardware Abstraction Layer, Embedded Driver Portability, STM32, ESP32, CMSIS, Arduino Core, Zephyr RTOS,C++ Hardware API Design}.
 
 Auf diese Weise wurden verschiedene Ansätze zur Hardwareabstraktion und Treiberbereitstellung gefunden.
 Die \emph{Common Microcontroller Software Interface Standard} (CMSIS)-Bibliothek ist eine von ARM entwickelte Schnittstelle, die eine weit verbreitete Anwendung findet. 
@@ -19,3 +25,46 @@ In den folgenden Absätzen werden die einzelnen Plattformen bewertet und potenti
 % 	\item CMSIS
 %	\item Espressif IDE
 %\end{itemize}
+
+
+\subsection{STM32Cube}
+\input{chap5_durchfuehrung/chap5_2/stm32.tex}
+
+\subsection{Espressif-IDF}
+% TODO: chap4 Espressif-IDE
+\input{chap5_durchfuehrung/chap5_2/esp32.tex}
+
+% TODO: chap4 mcu-cpp & modm: Tiefer Analyse: Wie ist der Code aufgebaut -> Architektur-Muster
+
+\subsection{mcu-cpp}
+\input{chap5_durchfuehrung/chap5_2/mcu_cpp.tex}
+% TODO: chap4 mcu-cpp: Quellen-Verlinkung
+
+
+\subsection{modm}
+\input{chap5_durchfuehrung/chap5_2/modm.tex}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
