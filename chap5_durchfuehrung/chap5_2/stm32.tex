@@ -1,28 +1,26 @@
-Die STM32Cube-Umgebung der Firma STMicroelectronics bietet ein gesamtes System, von der Auswahl und der Konfiguration der Hardware bis hin zu einer IDE zur Softwareentwicklung und einer Software um den internen Speicher der MCUs zu programmieren.
-Aufgeteilt auf:
-\paragraph{STMCUFinder}
-	um die Hardware zu finden, die den notwendigen Anforderungen gerecht werden kann.
-	Dafür gibt es die Möglichkeit, mit verschiedenen Filtern die Auswahl derart einzuschränken, dass nur noch die passenden Mikrokontroller übrig bleiben.
-	Diesen Schritt kann man nicht nur allein für die MCUs und MPUs machen, sondern auch für gesamte Hardwareboards.
-	Hier kommen Filter hinzu, welche Funktionen die Hardware bereits integriert hat.
-	Ist die passende Hardware ausgewählt, kann aus dieser Übersicht direkt der STM32CubeMX gestartet werden.
+Das STM32Cube-Ecosystem \cite{stm32cube_ecosystem} der Firma STMicroelectronics bietet ein gesamtes System, von der Auswahl und der Konfiguration der Hardware bis hin zu einer IDE zur Softwareentwicklung und einer Software um den internen Speicher der MCUs zu programmieren.
+Die Kernprogramme sind dabei:
 
 \paragraph{STM32CubeMX} 
-	zur Konfiguration der Hardware, d.h. Benennung und Funktionszuweisung der Pins, Aktivieren oder Deaktivieren von Registern und Protokollen, Konfiguration der internen Frequenzen. 
+	dient der Konfiguration der Hardware, d.h. Benennung und Funktionszuweisung der Pins, Aktivieren oder Deaktivieren von Registern und Protokollen, Konfiguration der internen Frequenzen über ein graphische Oberfläche.
 	Nach der Konfiguration kann der Code für das Projekt generiert werden.
-	In diesem Schritt werden die notwendigen Pakete, Treiber (HAL, CMSIS) und Firmware für die ausgewählte Hardware geladen.
+	In diesem Schritt werden die notwendigen Pakete, Treiber (\gls{hal}, CMSIS % TODO: CMSIS Glossareintrag
+	) und Firmware für die ausgewählte Hardware geladen. \cite{stm32cubemx}
 
 \paragraph{STM32CubeIDE}
-	um Anwendungen und Software für die MCUs zu entwickeln und implementieren.
-	Die Entwicklungsumgebung, basierend auf Eclipse, bietet neben dem Codeeditor ein eigenes Buildsystem, das mit Make und der \texttt{arm-none-ebai-gcc}-Toolchain arbeitet und einen Debugger hat, mit dem nicht nur Code sondern auch das Verhalten der Hardware beobachtet werden kann um Fehler zu erkennen.
+	dient der Softwareentwicklung für die MCUs zu entwickeln und implementieren.
+	Die Entwicklungsumgebung, basierend auf Eclipse, bietet neben dem Codeeditor ein eigenes Buildsystem, das mit Make und der \texttt{arm-none-ebai-gcc}-Toolchain arbeitet und einen Debugger hat, mit dem nicht nur Code sondern auch das Verhalten der Hardware beobachtet werden kann um Fehler zu erkennen. \cite{stm32cubeide}
 \\
 \\
-Hier ist Positiv hervorzuheben, dass sehr viel über eine Benutzeroberfläche eingerichtet werden kann, was den Einstieg in die Embedded-Entwicklung etwas leichter gestaltet.
-Durch das große Portfolio an an MCUs und Hardwareboards, die alle mit der STM32Cube-Umgebung kompatibel sind, ist es nicht direkt notwendig andere Optionen in betracht zu ziehen. 
+Wird ein neues Projekt über STM32CubeMX gestartet werden automatisch die benötigten Hardwaretreiber und Firmware heruntergeladen und der Projektstruktur hinzugefügt, gleichzeitig wird ein Coderahmen in C generiert. 
+Dieser Rahmen besteht aus \texttt{main.h} und \texttt{main.c}. 
+In dem Header (main.h) befinden sich neben den eingebundenen Headerdateien der Treiber auch die Pindefinitionen, die zuvor konfiguriert wurden.
+In der Hauptprogrammdatei (main.c) sind generierte Funktionen für die Hardwareinitialisierung und die Pininitialisierung zu finden.
+\\
+\\
 Allerdings ist das auch ein Aspekt, der bedacht werden muss. 
 Das Softwarepaket funktioniert nur mit der STM32-Hardware.
 Der Einsatz mit MCUs anderer Hersteller ist damit nicht vorgesehen.
-
 Für allgemeine Projekte bzw. st-fremde Hardware besteht die Möglichkeit, in der STM32CubeIDE leere CMake-Projekte zu erstellen.
 Hier müssen dann die benötigten Pakete und Treiber selber inkludiert werden.
 Ein Buildsystem müsste selber eingebunden und mit eigenen CMake-Dateien implementiert werden.

@@ -3,71 +3,68 @@
 \@writefile{lot}{\babel@toc {ngerman}{}\relax }
 \@writefile{lol}{\babel@toc {ngerman}{}\relax }
 \@writefile{lopytx}{\babel@toc {ngerman}{}\relax }
-\@writefile{toc}{\contentsline {chapter}{Abbildungsverzeichnis}{8}{chapter*.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {chapter}{Tabellenverzeichnis}{9}{chapter*.5}\protected@file@percent }
-\@writefile{toc}{\contentsline {chapter}{Codeverzeichnis}{10}{chapter*.6}\protected@file@percent }
-\@writefile{toc}{\contentsline {chapter}{Abkürzungsverzeichnis}{11}{chapter*.8}\protected@file@percent }
-\@writefile{toc}{\contentsline {chapter}{\numberline {1}Einleitung}{12}{chapter.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{Abkürzungsverzeichnis}{8}{chapter*.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{\numberline {1}Einleitung}{9}{chapter.1}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \@writefile{lol}{\addvspace {10\p@ }}
 \@writefile{lopytx}{\addvspace {10\p@ }}
-\@writefile{toc}{\contentsline {section}{\numberline {1.1}Motivation und Problemstellung}{12}{section.1.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {1.2}Ausgangssituation und Zielsetzung}{13}{section.1.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {1.3}Aufbau der Arbeit}{13}{section.1.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {chapter}{\numberline {2}Aufgabenstellung}{15}{chapter.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {1.1}Motivation und Problemstellung}{9}{section.1.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {1.2}Ausgangssituation und Zielsetzung}{10}{section.1.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {1.3}Aufbau der Arbeit}{10}{section.1.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{\numberline {2}Aufgabenstellung}{12}{chapter.2}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \@writefile{lol}{\addvspace {10\p@ }}
 \@writefile{lopytx}{\addvspace {10\p@ }}
-\@writefile{toc}{\contentsline {section}{\numberline {2.1}Rahmenbedingungen}{15}{section.2.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {2.2}Anforderungen an die Lösung}{16}{section.2.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {chapter}{\numberline {3}Technische Grundlagen}{17}{chapter.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {2.1}Rahmenbedingungen}{12}{section.2.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {2.2}Anforderungen an die Lösung}{13}{section.2.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{\numberline {3}Technische Grundlagen}{14}{chapter.3}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \@writefile{lol}{\addvspace {10\p@ }}
 \@writefile{lopytx}{\addvspace {10\p@ }}
-\@writefile{toc}{\contentsline {section}{\numberline {3.1}Hardware}{17}{section.3.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.1.1}Eingebettete Systeme}{17}{subsection.3.1.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{\nonumberline Definition:}{17}{paragraph*.10}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.1.2}Microcontroller Unit (MCU)}{18}{subsection.3.1.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.1.3}Peripherie}{18}{subsection.3.1.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {3.2}Software}{21}{section.3.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.1}Architektur}{21}{subsection.3.2.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.2}Application Programming Interface}{21}{subsection.3.2.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.3}CMake}{21}{subsection.3.2.3}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {3.1}{\ignorespaces Ausschnitt einer Liste von verfügbaren Generatoren.}}{22}{figure.caption.15}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.4}Make und Makefiles}{22}{subsection.3.2.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {chapter}{\numberline {4}Konzeption der API}{23}{chapter.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {3.1}Hardware}{14}{section.3.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1.1}Eingebettete Systeme}{14}{subsection.3.1.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{\nonumberline Definition:}{14}{paragraph*.7}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1.2}Microcontroller Unit (MCU)}{15}{subsection.3.1.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1.3}Peripherie}{15}{subsection.3.1.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {3.2}Software}{18}{section.3.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.1}Architektur}{18}{subsection.3.2.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.2}Application Programming Interface}{18}{subsection.3.2.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.3}CMake}{18}{subsection.3.2.3}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {3.1}{\ignorespaces Ausschnitt einer Liste von verfügbaren Generatoren.}}{19}{figure.caption.12}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.4}Make und Makefiles}{19}{subsection.3.2.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{\numberline {4}Konzeption der API}{20}{chapter.4}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \@writefile{lol}{\addvspace {10\p@ }}
 \@writefile{lopytx}{\addvspace {10\p@ }}
-\@writefile{toc}{\contentsline {chapter}{\numberline {5}Durchführung}{24}{chapter.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{\numberline {5}Durchführung}{21}{chapter.5}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \@writefile{lol}{\addvspace {10\p@ }}
 \@writefile{lopytx}{\addvspace {10\p@ }}
-\@writefile{toc}{\contentsline {section}{\numberline {5.1}Anforderungsanalyse}{24}{section.5.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {5.2}Betrachtung bestehender Lösungen}{25}{section.5.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.2.1}STM32Cube}{25}{subsection.5.2.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{\nonumberline STMCUFinder}{25}{paragraph*.17}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{\nonumberline STM32CubeMX}{26}{paragraph*.19}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{\nonumberline STM32CubeIDE}{26}{paragraph*.21}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.2.2}Espressif-IDF}{26}{subsection.5.2.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.2.3}mcu-cpp}{26}{subsection.5.2.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.2.4}modm}{27}{subsection.5.2.4}\protected@file@percent }
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {5.1}{\ignorespaces Konsolenbefehl um verf\"ugbare Module aufgelistet zu bekommen; hier f\"ur den STM32C031C6T6 Mikrokontroller.}}{27}{lstlisting.5.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {5.3}Architekturentwurf}{27}{section.5.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.3.1}Architektonische Eigenschaften der Treiber-API}{28}{subsection.5.3.1}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {5.1}{\ignorespaces Teilbereiche architektonischer Eigenschaften}}{28}{table.caption.22}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {5.4}Notizen}{29}{section.5.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.4.1}Architektur}{30}{subsection.5.4.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {chapter}{\numberline {6}Implementierung}{32}{chapter.6}\protected@file@percent }
-\@writefile{lof}{\addvspace {10\p@ }}
-\@writefile{lot}{\addvspace {10\p@ }}
-\@writefile{lol}{\addvspace {10\p@ }}
-\@writefile{lopytx}{\addvspace {10\p@ }}
+\@writefile{toc}{\contentsline {section}{\numberline {5.1}Anforderungsanalyse}{21}{section.5.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5.2}Betrachtung bestehender Lösungen}{22}{section.5.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2.1}STM32Cube}{22}{subsection.5.2.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{\nonumberline STM32CubeMX}{22}{paragraph*.14}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{\nonumberline STM32CubeIDE}{22}{paragraph*.16}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2.2}Espressif-IDF}{23}{subsection.5.2.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2.3}mcu-cpp}{23}{subsection.5.2.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2.4}modm}{23}{subsection.5.2.4}\protected@file@percent }
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {5.1}{\ignorespaces Konsolenbefehl um verf\"ugbare Module aufgelistet zu bekommen; hier f\"ur den STM32C031C6T6 Mikrokontroller.}}{24}{lstlisting.5.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5.3}Architekturentwurf}{24}{section.5.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3.1}Architektonische Eigenschaften der Treiber-API}{25}{subsection.5.3.1}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {5.1}{\ignorespaces Teilbereiche architektonischer Eigenschaften}}{25}{table.caption.17}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5.4}Implementierung}{26}{section.5.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5.5}Implementierung}{26}{section.5.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5.6}Notizen}{26}{section.5.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.6.1}Architektur}{27}{subsection.5.6.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{Abbildungsverzeichnis}{29}{chapter*.22}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{Tabellenverzeichnis}{30}{chapter*.23}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{Codeverzeichnis}{31}{chapter*.24}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{Quellenverzeichnis}{31}{chapter*.24}\protected@file@percent }
 \@writefile{toc}{\providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file }
 \@writefile{lof}{\providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file }
 \@writefile{lot}{\providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file }
