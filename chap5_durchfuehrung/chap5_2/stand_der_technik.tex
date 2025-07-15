@@ -1,0 +1,21 @@
+Im Rahmen der Untersuchung wurden neben Onlinerecherchen speziell zwei praxisnahe Quellen herangezogen. 
+Zu den praxisnahen Quellen zählen technische Dokumentationen, Open-Source-Projekte und Herstellerdokumentationen.
+Der Fokus der Recherche lag auf bestehenden Lösungen für die plattformübergreifende Auswahl von Hardwaretreibern für Mikrocontroller.
+Die im Rahmen der Untersuchung verwendeten relevanten Schlüsselbegriffe umfassten unter anderem \textit{Hardware Abstraction Layer, Embedded Driver Portability, CMSIS, Arduino Core, Zephyr RTOS,C++ Hardware API Design}.
+
+Auf diese Weise wurden verschiedene Ansätze zur Hardwareabstraktion und Treiberbereitstellung gefunden.
+Die \emph{Common Microcontroller Software Interface Standard} (CMSIS)-Bibliothek ist eine von ARM entwickelte Schnittstelle, die eine weit verbreitete Anwendung findet. 
+Sie bietet eine einheitliche Zugriffsebene für Cortex-M-Prozessoren. 
+Herstellerbezogene Entwicklungsumgebungen wie die STM32CubeIDE von STMicroelectronics und die Espressif-IDE bieten umfangreiche Hardware-Abstraktionsbibliotheken, die gezielt auf ihre jeweiligen Mikrocontroller-Familien zugeschnitten sind.
+
+Darüber hinaus wurden zwei Open-Source-Projekte auf GitHub analysiert: mcu-cpp und modm. 
+Die Zielsetzung beider Ansätze besteht in der Modularisierung der Treiberentwicklung in C++ sowie der Bereitstellung portabler, wiederverwendbarer Hardware-APIs. 
+Die Projekte zeigen eine Reihe unterschiedlicher Herangehensweisen in Bezug auf Abstraktionslevel, Architektur und Hardwareunterstützung, was wertvolle Erkenntnisse für die eigene Lösungsentwicklung bietet.
+\\
+\\
+In den folgenden Absätzen werden die einzelnen Plattformen bewertet und potentiellen Vor- und Nachteile benannt; auch in Bezug auf die Anforderungen der eigenen Lösung. 
+%Wie machen das andere; auch in Form kommerzieller Werkzeuge (cubeIDE, Espressif):
+%\begin{itemize}
+% 	\item CMSIS
+%	\item Espressif IDE
+%\end{itemize}
