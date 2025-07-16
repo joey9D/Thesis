@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.15)  16 JUL 2025 09:31
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.15)  16 JUL 2025 09:53
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -2345,21 +2345,18 @@ LaTeX Font Info:    Font shape `T1/ntxtlf/m/it' will be
 Package tocbasic Info: character protrusion at toc deactivated on input line 70.
  (/Users/joey/Documents/Studium/8_Sem/Thesis/Thesis/.texpadtmp/main.toc
 Package cleveref Info: loaded `ngerman' language definitions on input line 1.
-
-
-[6
-
-])
+)
 
 Package glossaries Info: Preparing to sort glossary `acronym' (total number of
 (glossaries)             referenced entries: 18)
 
 
 
-Package cleveref Info: loaded `ngerman' language definitions on input line 73.
-[7]
+[6
 
-[8
+]
+
+[7
 
 
 {/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/base/8r.enc}]
@@ -2369,17 +2366,17 @@ LaTeX Font Info:    Font shape `T1/qhv/b/n' will be
 (Font)              scaled to size 13.53603pt on input line 1.
 
 
-[9
+[8
 
 ])
 
 Package cleveref Info: loaded `ngerman' language definitions on input line 83.
-[10
+[9
 
 ]
 
 Package cleveref Info: loaded `ngerman' language definitions on input line 83.
-[11]
+[10]
 chapter 2.
 (./chap2_aufgabenstellung.tex
 Underfull \hbox (badness 10000) in paragraph at lines 1--13
@@ -2388,37 +2385,37 @@ Underfull \hbox (badness 10000) in paragraph at lines 1--13
 
 
 
-[12
+[11
 
 ])
 
 Package cleveref Info: loaded `ngerman' language definitions on input line 87.
-[13]
+[12]
 chapter 3.
 (./chap3_grundlagen.tex
 LaTeX Font Info:    Font shape `T1/qhv/b/n' will be
 (Font)              scaled to size 11.28003pt on input line 14.
 
 
-[14
+[13
 
 ]
 
 Package cleveref Info: loaded `ngerman' language definitions on input line 74.
-[15]
+[14]
 
 Package cleveref Info: loaded `ngerman' language definitions on input line 108.
-[16]
+[15]
 
 Package cleveref Info: loaded `ngerman' language definitions on input line 137.
-[17]
+[16]
 LaTeX Font Info:    Trying to load font information for T1+zi4 on input line 170.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/inconsolata/t1zi4.fd
 File: t1zi4.fd 2018/01/14 T1/zi4 (Inconsolata)
 )
 LaTeX Font Info:    Font shape `T1/zi4/m/n' will be
 (Font)              scaled to size 9.85492pt on input line 170.
-<Pics/cmake_generators.png, id=273, 614.295pt x 141.52875pt>
+<Pics/cmake_generators.png, id=259, 614.295pt x 141.52875pt>
 File: Pics/cmake_generators.png Graphic file (type png)
 <use Pics/cmake_generators.png>
 Package pdftex.def Info: Pics/cmake_generators.png  used on input line 174.
@@ -2426,20 +2423,20 @@ Package pdftex.def Info: Pics/cmake_generators.png  used on input line 174.
 
 
 Package cleveref Info: loaded `ngerman' language definitions on input line 178.
-[18{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/inconsolata/i4-t1-1.enc}])
+[17{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/inconsolata/i4-t1-1.enc}])
 
 Package cleveref Info: loaded `ngerman' language definitions on input line 91.
-[19 <./Pics/cmake_generators.png>]
+[18 <./Pics/cmake_generators.png>]
 chapter 4.
 (./chap4_konzeption.tex)
 
-[20
+[19
 
 ]
 chapter 5.
 (./chap5_durchfuehrung/chap5_anforderungsanalyse.tex) (./chap5_durchfuehrung/chap5_betrachtung_bestehender_loesungen.tex
 
-[21
+[20
 
 ]
 Underfull \hbox (badness 10000) in paragraph at lines 17--28
@@ -2459,10 +2456,10 @@ Underfull \hbox (badness 10000) in paragraph at lines 11--32
 
 
 Package cleveref Info: loaded `ngerman' language definitions on input line 32.
-[22]) (./chap5_durchfuehrung/chap5_2/esp32.tex) (./chap5_durchfuehrung/chap5_2/mcu_cpp.tex) (./chap5_durchfuehrung/chap5_2/modm.tex
+[21]) (./chap5_durchfuehrung/chap5_2/esp32.tex) (./chap5_durchfuehrung/chap5_2/mcu_cpp.tex) (./chap5_durchfuehrung/chap5_2/modm.tex
 
 Package cleveref Info: loaded `ngerman' language definitions on input line 7.
-[23] (/usr/local/texlive/2025/texmf-dist/tex/latex/listings/lstlang1.sty
+[22] (/usr/local/texlive/2025/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2024/09/23 1.10c listings language file
 ) (/usr/local/texlive/2025/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2024/09/23 1.10c listings language file
@@ -2477,7 +2474,7 @@ File: latin1.def 2024/02/08 v1.3d Input encoding file
 ))) (./chap5_durchfuehrung/chap5_architektur.tex
 
 Package cleveref Info: loaded `ngerman' language definitions on input line 17.
-[24]
+[23]
 
 Package nag Warning: `center' environment in table.
 (nag)                Maybe you want \centering instead on input line 71.
@@ -2485,52 +2482,36 @@ Package nag Warning: `center' environment in table.
 
 
 Package cleveref Info: loaded `ngerman' language definitions on input line 95.
-[25]) (./chap5_durchfuehrung/chap5_implementierung.tex) (./chap5_durchfuehrung/chap5_implementierung.tex) (./chap0_notizen.tex
+[24]) (./chap5_durchfuehrung/chap5_implementierung.tex)
 
-Package cleveref Info: loaded `ngerman' language definitions on input line 19.
-[26]
-
-Package cleveref Info: loaded `ngerman' language definitions on input line 61.
-[27]
-Underfull \hbox (badness 10000) in paragraph at lines 68--70
-
- []
-
-)
-Underfull \hbox (badness 10000) in paragraph at lines 71--108
-
- []
-
-
-
-Package cleveref Info: loaded `ngerman' language definitions on input line 112.
-[28]
-Package tocbasic Info: character protrusion at lof deactivated on input line 112.
+Package cleveref Info: loaded `ngerman' language definitions on input line 109.
+[25]
+Package tocbasic Info: character protrusion at lof deactivated on input line 109.
  (/Users/joey/Documents/Studium/8_Sem/Thesis/Thesis/.texpadtmp/main.lof
 Package cleveref Info: loaded `ngerman' language definitions on input line 1.
 )
 
-[29
+[26
 
 ]
-Package tocbasic Info: character protrusion at lot deactivated on input line 114.
+Package tocbasic Info: character protrusion at lot deactivated on input line 111.
  (/Users/joey/Documents/Studium/8_Sem/Thesis/Thesis/.texpadtmp/main.lot
 Package cleveref Info: loaded `ngerman' language definitions on input line 1.
 )
 
-[30
+[27
 
 ]
-Package tocbasic Info: character protrusion at lol deactivated on input line 116.
+Package tocbasic Info: character protrusion at lol deactivated on input line 113.
  (/Users/joey/Documents/Studium/8_Sem/Thesis/Thesis/.texpadtmp/main.lol
 Package cleveref Info: loaded `ngerman' language definitions on input line 1.
 )
 
-[31
+[28
 
 ]
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/sc' will be
-(Font)              scaled to size 10.95pt on input line 119.
+(Font)              scaled to size 10.95pt on input line 116.
 Package microtype Info: Character `029' is missing
 (microtype)             in font `T1/ntxtlf/m/sc/10.95'.
 (microtype)             Ignoring protrusion settings for this character.
@@ -2543,7 +2524,7 @@ Package nag Warning: 1 complaints in total.
 
 
 
-[32
+[29
 
 {/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/newtx/ntx-ec-tlf-pc.enc}]
 \openout2 = `main.wrt'.
@@ -2574,18 +2555,18 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 84565 strings out of 473190
- 1969939 string characters out of 5715800
- 3160207 words of memory out of 5000000
- 106142 multiletter control sequences out of 15000+600000
- 621723 words of font info for 207 fonts, out of 8000000 for 9000
+ 84512 strings out of 473190
+ 1969143 string characters out of 5715800
+ 3159207 words of memory out of 5000000
+ 106132 multiletter control sequences out of 15000+600000
+ 620475 words of font info for 191 fonts, out of 8000000 for 9000
  1143 hyphenation exceptions out of 8191
- 108i,20n,120p,10917b,3339s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/local/texlive/2025/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4r.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/tex-gyre/qhvb.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/tex-gyre/qhvr.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/tex-gyre/qtmr.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/newtx/ztmb.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/newtx/ztmr.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/newtx/ztmri.pfb>
-Output written on /Users/joey/Documents/Studium/8_Sem/Thesis/Thesis/.texpadtmp/main.pdf (32 pages, 316229 bytes).
+ 108i,20n,120p,10917b,2461s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/local/texlive/2025/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4r.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/tex-gyre/qhvb.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/tex-gyre/qhvr.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/tex-gyre/qtmr.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/newtx/ztmb.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/newtx/ztmr.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/newtx/ztmri.pfb>
+Output written on /Users/joey/Documents/Studium/8_Sem/Thesis/Thesis/.texpadtmp/main.pdf (29 pages, 297772 bytes).
 PDF statistics:
- 574 PDF objects out of 1000 (max. 8388607)
- 509 compressed objects within 6 object streams
- 113 named destinations out of 1000 (max. 500000)
- 53584 words of extra memory for PDF output out of 61914 (max. 10000000)
+ 531 PDF objects out of 1000 (max. 8388607)
+ 472 compressed objects within 5 object streams
+ 103 named destinations out of 1000 (max. 500000)
+ 47416 words of extra memory for PDF output out of 51595 (max. 10000000)
 
