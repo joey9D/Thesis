@@ -13,9 +13,14 @@ Die Kernprogramme sind dabei:
 \\
 \\
 Wird ein neues Projekt über STM32CubeMX gestartet werden automatisch die benötigten Hardwaretreiber und Firmware heruntergeladen und der Projektstruktur hinzugefügt, gleichzeitig wird ein Coderahmen in C generiert. 
-Dieser Rahmen besteht aus \texttt{main.h} und \texttt{main.c}. 
-In dem Header (main.h) befinden sich neben den eingebundenen Headerdateien der Treiber auch die Pindefinitionen, die zuvor konfiguriert wurden.
+In der Hauptheaderdatei (main.h) befinden sich neben den eingebundenen Headerdateien der Treiber auch die Pindefinitionen, die zuvor konfiguriert wurden.
 In der Hauptprogrammdatei (main.c) sind generierte Funktionen für die Hardwareinitialisierung und die Pininitialisierung zu finden.
+% Schichtenarchitektur
+Untersucht man den Aufbau des gesamten Projekts von der Hauptdatei ausgehend soweit bis man die Register in den Funktionen der \gls{hal} findet, lassen sich Schichten erkennen.
+% Anwendungsschicht
+Als oberste Schicht wird die Anwendungsschicht gesehen.
+Diese besteht aus allen Dateien, Funktionen und Klassen, die nicht direkt mit Registern zu tun haben.
+Stattdessen werden die Funktionen der nächst tieferen Schicht verwendet.
 \\
 \\
 Allerdings ist das auch ein Aspekt, der bedacht werden muss. 
