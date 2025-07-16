@@ -19,6 +19,34 @@
 
 \refsection{0}
   \datalist[entry]{anyt/global//global/global/global}
+    \entry{balzert2011softwaretechnik2}{book}{}{}
+      \name{author}{1}{}{%
+        {{hash=98cee9450c433e48f401567881bd52c0}{%
+           family={Balzert},
+           familyi={B\bibinitperiod},
+           given={Helmut},
+           giveni={H\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Spektrum Akademischer Verlag}%
+      }
+      \strng{namehash}{98cee9450c433e48f401567881bd52c0}
+      \strng{fullhash}{98cee9450c433e48f401567881bd52c0}
+      \strng{fullhashraw}{98cee9450c433e48f401567881bd52c0}
+      \strng{bibnamehash}{98cee9450c433e48f401567881bd52c0}
+      \strng{authorbibnamehash}{98cee9450c433e48f401567881bd52c0}
+      \strng{authornamehash}{98cee9450c433e48f401567881bd52c0}
+      \strng{authorfullhash}{98cee9450c433e48f401567881bd52c0}
+      \strng{authorfullhashraw}{98cee9450c433e48f401567881bd52c0}
+      \field{labelalpha}{Bal11}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{978-3-8274-1706-0}
+      \field{title}{Lehrbuch der Softwaretechnik. Bd. 2: Entwurf, Implementierung, Installation und Betrieb}
+      \field{year}{2011}
+    \endentry
     \entry{stm32cube_ecosystem}{online}{}{}
       \name{author}{1}{}{%
         {{hash=c38884ab3cf908c2798725960369391b}{%

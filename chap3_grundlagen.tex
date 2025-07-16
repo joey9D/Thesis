@@ -148,12 +148,94 @@ Der Abtastzeitpunkt befindet sich zwischen Phase 1 und Phase 2.
 
 \section{Software}
 
-\subsection{Architektur}
+\subsection{Architektur- und Designmuster}
+Unter Architektur, speziell \emph{Softwarearchitektur} versteht man den Prozess eine allgemeine Struktur für ein Softwaresystem zu erstellen.
+Helmut Balzert definiert den Begriff als ''eine strukturierte oder hierarchische Anordnung der Systemkomponenten sowie Beschreibung ihrer Beziehungen'' \cite{balzert2011softwaretechnik2}.
+In diesem Prozess gilt es, die Komponenten in eine grobe (high-level) Gliederung zu bringen.
+Im Kontext der Embedded Systeme und Entwicklung und speziell dieser Arbeit, wird sich primär mit der \emph{Schichtenarchitektur} befasst.
+
+Bei diesem Architekturmuster wird das gesamte System in Schichten unterteilt, die  Handlungsbereiche darstellen.
+Diese Schichten funktionieren so, dass sie nur mit der direkt anliegenden tieferen Schicht kommunizieren können.
+Das bedeutet eine Schicht $n$ kann nur mit der Schicht $n-1$ kommunizieren und ist von dieser abhängig.
+Schicht $n-1$ bietet dabei die entsprechenden Funktionen für Schicht $n$.
+Umgekehrt gilt diese Abhängigkeit aber nicht.
+
+Im Embedded Bereich lassen sich die Schichten wie folgt beschreiben:
+
+\paragraph{Die Anwendungsschicht/Application Layer}
+dient als oberste Schicht.
+Diese besteht aus allen Dateien, Funktionen und Klassen, die nicht direkt mit den auf Hardwareebene liegenden Registern zu tun haben; so z.B. Hilfsfunktionen.
+Stattdessen werden die Funktionen der nächst tieferen Schicht verwendet.
+
+\paragraph{Die Mittelschicht/Middleware}
+als optionale zweite Schicht, befasst sich mit möglichen Zusatzfunktionen wie USB, Netzwerkanschlüsse (WLAN), Bluetooth oder IoT (Internet of Things) oder \gls{api}-Funktionen.
+Sie dient als verteilende Zwischenschicht zwischen der Programm und der Abstraktionsschicht der Hardware.
+
+\paragraph{Ein Betriebssystem} ist eine weitere ptionale Schicht.
+Optional in dem Sinn, das ein Embedded System nicht zwingend eine Betriebssystem benötigt.
+Ohne das Betriebssystem werden direkt die Pins, d.h. die Hardware angesprochen und programmiert; z.B. wenn in kleinem Schaltkreis nur ein Schalter, mit dem ein Signal ein oder ausgeschalten werden soll, und eine LED, die mit dem Schaltersignal leuchtet oder nicht, verbaut sind.
+Wird ein Betriebssystem eingesetzt bringt das funktionale Erweiterungen mit sich, wie Multitasking oder besseres Zeitmanagement.
+Des weiteren muss bei mit einem OS (Operating System) auf die verfügbaren Ressourcen geachtet werden, da der Speicher bei Mikrokontrollern begrenzt ist.
+
+\paragraph{Die Hardwareabstraktionsschicht} (\gls{hal}) befindet sich unter der Middleware bzw. unter dem Betriebssystem.
+Gibt es keine zusätzlichen Funktionen in der Middlewareschicht und wird bare-metal entwickelt kann aus der Applikation direkt auf die hier gelagerten Funktionen zugreifen.
+Wie dieser direkte Zugriff auf die Abstraktionsschicht aussieht ist in Code \ref{lst:stm32_mx_gpio_init} % TODO: GPIO Code stm32clean
+zu sehen.
+
+\begin{lstlisting}[language=C, caption={Funktion zur Initialisierung der GPIO-Pins aus einem STM32-Projekt.}, label={lst:stm32_mx_gpio_init}]
+int main(void)
+{
+
+  HAL_Init();
+  SystemClock_Config();
+  MX_GPIO_Init();
+  
+  while (1){ ... } 
+}
+
+	static void MX_GPIO_Init(void)
+{
+  GPIO_InitTypeDef GPIO_InitStruct = {0};
+
+  /* GPIO Ports Clock Enable */
+  __HAL_RCC_GPIOC_CLK_ENABLE();
+  __HAL_RCC_GPIOF_CLK_ENABLE();
+  __HAL_RCC_GPIOA_CLK_ENABLE();
+
+  /*Configure GPIO pin Output Level */
+  HAL_GPIO_WritePin(LEDextern_GPIO_Port, LEDextern_Pin, GPIO_PIN_RESET);
+
+  /*Configure GPIO pins : VCP_USART2_TX_Pin VCP_USART2_RX_Pin */
+  GPIO_InitStruct.Pin = VCP_USART2_TX_Pin|VCP_USART2_RX_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  GPIO_InitStruct.Alternate = GPIO_AF1_USART2;
+  HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+
+  /*Configure GPIO pin : LEDextern_Pin */
+  GPIO_InitStruct.Pin = LEDextern_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init(LEDextern_GPIO_Port, &GPIO_InitStruct);
+}
+\end{lstlisting}
+
+Aus der \texttt{int main(void)}, der Hauptfunktion wird die Funktion \texttt{static MX\_GPIO\_Init(void)} zur Initialisierung der Pins aufgerufen.
+Am Ende dieser Funktion sieht man \texttt{HAL\_GPIO\_Init(GPIO\_Port, \&GPIO\_InitStruct)}.
+Diese Funktion ist Teil der Hardwareabstraktionsschicht, auf die hier ohne weitere Zwischenschicht oder Betriebssystem zugegriffen wird.
+
+\paragraph{Die Treiberschicht} 
+ist die letzte Ebene vor der Hardwareschicht.
+Diese Schicht arbeitet eng mit der Abstraktionsschicht zusammen.
+Sie enthält neben den Low-Level-Treibern, die direkten Zugriff auf die Register haben, den in Assembler geschriebenen Startupcode und Initialisierungsroutinen.
+
+
 \begin{itemize}
-	\item Was versteht man unter Architektur?
-	\item ... in der Softwareentwicklung?
 	\item Design Patterns
 \end{itemize}
+
 
 \subsection{Application Programming Interface}
 \begin{itemize}
