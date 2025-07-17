@@ -1,15 +1,15 @@
 [0] Config.pm:308> INFO - This is Biber 2.20
 [0] Config.pm:311> INFO - Logfile is '/Users/joey/Documents/Studium/8_Sem/Thesis/Thesis/.texpadtmp/main.blg'
-[32] biber-darwin:340> INFO - === Thu Jul 17, 2025, 19:17:37
-[40] Biber.pm:420> INFO - Reading '/Users/joey/Documents/Studium/8_Sem/Thesis/Thesis/.texpadtmp/main.bcf'
-[73] Biber.pm:994> INFO - Found 5 citekeys in bib section 0
-[80] Biber.pm:4463> INFO - Processing section 0
-[85] Biber.pm:4654> INFO - Looking for bibtex file '/Users/joey/Documents/Studium/8_Sem/Thesis/Thesis/reference.bib' for section 0
-[87] bibtex.pm:1713> INFO - LaTeX decoding ...
-[105] bibtex.pm:1519> INFO - Found BibTeX data source '/Users/joey/Documents/Studium/8_Sem/Thesis/Thesis/reference.bib'
-[141] UCollate.pm:68> INFO - Overriding locale 'de-DE' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[141] UCollate.pm:68> INFO - Overriding locale 'de-DE' defaults 'variable = shifted' with 'variable = non-ignorable'
-[141] Biber.pm:4283> INFO - Sorting list 'anyt/global//global/global/global' of type 'entry' with template 'anyt' and locale 'de-DE'
-[141] Biber.pm:4289> INFO - No sort tailoring available for locale 'de-DE'
-[146] bbl.pm:676> INFO - Writing '/Users/joey/Documents/Studium/8_Sem/Thesis/Thesis/.texpadtmp/main.bbl' with encoding 'UTF-8'
-[147] bbl.pm:779> INFO - Output to /Users/joey/Documents/Studium/8_Sem/Thesis/Thesis/.texpadtmp/main.bbl
+[30] biber-darwin:340> INFO - === Thu Jul 17, 2025, 21:10:15
+[37] Biber.pm:420> INFO - Reading '/Users/joey/Documents/Studium/8_Sem/Thesis/Thesis/.texpadtmp/main.bcf'
+[70] Biber.pm:994> INFO - Found 6 citekeys in bib section 0
+[76] Biber.pm:4463> INFO - Processing section 0
+[81] Biber.pm:4654> INFO - Looking for bibtex file '/Users/joey/Documents/Studium/8_Sem/Thesis/Thesis/reference.bib' for section 0
+[82] bibtex.pm:1713> INFO - LaTeX decoding ...
+[101] bibtex.pm:1519> INFO - Found BibTeX data source '/Users/joey/Documents/Studium/8_Sem/Thesis/Thesis/reference.bib'
+[136] UCollate.pm:68> INFO - Overriding locale 'de-DE' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[136] UCollate.pm:68> INFO - Overriding locale 'de-DE' defaults 'variable = shifted' with 'variable = non-ignorable'
+[136] Biber.pm:4283> INFO - Sorting list 'anyt/global//global/global/global' of type 'entry' with template 'anyt' and locale 'de-DE'
+[136] Biber.pm:4289> INFO - No sort tailoring available for locale 'de-DE'
+[140] bbl.pm:676> INFO - Writing '/Users/joey/Documents/Studium/8_Sem/Thesis/Thesis/.texpadtmp/main.bbl' with encoding 'UTF-8'
+[141] bbl.pm:779> INFO - Output to /Users/joey/Documents/Studium/8_Sem/Thesis/Thesis/.texpadtmp/main.bbl
