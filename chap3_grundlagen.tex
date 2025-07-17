@@ -149,6 +149,7 @@ Der Abtastzeitpunkt befindet sich zwischen Phase 1 und Phase 2.
 \section{Software}
 
 \subsection{Architektur- und Designmuster}
+\subsubsection{Architektur}
 Unter Architektur, speziell \emph{Softwarearchitektur} versteht man den Prozess eine allgemeine Struktur für ein Softwaresystem zu erstellen.
 Helmut Balzert definiert den Begriff als ''eine strukturierte oder hierarchische Anordnung der Systemkomponenten sowie Beschreibung ihrer Beziehungen'' \cite{balzert2011softwaretechnik2}.
 In diesem Prozess gilt es, die Komponenten in eine grobe (high-level) Gliederung zu bringen.
@@ -193,7 +194,7 @@ int main(void)
   while (1){ ... } 
 }
 
-	static void MX_GPIO_Init(void)
+static void MX_GPIO_Init(void)
 {
   GPIO_InitTypeDef GPIO_InitStruct = {0};
 
@@ -232,9 +233,25 @@ Diese Schicht arbeitet eng mit der Abstraktionsschicht zusammen.
 Sie enthält neben den Low-Level-Treibern, die direkten Zugriff auf die Register haben, den in Assembler geschriebenen Startupcode und Initialisierungsroutinen.
 
 
+\subsubsection{Design}
+Neben dem Architekturmuster, das für die Struktur des gesamten Projekts verantwortlich ist, stehen die \emph{Designmuster}.
+Unter diesem Begriff versteht man das Designen von einzelnen Softwarekomponenten, wie diese aufgebaut sein sollen, wie sie miteinander kommunizieren, welche Eigenschaften sie haben und hilft dabei die Software zu implementieren.
+Designmuster konzentrieren sich somit auf das Innenleben eines Projekts.\cite{gfg_DesignVsArchitecture}
+
+Dabei wird unterschieden zwischen
 \begin{itemize}
-	\item Design Patterns
+	\item Erzeugungsmuster,
+	\item Strukturmuster und
+	\item Verhaltensmuster.
 \end{itemize}
+
+Erzeugungsmuster helfen dabei, die Art und Weise der Erzeugung von Objekten umzusetzen.
+Sie sorgen dafür, dass der eigentliche Erzeugungsprozess nicht direkt sichtbar.
+Der Fokus liegt auf der Trennung von der Erzeugung und Verwendung von Objekten, um Flexibilität, Wiederverwendbarkeit und Austauschbarkeit zu ermöglichen.
+Strukturmuster helfen dabei, die erstellten Klassen und Objekte zu organisieren.
+Fokussieren sich auf das Miteinander unabhängig entwickelter Klassenbibliotheken.
+Verhaltensmuster definieren, wie Objekte miteinander interagieren, wie Zuständigkeiten aufgeteilt werden und wie der Kontrollfluss zwischen ihnen abläuft.
+Der Fokus liegt nicht ausschließlich auf dem ''Was'' (z. B. ein Event), sondern auch auf dem ''Wie'', ''Wann'' und ''Wer''.
 
 
 \subsection{Application Programming Interface}
