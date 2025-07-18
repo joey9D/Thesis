@@ -60,7 +60,7 @@
 \@writefile{toc}{\contentsline {paragraph}{\nonumberline STM32CubeIDE}{23}{paragraph*.30}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {5.2.2}Espressif-IDF}{24}{subsection.5.2.2}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {5.2.3}mcu-cpp}{24}{subsection.5.2.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.2.4}modm}{24}{subsection.5.2.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2.4}modm}{25}{subsection.5.2.4}\protected@file@percent }
 \@writefile{lol}{\contentsline {lstlisting}{\numberline {5.1}{\ignorespaces Konsolenbefehl um verf\"ugbare Module aufgelistet zu bekommen; hier f\"ur den STM32C031C6T6 Mikrokontroller.}}{25}{lstlisting.5.1}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {5.3}Architekturentwurf}{25}{section.5.3}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {5.3.1}Architektonische Eigenschaften der Treiber-API}{26}{subsection.5.3.1}\protected@file@percent }

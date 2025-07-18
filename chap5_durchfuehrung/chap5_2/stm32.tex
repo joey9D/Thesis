@@ -12,19 +12,39 @@ Die Kernprogramme sind dabei:
 	Die Entwicklungsumgebung, basierend auf Eclipse, bietet neben dem Codeeditor ein eigenes Buildsystem, das mit Make und der \texttt{arm-none-ebai-gcc}-Toolchain arbeitet und einen Debugger hat, mit dem nicht nur Code sondern auch das Verhalten der Hardware beobachtet werden kann um Fehler zu erkennen. \cite{stm32cubeide}
 \\
 \\
-Wird ein neues Projekt über STM32CubeMX gestartet werden automatisch die benötigten Hardwaretreiber und Firmware heruntergeladen und der Projektstruktur hinzugefügt, gleichzeitig wird ein Coderahmen in C generiert. 
-In der Hauptheaderdatei (main.h) befinden sich neben den eingebundenen Headerdateien der Treiber auch die Pindefinitionen, die zuvor konfiguriert wurden.
-In der Hauptprogrammdatei (main.c) sind generierte Funktionen für die Hardwareinitialisierung und die Pininitialisierung zu finden.
-% Schichtenarchitektur
-Untersucht man den Aufbau des gesamten Projekts von der Hauptdatei ausgehend soweit bis man die Register in den Funktionen der \gls{hal} findet, lassen sich Schichten erkennen.
-% Anwendungsschicht
-\\
-\\
-Allerdings ist das auch ein Aspekt, der bedacht werden muss. 
-Das Softwarepaket funktioniert nur mit der STM32-Hardware.
-Der Einsatz mit MCUs anderer Hersteller ist damit nicht vorgesehen.
+Wird ein neues Projekt über STM32CubeMX gestartet werden automatisch die benötigten Hardwaretreiber und Firmware heruntergeladen und der Projektstruktur hinzugefügt, gleichzeitig wird ein Coderahmen in C generiert. (Code \ref{lst:stm32_mx_gpio_init} ist Teil des generierten Coderahmens.)
+%In der Hauptheaderdatei (main.h) befinden sich neben den eingebundenen Headerdateien der Treiber auch die Pindefinitionen, die zuvor konfiguriert wurden.
+%In der Hauptprogrammdatei (main.c) sind generierte Funktionen für die Hardwareinitialisierung und die Pininitialisierung zu finden.
+
+Dies Funktioniert im Kosmos der STM32Cube-Plattform sehr gut, allerdings ist dies auch Aspekt der beachtet werden muss:\\
+Das Softwarepaket funktioniert nur mit der STM32-Hardware, der Einsatz mit \gls{mcu}s anderer Hersteller ist nicht vorgesehen.
 Für allgemeine Projekte bzw. st-fremde Hardware besteht die Möglichkeit, in der STM32CubeIDE leere CMake-Projekte zu erstellen.
-Hier müssen dann die benötigten Pakete und Treiber selber inkludiert werden.
-Ein Buildsystem müsste selber eingebunden und mit eigenen CMake-Dateien implementiert werden.
+Die benötigten Pakete und Treiber, sowie ein Buildsystem müssen dann selber inkludiert und mit eigenen CMake-Dateien implementiert werden.
+
+
+% Schichtenarchitektur
+Untersucht man den Aufbau des gesamten Projekts von der Hauptdatei ausgehend soweit bis die Register in den Funktionen der \gls{hal} erreicht sind, lassen sich Schichten erkennen.
+% Anwendungsschicht
+Die Anwendungsschicht beinhaltet das Hautprogramm inklusive des Hauptheaders.
+% Middleware & RTOS
+Ein explizite Middleware und Betriebssystemschicht fehlen in einem blanken Projekt, wenn man diese während des Konfigurationsprozesses nicht explizit hinzugefügt hat.
+% CMSIS & HAL
+In der Treiber- und Abstraktionsschicht finden sich \gls{hal} und CMSIS-Treiber, mit allen benötigten Funktionen und Definitionen um auf Register zuzugreifen und Pins steuern zu können. 
+
+% Designpattern
+Sucht man den Code nach Designmuster lassen sich für alle drei Kategorien Exemplare finden.
+Für Erzeugungsmuster lassen sich Vergleiche zu Singleton und Builder finden.
+Die \texttt{GPIO\_InitStruct}, die man bereits in Code \ref{lst:stm32_mx_gpio_init} sehen kann, zeigt Ähnlichkeiten zu dem Builder-Muster.
+Die Struktur wird hier ebenfalls Option für Option aufgebaut und erweitert.
+Wird \gls{spi} kommt eine globale \texttt{SPI\_HandleTypeDef} Instanz dazu, ähnlich dem Singleton-Pattern.
+
+Sucht man nach Strukturmuster lässt sich das Facade-Pattern finden.
+Um Pins zu initialisieren wird die Funktion \texttt{HAL\_GPIO\_Init(GPIO\_TypeDef  *GPIOx, const GPIO\_InitTypeDef *pGPIO\_Init)} verwendet, die eine Pointer auf den Port und die Adresse auf die Struktur, die die Pininformationen enthält, übergeben bekommt.
+Diese Funktion kann beliebig vom Entwickler verwendet werden, ohne dass dieser Wissen muss, wie diese Funktion intern die übergebenen Informationen verarbeitet.
+
+Wird weiter zu Verhaltensmuster gegangen, können 
+%Zusammenfassend wird sich hier in einer Schichtenarchitektur bewegt.
+
+
 
 
