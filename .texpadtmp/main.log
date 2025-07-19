@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.15)  19 JUL 2025 16:45
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.15)  19 JUL 2025 19:53
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -2478,7 +2478,10 @@ Package cleveref Info: loaded `ngerman' language definitions on input line 18.
 [23]) (./chap5_durchfuehrung/chap5_2/esp32.tex) (./chap5_durchfuehrung/chap5_2/mcu_cpp.tex
 
 Package cleveref Info: loaded `ngerman' language definitions on input line 14.
-[24]) (./chap5_durchfuehrung/chap5_2/modm.tex (/usr/local/texlive/2025/texmf-dist/tex/latex/listings/lstlang1.sty
+[24]) (./chap5_durchfuehrung/chap5_2/modm.tex
+
+Package cleveref Info: loaded `ngerman' language definitions on input line 8.
+[25] (/usr/local/texlive/2025/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2024/09/23 1.10c listings language file
 ) (/usr/local/texlive/2025/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2024/09/23 1.10c listings language file
@@ -2488,18 +2491,15 @@ Package csquotes Info: Input encoding change on input line 16.
 File: latin1.def 2024/02/08 v1.3d Input encoding file
 ))) (./chap5_durchfuehrung/chap5_architektur.tex
 
-Package cleveref Info: loaded `ngerman' language definitions on input line 5.
-[25]
+Package cleveref Info: loaded `ngerman' language definitions on input line 20.
+[26]
 
 Package nag Warning: `center' environment in table.
 (nag)                Maybe you want \centering instead on input line 71.
 
 
 
-Package cleveref Info: loaded `ngerman' language definitions on input line 73.
-[26]
-
-Package cleveref Info: loaded `ngerman' language definitions on input line 122.
+Package cleveref Info: loaded `ngerman' language definitions on input line 95.
 [27]) (./chap5_durchfuehrung/chap5_implementierung.tex)
 
 Package cleveref Info: loaded `ngerman' language definitions on input line 109.
@@ -2578,17 +2578,17 @@ Package logreq Info: Writing requests to 'main.run.xml'.
  ) 
 Here is how much of TeX's memory you used:
  84728 strings out of 473190
- 1972847 string characters out of 5715800
- 3272988 words of memory out of 5000000
+ 1972845 string characters out of 5715800
+ 3273050 words of memory out of 5000000
  106255 multiletter control sequences out of 15000+600000
  623177 words of font info for 210 fonts, out of 8000000 for 9000
  1143 hyphenation exceptions out of 8191
  108i,20n,120p,10917b,2461s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2025/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4b.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4r.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/tex-gyre/qhvb.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/tex-gyre/qhvr.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/tex-gyre/qtmr.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/newtx/ztmb.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/newtx/ztmr.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/newtx/ztmri.pfb>
-Output written on /Users/joey/Documents/Studium/8_Sem/Thesis/Thesis/.texpadtmp/main.pdf (32 pages, 336764 bytes).
+Output written on /Users/joey/Documents/Studium/8_Sem/Thesis/Thesis/.texpadtmp/main.pdf (32 pages, 339114 bytes).
 PDF statistics:
- 644 PDF objects out of 1000 (max. 8388607)
- 578 compressed objects within 6 object streams
+ 646 PDF objects out of 1000 (max. 8388607)
+ 580 compressed objects within 6 object streams
  161 named destinations out of 1000 (max. 500000)
  53560 words of extra memory for PDF output out of 61914 (max. 10000000)
 
