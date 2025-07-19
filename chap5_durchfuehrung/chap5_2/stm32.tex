@@ -38,11 +38,16 @@ Die \texttt{GPIO\_InitStruct}, die man bereits in Code \ref{lst:stm32_mx_gpio_in
 Die Struktur wird hier ebenfalls Option für Option aufgebaut und erweitert.
 Wird \gls{spi} kommt eine globale \texttt{SPI\_HandleTypeDef} Instanz dazu, ähnlich dem Singleton-Pattern.
 
-Sucht man nach Strukturmuster lässt sich das Facade-Pattern finden.
+Sucht man nach Strukturmuster lässt sich das Facade-Pattern erkennen.
 Um Pins zu initialisieren wird die Funktion \texttt{HAL\_GPIO\_Init(GPIO\_TypeDef  *GPIOx, const GPIO\_InitTypeDef *pGPIO\_Init)} verwendet, die eine Pointer auf den Port und die Adresse auf die Struktur, die die Pininformationen enthält, übergeben bekommt.
 Diese Funktion kann beliebig vom Entwickler verwendet werden, ohne dass dieser Wissen muss, wie diese Funktion intern die übergebenen Informationen verarbeitet.
 
-Wird weiter zu Verhaltensmuster gegangen, können 
+Im Bereich Verhaltensmuster findet man die Template Method.
+Bei diesem Muster definiert eine Basisklasse ein Algorithmus, d.h. eine feste Reihenfolge von Befehlen oder Funktionen; sie implementiert aber nicht alle Befehle selber.
+Einige Zwischenschritte, sog. Hooks, können von Unterklassen implementiert werden.
+Im Fall der STM32-\gls{hal} findet man dieses Pattern bei den Callback-Funktionen für Interrupts.
+Hier ist der \texttt{void HAL\_GPIO\_EXTI\_IRQHandler(uint316\_t GPIO\_Pin)} das Template, die \texttt{void HAL\_GPIO\_EXTI\_Callback(uint16\_t GPIO\_Pin)} die Hook-Funktion, die vom Entwickler selber implementiert werden kann.
+
 %Zusammenfassend wird sich hier in einer Schichtenarchitektur bewegt.
 
 

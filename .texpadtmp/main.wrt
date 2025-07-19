@@ -62,14 +62,14 @@
 \@writefile{toc}{\contentsline {subsection}{\numberline {5.2.3}mcu-cpp}{24}{subsection.5.2.3}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {5.2.4}modm}{25}{subsection.5.2.4}\protected@file@percent }
 \@writefile{lol}{\contentsline {lstlisting}{\numberline {5.1}{\ignorespaces Konsolenbefehl um verf\"ugbare Module aufgelistet zu bekommen; hier f\"ur den STM32C031C6T6 Mikrokontroller.}}{25}{lstlisting.5.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {5.3}Architekturentwurf}{25}{section.5.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5.3}Architekturentwurf}{26}{section.5.3}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {5.3.1}Architektonische Eigenschaften der Treiber-API}{26}{subsection.5.3.1}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {5.1}{\ignorespaces Teilbereiche architektonischer Eigenschaften}}{26}{table.caption.31}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {5.4}Implementierung}{27}{section.5.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {chapter}{Abbildungsverzeichnis}{28}{chapter*.32}\protected@file@percent }
-\@writefile{toc}{\contentsline {chapter}{Tabellenverzeichnis}{29}{chapter*.33}\protected@file@percent }
-\@writefile{toc}{\contentsline {chapter}{Codeverzeichnis}{30}{chapter*.34}\protected@file@percent }
-\@writefile{toc}{\contentsline {chapter}{Quellenverzeichnis}{30}{chapter*.34}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {5.1}{\ignorespaces Teilbereiche architektonischer Eigenschaften}}{27}{table.caption.31}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5.4}Implementierung}{28}{section.5.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{Abbildungsverzeichnis}{29}{chapter*.32}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{Tabellenverzeichnis}{30}{chapter*.33}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{Codeverzeichnis}{31}{chapter*.34}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{Quellenverzeichnis}{31}{chapter*.34}\protected@file@percent }
 \@writefile{toc}{\providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file }
 \@writefile{lof}{\providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file }
 \@writefile{lot}{\providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file }
