@@ -7,9 +7,9 @@ Die Werte kommen aus \texttt{YAML} und \texttt{JSON}-Dateien, die von den \textt
  
 Um eine Bibliothek zu erstellen, muss ein Prozess über die Konsole gestartet werden.
 modm hat bereits vordefinierten Konfigurationen für eine große Auswahl an MCUs.
-Mit diesen kann die Bibliothek für ein Projekt erstellt/gebuildet werden.
+Mit diesen kann die Bibliothek für ein Projekt erstellt werden.
 
-Will man aber Module verwenden, die in der vordefinierten Konfiguration nicht enthalt sind, kann man Module einzeln zu der \texttt{project.xml} hinzufügen.
+Will man aber Module verwenden, die in der vordefinierten Konfiguration nicht enthalt sind, kann man diese einzeln zu der \texttt{project.xml} hinzufügen.
 Um sehen zu können welche Module zur Verfügung stehen muss folgende Zeile in der Konsole ausgeführt werden:
 
 \vspace{3mm}
@@ -19,12 +19,98 @@ Um sehen zu können welche Module zur Verfügung stehen muss folgende Zeile in d
 \end{lstlisting}
 
 Sobald die gewünschten Module hinzugefügt wurde, beginnt der Installations- bzw. der Generierungsprozess der Library. 
-Gibt man nun \texttt{lbuild builld} in der Konsole ein wenn man sich im \texttt{app/project}-Verzeichnis kann die Bibliothek erstellt werden.
+Gibt man nun \texttt{lbuild builld} in der Konsole ein wenn man sich im \texttt{app/project}-Verzeichnis befindet, kann die Bibliothek erstellt werden.
 Nach erfolgreichem Build erscheint in dem Projektverzeichnis ein neuer Ordner \emph{modm}.
 Dieser enthält die generierten Dateien der ausgewählten Module.
 
-Positiv hervorzuheben ist hier das (vordergründige) simple Hinzufügen von Modulen.
-Da das Projekt aktuell bereits sehr umfangreich ist und sehr viele Mikrokontroller und Optionen unterstützt, bietet es eine große Auswahl an Modulen, die beliebig zu einem Projekt hinzugefügt werden können.
+%Positiv hervorzuheben ist hier das (vordergründige) simple Hinzufügen von Modulen.
+%Da das Projekt aktuell bereits sehr umfangreich ist und sehr viele Mikrokontroller und Optionen unterstützt, bietet es eine große Auswahl an Modulen, die beliebig zu einem Projekt hinzugefügt werden können.
+%
+%Allerdings ist zu beachten, dass falls man zukünftig neue Module oder Mikrokontroller hinzufügen will, müssen diese an die bestehende Struktur angepasst und in das Zusammenspiel von Python, Jinja2 und den YAML/JSON-Dateien integriert werden.
+%Dies ist mit einem sehr hohen Aufwand verbunden.
 
-Allerdings ist zu beachten, dass falls man zukünftig neue Module oder Mikrokontroller hinzufügen will, müssen diese an die bestehende Struktur angepasst und in das Zusammenspiel von Python, Jinja2 und den YAML/JSON-Dateien integriert werden.
-Dies ist mit einem sehr hohen Aufwand verbunden.
+% Architektur
+Wird ein Projekt erstellt, dass eine generierte modm-Bibliothek verwendet, lassen sich auch hier bereits bekannte Muster, wie die Schichtenarchitektur, erkennen.
+Anwendungs- und Middlewareschicht unterscheiden sich im Inhalt nicht von dem bereits bekannten aus mcu-cpp und STM32CubeIDE.
+Die Anwendungsschicht enthält weiterhin die Hauptdatei, die Businesslogik und eigene erstellt Klassen, die die Funktionen der tieferliegenden Schichten verwenden.
+Die Middlewareschicht ist weiterhin optional.
+Wurde im Konfigurationsprozess der Bibliothek keine \gls{rtos} oder keine erweiternden Funktionen wie USB und Netzwerkanbindung ausgewählt, sind diese im Projekt ebenfalls nicht vorhanden.
+Unterschiede sind in der Abstraktionsschicht zu finden.
+Diese verwendet keine bereits vorhandenen Funktionen oder Bibliotheken wie die STM32-\gls{hal}, sondern wird vollständig durch modm generiert.
+Sie besteht u.a. aus der Datei \texttt{board.hpp}, die typsichere GPIO-Definitionen, Peripherieklassen (z.B. für SPI und ADC) sowie Funktionen zur Initialisierung und Konfiguration enthält; ähnlich der \texttt{main.h} eines STM32Cube-Projektes.
+Dadurch erfolgt eine Kapselung des direkten Zugriffs auf Hardware sowie die Bereitstellung einer objektorientierten API.
+Die unterhalb liegende Hardwareschicht besteht aus templatespezifischen Registerzugriffen. 
+Funktionen wie \texttt{GpioA0::setOutput()} ermöglichen den direkten Zugriff auf die Register. 
+Der Einsatz dieser Low-Level-Operationen erfolgt ausschließlich über die Abstraktionsschicht.
+% Designmuster
+Im modm-Projekt findet bewusst auf die Verwendung klassischer Designmuster in ihrer typischen objektorientierten Form, verzichtet. 
+Stattdessen werden zahlreiche Funktionalitäten durch statische Metaprogrammierung, Templates und generische Programmierung abgebildet. 
+Nichtsdestotrotz lassen sich in der Struktur und Verwendung bestimmter Klassen Parallelen zu bekannten Entwurfsmustern erkennen.
+%Erzeugungmuster
+Ähnlich dem Singleton-Pattern, kann bei einer Vielzahl von GPIO-Objekten und Board-Komponenten, wie beispielsweise \texttt{Board::LedD13} oder \texttt{Board::PushButton}, ein vergleichbare Aufbau beobachten werden.
+So ist es möglich, die betreffenden Elemente über statische Typen eindeutig zu referenzieren. 
+Dadurch wird eine einzige, globale Instanz je Pin bereitgestellt.
+
+Die Initialisierung über \texttt{Board::initialize()} oder die vordefinierten Aliase wie \texttt{Board::LedD13} können als eine Art Factory betrachtet werden. 
+Dies liegt an einer einheitlichen, zentralisierten Bereitstellung von Komponenten für die Anwendung.
+Eine echte Factory-Methode im GoF-Sinn ist jedoch nicht implementiert, da keine polymorphe Objekterzeugung zur Laufzeit stattfindet.
+
+Mit Blick auf Strukturmuster können Ähnlichkeiten zum Composite Muster gezogen werden.
+Strukturen wie \texttt{GpioSet<GpioA0, GpioA1, GpioA2>} fungieren hierbei als logische Zusammenfassung mehrerer GPIOs.
+Obwohl keine echte rekursive Baumstruktur mit abstrakter Basisklasse, wie sie im klassischen Composite Pattern vorliegt, ähneln solche Klassen diesem Muster insofern, als dass sie gemeinsame Operationen, z. B. \texttt{set()}, \texttt{reset()}, auf eine gesamte Gruppe anwenden. 
+
+Ein Verhaltensmuster wie es zuvor in mcu-cpp und STM32Cube-Projekt vorhanden war, ist hier nicht zu erkennen.
+
+Insgesamt fokussiert sich das modm-Projekt auf eine compilezeit-optimierte Architektur, durch die klassische Entwurfsmuster nur begrenzt bzw. in abgewandelter Form eingesetzt werden.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
