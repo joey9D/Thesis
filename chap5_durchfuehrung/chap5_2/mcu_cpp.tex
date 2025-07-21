@@ -16,7 +16,7 @@ Untersucht man das Projekt auf Architektur- und Designmuster lassen sich die gle
 Es wird in einer Schichtenarchitektur gearbeitet.
 Die Aufteilung ist nahezu identisch, mit dem Hauptprogramm in der Anwendungsschicht, der Hardwareabstraktion mit den CMSIS Dateien und neu geschriebenen Abstraktionsfunktionen, statt den klassischen \gls{hal}-Bibliothek.
 Mit der Verwendung von FreeRTOS kommt die Middleware-Schicht, die sich zwischen der Anwendungsschicht und der Abstraktionsschicht befindet.
-
+% Design
 Designmuster ähneln sich ebenfalls.
 Für die Hardwareinitialisierung wird das Singleton verwendet.
 Es gibt nur eine globale Instanz der \texttt{systick}-Klasse.
@@ -24,12 +24,13 @@ Darüber hinaus gibt es keine erkennbaren Erzeugungsmuster.
 Die Auswahl der Hardware findet über die Haupt-\texttt{CMakelists.txt}-Datei statt.
 
 Im Bereich der Strukturmuster lässt sich das Facade-Pattern erkennen.
-Die Peripheriefunktionen können von Entwicklern genutzt werden, ohne dass diese wissen müssen wie diese konkret implementiert sind.
+Beispielsweise dient die Klasse gpio\_stm32f4 der Abstraktion der Initialisierung und Steuerung von GPIOs über Registeroperationen in eine klar strukturierte, objektorientierte Schnittstelle. 
+Für Entwickler besteht somit die Möglichkeit, GPIOs einfach per Konstruktor und Methoden wie \texttt{set()}, \texttt{toggle()}, \texttt{mode()} oder \texttt{get()} zu verwenden, ohne sich mit den zugrunde liegenden Bitmanipulationen und der Clock-Konfiguration befassen zu müssen. 
 
 Im Bereich der Verhaltensmuster finden sich mehrere Beispiele:
 
-Das Template Method Pattern findet in der systick-Komponente Anwendung. 
-Der Ablauf der Interruptbehandlung ist in der entsprechenden Stelle explizit definiert, ermöglicht jedoch die Integration individueller Erweiterungspunkte (beispielsweise durch überschreibbare oder registrierbare Callbacks wie onTick()). 
+Das Template Method Pattern findet in der \texttt{systick}-Komponente Anwendung. 
+Der Ablauf der Interruptbehandlung ist in der entsprechenden Stelle explizit definiert, ermöglicht jedoch die Integration individueller Erweiterungspunkte (beispielsweise durch überschreibbare oder registrierbare Callbacks wie \texttt{onTick()}). 
 Diese Erweiterungspunkte können angepasst werden, ohne dabei den Ablauf der Interruptbehandlung selbst zu modifizieren.
 
 Ein weiteres Verhaltensmuster ist das Observer Pattern, das bei der Behandlung von GPIO-Interrupts zum Einsatz kommt.

@@ -38,9 +38,8 @@ Die \texttt{GPIO\_InitStruct}, die man bereits in Code \ref{lst:stm32_mx_gpio_in
 Die Struktur wird hier ebenfalls Option für Option aufgebaut und erweitert.
 Wird \gls{spi} kommt eine globale \texttt{SPI\_HandleTypeDef} Instanz dazu, ähnlich dem Singleton-Pattern.
 
-Sucht man nach Strukturmuster lässt sich das Facade-Pattern erkennen.
-Um Pins zu initialisieren wird die Funktion \texttt{HAL\_GPIO\_Init(GPIO\_TypeDef  *GPIOx, const GPIO\_InitTypeDef *pGPIO\_Init)} verwendet, die eine Pointer auf den Port und die Adresse auf die Struktur, die die Pininformationen enthält, übergeben bekommt.
-Diese Funktion kann beliebig vom Entwickler verwendet werden, ohne dass dieser Wissen muss, wie diese Funktion intern die übergebenen Informationen verarbeitet.
+Sucht man nach Strukturmuster lässt sich das Facade-Pattern gut an Code \ref{lst:stm32_mx_gpio_init} erkennen.
+\texttt{MX\_GPIO\_Init()} als Beispiel, kapselt die komplexe Initialisierung mehrerer GPIOs hinter einer einzigen Funktion und versteckt dabei Details wie Clock-Aktivierung und Konfiguration mit \texttt{HAL\_GPIO\_Init()}.
 
 Im Bereich Verhaltensmuster findet man die Template Method.
 Bei diesem Muster definiert eine Basisklasse ein Algorithmus, d.h. eine feste Reihenfolge von Befehlen oder Funktionen; sie implementiert aber nicht alle Befehle selber.
