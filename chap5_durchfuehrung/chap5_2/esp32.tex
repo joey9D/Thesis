@@ -1,0 +1,86 @@
+Aufbau / Ebenene
+\begin{itemize}
+	\item main
+	\item Funktionen
+	\item Funktionen $\rightarrow$ HAL-Funktion
+	\item HAL-Funktion $\rightarrow$ LL-Funktion
+	\item 
+\end{itemize}
+
+
+Das ESP-IDF (Espressif IoT Development Framework) stellt ein offizielles Entwicklungsframework für die Mikrocontroller der Firma Espressif dar, wie etwa das ESP32 und dessen Varianten. 
+Es stellt ein umfangreiches Ökosystem bereit, das sowohl die Auswahl und Konfiguration der Hardware als auch die Entwicklung, das Flashen und Debugging von Software einschließt.
+
+Anders als bei der STM32Cube-Umgebung gibt es hier ein primär Paket, das für die Entwicklung installiert werden muss.
+Im Rahmen dieser Installation werden die erforderlichen Softwarekomponenten automatische mit integriert.
+Zu diesen Komponenten zählen:
+
+\paragraph{Toolchain}
+bringt passende Compiler und die erforderlichen Werkzeuge zum Übersetzen des Quellcodes für die jeweilige ESP32-Plattform. 
+Diese beinhalten die Xtensa GCC Toolchain (\texttt{xtensa-esp32-elf-gcc}) für ältere Modelle wie  ESP32-, ESP32-S2- und ESP32-S3-Modelle.
+Für neuere Modelle wie den ESP32-C3 und ESP32-C6, die auf RISC-V basieren, wird die RISC-V GCC Toolchain (\texttt{riscv32-esp-elf-gcc}) verwendet.
+
+\paragraph{Build-Tools} 
+bestehen aus \texttt{CMake} und \texttt{Ninja} als Generator. 
+CMake übernimmt die Konfiguration und Verwaltung des Projektes sowie die Generierung der entsprechenden Build-Files. 
+Ninja sorgt für eine schnelle und effiziente Ausführung des eigentlichen Buildprozesses.
+
+\paragraph{Python Skripte}
+übernehmen Aufgaben wie die Verwaltung und Konfiguration der Entwicklungsumgebung, das Bauen von Projekten, das Flashen der Firmware auf die Zielhardware sowie die Automatisierung von häufigen Arbeitsabläufen. 
+Diese Skripte verwalten im Hintergrund das Framework, sodass der Entwickler selber wenig bis garnicht mit diesen in Kontakt kommt.
+Viele Befehle, wie das Kompilieren oder Hochladen, werden über diese Skripte im IDF-Terminal ausgeführt und erleichtern so die Entwicklung und den Workflow mit ESP-IDF erheblich.
+
+\paragraph{Debug-Tools}
+wie beispielsweise \texttt{OpenOCD} werden mit installiert.
+Diese Werkzeuge ermöglichen neben dem Flashen der Firmware auf die Zielhardware, auch das Setzen von Breakpoints sowie das Debugging direkt auf dem Mikrocontroller. 
+Sie unterstützen verschiedene Schnittstellen (z.\,B. JTAG oder USB) und lassen sich mit gängigen IDEs und Entwicklungsumgebungen integrieren.
+
+
+Wird ein neues Projekt mit dem ESP-IDF Framework gestartet, erfolgt die Einrichtung der Projektstruktur und der benötigten Komponenten ebenfalls weitgehend automatisiert.
+Die Generierung eines neuen Projekts kann über die Kommandozeile des IDF-Terminal oder entsprechende Assistenten wie der ESP-IDF Erweiterung in VSCode erfolgen.
+In diesem Prozess generiert das Framework die zugehörige Ordnerstruktur, den Beispielcode sowie die Konfigurationsdateien.
+Die erforderlichen Hardwaretreiber, Bibliotheken und Tools wurden bereits mit der Installation des Frameworks bereitgestellt, sodass ein weiterer Download nicht mehr notwendig ist.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

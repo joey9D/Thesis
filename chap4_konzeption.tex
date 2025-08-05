@@ -2,8 +2,8 @@ In diesem Teil der Arbeit wird ein Konzept der API erstellt.
 Mit dem Wissen aus dem vorherigen
 Der Aufbau dieses Konzepts passiert in mehreren Schritten:
 \begin{itemize}
-	\item [1.] Anforderungsanalyse: \\In diesem Abschnitt werden die wichtigen Eigenschaften, die die API haben muss zusammengetragen. Daneben wird analysiert, wie die Funktionen, die enthalten sein sollen aufgebaut und implementiert werden können. Dafür werden die notwendigen, existierenden Funktionen der jeweiligen \gls{hal} (STM32 und ESP32) auf etwaige Gemeinsamkeiten untersucht.
-	\item [2.] Betrachtung bestehender Lösungen: Mit den zusammengetragenen Eigenschaften werden bereits existierende Lösungen und deren Ansätze betrachtet. Hierbei stehen speziell zwei Projekte im Fokus: \href{https://github.com/yh-sb/mcu-cpp.git}{mcu-cpp} und \href{https://github.com/modm-io/modm.git}{modm} % TODO: Quellen
+	\item [1.]  Anforderungsanalyse: \\In diesem Abschnitt werden die wichtigen Eigenschaften, die die API haben muss zusammengetragen. Daneben wird analysiert, wie die Funktionen, die enthalten sein sollen aufgebaut und implementiert werden können. Dafür werden die notwendigen, existierenden Funktionen der jeweiligen \gls{hal} (STM32 und ESP32) auf etwaige Gemeinsamkeiten untersucht.
+ 	\item [2.] 	Betrachtung bestehender Lösungen: Mit den zusammengetragenen Eigenschaften werden bereits existierende Lösungen und deren Ansätze betrachtet. Hierbei stehen speziell zwei Projekte im Fokus: \href{https://github.com/yh-sb/mcu-cpp.git}{mcu-cpp} und \href{https://github.com/modm-io/modm.git}{modm} % TODO: Quellen
 	\item [3.] Architekturentwurf: \\Hier werden passende Architekturmuster für das gesamte System der API und Designmuster für mögliche Module evaluiert; welches Muster erfüllt die erarbeiteten Eigenschaften am besten.
 	\item [4.] Implementierung: Anhand der erstellten Softwarearchitektur wird ein Testprojekt erstellt, das die einzelnen Module implementiert. Um die korrekte Funktionsweise des Codes zu verifizieren, wird die in Abschnitt \ref{chap2_rahmenbedingungen} genannte Hardware verwendet. 
 \end{itemize}

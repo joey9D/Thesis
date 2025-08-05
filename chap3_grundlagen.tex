@@ -18,10 +18,10 @@ Typischerweise handelt es sich dabei um Maschinen, Geräte oder Anlagen, in dene
 Ein wesentliches Merkmal eingebetteter Systeme besteht darin, dass sie nicht als eigenständige Recheneinheiten agieren, sondern als integraler Bestandteil eines übergeordneten Gesamtsystems dienen.
 In der Regel operieren sie im Hintergrund und sind nicht direkt mit den Benutzern verbunden. In einigen Fällen erfolgt die Interaktion automatisch, in anderen durch Eingaben des Nutzers.
 
-\paragraph{Definition:}
-Ein Embedded System ist ein spezialisiertes, in sich geschlossenes Computersystem, das für eine klar definierte Aufgabe innerhalb eines übergeordneten technischen Systems konzipiert wurde.
-
-\vspace{6 mm}
+%\paragraph{Definition:}
+%Ein Embedded System ist ein spezialisiertes, in sich geschlossenes Computersystem, das für eine klar definierte Aufgabe innerhalb eines übergeordneten technischen Systems konzipiert wurde.
+%
+%\vspace{6 mm}
 
 Die Entwicklung von Software für eingebettete Systeme ist mit besonderen Anforderungen verbunden, die sich signifikant von denen unterscheiden, die etwa in der Web- oder Anwendungsentwicklung üblich sind.
 Es ist von besonderer Bedeutung, hardwarenahe Aspekte zu berücksichtigen, da die Software unmittelbar mit der zugrunde liegenden Mikrocontroller-Hardware interagiert.
@@ -149,8 +149,8 @@ Der Abtastzeitpunkt befindet sich zwischen Phase 1 und Phase 2.
 \section{Software}
 
 \subsection{Architektur- und Designmuster}
-\subsubsection{Architektur}
-Unter Architektur, speziell \emph{Softwarearchitektur} versteht man den Prozess eine allgemeine Struktur für ein Softwaresystem zu erstellen.
+\subsubsection{Architekturmuster}
+%Unter Architektur, speziell \emph{Softwarearchitektur} versteht man den Prozess eine allgemeine Struktur für ein Softwaresystem zu erstellen.
 Helmut Balzert definiert den Begriff als ''eine strukturierte oder hierarchische Anordnung der Systemkomponenten sowie Beschreibung ihrer Beziehungen'' \cite{balzert2011softwaretechnik2}.
 In diesem Prozess gilt es, die Komponenten in eine grobe (high-level) Gliederung zu bringen.
 Im Kontext der Embedded Systeme und Entwicklung und speziell dieser Arbeit, wird sich primär mit der \emph{Schichtenarchitektur} befasst.
@@ -163,7 +163,7 @@ Umgekehrt gilt diese Abhängigkeit aber nicht.
 
 Im Embedded Bereich lassen sich die Schichten wie folgt beschreiben:
 
-\paragraph{Die Anwendungsschicht/Application Layer}
+Die \paragraph{Anwendungsschicht/Application Layer}
 dient als oberste Schicht.
 Diese besteht aus allen Dateien, Funktionen und Klassen, die nicht direkt mit den auf Hardwareebene liegenden Registern zu tun haben; so z.B. Hilfsfunktionen.
 Stattdessen werden die Funktionen der nächst tieferen Schicht verwendet.
@@ -172,7 +172,7 @@ Stattdessen werden die Funktionen der nächst tieferen Schicht verwendet.
 als optionale zweite Schicht, befasst sich mit möglichen Zusatzfunktionen wie USB, Netzwerkanschlüsse (WLAN), Bluetooth oder IoT (Internet of Things) oder \gls{api}-Funktionen.
 Sie dient als verteilende Zwischenschicht zwischen der Programm und der Abstraktionsschicht der Hardware.
 
-\paragraph{Ein Betriebssystem} ist eine weitere ptionale Schicht.
+\paragraph{Ein Betriebssystem} ist eine weitere optionale Schicht.
 Optional in dem Sinn, das ein Embedded System nicht zwingend eine Betriebssystem benötigt.
 Ohne das Betriebssystem werden direkt die Pins, d.h. die Hardware angesprochen und programmiert; z.B. wenn in kleinem Schaltkreis nur ein Schalter, mit dem ein Signal ein oder ausgeschalten werden soll, und eine LED, die mit dem Schaltersignal leuchtet oder nicht, verbaut sind.
 Wird ein Betriebssystem eingesetzt bringt das funktionale Erweiterungen mit sich, wie Multitasking oder besseres Zeitmanagement.
@@ -233,7 +233,7 @@ Diese Schicht arbeitet eng mit der Abstraktionsschicht zusammen.
 Sie enthält neben den Low-Level-Treibern, die direkten Zugriff auf die Register haben, den in Assembler geschriebenen Startupcode und Initialisierungsroutinen.
 
 
-\subsubsection{Design}
+\subsubsection{Designmuster}
 % TODO: Designpattern: Nur für OOP?
 Neben dem Architekturmuster, das für die Struktur des gesamten Projekts verantwortlich ist, stehen die \emph{Designmuster}.
 Unter diesem Begriff versteht man das Designen von einzelnen Softwarekomponenten, wie diese aufgebaut sein sollen, wie sie miteinander kommunizieren, welche Eigenschaften sie haben und hilft dabei die Software zu implementieren.
@@ -241,9 +241,9 @@ Designmuster konzentrieren sich somit auf das Innenleben eines Projekts.\cite{gf
 
 Dabei wird unterschieden zwischen
 \begin{itemize}
-	\item Erzeugungsmuster,
-	\item Strukturmuster und
-	\item Verhaltensmuster.
+	\item \textbf{Erzeugungsmuster},
+	\item \textbf{Strukturmuster} und
+	\item \textbf{Verhaltensmuster}.
 \end{itemize}
 
 Erzeugungsmuster helfen dabei, die Art und Weise der Erzeugung von Objekten umzusetzen.
