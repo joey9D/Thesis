@@ -16,13 +16,13 @@
 \contentsline {subsection}{\numberline {3.2.1}Architektur- und Designmuster}{18}{subsection.3.2.1}%
 \contentsline {subsubsection}{\nonumberline Architekturmuster}{18}{subsubsection*.11}%
 \contentsline {paragraph}{\nonumberline Anwendungsschicht/Application Layer}{18}{paragraph*.13}%
-\contentsline {paragraph}{\nonumberline Die Mittelschicht/Middleware}{18}{paragraph*.15}%
-\contentsline {paragraph}{\nonumberline Ein Betriebssystem}{18}{paragraph*.17}%
-\contentsline {paragraph}{\nonumberline Die Hardwareabstraktionsschicht}{18}{paragraph*.19}%
-\contentsline {paragraph}{\nonumberline Die Treiberschicht}{19}{paragraph*.21}%
+\contentsline {paragraph}{\nonumberline Die Mittelschicht/Middleware}{19}{paragraph*.15}%
+\contentsline {paragraph}{\nonumberline Ein Betriebssystem}{19}{paragraph*.17}%
+\contentsline {paragraph}{\nonumberline Die Hardwareabstraktionsschicht}{19}{paragraph*.19}%
+\contentsline {paragraph}{\nonumberline Die Treiberschicht}{20}{paragraph*.21}%
 \contentsline {subsubsection}{\nonumberline Designmuster}{20}{subsubsection*.23}%
 \contentsline {subsection}{\numberline {3.2.2}Application Programming Interface}{20}{subsection.3.2.2}%
-\contentsline {subsection}{\numberline {3.2.3}CMake}{20}{subsection.3.2.3}%
+\contentsline {subsection}{\numberline {3.2.3}CMake}{21}{subsection.3.2.3}%
 \contentsline {subsection}{\numberline {3.2.4}Make und Makefiles}{21}{subsection.3.2.4}%
 \contentsline {chapter}{\numberline {4}Stand der Technik}{22}{chapter.4}%
 \contentsline {chapter}{\numberline {5}Konzeption der API}{23}{chapter.5}%

@@ -32,14 +32,14 @@
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.2.1}Architektur- und Designmuster}{18}{subsection.3.2.1}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsubsection}{\nonumberline Architekturmuster}{18}{subsubsection*.11}\protected@file@percent }
 \@writefile{toc}{\contentsline {paragraph}{\nonumberline Anwendungsschicht/Application Layer}{18}{paragraph*.13}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{\nonumberline Die Mittelschicht/Middleware}{18}{paragraph*.15}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{\nonumberline Ein Betriebssystem}{18}{paragraph*.17}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{\nonumberline Die Hardwareabstraktionsschicht}{18}{paragraph*.19}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{\nonumberline Die Mittelschicht/Middleware}{19}{paragraph*.15}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{\nonumberline Ein Betriebssystem}{19}{paragraph*.17}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{\nonumberline Die Hardwareabstraktionsschicht}{19}{paragraph*.19}\protected@file@percent }
 \@writefile{lol}{\contentsline {lstlisting}{\numberline {3.1}{\ignorespaces Funktion zur Initialisierung der GPIO-Pins aus einem STM32-Projekt.}}{19}{lstlisting.3.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{\nonumberline Die Treiberschicht}{19}{paragraph*.21}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{\nonumberline Die Treiberschicht}{20}{paragraph*.21}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsubsection}{\nonumberline Designmuster}{20}{subsubsection*.23}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.2.2}Application Programming Interface}{20}{subsection.3.2.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.3}CMake}{20}{subsection.3.2.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.3}CMake}{21}{subsection.3.2.3}\protected@file@percent }
 \@writefile{lof}{\contentsline {figure}{\numberline {3.1}{\ignorespaces Ausschnitt einer Liste von verfügbaren Generatoren.}}{21}{figure.caption.24}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.2.4}Make und Makefiles}{21}{subsection.3.2.4}\protected@file@percent }
 \@writefile{toc}{\contentsline {chapter}{\numberline {4}Stand der Technik}{22}{chapter.4}\protected@file@percent }

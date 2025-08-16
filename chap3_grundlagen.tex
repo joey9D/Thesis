@@ -13,7 +13,7 @@ Darüber hinaus wird technisches Hintergrundwissen vermittelt, das für das Vers
 \section{Hardware}
 \subsection{Eingebettete Systeme}
 Bevor auf die Entwicklung eingebetteter Systeme eingegangen werden kann, ist zunächst zu klären, worum es sich bei diesen Systemen handelt.
-Der Begriff \emph{Embedded System} (deutsch: eingebettetes System) bezeichnet ein Computersystem, das aus Hardware und Software besteht und fest in einen übergeordneten technischen Kontext integriert ist. 
+Der Begriff \emph{Embedded System} (deutsch: eingebettetes System) bezeichnet ein Computersystem, das Hardware \textbf{und} Software in sich kombiniert und fest in einen übergeordneten technischen Kontext integriert ist. 
 Typischerweise handelt es sich dabei um Maschinen, Geräte oder Anlagen, in denen das eingebettete System spezifische Steuerungs-, Regelungs- oder Datenverarbeitungsaufgaben übernimmt.
 Ein wesentliches Merkmal eingebetteter Systeme besteht darin, dass sie nicht als eigenständige Recheneinheiten agieren, sondern als integraler Bestandteil eines übergeordneten Gesamtsystems dienen.
 In der Regel operieren sie im Hintergrund und sind nicht direkt mit den Benutzern verbunden. In einigen Fällen erfolgt die Interaktion automatisch, in anderen durch Eingaben des Nutzers.
@@ -29,8 +29,16 @@ Ein zentraler Aspekt dabei ist die Integration geeigneter Treiber für die jewei
 Die betreffenden Treiber beinhalten Funktionen, welche den Zugriff auf die Hardware mittels sogenannter Register erlauben.
 Register sind spezifische Speicherbereiche innerhalb des Mikrocontrollers, welche eine unmittelbare Manipulation des Hardware-Verhaltens ermöglichen.
 Durch das gezielte Setzen oder Auslesen einzelner Bits in diesen Registern ist es möglich, beispielsweise Sensorwerte zu erfassen (z. B. das Drücken eines Tasters) oder Ausgaben zu erzeugen (z. B. das Anzeigen eines Textes auf einem Display).
-
-
+% Memory Mapped IO
+Der Zugriff auf diese Register erfolgt typischerweise über den Mechanismus des \gls{mmio}. 
+In diesem Prozess werden die Peripherieregister in denselben Adressraum eingebunden wie der Arbeitsspeicher (RAM). 
+Für den Prozessor ist es somit irrelevant, ob er Daten im RAM oder in einem Peripherieregister liest oder schreibt – beide Zugriffe erfolgen über die gleichen Speicherbefehle. 
+Der wesentliche Unterschied zwischen den beiden Verfahren liegt darin, dass ein Zugriff auf ein Register nicht nur die Daten verändert, sondern auch das Verhalten der Hardware steuert oder deren aktuellen Status zurückgibt.
+\gls{mmio} zeichnet sich zum einen durch die direkte Hardwaresteuerung aus.
+Jeder Registerzugriff löst eine konkrete Aktion aus.
+Ein Nachteil besteht in den Nebenwirkungen, die beispielsweise das automatische Löschen von Statusbits beim Lesen mit sich bringen.
+Ein weiteres Problem ist das fehlende Caching, da Peripheriebereiche von Cache- und Spekulationsmechanismen ausgeschlossen werden müssen. 
+Zudem besteht die Notwendigkeit, in höheren Programmiersprachen wie C oder C++ Registerzugriffe als \texttt{volatile} zu deklarieren, um unzulässige Compileroptimierungen zu verhindern.
 
 
 \subsection{Microcontroller Unit (MCU)}
@@ -95,7 +103,8 @@ Dabei ist darauf zu achten, dass jeweils nur ein Slave die Kommunikation aktiv d
 \gls{spi} zeichnet sich im Vergleich zu anderen seriellen Protokollen wie \gls{i2c} durch eine vereinfachte Implementierung und eine deutlich höhere Datenübertragungsrate aus. 
 Allerdings fehlen eine standardisierte Adressierung und Fehlerprüfung, was den Einsatz auf kurze Distanzen und überschaubare Topologien begrenzt. 
 
-
+% UART
+% TODO: Löschen da nicht verwendet.
 \subsubsection*{Universal Asynchronous Receiver Transmitter}
 Der \emph{Universal Asynchronous Receiver Transmitter} (UART) ist ein asynchrones Kommunikationsprotokoll, das insbesondere für die serielle, asynchrone Punkt-zu-Punkt-Kommunikation zwischen zwei Geräten eingesetzt wird. 
 Das Protokoll eignet sich für verschiedene Anwendungsbereiche, darunter als Debugging-Schnittstelle, der Kommunikation von Sensoren, GPS-Modulen sowie die Kommunikation mit Computern über USB-zu-Seriell-Wandler. 
