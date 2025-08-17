@@ -28,19 +28,19 @@
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.1.1}Eingebettete Systeme}{14}{subsection.3.1.1}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.1.2}Microcontroller Unit (MCU)}{15}{subsection.3.1.2}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.1.3}Peripherie}{15}{subsection.3.1.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {3.2}Software}{18}{section.3.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.1}Architektur- und Designmuster}{18}{subsection.3.2.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\nonumberline Architekturmuster}{18}{subsubsection*.11}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{\nonumberline Anwendungsschicht/Application Layer}{18}{paragraph*.13}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{\nonumberline Die Mittelschicht/Middleware}{19}{paragraph*.15}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{\nonumberline Ein Betriebssystem}{19}{paragraph*.17}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{\nonumberline Die Hardwareabstraktionsschicht}{19}{paragraph*.19}\protected@file@percent }
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {3.1}{\ignorespaces Funktion zur Initialisierung der GPIO-Pins aus einem STM32-Projekt.}}{19}{lstlisting.3.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{\nonumberline Die Treiberschicht}{20}{paragraph*.21}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\nonumberline Designmuster}{20}{subsubsection*.23}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {3.2}Software}{17}{section.3.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.1}Architektur- und Designmuster}{17}{subsection.3.2.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\nonumberline Architekturmuster}{17}{subsubsection*.10}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{\nonumberline Anwendungsschicht/Application Layer}{18}{paragraph*.12}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{\nonumberline Die Mittelschicht/Middleware}{18}{paragraph*.14}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{\nonumberline Ein Betriebssystem}{18}{paragraph*.16}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{\nonumberline Die Hardwareabstraktionsschicht}{18}{paragraph*.18}\protected@file@percent }
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {3.1}{\ignorespaces Funktion zur Initialisierung der GPIO-Pins aus einem STM32-Projekt.}}{18}{lstlisting.3.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{\nonumberline Die Treiberschicht}{19}{paragraph*.20}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\nonumberline Designmuster}{19}{subsubsection*.22}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.2.2}Application Programming Interface}{20}{subsection.3.2.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.3}CMake}{21}{subsection.3.2.3}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {3.1}{\ignorespaces Ausschnitt einer Liste von verfügbaren Generatoren.}}{21}{figure.caption.24}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.3}CMake}{20}{subsection.3.2.3}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {3.1}{\ignorespaces Ausschnitt einer Liste von verfügbaren Generatoren.}}{20}{figure.caption.23}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.2.4}Make und Makefiles}{21}{subsection.3.2.4}\protected@file@percent }
 \@writefile{toc}{\contentsline {chapter}{\numberline {4}Stand der Technik}{22}{chapter.4}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
@@ -60,24 +60,24 @@
 \@writefile{toc}{\contentsline {section}{\numberline {6.1}Anforderungsanalyse}{24}{section.6.1}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {6.2}Betrachtung bestehender Lösungen}{25}{section.6.2}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {6.2.1}STM32Cube}{25}{subsection.6.2.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{\nonumberline STM32CubeMX}{25}{paragraph*.26}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{\nonumberline STM32CubeIDE}{25}{paragraph*.28}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{\nonumberline STM32CubeMX}{25}{paragraph*.25}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{\nonumberline STM32CubeIDE}{25}{paragraph*.27}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {6.2.2}Espressif-IDF}{26}{subsection.6.2.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{\nonumberline Toolchain}{27}{paragraph*.30}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{\nonumberline Build-Tools}{27}{paragraph*.32}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{\nonumberline Python Skripte}{27}{paragraph*.34}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{\nonumberline Debug-Tools}{27}{paragraph*.36}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{\nonumberline Toolchain}{27}{paragraph*.29}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{\nonumberline Build-Tools}{27}{paragraph*.31}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{\nonumberline Python Skripte}{27}{paragraph*.33}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{\nonumberline Debug-Tools}{27}{paragraph*.35}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {6.2.3}mcu-cpp}{27}{subsection.6.2.3}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {6.2.4}modm}{28}{subsection.6.2.4}\protected@file@percent }
 \@writefile{lol}{\contentsline {lstlisting}{\numberline {6.1}{\ignorespaces Konsolenbefehl um verf\"ugbare Module aufgelistet zu bekommen; hier f\"ur den STM32C031C6T6 Mikrokontroller.}}{29}{lstlisting.6.1}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {6.3}Architekturentwurf}{30}{section.6.3}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {6.3.1}Architektonische Eigenschaften der Treiber-API}{31}{subsection.6.3.1}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {6.1}{\ignorespaces Teilbereiche architektonischer Eigenschaften}}{31}{table.caption.37}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {6.1}{\ignorespaces Teilbereiche architektonischer Eigenschaften}}{31}{table.caption.36}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {6.4}Implementierung}{32}{section.6.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {chapter}{Abbildungsverzeichnis}{33}{chapter*.38}\protected@file@percent }
-\@writefile{toc}{\contentsline {chapter}{Tabellenverzeichnis}{34}{chapter*.39}\protected@file@percent }
-\@writefile{toc}{\contentsline {chapter}{Codeverzeichnis}{35}{chapter*.40}\protected@file@percent }
-\@writefile{toc}{\contentsline {chapter}{Quellenverzeichnis}{35}{chapter*.40}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{Abbildungsverzeichnis}{33}{chapter*.37}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{Tabellenverzeichnis}{34}{chapter*.38}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{Codeverzeichnis}{35}{chapter*.39}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{Quellenverzeichnis}{35}{chapter*.39}\protected@file@percent }
 \@writefile{toc}{\providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file }
 \@writefile{lof}{\providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file }
 \@writefile{lot}{\providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file }

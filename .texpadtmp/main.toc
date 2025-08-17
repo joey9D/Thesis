@@ -12,17 +12,17 @@
 \contentsline {subsection}{\numberline {3.1.1}Eingebettete Systeme}{14}{subsection.3.1.1}%
 \contentsline {subsection}{\numberline {3.1.2}Microcontroller Unit (MCU)}{15}{subsection.3.1.2}%
 \contentsline {subsection}{\numberline {3.1.3}Peripherie}{15}{subsection.3.1.3}%
-\contentsline {section}{\numberline {3.2}Software}{18}{section.3.2}%
-\contentsline {subsection}{\numberline {3.2.1}Architektur- und Designmuster}{18}{subsection.3.2.1}%
-\contentsline {subsubsection}{\nonumberline Architekturmuster}{18}{subsubsection*.11}%
-\contentsline {paragraph}{\nonumberline Anwendungsschicht/Application Layer}{18}{paragraph*.13}%
-\contentsline {paragraph}{\nonumberline Die Mittelschicht/Middleware}{19}{paragraph*.15}%
-\contentsline {paragraph}{\nonumberline Ein Betriebssystem}{19}{paragraph*.17}%
-\contentsline {paragraph}{\nonumberline Die Hardwareabstraktionsschicht}{19}{paragraph*.19}%
-\contentsline {paragraph}{\nonumberline Die Treiberschicht}{20}{paragraph*.21}%
-\contentsline {subsubsection}{\nonumberline Designmuster}{20}{subsubsection*.23}%
+\contentsline {section}{\numberline {3.2}Software}{17}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}Architektur- und Designmuster}{17}{subsection.3.2.1}%
+\contentsline {subsubsection}{\nonumberline Architekturmuster}{17}{subsubsection*.10}%
+\contentsline {paragraph}{\nonumberline Anwendungsschicht/Application Layer}{18}{paragraph*.12}%
+\contentsline {paragraph}{\nonumberline Die Mittelschicht/Middleware}{18}{paragraph*.14}%
+\contentsline {paragraph}{\nonumberline Ein Betriebssystem}{18}{paragraph*.16}%
+\contentsline {paragraph}{\nonumberline Die Hardwareabstraktionsschicht}{18}{paragraph*.18}%
+\contentsline {paragraph}{\nonumberline Die Treiberschicht}{19}{paragraph*.20}%
+\contentsline {subsubsection}{\nonumberline Designmuster}{19}{subsubsection*.22}%
 \contentsline {subsection}{\numberline {3.2.2}Application Programming Interface}{20}{subsection.3.2.2}%
-\contentsline {subsection}{\numberline {3.2.3}CMake}{21}{subsection.3.2.3}%
+\contentsline {subsection}{\numberline {3.2.3}CMake}{20}{subsection.3.2.3}%
 \contentsline {subsection}{\numberline {3.2.4}Make und Makefiles}{21}{subsection.3.2.4}%
 \contentsline {chapter}{\numberline {4}Stand der Technik}{22}{chapter.4}%
 \contentsline {chapter}{\numberline {5}Konzeption der API}{23}{chapter.5}%
@@ -30,20 +30,20 @@
 \contentsline {section}{\numberline {6.1}Anforderungsanalyse}{24}{section.6.1}%
 \contentsline {section}{\numberline {6.2}Betrachtung bestehender Lösungen}{25}{section.6.2}%
 \contentsline {subsection}{\numberline {6.2.1}STM32Cube}{25}{subsection.6.2.1}%
-\contentsline {paragraph}{\nonumberline STM32CubeMX}{25}{paragraph*.26}%
-\contentsline {paragraph}{\nonumberline STM32CubeIDE}{25}{paragraph*.28}%
+\contentsline {paragraph}{\nonumberline STM32CubeMX}{25}{paragraph*.25}%
+\contentsline {paragraph}{\nonumberline STM32CubeIDE}{25}{paragraph*.27}%
 \contentsline {subsection}{\numberline {6.2.2}Espressif-IDF}{26}{subsection.6.2.2}%
-\contentsline {paragraph}{\nonumberline Toolchain}{27}{paragraph*.30}%
-\contentsline {paragraph}{\nonumberline Build-Tools}{27}{paragraph*.32}%
-\contentsline {paragraph}{\nonumberline Python Skripte}{27}{paragraph*.34}%
-\contentsline {paragraph}{\nonumberline Debug-Tools}{27}{paragraph*.36}%
+\contentsline {paragraph}{\nonumberline Toolchain}{27}{paragraph*.29}%
+\contentsline {paragraph}{\nonumberline Build-Tools}{27}{paragraph*.31}%
+\contentsline {paragraph}{\nonumberline Python Skripte}{27}{paragraph*.33}%
+\contentsline {paragraph}{\nonumberline Debug-Tools}{27}{paragraph*.35}%
 \contentsline {subsection}{\numberline {6.2.3}mcu-cpp}{27}{subsection.6.2.3}%
 \contentsline {subsection}{\numberline {6.2.4}modm}{28}{subsection.6.2.4}%
 \contentsline {section}{\numberline {6.3}Architekturentwurf}{30}{section.6.3}%
 \contentsline {subsection}{\numberline {6.3.1}Architektonische Eigenschaften der Treiber-API}{31}{subsection.6.3.1}%
 \contentsline {section}{\numberline {6.4}Implementierung}{32}{section.6.4}%
-\contentsline {chapter}{Abbildungsverzeichnis}{33}{chapter*.38}%
-\contentsline {chapter}{Tabellenverzeichnis}{34}{chapter*.39}%
-\contentsline {chapter}{Codeverzeichnis}{35}{chapter*.40}%
-\contentsline {chapter}{Quellenverzeichnis}{35}{chapter*.40}%
+\contentsline {chapter}{Abbildungsverzeichnis}{33}{chapter*.37}%
+\contentsline {chapter}{Tabellenverzeichnis}{34}{chapter*.38}%
+\contentsline {chapter}{Codeverzeichnis}{35}{chapter*.39}%
+\contentsline {chapter}{Quellenverzeichnis}{35}{chapter*.39}%
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

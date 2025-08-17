@@ -105,26 +105,26 @@ Allerdings fehlen eine standardisierte Adressierung und Fehlerprüfung, was den 
 
 % UART
 % TODO: Löschen da nicht verwendet.
-\subsubsection*{Universal Asynchronous Receiver Transmitter}
-Der \emph{Universal Asynchronous Receiver Transmitter} (UART) ist ein asynchrones Kommunikationsprotokoll, das insbesondere für die serielle, asynchrone Punkt-zu-Punkt-Kommunikation zwischen zwei Geräten eingesetzt wird. 
-Das Protokoll eignet sich für verschiedene Anwendungsbereiche, darunter als Debugging-Schnittstelle, der Kommunikation von Sensoren, GPS-Modulen sowie die Kommunikation mit Computern über USB-zu-Seriell-Wandler. 
-Im Gegensatz zu synchronen Schnittstellen wie SPI ist für UART kein gemeinsames Taktsignal erforderlich.
-Die Datenübertragung passiert hier asynchron über zwei Leitungen: eine für das Senden (Transmitter TX) und eine für das Empfangen (Receiver RX).
-Die Synchronisation basiert auf einer zuvor festgelegten Baudrate (Bits pro Sekunde), die von beiden Geräten unabhängig voneinander eingehalten werden muss.
-Die Kommunikation, d.h. die Datenübertragung erfolgt in sogenannten Frames. Ein typisches \gls{uart}-Frame besteht aus:
-% TODO: UART: Quellenverweise einfügen
-\begin{itemize}
-	\item \textbf{Startbit}, das den Begin eines Datenframes signalisiert,
-	\item \textbf{Datenframe}, bestehend aus fünf bis acht Bits,
-	\item \textbf{Paritätsbit}, das einer einfacheren Fehlererkennung dient und
-	\item \textbf{Stopbit}, das das Ende des Datenframes markiert.
-\end{itemize}
-
-In Abhängigkeit von der Implementierung unterstützt UART Simplex-, Halbduplex- und Vollduplex-Kommunikation. 
-In einer Vielzahl von Mikrocontrollern ist UART als Hardwaremodul integriert, wodurch die serielle Kommunikation effizient und mit minimalem Softwareaufwand realisiert werden kann. 
-Dennoch erfordert die korrekte Konfiguration – insbesondere die Wahl der Baudrate, des Paritätsmodus und der Anzahl von Stoppbits – besondere Sorgfalt, da Abweichungen zu Datenverlust oder Kommunikationsfehlern führen können.
-Ein weiterer Vorteil von UART ist seine Einfachheit in Aufbau und Handhabung: Es werden lediglich zwei Leitungen benötigt. 
-Die Kommunikation ist prinzipiell auf zwei Geräte beschränkt (Punkt-zu-Punkt-Verbindung), da UART keine native Unterstützung für Bussysteme mit mehreren Teilnehmern bietet.
+%\subsubsection*{Universal Asynchronous Receiver Transmitter}
+%Der \emph{Universal Asynchronous Receiver Transmitter} (UART) ist ein asynchrones Kommunikationsprotokoll, das insbesondere für die serielle, asynchrone Punkt-zu-Punkt-Kommunikation zwischen zwei Geräten eingesetzt wird. 
+%Das Protokoll eignet sich für verschiedene Anwendungsbereiche, darunter als Debugging-Schnittstelle, der Kommunikation von Sensoren, GPS-Modulen sowie die Kommunikation mit Computern über USB-zu-Seriell-Wandler. 
+%Im Gegensatz zu synchronen Schnittstellen wie SPI ist für UART kein gemeinsames Taktsignal erforderlich.
+%Die Datenübertragung passiert hier asynchron über zwei Leitungen: eine für das Senden (Transmitter TX) und eine für das Empfangen (Receiver RX).
+%Die Synchronisation basiert auf einer zuvor festgelegten Baudrate (Bits pro Sekunde), die von beiden Geräten unabhängig voneinander eingehalten werden muss.
+%Die Kommunikation, d.h. die Datenübertragung erfolgt in sogenannten Frames. Ein typisches \gls{uart}-Frame besteht aus:
+%% TODO: UART: Quellenverweise einfügen
+%\begin{itemize}
+%	\item \textbf{Startbit}, das den Begin eines Datenframes signalisiert,
+%	\item \textbf{Datenframe}, bestehend aus fünf bis acht Bits,
+%	\item \textbf{Paritätsbit}, das einer einfacheren Fehlererkennung dient und
+%	\item \textbf{Stopbit}, das das Ende des Datenframes markiert.
+%\end{itemize}
+%
+%In Abhängigkeit von der Implementierung unterstützt UART Simplex-, Halbduplex- und Vollduplex-Kommunikation. 
+%In einer Vielzahl von Mikrocontrollern ist UART als Hardwaremodul integriert, wodurch die serielle Kommunikation effizient und mit minimalem Softwareaufwand realisiert werden kann. 
+%Dennoch erfordert die korrekte Konfiguration – insbesondere die Wahl der Baudrate, des Paritätsmodus und der Anzahl von Stoppbits – besondere Sorgfalt, da Abweichungen zu Datenverlust oder Kommunikationsfehlern führen können.
+%Ein weiterer Vorteil von UART ist seine Einfachheit in Aufbau und Handhabung: Es werden lediglich zwei Leitungen benötigt. 
+%Die Kommunikation ist prinzipiell auf zwei Geräte beschränkt (Punkt-zu-Punkt-Verbindung), da UART keine native Unterstützung für Bussysteme mit mehreren Teilnehmern bietet.
 
 \subsubsection*{Controller Area Network}
 Das \emph{Controller Area Network} (CAN) ist ein robustes, serielles, asynchrones Bussystem, das insbesondere in der Automobilindustrie eine weite Verbreitung findet. 
