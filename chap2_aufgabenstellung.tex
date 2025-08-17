@@ -1,5 +1,5 @@
 Das Ziel dieser Arbeit ist es die Basis eine Treiber-API zu erstellen, mit der je nach Zielhardware die passenden Treiber integriert werden können.
-Dafür muss eine Programmstruktur entwickelt werden, die es ermöglicht erstellte Softwarelösungen und Applikationen auf verschiedenen Microkontrollern anwenden zu können, indem die spezifischen Hardwaretreiber, nach geringer Konfiguration, automatisch in den Buildprozess mit integriert werden.
+Dafür muss eine Programmstruktur entwickelt werden, die es ermöglicht erstellte Softwarelösungen und Applikationen auf verschiedenen Microcontrollern anwenden zu können, indem die spezifischen Hardwaretreiber, nach geringer Konfiguration, automatisch in den Buildprozess mit integriert werden.
 Die Struktur soll erste grundlegenden Funktionen für GPIO, SPI, CAN und UART enthalten. 
 Damit können die Funktionen für generelles Lesen, Schreiben und die Kommunikation über Busse getestet werden.
 \\
@@ -68,14 +68,13 @@ Im Rahmen dieser Arbeit sollen die grundlegenden Funktionen wie Lesen und Schrei
 \begin{itemize}
 	\item \gls{gpio}
 	\item \gls{spi}
-	\item \gls{uart}
+%	\item \gls{uart}
 	\item \gls{can}
 \end{itemize}
 
 In einen Schaltkreis sind eine LED und ein Taster verbaut. 
 Um die Kommunikation über \gls{gpio} zu testen soll das Betätigen des Tasters die LED zum leuchten bringen.
 Auf diese Weise kann das Lesen, der Input, des Tasters und das Schreiben, der Output über das Leuchten der LED getestet werden.
-
 % TODO: chap3: Bedingungen für die Bussysteme nochmal überarbeiten; wenn es dann so weit ist.
 % 		[ ] SPI
 % 		[ ] UART
@@ -85,9 +84,8 @@ Damit nachvollzogen werden kann, ob die Kommunikation über den SPI-Bus funktion
 wird über ein Oszilloskop der Datenverkehr des Masters beobachtet. 
 Bei erfolgreicher Signaleübertragung zeigt das Oszilloskop die Signalveränderung.
 
-Ähnlich zu SPI kann der Datenverkehr auch bei UART und CAN mit passenden Software beobachtet und überprüft werden.
-Für den UART-Bus wird HTerm verwendet. % Datentransfer am PC beobachten.
-
+Ähnlich zu SPI kann der Datenverkehr auch bei CAN mit passenden Software beobachtet und überprüft werden.
+%Für den UART-Bus wird HTerm verwendet. % Datentransfer am PC beobachten.
 Für CAN kommt ein Ixxat-Dongel zum Einsatz. % Ixxat Dongel, CAN Mini (oder so ähnlich) :)
 
 

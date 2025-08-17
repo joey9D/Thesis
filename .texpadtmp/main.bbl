@@ -47,6 +47,31 @@
       \field{title}{Lehrbuch der Softwaretechnik. Bd. 2: Entwurf, Implementierung, Installation und Betrieb}
       \field{year}{2011}
     \endentry
+    \entry{barlik_architektur}{misc}{}{}
+      \name{author}{1}{}{%
+        {{hash=92ccd43f182b376f0e33255536dc45bd}{%
+           family={Barlik},
+           familyi={B\bibinitperiod},
+           given={Mehmet},
+           giveni={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{92ccd43f182b376f0e33255536dc45bd}
+      \strng{fullhash}{92ccd43f182b376f0e33255536dc45bd}
+      \strng{fullhashraw}{92ccd43f182b376f0e33255536dc45bd}
+      \strng{bibnamehash}{92ccd43f182b376f0e33255536dc45bd}
+      \strng{authorbibnamehash}{92ccd43f182b376f0e33255536dc45bd}
+      \strng{authornamehash}{92ccd43f182b376f0e33255536dc45bd}
+      \strng{authorfullhash}{92ccd43f182b376f0e33255536dc45bd}
+      \strng{authorfullhashraw}{92ccd43f182b376f0e33255536dc45bd}
+      \field{labelalpha}{Bar25}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Vorlesungsskript zur Softwarearchitektur, privates Dokument}
+      \field{title}{Skript Software-Architektur}
+      \field{year}{2025}
+    \endentry
     \entry{gfg_DesignVsArchitecture}{online}{}{}
       \name{author}{1}{}{%
         {{hash=f1e069787ece74531d112559945c6871}{%
@@ -110,6 +135,112 @@
       \verb{url}
       \verb https://www.ibm.com/de-de/think/topics/api
       \endverb
+    \endentry
+    \entry{github_modm}{online}{}{}
+      \name{author}{1}{}{%
+        {{hash=242946318fa6fc3ad97436a3fe2c0744}{%
+           family={modm.io},
+           familyi={m\bibinitperiod}}}%
+      }
+      \strng{namehash}{242946318fa6fc3ad97436a3fe2c0744}
+      \strng{fullhash}{242946318fa6fc3ad97436a3fe2c0744}
+      \strng{fullhashraw}{242946318fa6fc3ad97436a3fe2c0744}
+      \strng{bibnamehash}{242946318fa6fc3ad97436a3fe2c0744}
+      \strng{authorbibnamehash}{242946318fa6fc3ad97436a3fe2c0744}
+      \strng{authornamehash}{242946318fa6fc3ad97436a3fe2c0744}
+      \strng{authorfullhash}{242946318fa6fc3ad97436a3fe2c0744}
+      \strng{authorfullhashraw}{242946318fa6fc3ad97436a3fe2c0744}
+      \field{extraname}{1}
+      \field{labelalpha}{mod25}
+      \field{sortinit}{m}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{extraalpha}{1}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{C++-Bibliothek für Microcontroller}
+      \field{title}{modm – Modern C++ Microcontroller Library}
+      \field{urlday}{15}
+      \field{urlmonth}{7}
+      \field{urlyear}{2025}
+      \field{year}{2025}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://github.com/modm-io/modm
+      \endverb
+      \verb{url}
+      \verb https://github.com/modm-io/modm
+      \endverb
+    \endentry
+    \entry{modm_io}{online}{}{}
+      \name{author}{1}{}{%
+        {{hash=242946318fa6fc3ad97436a3fe2c0744}{%
+           family={modm.io},
+           familyi={m\bibinitperiod}}}%
+      }
+      \strng{namehash}{242946318fa6fc3ad97436a3fe2c0744}
+      \strng{fullhash}{242946318fa6fc3ad97436a3fe2c0744}
+      \strng{fullhashraw}{242946318fa6fc3ad97436a3fe2c0744}
+      \strng{bibnamehash}{242946318fa6fc3ad97436a3fe2c0744}
+      \strng{authorbibnamehash}{242946318fa6fc3ad97436a3fe2c0744}
+      \strng{authornamehash}{242946318fa6fc3ad97436a3fe2c0744}
+      \strng{authorfullhash}{242946318fa6fc3ad97436a3fe2c0744}
+      \strng{authorfullhashraw}{242946318fa6fc3ad97436a3fe2c0744}
+      \field{extraname}{2}
+      \field{labelalpha}{mod25}
+      \field{sortinit}{m}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{extraalpha}{2}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Offizielle Website der modm-C++-Bibliothek}
+      \field{title}{modm – Modern Embedded Library}
+      \field{urlday}{15}
+      \field{urlmonth}{7}
+      \field{urlyear}{2025}
+      \field{year}{2025}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://modm.io/
+      \endverb
+      \verb{url}
+      \verb https://modm.io/
+      \endverb
+    \endentry
+    \entry{RichardsFord2020}{book}{}{}
+      \name{author}{2}{}{%
+        {{hash=8e3c0b09130cc7c13c7cda6ef28a7d48}{%
+           family={Richards},
+           familyi={R\bibinitperiod},
+           given={Mark},
+           giveni={M\bibinitperiod}}}%
+        {{hash=5ffeeeb533dfcb3c39bada5fdcf44fc0}{%
+           family={Ford},
+           familyi={F\bibinitperiod},
+           given={Neal},
+           giveni={N\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Heidelberg}%
+      }
+      \list{publisher}{1}{%
+        {dpunkt.verlag}%
+      }
+      \strng{namehash}{755202f5a26937dce6816860584aac24}
+      \strng{fullhash}{755202f5a26937dce6816860584aac24}
+      \strng{fullhashraw}{755202f5a26937dce6816860584aac24}
+      \strng{bibnamehash}{755202f5a26937dce6816860584aac24}
+      \strng{authorbibnamehash}{755202f5a26937dce6816860584aac24}
+      \strng{authornamehash}{755202f5a26937dce6816860584aac24}
+      \strng{authorfullhash}{755202f5a26937dce6816860584aac24}
+      \strng{authorfullhashraw}{755202f5a26937dce6816860584aac24}
+      \field{labelalpha}{RF20}
+      \field{sortinit}{R}
+      \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{978-3-86490-722-6}
+      \field{title}{Handbuch moderner Softwarearchitektur -- Architekturstile, Patterns und Best Practices}
+      \field{year}{2020}
     \endentry
     \entry{stm32cube_ecosystem}{online}{}{}
       \name{author}{1}{}{%
@@ -214,6 +345,39 @@
       \endverb
       \verb{url}
       \verb https://www.st.com/en/development-tools/stm32cubemx.html
+      \endverb
+    \endentry
+    \entry{github_mcu_cpp}{online}{}{}
+      \name{author}{1}{}{%
+        {{hash=6e609b7644824ed4b1df51aa94f6985d}{%
+           family={yh-sb},
+           familyi={s\bibinitperiod}}}%
+      }
+      \strng{namehash}{6e609b7644824ed4b1df51aa94f6985d}
+      \strng{fullhash}{6e609b7644824ed4b1df51aa94f6985d}
+      \strng{fullhashraw}{6e609b7644824ed4b1df51aa94f6985d}
+      \strng{bibnamehash}{6e609b7644824ed4b1df51aa94f6985d}
+      \strng{authorbibnamehash}{6e609b7644824ed4b1df51aa94f6985d}
+      \strng{authornamehash}{6e609b7644824ed4b1df51aa94f6985d}
+      \strng{authorfullhash}{6e609b7644824ed4b1df51aa94f6985d}
+      \strng{authorfullhashraw}{6e609b7644824ed4b1df51aa94f6985d}
+      \field{labelalpha}{yh-25}
+      \field{sortinit}{y}
+      \field{sortinithash}{fd67ad5a9ef0f7456bdd9aab10fe1495}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{C++ Abstraktionslayer für Microcontroller}
+      \field{title}{mcu-cpp: C++ Hardware Abstraction for MCUs}
+      \field{urlday}{15}
+      \field{urlmonth}{7}
+      \field{urlyear}{2025}
+      \field{year}{2025}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://github.com/yh-sb/mcu-cpp
+      \endverb
+      \verb{url}
+      \verb https://github.com/yh-sb/mcu-cpp
       \endverb
     \endentry
   \enddatalist

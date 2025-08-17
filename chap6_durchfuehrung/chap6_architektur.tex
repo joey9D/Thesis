@@ -1,59 +1,10 @@
 \section{Architekturentwurf}
 
-\begin{itemize}
-	\item Architektonische Eigenschaften
-	\item Welche Grundarchitektur liegt vor?
-	\item Welches Architekturmuster eignet sich dafür?
-	\item Welche Architektur eignet sich hier für? $\rightarrow$ Aufbau des gesamten Systems
-	\item Desgin Patterns $\rightarrow$ Aufbau der einzelnen Klassen
-	\begin{itemize}
-		\item Welche werden sonst eingesetzt; welches eignet sich für diesen Zweck
-		\item Wie sollen die Module der jeweiligen Peripherie aufgebaut sein?
-	\end{itemize}
-	\item C++ $\rightarrow$ Objekt-orientiert
-	\item Erstellung von Objekten?
-	\item Auswahl der Funktionen
-	\item Globales Interface
-	\item Factory Architektur zur Erstellung von Objekten
-	\item Peripheriefunktionen (GPIO, SPI, etc.) als eigenständigen Klassen
-%	\item Verwendung von \texttt{namespaces}
-	\item HardwareInterface mit allen:
-	\begin{itemize}
-		\item vllt. Core: ClockInit, Delay, GetTick
-		\item Gpio
-		\item SPI
-		\item UART
-		\item CAN
-	\end{itemize}
-	\item Interface ruft Factory auf, die MCU spezifischen Treiber inkludiert und eine Instanz des HW-Objektes zurückgibt. Mit dieser kann gearbeitet werden.
-\end{itemize}
-
-
-%\section{Einstellungen pro MCU}
-
-%TODO: informations in reference manual for each mcu
-% CONFIG Abschnitt im cmake
-%\begin{lstlisting}
-%add_compile_options(
-%	-mcpu=
-%	-mfloat-abi=
-%	-mfpu=
-%	-mthumb
-%	-ffunction-sections
-%	-fdata-sections
-%	$<$<COMPILE_LANGUAGE:CXX>:-fno-exceptions>
-%	$<$<COMPILE_LANGUAGE:CXX>:-fno-rtti>
-%	$<$<COMPILE_LANGUAGE:CXX>:-fno-threadsafe-statics>
-%	$<$<COMPILE_LANGUAGE:CXX>:-fno-use-cxa-atexit>
-%)
-%\end{lstlisting}
-
-
-
+\label{sec:architecture_properties}
 \subsection{Architektonische Eigenschaften der Treiber-API}
 Moderen Softwarelösungen bestehen meist aus vielen, großen Dateien, die untereinander von einander abhängig sind.
-Um bei solch großen Projekten den Überblick zu behalten, werden/sollten diese Softwarelösungen nach gewissen Eigenschaften erstellt werden.
-Diese \emph{architektonischen Eigenschaften} lassen sich (grob) in drei Teilbereiche unterteilen: Betriebsrelevante, Strukturelle und Bereichsübergreifende, wie in Tabelle~\ref{tab:architektonische_eigenschaften} aufgeführt. % Eigenschaften. 
+Um bei solch großen Projekten den Überblick zu behalten, werden diese Softwarelösungen nach gewissen Eigenschaften erstellt.
+Diese \emph{architektonischen Eigenschaften} lassen sich (grob) in drei Teilbereiche unterteilen: Betriebsrelevante, Strukturelle und Bereichsübergreifende \cite{barlik_architektur}, wie in Tabelle~\ref{tab:architektonische_eigenschaften} aufgeführt. % Eigenschaften. 
 
 \begin{table}[H]
 	\begin{center}
@@ -74,7 +25,7 @@ Diese \emph{architektonischen Eigenschaften} lassen sich (grob) in drei Teilbere
 Aus diesen Eigenschaften gilt es, die wichtigsten für die Treiber-API zu identifizieren. 
 Mit diesem Hintergrund lässt sich ein Struktur für das Projekt bilden.
 
-Die Entwicklung einer plattformunabhängigen, wiederverwendbaren Treiber-API für Mikro-controller stellt hohe Anforderungen an die Architektur der Softwarebibliothek.
+Die Entwicklung einer plattformunabhängigen, wiederverwendbaren Treiber-API für Micro-controller stellt hohe Anforderungen an die Architektur der Softwarebibliothek.
 
 % Welche (architektonischen) Eigenschaft sind wichtig/sollen umgesetzt werden?
 % geringe Redundanz
@@ -88,18 +39,19 @@ Die API ist so zu gestalten, dass eine effiziente Nutzung gewährleistet ist.
 Dies fördert nicht nur die Effizienz in der Erstellung neuer Applikationen, sondern erleichtert auch langfristig die Wartung und Weiterentwicklung der Software.
 
 % Skalierbarkeit
-Im Sinne der Skalierbarkeit wird angestrebt, die Lösung auf möglichst viele Mikrocontroller-Architekturen und Hardwareplattformen anwendbar zu machen.
+Im Sinne der Skalierbarkeit wird angestrebt, die Lösung auf möglichst viele Microcontroller-Architekturen und Hardwareplattformen anwendbar zu machen.
 Die Vielfalt verfügbarer MCUs erfordert eine abstrahierte und flexibel erweiterbare Struktur, die die Integration neuer Plattformen mit minimalem Aufwand ermöglicht.
 
+% TODO chap6: Eigenschaften: Portabilität, ja - nein?
 % Portabilität - nochmal anpassen; OS Bezug passt nicht richtig
-Auch die Portabilität spielt eine wichtige Rolle.
-Die Bibliothek sollte nicht nur hardware-, sondern auch betriebssystemunabhängig konzipiert werden.
-Aus diesem Grund wird bei der Entwicklung der Lösung darauf geachtet, dass diese erst unter Windows, später auch unter Linux und macOS einsetzbar ist.
-Die Installation und Konfiguration der dafür benötigten Werkzeuge wird nachvollziehbar dokumentiert, um den Einstieg für die Nutzer zu erleichtern.
+%Auch die Portabilität spielt eine wichtige Rolle.
+%Die Bibliothek sollte nicht nur hardware-, sondern auch betriebssystemunabhängig konzipiert werden.
+%Aus diesem Grund wird bei der Entwicklung der Lösung darauf geachtet, dass diese erst unter Windows, später auch unter Linux und macOS einsetzbar ist.
+%Die Installation und Konfiguration der dafür benötigten Werkzeuge wird nachvollziehbar dokumentiert, um den Einstieg für die Nutzer zu erleichtern.
 
 % Erweiterbarkeit
 Darüber hinaus ist die Erweiterbarkeit ein wesentliches Architekturprinzip
-Der Einsatz von leistungsstärkeren Mikrocontrollern hängt in der Regel mit einer Erweiterung der Funktionalitäten zusammen, die in die bestehenden Treiber- und API-Strukturen integriert werden müssen.
+Der Einsatz von leistungsstärkeren Microcontrollern hängt in der Regel mit einer Erweiterung der Funktionalitäten zusammen, die in die bestehenden Treiber- und API-Strukturen integriert werden müssen.
 Daher wird großer Wert auf eine modulare und offen gestaltete Architektur gelegt, die neue Features ohne grundlegende Umbauten aufnehmen kann.
 
 % Modularität
@@ -108,18 +60,88 @@ Eine saubere Trennung funktionaler Einheiten ermöglicht eine schnellere Lokalis
 
 % (Ressourcen-)Effizienz
 Schließlich ist auch die Effizienz ein kritischer Aspekt.
-Da Mikrocontroller in der Regel nur über begrenzte Ressourcen verfügen, ist es essenziell, dass die Bibliothek möglichst kompakt und ressourcenschonend implementiert wird. 
+Da Microcontroller in der Regel nur über begrenzte Ressourcen verfügen, ist es essenziell, dass die Bibliothek möglichst kompakt und ressourcenschonend implementiert wird. 
 Externe Abhängigkeiten werden bewusst auf ein Minimum reduziert, um Speicherplatz zu sparen und unnötige Komplexität zu vermeiden.
 
-Diese architektonischen Prinzipien bilden die Grundlage für die Konzeption und Umsetzung der in dieser Arbeit vorgestellten Treiber-API.
+Diese architektonischen Prinzipien bilden die Grundlage für die Konzeption und Umsetzung der in dieser Arbeit vorgestellten Treiber-\gls{api}.
 
-% Fragen
-Wie wird der jeweilige Punkt umgesetzt?
 
-Welche Tools werden benutzt/eignen sich besonders für die Umsetzung?
-Welche Tools eignen sich für welchen Arbeitsschritt?
+\subsection{Architektur- und Designmuster der Treiber-API}
 
-Warum wird etwas gerade auf diese Weise umgesetzt?
+%\begin{itemize}
+%	\item Desgin Patterns $\rightarrow$ Aufbau der einzelnen Klassen
+%	\begin{itemize}
+%		\item Welche werden sonst eingesetzt; welches eignet sich für diesen Zweck
+%		\item Wie sollen die Module der jeweiligen Peripherie aufgebaut sein?
+%	\end{itemize}
+%	\item HardwareInterface mit allen:
+%	\begin{itemize}
+%		\item vllt. Core: ClockInit, Delay, GetTick
+%		\item Gpio
+%		\item SPI
+%%		\item UART
+%		\item CAN
+%	\end{itemize}
+%\end{itemize}
+
+- Architektonische Eigenschaften\\
+- Welche Grundarchitektur liegt vor?\\
+- Welches Architekturmuster eignet sich dafür?\\
+- Welche Architektur eignet sich hier für? $\rightarrow$ Aufbau des gesamten Systems\\
+Um die Struktur der Treiber-\gls{api} zu erstellen, finden die in \cref{sec:architecture_design_pattern} angesprochenen Architektur- und Designmuster Verwendung.
+Da sich in der Embeddedwelt bewegt wird, handelt es bei der Gesamtstruktur um ein Schichtenarchitektur.
+Das fertige Projekt wird darin eine eigen Schicht bilden.
+Damit fehlen noch die Designmuster.
+Dieses müssen so ausgewählt werden, dass die Eigenschaften, die in vorherigem \cref{sec:architecture_properties} erarbeitet wurden, bestmöglich erfüllt werden.\\
+- C++ $\rightarrow$ Objekt-orientiert\\
+- Factory Architektur zur Erstellung von Objekten\\
+- Erstellung von Objekten?\\
+Beginnend bei der Auswahl der Hardware. 
+Factory-Methode:
+Interface ruft Factory auf, die eine Instanz des HW-Objektes zurückgibt.
+Mit dieser Instanz wird die Hardware initialisiert.
+Ein allgemeines Hardwareinterface kapselt Kernfunktionen der Hardware, die für die Systeminitialisierung und -funktionen relevant sind.
+
+
+Damit aus diesem Interface in Objekt einer spezifischen Hardware wird, bietet sich eine Fabrik an.
+Diese wählt anhand der in einer Konfigurationsdatei definierten Hardware die richtige Kindklasse der Interface-Elternklasse aus.
+
+Facade-Pattern:
+Eine hardware spezifischere Kindklasse implementiert die Kernfunktionen der Interfaceklasse, passend auf ihr System und erweitert diese um die Peripheriefunktionen.
+
+- Peripheriefunktionen (GPIO, SPI, etc.) als eigenständigen Klassen\\
+- Globales Interface\\
+- Auswahl der Funktionen\\
+Jede Peripheriefunktion wird genau wie die Hardware über eine Interface-Elternklasse und Hardware-spezifische Kindklassen implementiert.
+
+Mit diesem Konzept entsteht ein Modul für jede Peripherie, z.B. das GPIO-Modul.
+Diese Module sind so designed, dass sie den tiefergehenden Code hinter einer Facade verbergen.
+Durch die vorher definierte Hardware ändert sich am eigentlichen erstellt Programmcode nichts.
+Im Hintergrund werden aber die hardware-spezifischen Treiber und HAL Funktionen ausgewählt.
+Der Entwickler bekommt davon in der main.cpp nichts mit.
+
+
+Die grundlegende Struktur des Systems basiert auf einer **Schichtenarchitektur**, wie sie in der Embedded-Softwareentwicklung häufig Anwendung findet. Diese Architekturform ermöglicht eine klare Trennung zwischen Anwendungslogik, Abstraktionsschichten und hardwarenahen Treibern. Die Schichtung erleichtert nicht nur die Wartung und Erweiterbarkeit, sondern trägt auch wesentlich zur Portabilität bei, da einzelne Schichten unabhängig voneinander angepasst oder ausgetauscht werden können. Das entwickelte Projekt bildet dabei eine eigenständige Schicht innerhalb dieser Gesamtarchitektur, die als Schnittstelle zwischen Hardware und Anwendung dient.
+
+Da die Implementierung in **C++** erfolgt, wird die Architektur durch Prinzipien der **Objektorientierung** geprägt. Die Kapselung von Zuständigkeiten in Klassen sowie die Möglichkeit zur Nutzung von Vererbung und Polymorphie bieten eine geeignete Grundlage, um hardwarenahe Funktionalitäten abstrahiert und erweiterbar bereitzustellen. Diese Eigenschaften schaffen die Voraussetzung, Designmuster gezielt einzusetzen, um die im vorangehenden Abschnitt definierten Architekturziele – insbesondere Modularität, Austauschbarkeit und Erweiterbarkeit – zu erreichen.
+
+Ein zentrales Muster stellt dabei die **Factory-Methode** dar. Dieses Erzeugungsmuster dient der Entkopplung von Objektinstanziierung und -nutzung. Für die Hardwareabstraktion bedeutet dies, dass ein allgemeines **Hardwareinterface** definiert wird, das die notwendigen Basisfunktionen bereitstellt. Die konkrete Auswahl und Instanziierung einer spezifischen Implementierung erfolgt über eine Fabrik, die anhand der in einer Konfiguration hinterlegten Zielplattform das passende Objekt erzeugt. Auf diese Weise wird vermieden, dass anwendungsspezifischer Quellcode an hardwareabhängige Details gebunden ist. Die Factory-Methode trägt somit wesentlich zur Erreichung von Plattformunabhängigkeit und Wiederverwendbarkeit des Anwendungscodes bei.
+
+Ergänzend dazu wird das **Fassade-Muster** eingesetzt. Dieses Strukturmuster dient der Vereinfachung des Zugriffs auf komplexe Subsysteme, indem es eine einheitliche Schnittstelle zur Verfügung stellt. In der hier betrachteten Architektur übernehmen hardwarespezifische Kindklassen die konkrete Implementierung der im Interface definierten Kernfunktionen. Über die Fassade werden diese Implementierungen dem Anwendungsentwickler in abstrahierter Form zugänglich gemacht. Dadurch wird die interne Komplexität der hardwarenahen Treiber verborgen, während nach außen eine homogene und stabile Schnittstelle bereitgestellt wird.
+
+Die Architektur wird durch die Modularisierung der **Peripheriefunktionen** weiter verfeinert. Funktionen wie GPIO, SPI oder UART werden jeweils als eigenständige Module entworfen, die wiederum dem Prinzip von Interface und spezifischer Implementierung folgen. Jedes Modul kapselt die hardwarespezifischen Details hinter einer definierten Abstraktionsschicht. Diese konsequente Trennung gewährleistet, dass Änderungen in der Hardware oder den zugrunde liegenden Treibern keine Anpassungen am Anwendungscode erforderlich machen.
+
+Insgesamt entsteht damit eine Architektur, die auf den Prinzipien von **Schichtenarchitektur**, **Objektorientierung** sowie den Designmustern **Factory-Methode** und **Fassade** basiert. Diese Kombination stellt sicher, dass die Softwareportabilität, Erweiterbarkeit und Wartbarkeit erreicht werden, während gleichzeitig die Komplexität für den Anwendungsentwickler reduziert wird.
+
+%Zusammengefasst liegt der Fokus bei der Entwicklung auf diesen Eigenschaften:
+%\begin{itemize}
+%	\item Skalierbarkeit
+%	\item Modularität
+%	\item Erweiterbarkeit
+%	\item geringe Redundanz
+%	\item Effizienz
+%	\item Benutzerfreundlichkeit
+%\end{itemize}
 
 
 

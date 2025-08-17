@@ -1,6 +1,6 @@
 \section{Motivation und Problemstellung}
 % Unterschied von MCUs
-Mikrocontroller (eng. \gls{mcu}) unterscheiden sich in vielerlei Hinsicht, unter anderem in ihrer Architektur, der verfügbaren Peripherie, dem Befehlssatz sowie in der Art und Weise, wie ihre Hardwarekomponenten über Register angesteuert werden.
+Microcontroller (eng. \gls{mcu}) unterscheiden sich in vielerlei Hinsicht, unter anderem in ihrer Architektur, der verfügbaren Peripherie, dem Befehlssatz sowie in der Art und Weise, wie ihre Hardwarekomponenten über Register angesteuert werden.
 % Fokus auf Register
 Die Aufgabe dieser Register besteht in der Konfiguration und Steuerung grundlegender Funktionen, wie etwa der digitalen Ein- und Ausgänge, der Taktung, der Kommunikationsschnittstellen oder der Interrupt-Verwaltung.
 Die konkrete Implementierung sowie die Adressierung und Bedeutung einzelner Bits und Bitfelder variieren jedoch von Hersteller zu Hersteller und sogar zwischen verschiedenen Serien desselben Herstellers erheblich.
@@ -9,9 +9,9 @@ Die konkrete Implementierung sowie die Adressierung und Bedeutung einzelner Bits
 Diese signifikante Varianz in Bezug auf die Hardware-Komponenten führt dazu, dass Softwarelösungen und Applikationen, für jede neue Plattform entweder vollständig neu entwickelt oder zumindest aufwendig angepasst werden müssen.
 Obwohl Abstraktionschichten, sog. \gls{hal}, eine gewisse Erleichterung bei der Entwicklung bieten, resultieren daraus gleichzeitig starke Bindungen an die zugrunde liegende Hardwareplattform.
 
-% TODO: chap2 Motivation: viele MCUs pro Projekt? Nochmal Michael fragen
-% TODO: chap2: Quellen zu den Behauptungen finden/raussuchen. Dieses Wissen kommt nur von Michaels Erzählung
-Insbesondere in Projekten, in denen mehrere Mikrocontroller-Plattformen parallel eingesetzt werden oder ein Wechsel der Zielplattform absehbar ist, steigt der Bedarf an portabler und modularer Software signifikant an. 
+% TODO: chap1 Motivation: viele MCUs pro Projekt? Nochmal Michael fragen
+% TODO: chap1: Quellen zu den Behauptungen finden/raussuchen. Dieses Wissen kommt nur von Michaels Erzählung
+Insbesondere in Projekten, in denen mehrere Microcontroller-Plattformen parallel eingesetzt werden oder ein Wechsel der Zielplattform absehbar ist, steigt der Bedarf an portabler und modularer Software signifikant an. 
 In der Praxis zeigt sich, dass das Fehlen von Abstraktion häufig zu redundantem Code, fehleranfälliger Portierung und ineffizienter Entwicklung führt.
 
 \clearpage
@@ -21,7 +21,7 @@ In der Praxis zeigt sich, dass das Fehlen von Abstraktion häufig zu redundantem
 Die Arbeit entsteht in der Produktentwicklung der Schaefer GmbH.
 Hier werden die Produkte von Grund auf konzipiert, implementiert und getestet.
 Dabei arbeiten Hardware- und Softwareentwicklung eng zusammen, denn es muss bekannt sein, welche Microcontroller verwendet und wie Displays und Taster angesprochen werden können, um den Anforderungen zu entsprechen.
-% TODO: Ausgangssituation: Welche Produktlinien werden hauptsächlich verwendet?
+% TODO: chap1: Ausgangssituation: Welche Produktlinien werden hauptsächlich verwendet?
 Hauptsächliche kommen hier die STM32 Microcontroller der Firma ST zum Einsatz.
 Diese bieten ein umfangreiches Portfolio, das von stromsparenden IoT-Bausteinen bis hin zu leistungsfähigen Controllern für grafikfähige Anwendungen reicht.
 Die Auswahl und die damit verbundene Skalierbarkeit der Hardware ermöglichen eine flexible Anpassung an die unterschiedlichsten Leistungs- und Energieanforderungen.
@@ -38,10 +38,6 @@ Das Ziel dieser Arbeit besteht somit in der Entwicklung einer modularen, plattfo
 Diese soll eine nachhaltige, wartbare und flexible Softwarebasis schaffen, die den Herausforderungen der modernen Embedded-Entwicklung adäquat begegnen kann und eine  leicht Erweiterung um Funktionen und den evtl. Einsatz von \gls{rtos} ermöglicht.
 
 
-% TODO: Ausgangssituation und Zielsetzung: Rechereche
-% Recherche
-
-
 \section{Aufbau der Arbeit}
 Der Aufbau dieser Bachelorarbeit folgt einer klar strukturierten Herangehensweise, die im Folgenden erläutert wird. 
 
@@ -50,10 +46,10 @@ Es werden die Anforderungen an die Entwicklung einer plattformunabhängigen Trei
 Darüber hinaus wird dargelegt, welche Werkzeuge im Entwicklungsprozess eingesetzt werden und anhand welcher Kriterien die Erfüllung der Aufgabe bewertet werden kann.
 
 Darauf folgt das Kapitel 3 „Grundlagen”, das relevante technische Konzepte und Begriffe einführt. 
-Im Fokus stehen hierbei insbesondere Aspekte der Mikrocontroller-Programmierung, wie die Verwendung von Ports und Registern, der Zugriff auf die Peripherie und grundlegende Prinzipien der hardwarenahen Softwareentwicklung. 
+Im Fokus stehen hierbei insbesondere Aspekte der Microcontroller-Programmierung, wie die Verwendung von Ports und Registern, der Zugriff auf die Peripherie und grundlegende Prinzipien der hardwarenahen Softwareentwicklung. 
 Dieses Kapitel schafft das notwendige Fachwissen, um die weiteren Inhalte der Arbeit in ihrem technischen Kontext zu verstehen, und bildet somit die Grundlage für das Verständnis der nachfolgenden Themengebiete.
 
-Anschließend gibt das Kapitel 4 „Stand der Technik” einen Überblick über bestehende Lösungen zur plattformübergreifenden Ansteuerung von Mikrocontrollern und der Bereitstellung der plattformabhängigen Hardwaretreibern.
+Anschließend gibt das Kapitel 4 „Stand der Technik” einen Überblick über bestehende Lösungen zur plattformübergreifenden Ansteuerung von Microcontrollern und der Bereitstellung der plattformabhängigen Hardwaretreibern.
 Dabei werden verschiedene Ansätze analysiert, verglichen und hinsichtlich ihrer Stärken und Schwächen bewertet. 
 Ziel ist es, daraus Erkenntnisse für die eigene Umsetzung zu gewinnen und bewährte Konzepte zu identifizieren.
 

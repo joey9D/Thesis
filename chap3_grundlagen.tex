@@ -24,10 +24,15 @@ In der Regel operieren sie im Hintergrund und sind nicht direkt mit den Benutzer
 %\vspace{6 mm}
 
 Die Entwicklung von Software für eingebettete Systeme ist mit besonderen Anforderungen verbunden, die sich signifikant von denen unterscheiden, die etwa in der Web- oder Anwendungsentwicklung üblich sind.
-Es ist von besonderer Bedeutung, hardwarenahe Aspekte zu berücksichtigen, da die Software unmittelbar mit der zugrunde liegenden Mikrocontroller-Hardware interagiert.
-Ein zentraler Aspekt dabei ist die Integration geeigneter Treiber für die jeweilige Mikrocontroller-Architektur.
+Es ist von besonderer Bedeutung, hardwarenahe Aspekte zu berücksichtigen, da die Software unmittelbar mit der zugrunde liegenden Microcontroller-Hardware interagiert.
+Ein zentraler Aspekt dabei ist die Integration geeigneter Treiber für die jeweilige Microcontroller-Architektur.
+\begin{figure}[H]
+	\includegraphics[width=\textwidth]{Pics/embedded_layer_architecture.png}
+	\caption{Allgemeine Darstellung der Schichtenarchitektur.\cite{RichardsFord2020}}
+	\label{fig:embedded_layer_architecture}
+\end{figure}
 Die betreffenden Treiber beinhalten Funktionen, welche den Zugriff auf die Hardware mittels sogenannter Register erlauben.
-Register sind spezifische Speicherbereiche innerhalb des Mikrocontrollers, welche eine unmittelbare Manipulation des Hardware-Verhaltens ermöglichen.
+Register sind spezifische Speicherbereiche innerhalb des Microcontrollers, welche eine unmittelbare Manipulation des Hardware-Verhaltens ermöglichen.
 Durch das gezielte Setzen oder Auslesen einzelner Bits in diesen Registern ist es möglich, beispielsweise Sensorwerte zu erfassen (z. B. das Drücken eines Tasters) oder Ausgaben zu erzeugen (z. B. das Anzeigen eines Textes auf einem Display).
 % Memory Mapped IO
 Der Zugriff auf diese Register erfolgt typischerweise über den Mechanismus des \gls{mmio}. 
@@ -42,12 +47,12 @@ Zudem besteht die Notwendigkeit, in höheren Programmiersprachen wie C oder C++ 
 
 
 \subsection{Microcontroller Unit (MCU)}
-Ein Mikrocontroller ist ein vollständig auf einem einzigen Chip realisierter Mikrocomputer, der neben dem eigentlichen Prozessor (CPU) auch sämtliche für den Betrieb notwendigen Komponenten integriert. 
+Ein Microcontroller ist ein vollständig auf einem einzigen Chip realisierter Mikrocomputer, der neben dem eigentlichen Prozessor (CPU) auch sämtliche für den Betrieb notwendigen Komponenten integriert. 
 Zu den Komponenten eines solchen Systems zählen in der Regel Programmspeicher (Flash), Datenspeicher (\gls{ram}), digitale Ein- und Ausgänge (\gls{gpio}), Timer, Kommunikationsschnittstellen (wie \gls{uart}, \gls{spi}, \gls{i2c}, \gls{can}) sowie in vielen Fällen analoge Peripheriekomponenten wie Analog/Digital-Wandler oder Pulsweitenmodulation-Einheiten.
 
-Mikrocontroller werden für spezifische Steuerungs- und Regelungsaufgaben konzipiert und finden typischerweise Anwendung in eingebetteten Systemen, wie beispielsweise Haushaltsgeräten, Fahrzeugsteuerungen, Industrieanlagen oder IoT-Geräten. 
+Microcontroller werden für spezifische Steuerungs- und Regelungsaufgaben konzipiert und finden typischerweise Anwendung in eingebetteten Systemen, wie beispielsweise Haushaltsgeräten, Fahrzeugsteuerungen, Industrieanlagen oder IoT-Geräten. 
 Die Geräte zeichnen sich durch einen geringen Energieverbrauch, eine kompakte Bauform, niedrige Kosten und eine direkte Hardwareansteuerung aus. 
-Im Vergleich zu Mikroprozessoren sind für den Grundbetrieb von Mikrocontrollern keine externen Komponenten erforderlich, was besonders kompakte und zuverlässige Systemlösungen ermöglicht.
+Im Vergleich zu Mikroprozessoren sind für den Grundbetrieb von Microcontrollern keine externen Komponenten erforderlich, was besonders kompakte und zuverlässige Systemlösungen ermöglicht.
 
 
 %\subsection*{Hardware Architektur}
@@ -59,21 +64,21 @@ Im Vergleich zu Mikroprozessoren sind für den Grundbetrieb von Mikrocontrollern
 
 
 \subsection{Peripherie}
-Unter dem Begriff der \emph{Peripherie} versteht man im Kontext der Embedded-Softwareentwicklung sämtliche Ein- und Ausgabeschnittstellen, die eine Interaktion des Mikrocontrollers mit seiner Umwelt ermöglichen.
-Peripheriegeräte stellen die Verbindung zwischen der digitalen Rechenlogik des Mikrokontrollers und der realen Welt her.
+Unter dem Begriff der \emph{Peripherie} versteht man im Kontext der Embedded-Softwareentwicklung sämtliche Ein- und Ausgabeschnittstellen, die eine Interaktion des Microcontrollers mit seiner Umwelt ermöglichen.
+Peripheriegeräte stellen die Verbindung zwischen der digitalen Rechenlogik des Microcontrollers und der realen Welt her.
 Sie ermöglichen die Erfassung, Verarbeitung und Ausgabe physikalischer Signale wie Temperatur, Licht oder der Betätigung eines Tasters.
-Ein moderner Mikrocontroller, wie etwa ein STM32, ist bereits mit einer Vielzahl an integrierten Peripherieeinheiten ausgestattet, darunter digitale Ein-/Ausgänge (GPIOs), serielle Kommunikationsschnittstellen (UART, SPI, I2C, CAN), analoge Wandler (ADC, DAC), Timer oder PWM-Module. 
-Die als \emph{On-Chip} bezeichneten Komponenten sind integraler Bestandteil des Mikrocontrollers und können über zugehörige Register programmiert und gesteuert werden.
-Zusätzlich zur integrierten Peripherie besteht die Möglichkeit, über die physischen Pins des Mikrocontrollers auch externe Peripheriegeräte anzuschließen. 
+Ein moderner Microcontroller, wie etwa ein STM32, ist bereits mit einer Vielzahl an integrierten Peripherieeinheiten ausgestattet, darunter digitale Ein-/Ausgänge (GPIOs), serielle Kommunikationsschnittstellen (UART, SPI, I2C, CAN), analoge Wandler (ADC, DAC), Timer oder PWM-Module. 
+Die als \emph{On-Chip} bezeichneten Komponenten sind integraler Bestandteil des Microcontrollers und können über zugehörige Register programmiert und gesteuert werden.
+Zusätzlich zur integrierten Peripherie besteht die Möglichkeit, über die physischen Pins des Microcontrollers auch externe Peripheriegeräte anzuschließen. 
 Die Verbindung erfolgt in der Regel mittels Steckverbindungen, wie etwa Jumper-Kabeln, Steckbrücken, Pin-Headern oder speziellen Anschlussleisten auf Entwicklungsboards. 
 In der Regel werden zu diesem Zweck Steckbretter (Breadboards) oder Lochrasterplatinen verwendet, um eine übersichtliche und flexible Verdrahtung zu gewährleisten. 
-Externe Bauteile, wie etwa Sensoren (Temperatursensor), Aktoren (LED), Displays oder Speicherbausteine, werden über gängige Schnittstellen wie I2C, SPI, UART oder digitale GPIOs mit dem Mikrocontroller verbunden.
-Die Kommunikation mit externen Geräten wird durch die Peripheriemodule des Mikrocontrollers realisiert. 
+Externe Bauteile, wie etwa Sensoren (Temperatursensor), Aktoren (LED), Displays oder Speicherbausteine, werden über gängige Schnittstellen wie I2C, SPI, UART oder digitale GPIOs mit dem Microcontroller verbunden.
+Die Kommunikation mit externen Geräten wird durch die Peripheriemodule des Microcontrollers realisiert. 
 Für den zuverlässigen Betrieb sind in der Regel spezifische Softwaretreiber erforderlich, die die Initialisierung, Datenübertragung und gegebenenfalls die Fehlerbehandlung übernehmen.
 
 % TODO: chap3 Peripherie: Parallel/Seriell; synchron/asynchron; für alle nochmal drüber gehen
 \subsubsection*{General Purpose Input Output}
-Der Begriff "General Purpose Input/Output" (GPIO) bezeichnet universelle, digitale Pins eines Mikrocontrollers, die flexibel als Eingang oder Ausgang konfiguriert werden können.
+Der Begriff "General Purpose Input/Output" (GPIO) bezeichnet universelle, digitale Pins eines Microcontrollers, die flexibel als Eingang oder Ausgang konfiguriert werden können.
 Sie stellen die grundlegendste Form der Interaktion mit der Außenwelt dar und gestatten die Erfassung externer digitaler Signale, z.B. von Tastern oder Sensoren, sowie die Erzeugung entsprechender Signale etwa zur Steuerung von LEDs oder Relais.
 Grundsätzlich können GPIOs flexibel als Eingang oder Ausgang verwendet werden.
 Typischerweise erfolgt die Konfiguration solcher Embedded-Systeme statisch während der Initialisierung, entweder automatisch durch Codegeneratoren wie STM32CubeMX oder manuell in der Startkonfiguration der Firmware.
@@ -96,7 +101,7 @@ Der \gls{spi}-Bus verwendet meistens vier physikalische Leitungen:
 	\item \gls{sclk} als Taktleitung, die den vom Master vorgegebenen Takt enthält.
 \end{itemize}
 
-In der Regel dient der Mikrokontroller als Master, der den Datenfluss steuert.
+In der Regel dient der Microcontroller als Master, der den Datenfluss steuert.
 Mittels des Slave-Signals ist es der \gls{mcu} möglich, gezielt Slaves anzusprechen.
 Dabei ist darauf zu achten, dass jeweils nur ein Slave die Kommunikation aktiv durchführen darf, um eine Kollision auf Bus zu vermeiden.
 
@@ -104,7 +109,7 @@ Dabei ist darauf zu achten, dass jeweils nur ein Slave die Kommunikation aktiv d
 Allerdings fehlen eine standardisierte Adressierung und Fehlerprüfung, was den Einsatz auf kurze Distanzen und überschaubare Topologien begrenzt. 
 
 % UART
-% TODO: Löschen da nicht verwendet.
+% TODO: UART Löschen da nicht verwendet.
 %\subsubsection*{Universal Asynchronous Receiver Transmitter}
 %Der \emph{Universal Asynchronous Receiver Transmitter} (UART) ist ein asynchrones Kommunikationsprotokoll, das insbesondere für die serielle, asynchrone Punkt-zu-Punkt-Kommunikation zwischen zwei Geräten eingesetzt wird. 
 %Das Protokoll eignet sich für verschiedene Anwendungsbereiche, darunter als Debugging-Schnittstelle, der Kommunikation von Sensoren, GPS-Modulen sowie die Kommunikation mit Computern über USB-zu-Seriell-Wandler. 
@@ -112,7 +117,6 @@ Allerdings fehlen eine standardisierte Adressierung und Fehlerprüfung, was den 
 %Die Datenübertragung passiert hier asynchron über zwei Leitungen: eine für das Senden (Transmitter TX) und eine für das Empfangen (Receiver RX).
 %Die Synchronisation basiert auf einer zuvor festgelegten Baudrate (Bits pro Sekunde), die von beiden Geräten unabhängig voneinander eingehalten werden muss.
 %Die Kommunikation, d.h. die Datenübertragung erfolgt in sogenannten Frames. Ein typisches \gls{uart}-Frame besteht aus:
-%% TODO: UART: Quellenverweise einfügen
 %\begin{itemize}
 %	\item \textbf{Startbit}, das den Begin eines Datenframes signalisiert,
 %	\item \textbf{Datenframe}, bestehend aus fünf bis acht Bits,
@@ -121,7 +125,7 @@ Allerdings fehlen eine standardisierte Adressierung und Fehlerprüfung, was den 
 %\end{itemize}
 %
 %In Abhängigkeit von der Implementierung unterstützt UART Simplex-, Halbduplex- und Vollduplex-Kommunikation. 
-%In einer Vielzahl von Mikrocontrollern ist UART als Hardwaremodul integriert, wodurch die serielle Kommunikation effizient und mit minimalem Softwareaufwand realisiert werden kann. 
+%In einer Vielzahl von Microcontrollern ist UART als Hardwaremodul integriert, wodurch die serielle Kommunikation effizient und mit minimalem Softwareaufwand realisiert werden kann. 
 %Dennoch erfordert die korrekte Konfiguration – insbesondere die Wahl der Baudrate, des Paritätsmodus und der Anzahl von Stoppbits – besondere Sorgfalt, da Abweichungen zu Datenverlust oder Kommunikationsfehlern führen können.
 %Ein weiterer Vorteil von UART ist seine Einfachheit in Aufbau und Handhabung: Es werden lediglich zwei Leitungen benötigt. 
 %Die Kommunikation ist prinzipiell auf zwei Geräte beschränkt (Punkt-zu-Punkt-Verbindung), da UART keine native Unterstützung für Bussysteme mit mehreren Teilnehmern bietet.
@@ -157,7 +161,9 @@ Der Abtastzeitpunkt befindet sich zwischen Phase 1 und Phase 2.
 
 \section{Software}
 
+\label{sec:architecture_design_pattern}
 \subsection{Architektur- und Designmuster}
+
 \subsubsection{Architekturmuster}
 %Unter Architektur, speziell \emph{Softwarearchitektur} versteht man den Prozess eine allgemeine Struktur für ein Softwaresystem zu erstellen.
 Helmut Balzert definiert den Begriff als ''eine strukturierte oder hierarchische Anordnung der Systemkomponenten sowie Beschreibung ihrer Beziehungen'' \cite{balzert2011softwaretechnik2}.
@@ -172,22 +178,22 @@ Umgekehrt gilt diese Abhängigkeit aber nicht.
 
 Im Embedded Bereich lassen sich die Schichten wie folgt beschreiben:
 
-Die \paragraph{Anwendungsschicht/Application Layer}
+\paragraph{Anwendungsschicht/Application Layer}
 dient als oberste Schicht.
 Diese besteht aus allen Dateien, Funktionen und Klassen, die nicht direkt mit den auf Hardwareebene liegenden Registern zu tun haben; so z.B. Hilfsfunktionen.
 Stattdessen werden die Funktionen der nächst tieferen Schicht verwendet.
 
-\paragraph{Die Mittelschicht/Middleware}
+\paragraph{Mittelschicht/Middleware}
 als optionale zweite Schicht, befasst sich mit möglichen Zusatzfunktionen wie USB, Netzwerkanschlüsse (WLAN), Bluetooth oder IoT (Internet of Things) oder \gls{api}-Funktionen.
 Sie dient als verteilende Zwischenschicht zwischen der Programm und der Abstraktionsschicht der Hardware.
 
-\paragraph{Ein Betriebssystem} ist eine weitere optionale Schicht.
+\paragraph{Betriebssystem} ist eine weitere optionale Schicht.
 Optional in dem Sinn, das ein Embedded System nicht zwingend eine Betriebssystem benötigt.
 Ohne das Betriebssystem werden direkt die Pins, d.h. die Hardware angesprochen und programmiert; z.B. wenn in kleinem Schaltkreis nur ein Schalter, mit dem ein Signal ein oder ausgeschalten werden soll, und eine LED, die mit dem Schaltersignal leuchtet oder nicht, verbaut sind.
 Wird ein Betriebssystem eingesetzt bringt das funktionale Erweiterungen mit sich, wie Multitasking oder besseres Zeitmanagement.
-Des weiteren muss bei mit einem OS (Operating System) auf die verfügbaren Ressourcen geachtet werden, da der Speicher bei Mikrokontrollern begrenzt ist.
+Des weiteren muss bei mit einem OS (Operating System) auf die verfügbaren Ressourcen geachtet werden, da der Speicher bei Microcontrollern begrenzt ist.
 
-\paragraph{Die Hardwareabstraktionsschicht} (\gls{hal}) befindet sich unter der Middleware bzw. unter dem Betriebssystem.
+\paragraph{Hardwareabstraktionsschicht} (\gls{hal}) befindet sich unter der Middleware bzw. unter dem Betriebssystem.
 Gibt es keine zusätzlichen Funktionen in der Middlewareschicht und wird bare-metal entwickelt kann aus der Applikation direkt auf die hier gelagerten Funktionen zugreifen.
 Wie dieser direkte Zugriff auf die Abstraktionsschicht aussieht ist in Code \ref{lst:stm32_mx_gpio_init} % TODO: GPIO Code stm32clean
 zu sehen.
@@ -195,7 +201,6 @@ zu sehen.
 \begin{lstlisting}[language=C, caption={Funktion zur Initialisierung der GPIO-Pins aus einem STM32-Projekt.}, label={lst:stm32_mx_gpio_init}]
 int main(void)
 {
-
   HAL_Init();
   SystemClock_Config();
   MX_GPIO_Init();
