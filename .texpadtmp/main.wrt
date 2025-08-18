@@ -77,10 +77,11 @@
 \@writefile{toc}{\contentsline {subsection}{\numberline {6.3.2}Architektur- und Designmuster der Treiber-API}{31}{subsection.6.3.2}\protected@file@percent }
 \@writefile{lot}{\contentsline {table}{\numberline {6.2}{\ignorespaces Auflistung der bewusst verwendeten Designpattern. Daneben potentielle Muster, die während der Implementierung entstehen können.}}{33}{table.caption.38}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {6.4}Implementierung}{33}{section.6.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {chapter}{Abbildungsverzeichnis}{34}{chapter*.39}\protected@file@percent }
-\@writefile{toc}{\contentsline {chapter}{Tabellenverzeichnis}{35}{chapter*.40}\protected@file@percent }
-\@writefile{toc}{\contentsline {chapter}{Codeverzeichnis}{36}{chapter*.41}\protected@file@percent }
-\@writefile{toc}{\contentsline {chapter}{Quellenverzeichnis}{36}{chapter*.41}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {6.1}{\ignorespaces Screenshot des Osziloskopbildschirms. Dieser zeigt die Wellen für SCK (blau), MOSI (magenta) und MISO (gelb).}}{36}{figure.caption.39}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{Abbildungsverzeichnis}{37}{chapter*.40}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{Tabellenverzeichnis}{38}{chapter*.41}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{Codeverzeichnis}{39}{chapter*.42}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{Quellenverzeichnis}{39}{chapter*.42}\protected@file@percent }
 \@writefile{toc}{\providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file }
 \@writefile{lof}{\providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file }
 \@writefile{lot}{\providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file }
