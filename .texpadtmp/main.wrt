@@ -75,11 +75,12 @@
 \@writefile{toc}{\contentsline {subsection}{\numberline {6.3.1}Architektonische Eigenschaften der Treiber-API}{30}{subsection.6.3.1}\protected@file@percent }
 \@writefile{lot}{\contentsline {table}{\numberline {6.1}{\ignorespaces Teilbereiche architektonischer Eigenschaften}}{30}{table.caption.37}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {6.3.2}Architektur- und Designmuster der Treiber-API}{31}{subsection.6.3.2}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {6.2}{\ignorespaces Auflistung der bewusst verwendeten Designpattern. Daneben potentielle Muster, die während der Implementierung entstehen können.}}{33}{table.caption.38}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {6.4}Implementierung}{33}{section.6.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {chapter}{Abbildungsverzeichnis}{34}{chapter*.38}\protected@file@percent }
-\@writefile{toc}{\contentsline {chapter}{Tabellenverzeichnis}{35}{chapter*.39}\protected@file@percent }
-\@writefile{toc}{\contentsline {chapter}{Codeverzeichnis}{36}{chapter*.40}\protected@file@percent }
-\@writefile{toc}{\contentsline {chapter}{Quellenverzeichnis}{36}{chapter*.40}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{Abbildungsverzeichnis}{34}{chapter*.39}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{Tabellenverzeichnis}{35}{chapter*.40}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{Codeverzeichnis}{36}{chapter*.41}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{Quellenverzeichnis}{36}{chapter*.41}\protected@file@percent }
 \@writefile{toc}{\providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file }
 \@writefile{lof}{\providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file }
 \@writefile{lot}{\providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file }

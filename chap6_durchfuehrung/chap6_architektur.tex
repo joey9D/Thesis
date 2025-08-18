@@ -83,67 +83,113 @@ Diese architektonischen Prinzipien bilden die Grundlage für die Konzeption und 
 %		\item CAN
 %	\end{itemize}
 %\end{itemize}
+%
+%- Architektonische Eigenschaften\\
+%- Welche Grundarchitektur liegt vor?\\
+%- Welches Architekturmuster eignet sich dafür?\\
+%- Welche Architektur eignet sich hier für? $\rightarrow$ Aufbau des gesamten Systems\\
+%Um die Struktur der Treiber-\gls{api} zu erstellen, finden die in \cref{sec:architecture_design_pattern} angesprochenen Architektur- und Designmuster Verwendung.
+%Da sich in der Embeddedwelt bewegt wird, handelt es bei der Gesamtstruktur um ein Schichtenarchitektur.
+%Das fertige Projekt wird darin eine eigen Schicht bilden.
+%Damit fehlen noch die Designmuster.
+%Dieses müssen so ausgewählt werden, dass die Eigenschaften, die in vorherigem \cref{sec:architecture_properties} erarbeitet wurden, bestmöglich erfüllt werden.\\
+%- C++ $\rightarrow$ Objekt-orientiert\\
+%- Factory Architektur zur Erstellung von Objekten\\
+%- Erstellung von Objekten?\\
+%Beginnend bei der Auswahl der Hardware. 
+%Factory-Methode:
+%Interface ruft Factory auf, die eine Instanz des HW-Objektes zurückgibt.
+%Mit dieser Instanz wird die Hardware initialisiert.
+%Ein allgemeines Hardwareinterface kapselt Kernfunktionen der Hardware, die für die Systeminitialisierung und -funktionen relevant sind.
+%
+%
+%Damit aus diesem Interface in Objekt einer spezifischen Hardware wird, bietet sich eine Fabrik an.
+%Diese wählt anhand der in einer Konfigurationsdatei definierten Hardware die richtige Kindklasse der Interface-Elternklasse aus.
+%
+%Facade-Pattern:
+%Eine hardware spezifischere Kindklasse implementiert die Kernfunktionen der Interfaceklasse, passend auf ihr System und erweitert diese um die Peripheriefunktionen.
+%
+%- Peripheriefunktionen (GPIO, SPI, etc.) als eigenständigen Klassen\\
+%- Globales Interface\\
+%- Auswahl der Funktionen\\
+%Jede Peripheriefunktion wird genau wie die Hardware über eine Interface-Elternklasse und Hardware-spezifische Kindklassen implementiert.
+%
+%Mit diesem Konzept entsteht ein Modul für jede Peripherie, z.B. das GPIO-Modul.
+%Diese Module sind so designed, dass sie den tiefergehenden Code hinter einer Facade verbergen.
+%Durch die vorher definierte Hardware ändert sich am eigentlichen erstellt Programmcode nichts.
+%Im Hintergrund werden aber die hardware-spezifischen Treiber und HAL Funktionen ausgewählt.
+%Der Entwickler bekommt davon in der main.cpp nichts mit.
 
-- Architektonische Eigenschaften\\
-- Welche Grundarchitektur liegt vor?\\
-- Welches Architekturmuster eignet sich dafür?\\
-- Welche Architektur eignet sich hier für? $\rightarrow$ Aufbau des gesamten Systems\\
-Um die Struktur der Treiber-\gls{api} zu erstellen, finden die in \cref{sec:architecture_design_pattern} angesprochenen Architektur- und Designmuster Verwendung.
-Da sich in der Embeddedwelt bewegt wird, handelt es bei der Gesamtstruktur um ein Schichtenarchitektur.
-Das fertige Projekt wird darin eine eigen Schicht bilden.
-Damit fehlen noch die Designmuster.
-Dieses müssen so ausgewählt werden, dass die Eigenschaften, die in vorherigem \cref{sec:architecture_properties} erarbeitet wurden, bestmöglich erfüllt werden.\\
-- C++ $\rightarrow$ Objekt-orientiert\\
-- Factory Architektur zur Erstellung von Objekten\\
-- Erstellung von Objekten?\\
-Beginnend bei der Auswahl der Hardware. 
-Factory-Methode:
-Interface ruft Factory auf, die eine Instanz des HW-Objektes zurückgibt.
-Mit dieser Instanz wird die Hardware initialisiert.
-Ein allgemeines Hardwareinterface kapselt Kernfunktionen der Hardware, die für die Systeminitialisierung und -funktionen relevant sind.
-
-
-Damit aus diesem Interface in Objekt einer spezifischen Hardware wird, bietet sich eine Fabrik an.
-Diese wählt anhand der in einer Konfigurationsdatei definierten Hardware die richtige Kindklasse der Interface-Elternklasse aus.
-
-Facade-Pattern:
-Eine hardware spezifischere Kindklasse implementiert die Kernfunktionen der Interfaceklasse, passend auf ihr System und erweitert diese um die Peripheriefunktionen.
-
-- Peripheriefunktionen (GPIO, SPI, etc.) als eigenständigen Klassen\\
-- Globales Interface\\
-- Auswahl der Funktionen\\
-Jede Peripheriefunktion wird genau wie die Hardware über eine Interface-Elternklasse und Hardware-spezifische Kindklassen implementiert.
-
-Mit diesem Konzept entsteht ein Modul für jede Peripherie, z.B. das GPIO-Modul.
-Diese Module sind so designed, dass sie den tiefergehenden Code hinter einer Facade verbergen.
-Durch die vorher definierte Hardware ändert sich am eigentlichen erstellt Programmcode nichts.
-Im Hintergrund werden aber die hardware-spezifischen Treiber und HAL Funktionen ausgewählt.
-Der Entwickler bekommt davon in der main.cpp nichts mit.
-
-
-Die grundlegende Struktur des Systems basiert auf einer **Schichtenarchitektur**, wie sie in der Embedded-Softwareentwicklung häufig Anwendung findet. Diese Architekturform ermöglicht eine klare Trennung zwischen Anwendungslogik, Abstraktionsschichten und hardwarenahen Treibern. Die Schichtung erleichtert nicht nur die Wartung und Erweiterbarkeit, sondern trägt auch wesentlich zur Portabilität bei, da einzelne Schichten unabhängig voneinander angepasst oder ausgetauscht werden können. Das entwickelte Projekt bildet dabei eine eigenständige Schicht innerhalb dieser Gesamtarchitektur, die als Schnittstelle zwischen Hardware und Anwendung dient.
-
-Da die Implementierung in **C++** erfolgt, wird die Architektur durch Prinzipien der **Objektorientierung** geprägt. Die Kapselung von Zuständigkeiten in Klassen sowie die Möglichkeit zur Nutzung von Vererbung und Polymorphie bieten eine geeignete Grundlage, um hardwarenahe Funktionalitäten abstrahiert und erweiterbar bereitzustellen. Diese Eigenschaften schaffen die Voraussetzung, Designmuster gezielt einzusetzen, um die im vorangehenden Abschnitt definierten Architekturziele – insbesondere Modularität, Austauschbarkeit und Erweiterbarkeit – zu erreichen.
-
-Ein zentrales Muster stellt dabei die **Factory-Methode** dar. Dieses Erzeugungsmuster dient der Entkopplung von Objektinstanziierung und -nutzung. Für die Hardwareabstraktion bedeutet dies, dass ein allgemeines **Hardwareinterface** definiert wird, das die notwendigen Basisfunktionen bereitstellt. Die konkrete Auswahl und Instanziierung einer spezifischen Implementierung erfolgt über eine Fabrik, die anhand der in einer Konfiguration hinterlegten Zielplattform das passende Objekt erzeugt. Auf diese Weise wird vermieden, dass anwendungsspezifischer Quellcode an hardwareabhängige Details gebunden ist. Die Factory-Methode trägt somit wesentlich zur Erreichung von Plattformunabhängigkeit und Wiederverwendbarkeit des Anwendungscodes bei.
-
-Ergänzend dazu wird das **Fassade-Muster** eingesetzt. Dieses Strukturmuster dient der Vereinfachung des Zugriffs auf komplexe Subsysteme, indem es eine einheitliche Schnittstelle zur Verfügung stellt. In der hier betrachteten Architektur übernehmen hardwarespezifische Kindklassen die konkrete Implementierung der im Interface definierten Kernfunktionen. Über die Fassade werden diese Implementierungen dem Anwendungsentwickler in abstrahierter Form zugänglich gemacht. Dadurch wird die interne Komplexität der hardwarenahen Treiber verborgen, während nach außen eine homogene und stabile Schnittstelle bereitgestellt wird.
-
-Die Architektur wird durch die Modularisierung der **Peripheriefunktionen** weiter verfeinert. Funktionen wie GPIO, SPI oder UART werden jeweils als eigenständige Module entworfen, die wiederum dem Prinzip von Interface und spezifischer Implementierung folgen. Jedes Modul kapselt die hardwarespezifischen Details hinter einer definierten Abstraktionsschicht. Diese konsequente Trennung gewährleistet, dass Änderungen in der Hardware oder den zugrunde liegenden Treibern keine Anpassungen am Anwendungscode erforderlich machen.
-
-Insgesamt entsteht damit eine Architektur, die auf den Prinzipien von **Schichtenarchitektur**, **Objektorientierung** sowie den Designmustern **Factory-Methode** und **Fassade** basiert. Diese Kombination stellt sicher, dass die Softwareportabilität, Erweiterbarkeit und Wartbarkeit erreicht werden, während gleichzeitig die Komplexität für den Anwendungsentwickler reduziert wird.
-
-%Zusammengefasst liegt der Fokus bei der Entwicklung auf diesen Eigenschaften:
-%\begin{itemize}
-%	\item Skalierbarkeit
-%	\item Modularität
-%	\item Erweiterbarkeit
-%	\item geringe Redundanz
-%	\item Effizienz
-%	\item Benutzerfreundlichkeit
-%\end{itemize}
+% Schichtenarchitektur
+Die grundlegende Struktur des Systems basiert auf einer Schichtenarchitektur, wie sie in der Embedded-Softwareentwicklung häufig Anwendung findet. 
+Diese Architekturform ermöglicht eine klare Trennung zwischen Anwendungslogik, Abstraktionsschichten und hardwarenahen Treibern. 
+Die Schichtung erleichtert nicht nur die Wartung und Erweiterbarkeit, sondern trägt auch wesentlich zur Portabilität bei, da einzelne Schichten unabhängig voneinander angepasst oder ausgetauscht werden können. 
+Das entwickelte Projekt bildet dabei eine eigenständige Schicht innerhalb dieser Gesamtarchitektur, die als Schnittstelle zwischen Hardware und Anwendung dient.
 
 
+Aufgrund der Implementierung in der Programmiersprache C++ ist die Architektur durch die Prinzipien der Objektorientierung geprägt. 
+Die in Klassen organisierte Kapselung von Zuständigkeiten sowie die Möglichkeit zur Nutzung von Vererbung und Polymorphie bilden eine geeignete Grundlage, um hardwarenahe Funktionalitäten abstrahiert und erweiterbar bereitzustellen. 
+Diese Eigenschaften schaffen die Voraussetzung dafür, dass Designmuster gezielt eingesetzt werden können, um die im vorangehenden Abschnitt definierten Architekturziele
+\begin{itemize}
+	\item Skalierbarkeit
+	\item Modularität
+	\item Erweiterbarkeit
+	\item geringe Redundanz
+	\item Effizienz
+	\item Benutzerfreundlichkeit
+\end{itemize}
+ zu erreichen.
+
+% Factory Methode
+Ein zentrales Muster stellt dabei die \textit{Factory-Methode} dar.
+Dieses Erzeugungsmuster dient der Entkopplung von Objektinstanziierung und -nutzung.
+Die Hardwareabstraktion definiert demnach ein allgemeines Hardwareinterface, das die notwendigen Basisfunktionen bereitstellt.
+Die konkrete Auswahl und Instanziierung einer spezifischen Implementierung erfolgt über eine \textit{Fabrik}, die anhand der in einer Konfiguration hinterlegten Zielplattform das passende Objekt erzeugt.
+Dadurch wird verhindert, dass anwendungsspezifischer Quellcode an hardwareabhängige Details gebunden ist.
+Die Factory-Methode trägt somit wesentlich zur Erreichung von Plattformunabhängigkeit und Wiederverwendbarkeit des Anwendungscodes bei, da es auch ermöglicht, weitere Hardwareplattformen hinzuzufügen
+
+% Facade Pattern
+In Erweiterung dessen findet das Fassade-Muster Verwendung. 
+Dieses Strukturmuster dient der Vereinfachung des Zugriffs auf komplexe Subsysteme, indem es eine einheitliche Schnittstelle zur Verfügung stellt. 
+In der vorliegenden Architektur werden die konkreten Implementierungen der im Interface definierten Kernfunktionen von hardwarespezifischen Kindklassen übernommen. 
+Die Implementierungen werden dem Anwendungsentwickler über die Fassade in abstrahierter Form zugänglich gemacht. 
+Hierdurch wird die interne Komplexität der hardwarenahen Treiber verborgen, während nach außen eine einheitliche und stabile Schnittstelle bereitgestellt wird.
+
+% Modularisierung
+Die Architektur kann durch die Modularisierung der Peripheriefunktionen weiter verfeinert werden. 
+Funktionen wie GPIO, SPI oder CAN werden jeweils als eigenständige Module entworfen, die wiederum dem Prinzip von Interface und spezifischer Implementierung folgen. 
+Es ist zu berücksichtigen, dass jedes Modul die hardwarespezifischen Details hinter einer definierten Abstraktionsschicht kapselt. 
+Diese konsequente Trennung gewährleistet, dass Änderungen in der Hardware oder den zugrunde liegenden Treibern keine Anpassungen am Anwendungscode erforderlich machen.
+
+% Unbewusste Verwendung von Pattern
+Im Rahmen der Implementierung von Entwurfsmustern, wie etwa der Factory-Methode und der Fassade, entstehen weitere Muster sowohl bewusst als auch implizit. In \cref{tab:unconsious_design_pattern} sind neben den bewusst eingesetzten Muster auch mögliche Designmuster aufgelistet, die sich potentiell im Laufe der Implementierung unbewusst herausbilden und durch die gewählte Architektur- und Klassenstruktur realisiert werden.
+% Strategy
+Die Verwendung von Interfaces mit plattformspezifischen Implementierungen kann dem Strategy-Muster zugeordnet werden, da auf diese Weise unterschiedliche \textit{Strategien} zur Realisierung derselben Funktionalität austauschbar bereitgestellt werden.
+% Adapter 
+In Fällen, in denen die Schnittstellen der Hardware-API von den Funktionen der MCU HAL abweichen, ergibt sich zudem eine Abbildung auf das Adapter-Muster. 
+% Singleton
+Sofern die Anzahl der für bestimmte Peripherieeinheiten zulässigen Instanzen limitiert ist, beispielsweise auf eine konkrete SPI-Schnittstelle, resultieren daraus Strukturen, welche dem sogenannten Singleton-Muster entsprechen. 
+
+Die Architektur fußt auf den Prinzipien der Schichtenarchitektur, der Objektorientierung sowie einer Kombination expliziter (Factory, Fassade) und impliziter (Strategy, Adapter, Singleton) Designmuster. 
+Diese Kombination gewährleistet, dass die Softwareportabilität, Erweiterbarkeit und Wartbarkeit erreicht werden, während gleichzeitig die Komplexität für den Anwendungsentwickler reduziert wird.
+
+\begin{table}[H]
+	\begin{center}
+		\begin{tabular}{p{3cm} | p{4cm} | p{7cm}}
+			\textbf{Muster} & \textbf{Art der Verwendung} & \textbf{Rolle und Nutzen im System} \\
+			\hline
+			Factory-Methode & bewusst & Entkopplung von Objektinstanziierung und -nutzung; Auswahl der korrekten Hardwareimplementierung anhand der Konfiguration. \\
+			Fassade & bewusst & Vereinfachung des Zugriffs auf komplexe Treiberdetails; Bereitstellung einer homogenen Schnittstelle für den Entwickler. \\
+			Strategy & implizit & Austauschbare Implementierungen für Hardwarefunktionen (z. B. verschiedene GPIO- oder SPI-Strategien je nach Plattform). \\
+			Adapter & implizit & Anpassung der definierten Schnittstellen an abweichende Funktionssignaturen der MCU HAL oder Registerzugriffe. \\
+			Singleton & implizit & Gewährleistung, dass bestimmte Peripherieinstanzen (z. B. ein bestimmter SPI-Bus) nur einmal existieren. \\
+%			Template Method & implizit & Definition generischer Abläufe in Basisklassen; Spezialisierung durch konkrete Implementierungen in abgeleiteten Klassen. \\
+			\hline
+		\end{tabular}
+		\caption{Auflistung der bewusst verwendeten Designpattern. Daneben potentielle Muster, die während der Implementierung entstehen können.}
+		\label{tab:unconsious_design_pattern}
+	\end{center}
+\end{table}
 
 
 
