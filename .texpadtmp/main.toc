@@ -43,8 +43,9 @@
 \contentsline {subsection}{\numberline {6.3.1}Architektonische Eigenschaften der Treiber-API}{30}{subsection.6.3.1}%
 \contentsline {subsection}{\numberline {6.3.2}Architektur- und Designmuster der Treiber-API}{31}{subsection.6.3.2}%
 \contentsline {section}{\numberline {6.4}Implementierung}{33}{section.6.4}%
-\contentsline {chapter}{Abbildungsverzeichnis}{37}{chapter*.40}%
-\contentsline {chapter}{Tabellenverzeichnis}{38}{chapter*.41}%
-\contentsline {chapter}{Codeverzeichnis}{39}{chapter*.42}%
-\contentsline {chapter}{Quellenverzeichnis}{39}{chapter*.42}%
+\contentsline {subsection}{\numberline {6.4.1}Struktur}{33}{subsection.6.4.1}%
+\contentsline {chapter}{Abbildungsverzeichnis}{39}{chapter*.49}%
+\contentsline {chapter}{Tabellenverzeichnis}{40}{chapter*.50}%
+\contentsline {chapter}{Codeverzeichnis}{41}{chapter*.51}%
+\contentsline {chapter}{Quellenverzeichnis}{41}{chapter*.51}%
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 
