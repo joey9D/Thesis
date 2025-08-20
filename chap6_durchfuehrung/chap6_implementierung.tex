@@ -107,12 +107,80 @@ Im Folgenden wird die praktische Umsetzung einzelner Architekturkomponenten darg
 
 % fliess text
 \subsection{Struktur}
+\begin{figure}[H]
+\begin{forest}
+for tree={
+    font=\ttfamily,
+    grow'=0,
+    child anchor=west,
+    parent anchor=south,
+    anchor=west,
+    calign=first,
+    edge path={
+      \noexpand\path [draw, \forestoption{edge}]
+      (!u.south west) ++(0.5em,0) |- (.child anchor)\forestoption{edge label};
+    },
+    before typesetting nodes={
+      if n=1
+        {insert before={[,phantom]}}
+        {}
+    },
+    fit=band,
+    before computing xy={l=1.5em},
+    s sep=2pt,
+}
+[Project-Root
+  [app
+    [main.cpp]
+    [main.hpp]
+  ]
+  [HW\_API
+  	[core
+    	[hw\_factory.hpp]
+	    [hardware\_interface.hpp]
+  	]
+  	[debug\_probes]
+  	[drivers
+    	[stm32\_hal\_wrapper]
+    	[esp32\_hal\_wrapper]
+  	]
+  	[platform
+    	[stm32
+      		[stm32c0]
+      		[stm32f4]
+    	]
+    	[esp32
+      		[esp32s3]
+    	]
+  	]
+    [gpio
+      	[gpio\_interface.hpp]
+      	[gpio\_<hardware spezifisch>.hpp]
+      	[gpio\_<hardware spezifisch>.cpp]
+    ]
+    [spi
+    	[spi\_interface.hpp]
+		[spi\_<hardware spezifisch>.hpp]
+		[spi\_<hardware spezifisch>.cpp]
+    ]
+    [weitere Peripheriefunktionen ...]
+  ]
+  [toolchains
+    [stm32-toolchain.cmake]
+    [esp32-toolchain.cmake]
+  ]
+]
+\end{forest}
+\caption{Verzeichnisbaum des Beispielprojektes.}
+\label{fig:project_tree}
+\end{figure}
+
 Um das Projekt erfolgreich aufzubauen, ist es von entscheidender Bedeutung, zunächst eine klare und erweiterbare Verzeichnisstruktur zu definieren. 
 Im Projekt-Root-Verzeichnis befindet sich dazu das Hauptverzeichnis HW\_API, das als zentrales Element der Hardwareabstraktion dient und alle wesentlichen Bestandteile enthält. 
 Zu den erforderlichen Komponenten zählen Treiber, Peripherie-Module, Debug-Hilfen, Toolchains sowie die notwendigen Build-Dateien (CMake-Struktur, Makefile). 
 Diese Struktur gewährleistet, dass das Projekt modular, portierbar und für verschiedene Mikrocontroller-Familien leicht erweiterbar bleibt.
 Zunächst wird eine grundlegende CMake-Struktur aufgesetzt. 
-Jedes Unterverzeichnis enthält dabei ein eigenes CMakeLists.txt, sodass sich einzelne Komponenten unabhängig in das Build-System integrieren lassen. 
+Jedes Unterverzeichnis enthält dabei ein eigene CMakeLists.txt, sodass sich einzelne Komponenten unabhängig in das Build-System integrieren lassen. 
 Die gesamte verwendete Struktur ist in \cref{fig:project_tree} zu sehen.
 Zu den relevanten Verzeichnissen zählen:
 
@@ -193,95 +261,158 @@ Hier finden Hilfswerkzeuge wie \texttt{objcopy}, \texttt{objdump} und \texttt{si
 Der Aufruf von CMake mit dem Parameter \texttt{-DCMAKE\_TOOLCHAIN\_FILE} führt zur Einbindung der entsprechenden Toolchain. 
 Daraufhin wird für den gesamten Build-Prozess die Bereitstellung der geeigneten Werkzeuge für die jeweilige Plattform sichergestellt
 
-\clearpage
+\vspace{0.5em}
+\noindent\rule{\linewidth}{0.4pt}
+\vspace{0.5em}
 
-\begin{figure}[H]
-\begin{forest}
-for tree={
-    font=\ttfamily,
-    grow'=0,
-    child anchor=west,
-    parent anchor=south,
-    anchor=west,
-    calign=first,
-    edge path={
-      \noexpand\path [draw, \forestoption{edge}]
-      (!u.south west) ++(0.5em,0) |- (.child anchor)\forestoption{edge label};
-    },
-    before typesetting nodes={
-      if n=1
-        {insert before={[,phantom]}}
-        {}
-    },
-    fit=band,
-    before computing xy={l=1.5em},
-    s sep=2pt,
-}
-[Project-Root
-  [app
-    [main.cpp]
-    [main.hpp]
-  ]
-  [HW\_API
-  	[core
-    	[hw\_factory.hpp]
-	    [hardware\_interface.hpp]
-  	]
-  	[debug\_probes]
-  	[drivers
-    	[stm32\_hal\_wrapper]
-    	[esp32\_hal\_wrapper]
-  	]
-  	[platform
-    	[stm32
-      		[stm32c0]
-      		[stm32f4]
-    	]
-    	[esp32
-      		[esp32s3]
-    	]
-  	]
-    [gpio
-      	[gpio\_interface.hpp]
-      	[gpio\_<hardware spezifisch>.hpp]
-      	[gpio\_<hardware spezifisch>.cpp]
-    ]
-    [spi
-    	[spi\_interface.hpp]
-		[spi\_<hardware spezifisch>.hpp]
-		[spi\_<hardware spezifisch>.cpp]
-    ]
-    [weitere Peripheriefunktionen ...]
-  ]
-  [toolchains
-    [stm32-toolchain.cmake]
-    [esp32-toolchain.cmake]
-  ]
-]
-\end{forest}
-\caption{Verzeichnisbaum des Beispielprojektes.}
-\label{fig:project_tree}
-\end{figure}
-\clearpage
+Die sorgfältig entworfenen CMake-Konfiguration ermöglicht eine flexible Cross-Compilation für verschiedene Mikrocontroller-Plattformen.
+In diesem Fall aufgebaut und getestet mit STM32 und ESP32. 
+Die Architektur folgt einem hierarchischen Aufbau mit klarer Trennung von Verantwortlichkeiten und einer konsequenten Abstraktion von plattformspezifischem Code.
 
-2. Implementierung:\\
+Im Zentrum steht die Haupt-CMakeLists.txt im Rootverzeichnis des Projekts. 
+Sie übernimmt die Plattformerkennung und muss anhand der definierten Makros entscheiden, welche Pakete für die Zielhardware hinzugefügt werden müssen. 
+Die Information über die Zielhardware bekommt CMake über das Makefile, dass sich ebenfalls im Projektroot befindet und den zentralen Einstiegspunkt darstellt.
+In diesem werden die komplexen und teilweise langen CMake-Befehle durch simplere Make-Aliasse ersetzt.
+Auf diese Weise können die jeweiligen Prozesse Build, Flash oder Debug einfach über die Kommandozeile gestartet werden, ohne dass ein Befehl mit mehreren Flags wiederholt neu eingegeben werden muss. 
+Im Makefile muss angegeben werden, welche Konfigurationsdatei verwendet werden muss.
+In dieser Arbeit wurden zwei solcher Dateien erstellt:
 
+\begin{itemize}
+	\item stm32\_config.mk
+	\item esp32\_config.mk
+\end{itemize}
 
+Diese fassen die Information zusammen, welche Treiber, welche Toolchain oder welche Debugvariante verwendet werden soll.
+Die Toolchain definiert den Cross-Compile-Kontext, konfiguriert den verwendeten Compiler, z.B. arm-none-eabi-gcc für STM32), setzt CPU- und ABI-spezifische Flags (z. B. -mcpu=cortex-m0plus, -mthumb), die beschreiben wie Daten zwischen Compiler, Betriebssystem und Bibliotheken übergeben werden.
+Für ESP32 wird analog die esp32-toolchain.cmake genutzt, die auf das IDF verweist.
+Zusätzlich sind hier auch hardwarespezifische Informationen, die beschreiben um welchen Prozessor es sich handelt, welcher Chip die Hardware hat oder welche explizite Hardware verwendet wird.
+Auch sind das Zielverzeichnis des Builds und die Art des Build, d.h. Debug oder Release, hier benannt.
+Diese Informationen werden im Code selber verwendet, um bestimmte Teil aktivieren zu können.
+Stichwort \textit{bedingte Kompilierung}, was bedeutet, dass Codeteile, die nicht definiert sind durch solche Makros, im Kompilier- und Buildprozess garnicht erst beachtet werden und auch nicht im entgültigen Programm enthalten sind, wodurch Speicher eingespart wird.
+Neben dem Entgegennehmen und der Weiterverarbeitung der Informationen aus dem Makefile, setzt die Root-Datei globalen Standards wie C11 und C++17, legt Compiler-Flags für Debug- und Release-Builds fest und steuert die Reihenfolge der Subdirectory-Builds.
+Für diese Reihenfolge ist es entscheidend, das erst die HW\_API-Libraries und zuletzt die Applikation gelistet ist, da diese die Funktionen verwendet, die in der HW\_API definiert sind.
 
+Auf der zweiten Ebene übernimmt die CMake-Datei im HW\_API-Verzeichnis die Koordination der Module. 
+Sie erzwingt die Nutzung von C++17 ohne Compiler-Extensions, aktiviert strengere Warnungen für Embedded-Code und bindet die verwendeten Unterverzeichnisse (core, drivers, gpio, platform, spi) in der korrekten Reihenfolge ein.
+Damit werden die plattformneutralen Schnittstellen definiert und zugleich die plattformspezifischen Implementierungen vorbereitet. 
+Die einzelnen Funktionsmodule erzeugen jeweils ihre eigene statische Bibliothek mit klar abgegrenzten Abhängigkeiten. 
+Über bedingte Kompilierung und die CMake-Variable TARGET\_PLATFORM werden dabei nur die jeweils benötigten Quellen berücksichtigt, sodass eine saubere Trennung zwischen generischen Interfaces und konkreten Implementierungen gewährleistet bleibt.
 
+Ein zentrales Element stellt das drivers-Modul dar, das insbesondere für STM32 die HAL- und CMSIS-Bibliotheken dynamisch über CMake-FetchContent integriert. 
+Dazu erwartet es Repositoriums-Parameter, die im Makefile definiert werden, etwa STM32\_HAL\_REPO, STM32\_CMSIS\_REPO, ARM\_CMSIS\_REPO samt den jeweiligen Tags. 
+Abhängig von der ausgewählten MCU-Familie (z. B. stm32c0xx, stm32g0xx) werden die passenden Startup-Dateien, Systemquellen und HAL-Komponenten eingebunden. 
+% TODO: drivers/CMakeLists überarbeiten
+Anschließend wird eine statische Bibliothek (stm32\_hal\_library) erstellt, deren Include-Pfade, Compiler-Definitionen (z. B. USE\_HAL\_DRIVER, STM32C0xx) und Wrapper-Files wiederum PUBLIC an abhängige Targets exportiert werden. 
+Damit entsteht eine saubere, wiederverwendbare Treiberbibliothek, die in den plattformspezifischen Implementierungen genutzt werden kann.
 
+Diese Implementierungen sind im platform-Verzeichnis organisiert und enthalten die konkreten hardwarespezifischen Realisierungen. 
+Dort wird das zuvor erstellte Treiber-Modul verlinkt, es werden familienspezifische Konfigurationen eingebunden und die notwendigen Interrupt-Routinen integriert. 
+Parallel dazu liefern die Peripherie-Module, bestehend aus Interface, Header- und Implementierungsdatei die plattformneutralen Schnittstellen.
 
+Den Abschluss bildet die Anwendungsebene, in der ein ausführbares Target erzeugt wird. 
+Diese Ebene bindet die zuvor erstellten HW\_API-Bibliotheken ein, übernimmt alle relevanten Include-Pfade und Definitionen und fügt post-build Schritte hinzu, beispielsweise die Erzeugung von Binary-Dateien für den Flash-Prozess.
+
+Das Build-System zeichnet sich durch mehrere Schlüsselkonzepte aus: Die Plattformabstraktion wird konsequent über bedingte Kompilierung und Definitionen wie STM32\_PLATFORM realisiert.
+Die Abhängigkeiten werden dynamisch verwaltet, indem die STM32-Bibliotheken via FetchContent geladen werden. 
+Die modulare Bibliotheksstruktur ermöglicht es, jedes Modul isoliert zu bauen und dabei klare Schnittstellen und Abhängigkeiten einzuhalten. 
+Während STM32 einem klassischen Cross-Compilation-Ansatz mit Toolchain-Datei folgt, wird ESP32 über das Component-System des eigenen ESP-IDF integriert.
+
+Besondere Robustheit erzielt das System durch umfangreiche Diagnoseausgaben und Validierungen: Bereits in der Root-CMakeLists werden Plattform und Parameter geprüft, während die Drivers-CMakeLists ausführliche STATUS-Meldungen zum Repositories, Familienauswahl und aktiven Quellen liefern. 
+Fehlerhafte oder fehlende Pflichtparameter führen zu einem FATAL\_ERROR und verhindern so inkonsistente Builds. 
+Ergänzt wird dies durch eine flexible Include-Hierarchie mit PUBLIC/PRIVATE/INTERFACE-Abstufungen, wodurch eine präzise Abgrenzung der API erreicht wird.
+
+Insgesamt ermöglicht diese CMake-Struktur die Kapselung von hardwarespezifischem Code bei gleichzeitiger Bereitstellung einer konsistenten API für Anwendungen. 
+Damit bildet sie eine robuste Grundlage für eine effektive und plattformübergreifende Hardware-Abstraktionsschicht, die sowohl STM32- als auch ESP32-Umgebungen unterstützt.
+
+\subsection{Klassen}
+% gpio spi
+Schichtenmodell
+\\Interfaces in HW\_API/gpio und HW\_API/spi: reine C++17-Interfaces (z. B. IGpio, ISpi) plus gemeinsame Typen/Enums für Modus, Pull, Speed, SPI-Mode, Bitordnung usw.
+\\Plattform-Implementierungen in HW\_API/platform/<plattform>/<familie>: konkrete Klassen (z. B. Stm32c0\_hw bzw. Esp32c6\_hw).
+\\Treiber/HAL-Anbindung in HW\_API/drivers: HAL-/CMSIS-Einbindung via Wrapper;
+\\
+\\Implementierungsstil
+\\Interface + Implementierung: Public API bleibt plattformneutral; konkrete Klassen implementieren die Interfaces und kapseln HAL-/Registerzugriffe.
+\\Je nach verwendeter Hardware müssen die entsprechenden Peripherie-Header inkludiert werden.
+\\RAII: Ressourcen (Peripherie-Takte, Pins, DMA-Kanäle) werden im Konstruktor aktiviert und im Destruktor sauber freigegeben.
+\\Keine Exceptions: Fehler als Status/enum/optional zurückgegeben; für Embedded deterministisch.
+\\Starke Typen: enum class und bitmask flags, constexpr-Konfigurationen; optional Templates für compile-time Pin-Mappings.
+\\Zero-cost: dünne Wrapper über HAL/CMSIS; wo sinnvoll direkter Registerzugriff (GPIO) für konstante Latenz.
+\\
+\\Peripherie Module verwenden Klassen.
+\\GPIO-spezifisch
+\\Gpio konfiguriert Modus/Pull/Speed/AF; Methoden für read/write/toggle.
+Optionales Interrupt-Interface: attach/detach Callback, Prioritäten über Wrapper gesetzt.
+\\
+\\SPI-spezifisch
+\\Trennung Bus vs. Device: Spi verwaltet Controller (Mode, Prescaler, Frameformat kapselt Chip-Select und Timing.
+\\Sync/Async-Transfers: blocking (polling) und non-blocking (IRQ/DMA) je nach Build-Flag; Callbacks im Platform-Layer verankert.
+\\DMA optional über Compile-Definitionen; Fallback auf Interrupt/Polling.
+\\CS-Steuerung über zugewiesenes GPIO-Objekt (Komposition), sodass CS-Handling plattformneutral bleibt.
 
 \vspace{5mm}
 
-% Oszi-Bild , wie es aussehen sollte
-\begin{figure}[H]
-	\includegraphics[width=\textwidth]{Pics/oszi_cube_spi_example.png}
-	\caption{Screenshot des Osziloskopbildschirms. Dieser zeigt die Wellen für SCK (blau), MOSI (magenta) und MISO (gelb).}
-	\label{fig:oszi_cube_spi_example}
-\end{figure}
 
-So sollten die Wellen auch mit dem Plattformunabhängigen Code aussehen.
+% platform hw class
+urzübersicht: HW\_API/platform/* kapselt alle plattformspezifischen Implementierungen, die die plattformneutralen Interfaces aus den Modulen (gpio, spi, core) erfüllen.
+
+Struktur
+
+HW\_API/platform
+stm32/
+stm32c0/, stm32g0/, …: familie-spezifische Implementierungen und Clock-Setup
+common/: gemeinsame Utilities (Pin-Mapping, Helpers)
+esp32/
+esp32s3/, …: SoC-spezifische Implementierungen
+common/: gemeinsame Utilities
+Auswahl via CMake:
+TARGET\_PLATFORM und MCU\_FAMILY wählen die richtigen Quellen.
+STM32 linkt gegen stm32\_hal\_library aus drivers; ESP32 gegen IDF.
+Zentrale Klassen und Muster
+
+HardwareInterface (plattf.neutral) wird implementiert durch:
+Stm32HardwareInterface bzw. Esp32HardwareInterface
+Aufgaben: HAL/IDF-Init, SystemClock\_Config, SysTick/Delay, ggf. Power/Reset
+RAII: init im Konstruktor/explicit init\_sys(), Deinit im Destruktor optional
+GPIO
+Interface: IGpioPin (read, write, toggle, mode/pull/speed)
+STM32: Stm32GpioPin hält GPIO\_TypeDef* und Pin-Maske; init via HAL\_GPIO\_Init (oder direkter Registerzugriff für Zero-Cost); schnellere write/toggle via BSRR, read via IDR.
+ESP32: Esp32GpioPin nutzt gpio\_config\_t, gpio\_set\_direction/level/get\_level (IDF).
+Mapping: HW\_API-Enums (PinMode, Pull, Speed) → HAL/IDF-Konstanten per constexpr Mapping-Funktionen.
+Optional: Interrupt-API (attach/detach), NVIC/ISR-Bindungen in platform-Layer.
+SPI
+Trennung Bus/Device: SpiBus konfiguriert Controller; SpiDevice kapselt CS und Timing.
+STM32: Stm32SpiBus/Stm32SpiDevice mit SPI\_HandleTypeDef; init mappt HW\_API-Enums (Mode, Phase/Polarity, Prescaler, Frame) → HAL-Init-Strukturen; Transfer via HAL\_SPI\_TransmitReceive (blocking) bzw. IRQ/DMA, wenn aktiviert; CS-Steuerung über übergebenes GPIO-Objekt.
+ESP32: Esp32SpiBus/Esp32SpiDevice mit spi\_bus\_initialize/spi\_bus\_add\_device, Transfers via spi\_device\_transmit; getrennte Master/Slave-Pfade (IDF).
+Zeitverhalten/Timeouts: konfigurierbar, Rückgabewerte als bool/Status-Enum (keine Exceptions).
+Board-Pins
+Board-spezifisches Pin-Mapping (boardPins) liegt im entsprechenden platform/<familie>-Bereich; enthält vordefinierte GpioPin-Instanzen (z. B. spi1\_sck, led, button) und wird in app verwendet.
+ISR/Callbacks
+STM32: HAL-Weak-Callbacks (z. B. HAL\_SPI\_TxRxCpltCallback) im platform-Layer gebrückt auf API-Callbacks.
+ESP32: ISR-Handler/Queues/Tasks nach IDF-Muster; Ressourcen mit IRAM\_ATTR markiert, wo nötig.
+Ressourcen/RAII
+Clocks (RCC/PM), GPIO-AF, DMA-Channels werden im Konstruktor/Init aktiviert und im Destruktor optional freigegeben.
+Non-copyable, aber move-fähig, um eindeutigen Besitz der Peripherie zu sichern.
+Fehlerbehandlung
+Statusrückgaben (Ok/Error/Timeout), optional assert in Debug; keine Exceptions.
+Optional Logging-Hooks (plattformabhängig aus).
+Integration mit CMake/Drivers
+
+targets im platform-Layer linken PUBLIC gegen:
+hw\_api\_drivers und stm32\_hal\_library (STM32)
+idf-Komponenten (ESP32)
+target\_compile\_definitions steuern Pfade:
+STM32\_PLATFORM, USE\_HAL\_DRIVER, familien-/device-Defines (z. B. STM32C0xx, STM32C031xx)
+target\_include\_directories binden die Wrapper-Includes (stm32\_hal\_wrapper/...bzw. esp32\_hal\_wrapper/...) sowie HAL/CMSIS bzw. IDF ein.
+Familienauswahl (stm32c0xx vs. stm32g0xx) nimmt startup/system-Quellen und Defines aus drivers/CMakeLists.
+\\
+Wichtig für euren Build
+
+Mixed C/C++: platform-Klassen inkludieren einen zentralen Wrapper-Header (z. B. stm32\_hal\_inc.hpp), der zuerst <stdint.h>/<cstdint>, dann CMSIS-Device, dann hal\_conf.h und zuletzt stm32xx\_hal.h einbindet. So verschwinden die uint32\_t-Warnungen im C++-Build.
+Reihenfolge: HW\_API zuerst bauen, app zuletzt; Toolchain aktiviert arm-none-eabi-gcc und die Cortex-M Flags.
+Kurz: HW\_API/platform implementiert die plattformkonkreten Klassen (STM32/ESP32), mappt die neutralen API-Enums auf HAL/IDF, kapselt Init/Clocks/ISR sauber per RAII und verbindet die oberen Schichten mit den Treiber-Layern, die via CMake/FetchContent eingebunden werden.
+
+
 
 
 

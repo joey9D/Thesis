@@ -43,9 +43,11 @@
 \contentsline {subsection}{\numberline {6.3.1}Architektonische Eigenschaften der Treiber-API}{30}{subsection.6.3.1}%
 \contentsline {subsection}{\numberline {6.3.2}Architektur- und Designmuster der Treiber-API}{31}{subsection.6.3.2}%
 \contentsline {section}{\numberline {6.4}Implementierung}{33}{section.6.4}%
-\contentsline {subsection}{\numberline {6.4.1}Struktur}{33}{subsection.6.4.1}%
-\contentsline {chapter}{Abbildungsverzeichnis}{39}{chapter*.49}%
-\contentsline {chapter}{Tabellenverzeichnis}{40}{chapter*.50}%
-\contentsline {chapter}{Codeverzeichnis}{41}{chapter*.51}%
-\contentsline {chapter}{Quellenverzeichnis}{41}{chapter*.51}%
+\contentsline {subsection}{\numberline {6.4.1}Struktur}{34}{subsection.6.4.1}%
+\contentsline {subsection}{\numberline {6.4.2}Klassen}{39}{subsection.6.4.2}%
+\contentsline {section}{\numberline {6.5}Validierung}{41}{section.6.5}%
+\contentsline {chapter}{Abbildungsverzeichnis}{42}{chapter*.49}%
+\contentsline {chapter}{Tabellenverzeichnis}{43}{chapter*.50}%
+\contentsline {chapter}{Codeverzeichnis}{44}{chapter*.51}%
+\contentsline {chapter}{Quellenverzeichnis}{44}{chapter*.51}%
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 
