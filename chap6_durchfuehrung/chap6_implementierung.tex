@@ -462,15 +462,34 @@ Mittels der Abfragen \texttt{isDmaTransferInProgress()} und \texttt{abortDmaTran
 Es ist zu berücksichtigen, dass die Initialisierung in diesem Fall explizit über \texttt{dma\_init(), dma\_init\_TX()} und \texttt{dma\_init\_RX()} erfolgt, während die Destruktoren keine Aufräumfunktion übernehmen.
 Diese Umsetzung zeichnet sich durch klare, definierte Lebenszyklen und Zustandsprüfungen aus, anstatt eine automatische Freigabe zu ermöglichen.
 
+\vspace{0.5em}
+\noindent\rule{\linewidth}{0.4pt}
+\vspace{0.5em}
 
+Die Analyse der Architektur verdeutlicht mehrere zentrale Gestaltungsprinzipien, die eine robuste und plattformübergreifende Hardware-Abstraktionsschicht ermöglichen. 
+Im Vordergrund steht die konsequente Trennung von abstrakten Schnittstellen und konkreten Implementierungen. 
+Schnittstellen, wie beispielsweise HardwareInterface, IGpioBase oder ISpi, definieren den plattformneutralen Zugriff. 
+Die hardwarespezifische Realisierung wird hingegen durch Implementierungen wie Stm32c0xx\_hw oder GpioStm32 übernommen.
+Dies führt zu einer klaren Trennung der Verantwortlichkeiten (Separation of Concerns), was wiederum die Portabilität und Wiederverwendbarkeit der Komponenten fördert.
+Ein wesentliches Charakteristikum stellt die bewusste Entscheidung zugunsten expliziter Initialisierungsmethoden dar. 
+Anstelle einer vollständigen Umsetzung des RAII-Paradigmas (Resource Acquisition Is Initialization) werden Methoden wie init\_sys(), gpio\_init() oder spi\_init() bereitgestellt. 
+Diese Vorgehensweise erlaubt eine präzise Steuerung des Initialisierungszeitpunkts sowie der Reihenfolge der Hardwarekonfiguration, was insbesondere in ressourcenbeschränkten Embedded-Systemen mit engen Abhängigkeiten zwischen einzelnen Subsystemen von erheblicher Relevanz ist.
 
-Zusammengefasst setzen die Klassen eindeutig auf ein Interface-plus-Implementierung-Muster mit expliziten Init-Methoden. 
-Enums und Mappingfunktionen halten die Public-API stabil, während die Abbildung auf HAL/IDF konstant und gut testbar bleibt. 
-RAII im strengen Sinn (Konstruktor erwirbt, Destruktor gibt frei) wird hier bewusst nur partiell verwendet: \\
-Lebenszyklen sind deterministisch und werden über init\_*/dma\_*/spi\_init() gesteuert; der Besitz ist über die Factory-Singletons (System) und Komposition (GPIO in SPI) klar geregelt. 
-Dieses Vorgehen ist für Embedded-Code vorteilhaft, da Initialisierungsreihenfolgen, Taktaktivierungen und Interrupt-Konfigurationen präzise kontrolliert werden und keine versteckte Logik in Destruktoren läuft.
-\\
-\\
+Zur Gewährleistung einer typsicheren und stabilen Schnittstelle kommen stark typisierte Enumerationen (enum class) in den Dateien hw\_enum\_*.hpp zum Einsatz. 
+Diese Konstruktion fungiert als semantische Brücke zwischen plattformneutraler API und hardwarespezifischen Konstanten, wodurch Fehlkonfigurationen zur Compile-Zeit erkannt und inkonsistente Zustände vermieden werden können. 
+Ergänzend tragen Factory-Singletons und klar definierte Besitzverhältnisse, wie etwa die Referenzierung von GPIO-Pins innerhalb der SPI-Klasse, zu deterministischen Objektlebenszyklen und einem vorhersagbaren Ressourcenmanagement bei.
+
+Ein weiteres Gestaltungsprinzip ist die Bevorzugung von Komposition gegenüber Vererbung. 
+Durch die kompositorische Struktur, wie beispielsweise in der Methode initAllPins(), wird eine lose Kopplung zwischen den Komponenten erzielt. 
+Diese Vorgehensweise erleichtert nicht nur die Anpassung an neue Hardwareplattformen, sondern verbessert zugleich die Testbarkeit und Erweiterbarkeit der Architektur.
+
+Besonders hervorzuheben ist die Entscheidung für ein Konzept des partiellen RAII. 
+In klassischen Softwarearchitekturen wird RAII eingesetzt, um Ressourcen automatisch im Destruktor freizugeben. 
+Im Embedded-Kontext kann diese Vorgehensweise jedoch unerwünschte Seiteneffekte hervorrufen, etwa durch nicht-deterministische Zeitpunkte der Ressourcenfreigabe. 
+Die bewusste Vermeidung von versteckter Destruktor-Logik erlaubt eine explizite Kontrolle über die Lebenszyklen von Hardware-Ressourcen und minimiert das Risiko von Timing-Problemen oder nicht reproduzierbaren Zuständen.
+
+Insgesamt verbindet die gewählte Designphilosophie moderne Prinzipien der C++-Programmierung, wie starke Typisierung, deterministische Lebenszyklusverwaltung und modulare Abstraktion mit den praktischen Erfordernissen der Embedded-Entwicklung. 
+Das Resultat ist eine klar strukturierte, plattformübergreifende Abstraktionsschicht, die sowohl Effizienz als auch Wartbarkeit sicherstellt und damit eine tragfähige Grundlage für zukünftige Erweiterungen bildet.
 
 
 

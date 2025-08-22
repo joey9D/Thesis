@@ -68,12 +68,12 @@
 \@writefile{toc}{\contentsline {paragraph}{\nonumberline Build-Tools}{27}{paragraph*.32}\protected@file@percent }
 \@writefile{toc}{\contentsline {paragraph}{\nonumberline Python Skripte}{27}{paragraph*.34}\protected@file@percent }
 \@writefile{toc}{\contentsline {paragraph}{\nonumberline Debug-Tools}{27}{paragraph*.36}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.2.3}mcu-cpp}{27}{subsection.6.2.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.2.4}modm}{28}{subsection.6.2.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.2.3}mcu-cpp}{28}{subsection.6.2.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.2.4}modm}{29}{subsection.6.2.4}\protected@file@percent }
 \@writefile{lol}{\contentsline {lstlisting}{\numberline {6.1}{\ignorespaces Konsolenbefehl um verf\"ugbare Module aufgelistet zu bekommen; hier f\"ur den STM32C031C6T6 Microcontroller.}}{29}{lstlisting.6.1}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {6.3}Architekturentwurf}{30}{section.6.3}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {6.3.1}Architektonische Eigenschaften der Treiber-API}{30}{subsection.6.3.1}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {6.1}{\ignorespaces Teilbereiche architektonischer Eigenschaften}}{30}{table.caption.37}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {6.1}{\ignorespaces Teilbereiche architektonischer Eigenschaften}}{31}{table.caption.37}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {6.3.2}Architektur- und Designmuster der Treiber-API}{31}{subsection.6.3.2}\protected@file@percent }
 \@writefile{lot}{\contentsline {table}{\numberline {6.2}{\ignorespaces Auflistung der bewusst verwendeten Designpattern. Daneben potentielle Muster, die während der Implementierung entstehen können.}}{33}{table.caption.38}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {6.4}Implementierung}{33}{section.6.4}\protected@file@percent }
@@ -84,13 +84,13 @@
 \@writefile{toc}{\contentsline {subsubsection}{\nonumberline Peripherieklassen}{40}{subsubsection*.51}\protected@file@percent }
 \@writefile{lol}{\contentsline {lstlisting}{\numberline {6.2}{\ignorespaces Ausschnitt aus der Interfaceklasse IGpioBase.}}{40}{lstlisting.6.2}\protected@file@percent }
 \@writefile{lol}{\contentsline {lstlisting}{\numberline {6.3}{\ignorespaces Beispiel eines Gpio Objektes.}}{41}{lstlisting.6.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {6.5}Validierung}{42}{section.6.5}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {6.2}{\ignorespaces Screenshot des Osziloskopbildschirms. Dieser zeigt die Wellen für SCK (blau), MOSI (magenta) und MISO (gelb).}}{43}{figure.caption.52}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {6.3}{\ignorespaces Screenshot einer erfolgreich SPI-Kommunikation, erstellt mit dem Code der HW\_API.}}{43}{figure.caption.53}\protected@file@percent }
-\@writefile{toc}{\contentsline {chapter}{Abbildungsverzeichnis}{44}{chapter*.54}\protected@file@percent }
-\@writefile{toc}{\contentsline {chapter}{Tabellenverzeichnis}{45}{chapter*.55}\protected@file@percent }
-\@writefile{toc}{\contentsline {chapter}{Codeverzeichnis}{46}{chapter*.56}\protected@file@percent }
-\@writefile{toc}{\contentsline {chapter}{Quellenverzeichnis}{46}{chapter*.56}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {6.5}Validierung}{43}{section.6.5}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {6.2}{\ignorespaces Screenshot des Osziloskopbildschirms. Dieser zeigt die Wellen für SCK (blau), MOSI (magenta) und MISO (gelb).}}{44}{figure.caption.52}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {6.3}{\ignorespaces Screenshot einer erfolgreich SPI-Kommunikation, erstellt mit dem Code der HW\_API.}}{44}{figure.caption.53}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{Abbildungsverzeichnis}{45}{chapter*.54}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{Tabellenverzeichnis}{46}{chapter*.55}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{Codeverzeichnis}{47}{chapter*.56}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{Quellenverzeichnis}{47}{chapter*.56}\protected@file@percent }
 \@writefile{toc}{\providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file }
 \@writefile{lof}{\providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file }
 \@writefile{lot}{\providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file }

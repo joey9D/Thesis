@@ -7,7 +7,6 @@ Aufbau / Ebenene
 	\item 
 \end{itemize}
 
-
 Das ESP-IDF (Espressif IoT Development Framework) stellt ein offizielles Entwicklungsframework für die Microcontroller der Firma Espressif dar, wie etwa das ESP32 und dessen Varianten. 
 Es stellt ein umfangreiches Ökosystem bereit, das sowohl die Auswahl und Konfiguration der Hardware als auch die Entwicklung, das Flashen und Debugging von Software einschließt.
 
@@ -42,7 +41,16 @@ In diesem Prozess generiert das Framework die zugehörige Ordnerstruktur, den Be
 Die erforderlichen Hardwaretreiber, Bibliotheken und Tools wurden bereits mit der Installation des Frameworks bereitgestellt, sodass ein weiterer Download nicht mehr notwendig ist.
 
 
-
+Der grundlegende Aufbau eines Projekts im ESP-IDF ist durch eine hierarchische Struktur gekennzeichnet, bei der die einzelnen Ebenen klar voneinander getrennt sind.
+Auf oberster Ebene befindet sich die main-Funktion, die den Einstiegspunkt des Programms darstellt.
+Von diesem Punkt aus werden die zentralen Initialisierungen ausgeführt und die Steuerung des weiteren Programmablaufs initiiert.
+Aus Main-Funktion erfolgt der Aufruf spezifischer Anwendungsfunktionen.
+In der Regel erfolgt der Zugriff auf diese Funktionen durch die Verwendung der sogenannten \gls{hal}-Funktionen (Hardware Abstraction Layer).
+Das Framework stellt damit einen standardisierten Zugriff auf die zugrunde liegende Hardware bereit.
+Die \gls{hal}-Funktionen selbst basieren wiederum auf Low-Level-(LL)-Funktionen, die den direkten Zugriff auf Register und Peripherie des ESP32 ermöglichen.
+Diese Schichtung resultiert in einer klare Abstraktion, da die Anwendung hardwareunabhängig entwickelt werden kann, während der Zugriff auf die Peripherie über wohldefinierte Schnittstellen erfolgt.
+Zudem besteht bei Bedarf die Möglichkeit, über die LL-Ebene direkt in die Hardware einzugreifen.
+Das mehrstufige Konzept zielt darauf ab, sowohl die Portabilität als auch die Wartbarkeit der Software innerhalb des ESP-IDF-Frameworks zu fördern.
 
 
 
