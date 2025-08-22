@@ -80,12 +80,17 @@
 \@writefile{toc}{\contentsline {subsection}{\numberline {6.4.1}Struktur}{34}{subsection.6.4.1}\protected@file@percent }
 \@writefile{lof}{\contentsline {figure}{\numberline {6.1}{\ignorespaces Verzeichnisbaum des Beispielprojektes.}}{34}{figure.caption.39}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {6.4.2}Klassen}{39}{subsection.6.4.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {6.5}Validierung}{41}{section.6.5}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {6.2}{\ignorespaces Screenshot des Osziloskopbildschirms. Dieser zeigt die Wellen für SCK (blau), MOSI (magenta) und MISO (gelb).}}{41}{figure.caption.48}\protected@file@percent }
-\@writefile{toc}{\contentsline {chapter}{Abbildungsverzeichnis}{42}{chapter*.49}\protected@file@percent }
-\@writefile{toc}{\contentsline {chapter}{Tabellenverzeichnis}{43}{chapter*.50}\protected@file@percent }
-\@writefile{toc}{\contentsline {chapter}{Codeverzeichnis}{44}{chapter*.51}\protected@file@percent }
-\@writefile{toc}{\contentsline {chapter}{Quellenverzeichnis}{44}{chapter*.51}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\nonumberline Hardwareklassen}{39}{subsubsection*.49}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\nonumberline Peripherieklassen}{40}{subsubsection*.51}\protected@file@percent }
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {6.2}{\ignorespaces Ausschnitt aus der Interfaceklasse IGpioBase.}}{40}{lstlisting.6.2}\protected@file@percent }
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {6.3}{\ignorespaces Beispiel eines Gpio Objektes.}}{41}{lstlisting.6.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {6.5}Validierung}{42}{section.6.5}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {6.2}{\ignorespaces Screenshot des Osziloskopbildschirms. Dieser zeigt die Wellen für SCK (blau), MOSI (magenta) und MISO (gelb).}}{43}{figure.caption.52}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {6.3}{\ignorespaces Screenshot einer erfolgreich SPI-Kommunikation, erstellt mit dem Code der HW\_API.}}{43}{figure.caption.53}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{Abbildungsverzeichnis}{44}{chapter*.54}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{Tabellenverzeichnis}{45}{chapter*.55}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{Codeverzeichnis}{46}{chapter*.56}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{Quellenverzeichnis}{46}{chapter*.56}\protected@file@percent }
 \@writefile{toc}{\providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file }
 \@writefile{lof}{\providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file }
 \@writefile{lot}{\providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file }

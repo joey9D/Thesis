@@ -45,9 +45,11 @@
 \contentsline {section}{\numberline {6.4}Implementierung}{33}{section.6.4}%
 \contentsline {subsection}{\numberline {6.4.1}Struktur}{34}{subsection.6.4.1}%
 \contentsline {subsection}{\numberline {6.4.2}Klassen}{39}{subsection.6.4.2}%
-\contentsline {section}{\numberline {6.5}Validierung}{41}{section.6.5}%
-\contentsline {chapter}{Abbildungsverzeichnis}{42}{chapter*.49}%
-\contentsline {chapter}{Tabellenverzeichnis}{43}{chapter*.50}%
-\contentsline {chapter}{Codeverzeichnis}{44}{chapter*.51}%
-\contentsline {chapter}{Quellenverzeichnis}{44}{chapter*.51}%
+\contentsline {subsubsection}{\nonumberline Hardwareklassen}{39}{subsubsection*.49}%
+\contentsline {subsubsection}{\nonumberline Peripherieklassen}{40}{subsubsection*.51}%
+\contentsline {section}{\numberline {6.5}Validierung}{42}{section.6.5}%
+\contentsline {chapter}{Abbildungsverzeichnis}{44}{chapter*.54}%
+\contentsline {chapter}{Tabellenverzeichnis}{45}{chapter*.55}%
+\contentsline {chapter}{Codeverzeichnis}{46}{chapter*.56}%
+\contentsline {chapter}{Quellenverzeichnis}{46}{chapter*.56}%
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

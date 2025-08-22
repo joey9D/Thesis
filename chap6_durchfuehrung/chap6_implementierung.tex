@@ -325,105 +325,152 @@ Insgesamt ermöglicht diese CMake-Struktur die Kapselung von hardwarespezifische
 Damit bildet sie eine robuste Grundlage für eine effektive und plattformübergreifende Hardware-Abstraktionsschicht, die sowohl STM32- als auch ESP32-Umgebungen unterstützt.
 
 \subsection{Klassen}
-% gpio spi
-Schichtenmodell
-\\Interfaces in HW\_API/gpio und HW\_API/spi: reine C++17-Interfaces (z. B. IGpio, ISpi) plus gemeinsame Typen/Enums für Modus, Pull, Speed, SPI-Mode, Bitordnung usw.
-\\Plattform-Implementierungen in HW\_API/platform/<plattform>/<familie>: konkrete Klassen (z. B. Stm32c0\_hw bzw. Esp32c6\_hw).
-\\Treiber/HAL-Anbindung in HW\_API/drivers: HAL-/CMSIS-Einbindung via Wrapper;
+Die Hardware-Abstraktionsschicht des HW\_API-Projekts demonstriert ein klassisches objektbasiertes Interface-Implementierung-Muster und trennt strikt zwischen plattformunabhängigen Interfaces und plattformspezifischen Konkretisierungen. 
+Im Verzeichnis core definieren hw\_interface.hpp und hw\_enum\_classes.hpp die gemeinsame Abstraktionseben:\\
+% TODO: chap6: UML Diagramme einfügen
+Die Auswahl der passenden Plattformklasse erfolgt zur Compile-Zeit über hw\_factory.hpp.
+Per Präprozessor-Define (z. B. STM32C0xx, STM32G0xx, ESP32C6) wird genau eine konkrete Implementierung als statischer Singleton bereitgestellt und tiefere Abschnitte in den Implementierungen der Peripherieklassen freigeschalten.
+Das sorgt für einen stabilen Lebenszyklus und vermeidet mehrfachen Besitz von Systemressourcen; die eigentliche Initialisierung bleibt jedoch explizit über Methoden wie \texttt{init\_sys()} und \texttt{init\_clock()}.
+
+\subsubsection{Hardwareklassen}
+Im Zentrum steht die abstrakte Basisklasse \texttt{HardwareInterface}, die in hw\_interface.hpp als rein virtuelle Schnittstelle definiert wird. 
+Über diese prägnante Kernschnittstelle werden vier essentielle Methoden deklariert:
+
+\begin{itemize}
+	\item \texttt{init\_sys()} zur Systeminitialisierung, 
+	\item \texttt{init\_clock()} zur Takteinrichtung,
+	\item \texttt{delay()} für zeitliche Verzögerungen, sowie 
+	\item \texttt{initAllPins()} zur gebündelten GPIO-Initialisierung.
+\end{itemize}
+
+Durch den virtuellen Destruktor wird eine saubere polymorphe Ressourcenfreigabe sichergestellt.
+Die konkreten Hardware-Implementierungen teilen sich in zwei klar getrennte Plattformzweige auf: STM32 und ESP32. 
+Hier können zukünftige weitere Zweige hizukommen.
+Die STM32c0xx\_HW-Klasse in stm32c0xx\_hw.hpp/.cpp ist für das STM32-spezifische Hardware-Setup zuständig.
+Ihre \texttt{init\_sys()}-Methode enthält einen besonderen Mechanismus mit dem potentielle Fehler verhindert werden:
+Durch den Aufruf von \texttt{MSP\_ForceInclude()} wird sichergestellt, dass der Linker die kritische MSP-Initialisierungsfunktion \texttt{HAL\_MspInit()} einbindet. 
+Diese könnte sonst wegen fehlender direkter Referenzen eliminiert werden und für Fehlverhalten im Buildprozess sorgen.
+Die Taktinitialisierung nutzt moderne C++17-Features wie Aggregat-Initialisierung für \texttt{RCC\_OscInitTypeDef} und \texttt{RCC\_ClkInitTypeDef} mit 
+
+\begin{itemize}
+	\item \texttt{RCC\_OscInitTypeDef OscInitStruct{}}
+	\item \texttt{RCC\_ClkInitTypeDef ClkInitStruct{}}
+\end{itemize}
+
+, konfiguriert das System für den internen HSI-Oszillator und setzt alle notwendigen Teiler in den jeweiligen Strukturen.
+Fehlerfälle werden mit einem \texttt{ErrorHandler()} behandelt, der Interrupts deaktiviert und das System in eine Endlosschleife versetzt.
+Dies entspricht einer typischen Vorgehensweise bei Embedded-Systemen.
+
+Im Gegensatz dazu zeigt die Esp32c6\_hw-Klasse in esp32c6\_devkitc1\_hw.hpp/.cpp einen gänzlich abweichenden Ansatz.
+Die Methoden \texttt{init\_sys()} und \texttt{init\_clock()} sind, bis auf erklärende Kommentare, leer.
+ESP-IDF übernimmt hier die gesamte Initialisierung der Hardware.
+Dies verdeutlicht den grundlegenden Unterschied zwischen der STM32-HAL, die eher auf die Low-Level Steuerung angelegt ist, und dem höher abstrahierten ESP-IDF-Framework.
+Die Implementierung von \texttt{delay()} nutzt zur Vermeidung unnötiger Abhängigkeiten eine Busy-Wait-Schleife, die auf esp\_timer\_get\_time() basiert, anstelle der FreeRTOS-Funktionen.
+Darüber hinaus bietet die ESP32-Implementierung plattformspezifische Erweiterungen wie \texttt{getFreeHeapSize(), getMinimumFreeHeapSize()} und \texttt{restart()}, die die spezifischen Fähigkeiten dieser Plattform nutzen.
+
+Zu beachten ist die gemeinsame Strategie für \texttt{initAllPins()}, die in beiden Implementierungen identisch ist: 
+Eine for-Schleife iteriert durch \texttt{boardPins.allPins}.
+Dabei handelt es sich um ein Array, das in definiert project\_config.hpp ist und alle definierten Gpio-Objekte enthält.
+Innerhalb der Schleife wird für jeden Pin \texttt{gpio\_init()} aufgerufen.
+Diese elegante Lösung zentralisiert die Pin-Konfiguration an einer Stelle und vereinfacht die Board-Migration erheblich. 
+Sie ist ein Beispiel für die Verwendung der Komposition Designs, da die tatsächlichen Pin-Objekte nicht Teil der HardwareInterface-Hierarchie sind, sondern als separate Komponenten verwaltet werden.
+
+Die Implementierungen zeigen zwei unterschiedliche Philosophien der Embedded-Programmierung: 
+Die Konfiguration des STM32 erfordert eine detaillierte und explizite Gestaltung jedes Hardwareaspekts, was charakteristisch für klassische Mikrocontroller ist.
+Demgegenüber bietet das ESP32 einen höheren Abstraktionsgrad mit automatischer Ressourcenverwaltung, was charakteristisch für moderne SoCs (System on Chips) ist.
+Trotz dieser fundamentalen Unterschiede ermöglicht die gemeinsame HardwareInterface-Schnittstelle eine einheitliche Interaktion mit der Hardware aus Anwendungssicht, was ein Kernziel jeder guten Abstraktionsschicht ist.
+
+\subsubsection{Peripherieklassen}
+Das GPIO-Modul folgt demselben Muster.
+gpio\_interface.hpp, das in \cref{lst:gpio_interface} zu sehen ist, stellt mit \texttt{IGpioBase<T>} ein generisches Interface als Template-Klasse bereit; über Type-Aliases wie \textit{T} bzw. hier \textit{PinType}, werden die Plattformen auf den passenden Pin-Typ gemappt:
+% IGpio
+\begin{itemize}
+	\item STM32: uint16\_t
+	\item ESP32: uint64\_t
+\end{itemize}
+
+\begin{lstlisting}[language=C++, caption={Ausschnitt aus der Interfaceklasse IGpioBase.}, label={lst:gpio_interface}]
+template <typename PinType>
+class IGpioBase
+{
+	...
+    virtual PinType getPin() const = 0;
+	...	
+};
+
+// Platform-specific Type-Aliases
+#ifdef STM32_PLATFORM
+using IGpio = IGpioBase<uint16_t>;
+#elif defined(ESP_PLATFORM) || defined(ESP32_PLATFORM)
+using IGpio = IGpioBase<uint64_t>;
+#endif
+\end{lstlisting}
+
+Die STM32-Implementierungen (gpio\_stm32.hpp/.cpp) binden die HAL über einen Wrapper-Header (stm32\_hal\_inc.hpp) ein und weist die API-Enums (Mode, Pull, Speed, Alternate) über lokale Helper-Funktionen auf HAL-Konstanten.
+So eine \texttt{enum class} fasst die HAL-spezifischen Makros in sich zusammen und weist diesesn jeweils eine vereinfachte und generische Bezeichnungen (None statt GPIO\_NOPULL) zu.
+Damit im späteren Verlauf des Codes keine zusätzliche Typumwandlung stattfinden muss, wird die Enumeration mit der Typenzuweisung uint32\_t deklariert.
+Anhand dieser Bezeichnungen wählen die Hilfsfunktionen mit swtich-case-Strukturen die richtigen Werte für die Initialisierung aus.
+
+Die Methode \texttt{gpio\_init()} übernimmt die gesamte Konfiguration, ähnlich der der Funktion \texttt{MX\_GPIO\_init()}, die in einem STM32CubeIDE Projekt generiert wird und die Pins initialisiert.
+So werden hier, je nach im Objekt definierten Port, die entsprechende interne Clock aktiviert, für den gewünschten Pin eine Maske erstellt und über die Hilfsfunktionen, die den entsprechenden Wert mit übergeben bekommen, z.B. \texttt{modeToHAL(Mode mode)} bekommt den Wert \texttt{Alternate\_Push\_Pull}, die richtigen HAL-Makros ausgewählt und in die Initialisierungsstruktur eingefügt. 
+
+\begin{lstlisting}[language=C++, caption={Beispiel eines Gpio Objektes.}, label={lst:gpio_object}]
+Gpio spi1_mosi{
+	5,							// uin16_t pin
+	Port::B, 					// Port port
+	Mode::Alternate_Push_Pull,	// Mode mode
+	Pull::None, 					// Pull pull
+	Speed::Very_High, 			// Speed speed
+	Alternate::SPI_AF0, 		// Alternate Funciton
+	false, 						// bool isPinInverted
+	0, 							// uin32_t debounceTime
+	0, 							// uin32_t debounceState
+	ExtiTrigger::None			// External Interrupt Trigger
+};
+\end{lstlisting}
+
+Ein solches Objekt ist in \cref{lst:gpio_object} dargestellt.
+Das Objekt \texttt{spi1\_mosi} setzt dem Muster des Konstruktors nach die Werte der Attribute.
+Die Methoden \texttt{readPin}, \texttt{writePin}, \texttt{togglePin} sind dünne Wrapper um die HAL-Funktionen.
+Funktionen wie \texttt{isPinOn()} und \texttt{isDebouncePinOn()} modellieren Entprelllogik als kleinen Zustandsautomaten und berücksichtigen ob ein Pin möglicherweise invertiert ist.
+Die korrekte Wahl des Ports erfolgt über stm32x0\_gpio\_mapping.hpp, das die Port-Enums auf GPIO\_TypeDef*-Zeiger abbildet.
+Da nicht jede STM32-Hardware die gleiche Anzahl an Ports und teilweise nicht alle verfügbar sind, findet hier das Mapping statt.
+Aktuell sind hier die Ports definiert für die in der Arbeit verwendete Hardware.
+Für weitere Hardware muss diese Datei um deren Portdefinitionen erweitert werden.
+Die Implementierung für die ESP32-Hardware (gpio\_esp32.hpp/.cpp) arbeitet dementsprechend mit \texttt{gpio\_config\_t} und \texttt{gpio\_set\_level} und \texttt{gpio\_get\_level} der ESP-IDF und setzt Entprellen mit \texttt{esp\_timer\_get\_time()} um.
+
+Die tatsächliche Hardwarekonfiguration geschieht bewusst nicht im Konstruktor, sondern in der expliziten Methode \texttt{gpio\_init()}; ein Destruktor zur Deinitialisierung ist nicht vorgesehen.
+Dadurch bleibt das Objekt leichtgewichtig, die Kontrolle über den Initialisierugn-Zeitpunkt liegt bei der aufrufenden Schicht.
 \\
-\\Implementierungsstil
-\\Interface + Implementierung: Public API bleibt plattformneutral; konkrete Klassen implementieren die Interfaces und kapseln HAL-/Registerzugriffe.
-\\Je nach verwendeter Hardware müssen die entsprechenden Peripherie-Header inkludiert werden.
-\\RAII: Ressourcen (Peripherie-Takte, Pins, DMA-Kanäle) werden im Konstruktor aktiviert und im Destruktor sauber freigegeben.
-\\Keine Exceptions: Fehler als Status/enum/optional zurückgegeben; für Embedded deterministisch.
-\\Starke Typen: enum class und bitmask flags, constexpr-Konfigurationen; optional Templates für compile-time Pin-Mappings.
-\\Zero-cost: dünne Wrapper über HAL/CMSIS; wo sinnvoll direkter Registerzugriff (GPIO) für konstante Latenz.
 \\
-\\Peripherie Module verwenden Klassen.
-\\GPIO-spezifisch
-\\Gpio konfiguriert Modus/Pull/Speed/AF; Methoden für read/write/toggle.
-Optionales Interrupt-Interface: attach/detach Callback, Prioritäten über Wrapper gesetzt.
+Die STM32-Implementierung (spi\_stm32.hpp/.cpp) kapselt neben den Konfigurationsparametern auch die beteiligten GPIO-Objekte (SCK, MISO, MOSI, CS) per Komposition. 
+Im Konstruktor werden auch hier, ähnlich der Gpio Klasse und in späteren Klassen, ausschließlich die Parameter übernommen. 
+Die Aktivierung des jeweiligen SPI-Takts geschieht über eine automatische Instanzerkennung.
+Die GPIO-Initialisierungen geschieht über die \texttt{gpio\_init()}; 
+die Befüllung des \texttt{SPI\_HandleTypeDef}  erfolgt über Spi-spezifische Hilfsfunktion, wie \texttt{spiModeToHAL()}, \texttt{spiDataSizeToHAL()}, \texttt{spiClockPhaseToHAL()}). 
+Diese arbeiten gleich wie die Hilfsfunktionen der Gpio-Klasse.
+Dieser Initialisierungsprozess ist in der Methode \texttt{spi\_init()} gekapselt und folgt einem an die STM32CubeIDE angelehnten Ablauf.
+Für Datentransfers stehen blockierende Varianten der entsprechenden Funktionen bereit: \texttt{transmit(), receive()} und \texttt{transmitReceive()}.% sowie DMA-basierte Wege bereit.
+Die weiteren Varianten der Transferfunktionen mit Interrupt und DMA-Verhalten werden in der weiteren Entwicklung implementiert.
+Für die Option \texttt{transmit\_DMA()} steht die Klasse Dma (dma\_stm32.hpp/.cpp) bereit.
+Um eine Verbindung des SPI-Objektes mit einem DMA-Objekt zu schaffen, werden die Funktionen \texttt{setSpiHandle()} der DMA-Klasse und \texttt{set\_dma()} der SPI-Klasse verwendet.
+Dabei bekommt \texttt{setSpiHandle()} den Handle des SPI-Objekts übergeben.
+Mit \texttt{set\_dma()} und der übergebenen Adresse des DMA-Objektes (\texttt{\&dmaObjekt}), wird dieses im SPI-Objekt registriert.
+Schlussendlich wird während der Initialisierung des DMA-Objektes, die genau so abläuft wie bei SPI und GPIO mit der jeweiligen Befüllung der Initalilisierungstrukturen, werden SPI und DMA via \texttt{\_\_HAL\_LINKDMA} verbunden.
+Zudem werden NVIC-Prioritäten (Nested Vectored Interrupt Controller) gesetzt und Interrupts aktiviert.
+Mittels der Abfragen \texttt{isDmaTransferInProgress()} und \texttt{abortDmaTransfer()} ist es möglich, den Status zu kontrollieren und die Logik des Abbruchs zu implementieren.
+Es ist zu berücksichtigen, dass die Initialisierung in diesem Fall explizit über \texttt{dma\_init(), dma\_init\_TX()} und \texttt{dma\_init\_RX()} erfolgt, während die Destruktoren keine Aufräumfunktion übernehmen.
+Diese Umsetzung zeichnet sich durch klare, definierte Lebenszyklen und Zustandsprüfungen aus, anstatt eine automatische Freigabe zu ermöglichen.
+
+
+
+Zusammengefasst setzen die Klassen eindeutig auf ein Interface-plus-Implementierung-Muster mit expliziten Init-Methoden. 
+Enums und Mappingfunktionen halten die Public-API stabil, während die Abbildung auf HAL/IDF konstant und gut testbar bleibt. 
+RAII im strengen Sinn (Konstruktor erwirbt, Destruktor gibt frei) wird hier bewusst nur partiell verwendet: \\
+Lebenszyklen sind deterministisch und werden über init\_*/dma\_*/spi\_init() gesteuert; der Besitz ist über die Factory-Singletons (System) und Komposition (GPIO in SPI) klar geregelt. 
+Dieses Vorgehen ist für Embedded-Code vorteilhaft, da Initialisierungsreihenfolgen, Taktaktivierungen und Interrupt-Konfigurationen präzise kontrolliert werden und keine versteckte Logik in Destruktoren läuft.
 \\
-\\SPI-spezifisch
-\\Trennung Bus vs. Device: Spi verwaltet Controller (Mode, Prescaler, Frameformat kapselt Chip-Select und Timing.
-\\Sync/Async-Transfers: blocking (polling) und non-blocking (IRQ/DMA) je nach Build-Flag; Callbacks im Platform-Layer verankert.
-\\DMA optional über Compile-Definitionen; Fallback auf Interrupt/Polling.
-\\CS-Steuerung über zugewiesenes GPIO-Objekt (Komposition), sodass CS-Handling plattformneutral bleibt.
-
-\vspace{5mm}
-
-
-% platform hw class
-urzübersicht: HW\_API/platform/* kapselt alle plattformspezifischen Implementierungen, die die plattformneutralen Interfaces aus den Modulen (gpio, spi, core) erfüllen.
-
-Struktur
-
-HW\_API/platform
-stm32/
-stm32c0/, stm32g0/, …: familie-spezifische Implementierungen und Clock-Setup
-common/: gemeinsame Utilities (Pin-Mapping, Helpers)
-esp32/
-esp32s3/, …: SoC-spezifische Implementierungen
-common/: gemeinsame Utilities
-Auswahl via CMake:
-TARGET\_PLATFORM und MCU\_FAMILY wählen die richtigen Quellen.
-STM32 linkt gegen stm32\_hal\_library aus drivers; ESP32 gegen IDF.
-Zentrale Klassen und Muster
-
-HardwareInterface (plattf.neutral) wird implementiert durch:
-Stm32HardwareInterface bzw. Esp32HardwareInterface
-Aufgaben: HAL/IDF-Init, SystemClock\_Config, SysTick/Delay, ggf. Power/Reset
-RAII: init im Konstruktor/explicit init\_sys(), Deinit im Destruktor optional
-GPIO
-Interface: IGpioPin (read, write, toggle, mode/pull/speed)
-STM32: Stm32GpioPin hält GPIO\_TypeDef* und Pin-Maske; init via HAL\_GPIO\_Init (oder direkter Registerzugriff für Zero-Cost); schnellere write/toggle via BSRR, read via IDR.
-ESP32: Esp32GpioPin nutzt gpio\_config\_t, gpio\_set\_direction/level/get\_level (IDF).
-Mapping: HW\_API-Enums (PinMode, Pull, Speed) → HAL/IDF-Konstanten per constexpr Mapping-Funktionen.
-Optional: Interrupt-API (attach/detach), NVIC/ISR-Bindungen in platform-Layer.
-SPI
-Trennung Bus/Device: SpiBus konfiguriert Controller; SpiDevice kapselt CS und Timing.
-STM32: Stm32SpiBus/Stm32SpiDevice mit SPI\_HandleTypeDef; init mappt HW\_API-Enums (Mode, Phase/Polarity, Prescaler, Frame) → HAL-Init-Strukturen; Transfer via HAL\_SPI\_TransmitReceive (blocking) bzw. IRQ/DMA, wenn aktiviert; CS-Steuerung über übergebenes GPIO-Objekt.
-ESP32: Esp32SpiBus/Esp32SpiDevice mit spi\_bus\_initialize/spi\_bus\_add\_device, Transfers via spi\_device\_transmit; getrennte Master/Slave-Pfade (IDF).
-Zeitverhalten/Timeouts: konfigurierbar, Rückgabewerte als bool/Status-Enum (keine Exceptions).
-Board-Pins
-Board-spezifisches Pin-Mapping (boardPins) liegt im entsprechenden platform/<familie>-Bereich; enthält vordefinierte GpioPin-Instanzen (z. B. spi1\_sck, led, button) und wird in app verwendet.
-ISR/Callbacks
-STM32: HAL-Weak-Callbacks (z. B. HAL\_SPI\_TxRxCpltCallback) im platform-Layer gebrückt auf API-Callbacks.
-ESP32: ISR-Handler/Queues/Tasks nach IDF-Muster; Ressourcen mit IRAM\_ATTR markiert, wo nötig.
-Ressourcen/RAII
-Clocks (RCC/PM), GPIO-AF, DMA-Channels werden im Konstruktor/Init aktiviert und im Destruktor optional freigegeben.
-Non-copyable, aber move-fähig, um eindeutigen Besitz der Peripherie zu sichern.
-Fehlerbehandlung
-Statusrückgaben (Ok/Error/Timeout), optional assert in Debug; keine Exceptions.
-Optional Logging-Hooks (plattformabhängig aus).
-Integration mit CMake/Drivers
-
-targets im platform-Layer linken PUBLIC gegen:
-hw\_api\_drivers und stm32\_hal\_library (STM32)
-idf-Komponenten (ESP32)
-target\_compile\_definitions steuern Pfade:
-STM32\_PLATFORM, USE\_HAL\_DRIVER, familien-/device-Defines (z. B. STM32C0xx, STM32C031xx)
-target\_include\_directories binden die Wrapper-Includes (stm32\_hal\_wrapper/...bzw. esp32\_hal\_wrapper/...) sowie HAL/CMSIS bzw. IDF ein.
-Familienauswahl (stm32c0xx vs. stm32g0xx) nimmt startup/system-Quellen und Defines aus drivers/CMakeLists.
 \\
-Wichtig für euren Build
-
-Mixed C/C++: platform-Klassen inkludieren einen zentralen Wrapper-Header (z. B. stm32\_hal\_inc.hpp), der zuerst <stdint.h>/<cstdint>, dann CMSIS-Device, dann hal\_conf.h und zuletzt stm32xx\_hal.h einbindet. So verschwinden die uint32\_t-Warnungen im C++-Build.
-Reihenfolge: HW\_API zuerst bauen, app zuletzt; Toolchain aktiviert arm-none-eabi-gcc und die Cortex-M Flags.
-Kurz: HW\_API/platform implementiert die plattformkonkreten Klassen (STM32/ESP32), mappt die neutralen API-Enums auf HAL/IDF, kapselt Init/Clocks/ISR sauber per RAII und verbindet die oberen Schichten mit den Treiber-Layern, die via CMake/FetchContent eingebunden werden.
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
