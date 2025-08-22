@@ -48,8 +48,10 @@
 \contentsline {subsubsection}{\nonumberline Hardwareklassen}{39}{subsubsection*.49}%
 \contentsline {subsubsection}{\nonumberline Peripherieklassen}{40}{subsubsection*.51}%
 \contentsline {section}{\numberline {6.5}Validierung}{43}{section.6.5}%
-\contentsline {chapter}{Abbildungsverzeichnis}{45}{chapter*.54}%
-\contentsline {chapter}{Tabellenverzeichnis}{46}{chapter*.55}%
-\contentsline {chapter}{Codeverzeichnis}{47}{chapter*.56}%
-\contentsline {chapter}{Quellenverzeichnis}{47}{chapter*.56}%
+\contentsline {subsection}{\numberline {6.5.1}Testaufbau}{44}{subsection.6.5.1}%
+\contentsline {subsection}{\numberline {6.5.2}Testergebnisse}{44}{subsection.6.5.2}%
+\contentsline {chapter}{Abbildungsverzeichnis}{47}{chapter*.54}%
+\contentsline {chapter}{Tabellenverzeichnis}{48}{chapter*.55}%
+\contentsline {chapter}{Codeverzeichnis}{49}{chapter*.56}%
+\contentsline {chapter}{Quellenverzeichnis}{49}{chapter*.56}%
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

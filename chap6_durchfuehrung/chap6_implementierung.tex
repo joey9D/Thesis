@@ -383,11 +383,14 @@ Trotz dieser fundamentalen Unterschiede ermöglicht die gemeinsame HardwareInter
 \subsubsection{Peripherieklassen}
 Das GPIO-Modul folgt demselben Muster.
 gpio\_interface.hpp, das in \cref{lst:gpio_interface} zu sehen ist, stellt mit \texttt{IGpioBase<T>} ein generisches Interface als Template-Klasse bereit; über Type-Aliases wie \textit{T} bzw. hier \textit{PinType}, werden die Plattformen auf den passenden Pin-Typ gemappt:
+
 % IGpio
 \begin{itemize}
 	\item STM32: uint16\_t
 	\item ESP32: uint64\_t
 \end{itemize}
+
+\newpage
 
 \begin{lstlisting}[language=C++, caption={Ausschnitt aus der Interfaceklasse IGpioBase.}, label={lst:gpio_interface}]
 template <typename PinType>

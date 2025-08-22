@@ -1,17 +1,7 @@
 Das Ziel dieser Arbeit ist es die Basis eine Treiber-API zu erstellen, mit der je nach Zielhardware die passenden Treiber integriert werden können.
 Dafür muss eine Programmstruktur entwickelt werden, die es ermöglicht erstellte Softwarelösungen und Applikationen auf verschiedenen Microcontrollern anwenden zu können, indem die spezifischen Hardwaretreiber, nach geringer Konfiguration, automatisch in den Buildprozess mit integriert werden.
-Die Struktur soll erste grundlegenden Funktionen für GPIO, SPI, CAN und UART enthalten. 
+Die Struktur soll erste grundlegenden Funktionen für GPIO, SPI und CAN enthalten. 
 Damit können die Funktionen für generelles Lesen, Schreiben und die Kommunikation über Busse getestet werden.
-\\
-%\textbf{Warum für diese Entschieden?}
-%GPIO für die simpelste Art für Lesen und Schreiben
-%
-%CAN damit ein anderes Projekt direkt integriert werden kann.
-%
-%
-%SPI und UART um Kommunikation via Bus zu testen
-
-
 
 
 \section{Rahmenbedingungen} \label{chap2_rahmenbedingungen}
@@ -19,13 +9,13 @@ Die Arbeit wird in der Schaefer GmbH erstellt.
 Die Firma sorgt mit ihren Custom-Designs von Aufzugkontrollpanels dafür, dass jeder Kunde seinen spezifischen Wunsch erfüllt bekommt.
 In diesen Kontrollpanels kommen unterschiedliche \gls{mcu}s zum Einsatz um die jeweiligen Softwarelösungen umzusetzen.
 Als Entwicklungsumgebung (\gls{ide}) wird primär die STM32CubeIDE verwendet.
-Mit den bereits integrierten Tools zum Bauen (Builden) und Debuggen von hardware-orientierter Software, eignet sich diese \gls{ide} besonders gut um einen erleichterten Einstieg zu erhalten.
+Mit den bereits integrierten Tools zum Bauen (Builden) und Debuggen von hardware-orientierter Software, eignet sich diese \gls{ide} besonders gut um einen erleichterten Einstieg in die Hardwareentwicklung zu erhalten.
 Da die Lösung plattformübergreifend funktionieren soll, wird auch Visual Studio Code (VSCode) verwendet.
-Diese \gls{ide} wird weltweit genutzt und kann durch Extension für den gewünschten Gebrauch angepasst werden kann. 
+Diese \gls{ide} wird weltweit genutzt und kann durch Erweiterungen für den gewünschten Gebrauch angepasst werden kann. 
 Außerdem ist VSCode auf den gängigen Betriebssytemen lauffähig.
 
 Damit die API direkt auf einem etablierten Stand ist, soll sie in C++ dem Standard 17 nach, programmiert werden.
-Um über VSCode für das Arbeiten mit C++ vorzubereiten und anzupassen, empfiehlt es sich Erweiterungen (Extensions) zu installieren.
+Um VSCode für das Arbeiten mit C++ vorzubereiten und anzupassen, empfiehlt es sich Erweiterungen (Extensions) zu installieren.
 Im Rahmen dieser Arbeit wird das Paket von frannekXX verwendet.
 Dieses beinhaltet alle für die moderne C++-Entwicklung relevanten Paket:
 \begin{itemize}
