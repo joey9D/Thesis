@@ -2377,13 +2377,23 @@
     <bcf:citekey order="3" intorder="1">balzert2011softwaretechnik2</bcf:citekey>
     <bcf:citekey order="4" intorder="1">gfg_DesignVsArchitecture</bcf:citekey>
     <bcf:citekey order="5" intorder="1">ibmAPI</bcf:citekey>
-    <bcf:citekey order="6" intorder="1">stm32cube_ecosystem</bcf:citekey>
-    <bcf:citekey order="7" intorder="1">stm32cubemx</bcf:citekey>
-    <bcf:citekey order="8" intorder="1">stm32cubeide</bcf:citekey>
-    <bcf:citekey order="9" intorder="1">github_mcu_cpp</bcf:citekey>
-    <bcf:citekey order="10" intorder="1">github_modm</bcf:citekey>
-    <bcf:citekey order="11" intorder="1">modm_io</bcf:citekey>
-    <bcf:citekey order="12" intorder="1">barlik_architektur</bcf:citekey>
+    <bcf:citekey order="6" intorder="1">freertos</bcf:citekey>
+    <bcf:citekey order="7" intorder="1">zephyr</bcf:citekey>
+    <bcf:citekey order="8" intorder="1">riot</bcf:citekey>
+    <bcf:citekey order="9" intorder="1">gccint</bcf:citekey>
+    <bcf:citekey order="10" intorder="1">llvm</bcf:citekey>
+    <bcf:citekey order="11" intorder="1">johnson1975</bcf:citekey>
+    <bcf:citekey order="12" intorder="1">stm32duino</bcf:citekey>
+    <bcf:citekey order="13" intorder="1">arduinoesp32</bcf:citekey>
+    <bcf:citekey order="14" intorder="1">github_mcu_cpp</bcf:citekey>
+    <bcf:citekey order="15" intorder="1">github_modm</bcf:citekey>
+    <bcf:citekey order="16" intorder="1">stm32cube_ecosystem</bcf:citekey>
+    <bcf:citekey order="17" intorder="1">stm32cubemx</bcf:citekey>
+    <bcf:citekey order="18" intorder="1">stm32cubeide</bcf:citekey>
+    <bcf:citekey order="19" intorder="1">github_mcu_cpp</bcf:citekey>
+    <bcf:citekey order="20" intorder="1">github_modm</bcf:citekey>
+    <bcf:citekey order="21" intorder="1">modm_io</bcf:citekey>
+    <bcf:citekey order="22" intorder="1">barlik_architektur</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="anyt">

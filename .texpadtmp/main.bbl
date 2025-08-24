@@ -19,6 +19,120 @@
 
 \refsection{0}
   \datalist[entry]{anyt/global//global/global/global}
+    \entry{stm32duino}{online}{}{}
+      \field{labelalpha}{25}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{extraalpha}{1}
+      \field{labeltitlesource}{title}
+      \field{title}{Arduino Core for STM32}
+      \field{urlday}{23}
+      \field{urlmonth}{8}
+      \field{urlyear}{2025}
+      \field{year}{2025}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://github.com/stm32duino/Arduino_Core_STM32
+      \endverb
+      \verb{url}
+      \verb https://github.com/stm32duino/Arduino_Core_STM32
+      \endverb
+    \endentry
+    \entry{arduinoesp32}{online}{}{}
+      \field{labelalpha}{25}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{extraalpha}{2}
+      \field{labeltitlesource}{title}
+      \field{title}{Arduino core for the ESP32}
+      \field{urlday}{23}
+      \field{urlmonth}{8}
+      \field{urlyear}{2025}
+      \field{year}{2025}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://github.com/espressif/arduino-esp32
+      \endverb
+      \verb{url}
+      \verb https://github.com/espressif/arduino-esp32
+      \endverb
+    \endentry
+    \entry{gccint}{online}{}{}
+      \field{labelalpha}{25}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{extraalpha}{3}
+      \field{labeltitlesource}{title}
+      \field{title}{GCC Internals}
+      \field{urlday}{23}
+      \field{urlmonth}{8}
+      \field{urlyear}{2025}
+      \field{year}{2025}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://gcc.gnu.org/onlinedocs/gccint/
+      \endverb
+      \verb{url}
+      \verb https://gcc.gnu.org/onlinedocs/gccint/
+      \endverb
+    \endentry
+    \entry{llvm}{online}{}{}
+      \field{labelalpha}{25}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{extraalpha}{4}
+      \field{labeltitlesource}{title}
+      \field{title}{LLVM Project}
+      \field{urlday}{23}
+      \field{urlmonth}{8}
+      \field{urlyear}{2025}
+      \field{year}{2025}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://llvm.org
+      \endverb
+      \verb{url}
+      \verb https://llvm.org
+      \endverb
+    \endentry
+    \entry{riot}{online}{}{}
+      \field{labelalpha}{25}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{extraalpha}{5}
+      \field{labeltitlesource}{title}
+      \field{title}{RIOT-OS}
+      \field{urlday}{23}
+      \field{urlmonth}{8}
+      \field{urlyear}{2025}
+      \field{year}{2025}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.riot-os.org
+      \endverb
+      \verb{url}
+      \verb https://www.riot-os.org
+      \endverb
+    \endentry
+    \entry{zephyr}{online}{}{}
+      \field{labelalpha}{25}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{extraalpha}{6}
+      \field{labeltitlesource}{title}
+      \field{title}{Zephyr Project}
+      \field{urlday}{23}
+      \field{urlmonth}{8}
+      \field{urlyear}{2025}
+      \field{year}{2025}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://zephyrproject.org
+      \endverb
+      \verb{url}
+      \verb https://zephyrproject.org
+      \endverb
+    \endentry
     \entry{balzert2011softwaretechnik2}{book}{}{}
       \name{author}{1}{}{%
         {{hash=98cee9450c433e48f401567881bd52c0}{%
@@ -66,11 +180,47 @@
       \field{labelalpha}{Bar25}
       \field{sortinit}{B}
       \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{extraalpha}{1}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{note}{Vorlesungsskript zur Softwarearchitektur, privates Dokument}
       \field{title}{Skript Software-Architektur}
       \field{year}{2025}
+    \endentry
+    \entry{freertos}{online}{}{}
+      \name{author}{1}{}{%
+        {{hash=f480661209a4ab39f37b423457690b91}{%
+           family={Barry},
+           familyi={B\bibinitperiod},
+           given={Richard},
+           giveni={R\bibinitperiod}}}%
+      }
+      \strng{namehash}{f480661209a4ab39f37b423457690b91}
+      \strng{fullhash}{f480661209a4ab39f37b423457690b91}
+      \strng{fullhashraw}{f480661209a4ab39f37b423457690b91}
+      \strng{bibnamehash}{f480661209a4ab39f37b423457690b91}
+      \strng{authorbibnamehash}{f480661209a4ab39f37b423457690b91}
+      \strng{authornamehash}{f480661209a4ab39f37b423457690b91}
+      \strng{authorfullhash}{f480661209a4ab39f37b423457690b91}
+      \strng{authorfullhashraw}{f480661209a4ab39f37b423457690b91}
+      \field{labelalpha}{Bar25}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{extraalpha}{2}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{FreeRTOS Real-Time Kernel}
+      \field{urlday}{23}
+      \field{urlmonth}{8}
+      \field{urlyear}{2025}
+      \field{year}{2025}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.freertos.org
+      \endverb
+      \verb{url}
+      \verb https://www.freertos.org
+      \endverb
     \endentry
     \entry{gfg_DesignVsArchitecture}{online}{}{}
       \name{author}{1}{}{%
@@ -135,6 +285,34 @@
       \verb{url}
       \verb https://www.ibm.com/de-de/think/topics/api
       \endverb
+    \endentry
+    \entry{johnson1975}{report}{}{}
+      \name{author}{1}{}{%
+        {{hash=0c8b2064a4e458d0685b3ce22b6e88ce}{%
+           family={Johnson},
+           familyi={J\bibinitperiod},
+           given={Stephen\bibnamedelima C.},
+           giveni={S\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
+      }
+      \list{institution}{1}{%
+        {Bell Laboratories}%
+      }
+      \strng{namehash}{0c8b2064a4e458d0685b3ce22b6e88ce}
+      \strng{fullhash}{0c8b2064a4e458d0685b3ce22b6e88ce}
+      \strng{fullhashraw}{0c8b2064a4e458d0685b3ce22b6e88ce}
+      \strng{bibnamehash}{0c8b2064a4e458d0685b3ce22b6e88ce}
+      \strng{authorbibnamehash}{0c8b2064a4e458d0685b3ce22b6e88ce}
+      \strng{authornamehash}{0c8b2064a4e458d0685b3ce22b6e88ce}
+      \strng{authorfullhash}{0c8b2064a4e458d0685b3ce22b6e88ce}
+      \strng{authorfullhashraw}{0c8b2064a4e458d0685b3ce22b6e88ce}
+      \field{labelalpha}{Joh75}
+      \field{sortinit}{J}
+      \field{sortinithash}{b2f54a9081ace9966a7cb9413811edb4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Retargetable Compilers}
+      \field{type}{techreport}
+      \field{year}{1975}
     \endentry
     \entry{github_modm}{online}{}{}
       \name{author}{1}{}{%
