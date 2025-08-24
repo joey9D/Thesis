@@ -88,14 +88,17 @@
 \@writefile{lol}{\contentsline {lstlisting}{\numberline {6.2}{\ignorespaces Ausschnitt aus der Interfaceklasse IGpioBase.}}{42}{lstlisting.6.2}\protected@file@percent }
 \@writefile{lol}{\contentsline {lstlisting}{\numberline {6.3}{\ignorespaces Beispiel eines Gpio Objektes.}}{42}{lstlisting.6.3}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {6.5}Validierung}{44}{section.6.5}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.5.1}Testaufbau}{45}{subsection.6.5.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.5.1}Testaufbau}{44}{subsection.6.5.1}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {6.5.2}Testergebnisse}{45}{subsection.6.5.2}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {6.2}{\ignorespaces Screenshot des Osziloskopbildschirms. Dieser zeigt die Wellen für SCK (blau), MOSI (magenta) und MISO (gelb).}}{46}{figure.caption.52}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {6.3}{\ignorespaces Screenshot einer erfolgreich SPI-Kommunikation, erstellt mit dem Code der HW\_API.}}{46}{figure.caption.53}\protected@file@percent }
-\@writefile{toc}{\contentsline {chapter}{Abbildungsverzeichnis}{48}{chapter*.54}\protected@file@percent }
-\@writefile{toc}{\contentsline {chapter}{Tabellenverzeichnis}{49}{chapter*.55}\protected@file@percent }
-\@writefile{toc}{\contentsline {chapter}{Codeverzeichnis}{50}{chapter*.56}\protected@file@percent }
-\@writefile{toc}{\contentsline {chapter}{Quellenverzeichnis}{50}{chapter*.56}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\nonumberline Struktur - Build, Flash, Erase, Debug}{45}{subsubsection*.53}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\nonumberline GPIO}{46}{subsubsection*.55}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\nonumberline SPI}{46}{subsubsection*.57}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {6.2}{\ignorespaces Screenshot des Osziloskopbildschirms. Dieser zeigt die Wellen für SCK (blau/türkis), MOSI (magenta) und MISO (gelb).}}{46}{figure.caption.58}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {6.3}{\ignorespaces Screenshot einer erfolgreich SPI-Kommunikation, erstellt mit dem Code der HW\_API.}}{47}{figure.caption.59}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{Abbildungsverzeichnis}{48}{chapter*.60}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{Tabellenverzeichnis}{49}{chapter*.61}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{Codeverzeichnis}{50}{chapter*.62}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{Quellenverzeichnis}{50}{chapter*.62}\protected@file@percent }
 \@writefile{toc}{\providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file }
 \@writefile{lof}{\providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file }
 \@writefile{lot}{\providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file }

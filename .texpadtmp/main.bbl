@@ -420,6 +420,39 @@
       \field{title}{Handbuch moderner Softwarearchitektur -- Architekturstile, Patterns und Best Practices}
       \field{year}{2020}
     \endentry
+    \entry{rigol_dho900}{online}{}{}
+      \name{author}{1}{}{%
+        {{hash=882b3d3d801557a77ceb095b496a3642}{%
+           family={{RIGOL Technologies}},
+           familyi={R\bibinitperiod}}}%
+      }
+      \strng{namehash}{882b3d3d801557a77ceb095b496a3642}
+      \strng{fullhash}{882b3d3d801557a77ceb095b496a3642}
+      \strng{fullhashraw}{882b3d3d801557a77ceb095b496a3642}
+      \strng{bibnamehash}{882b3d3d801557a77ceb095b496a3642}
+      \strng{authorbibnamehash}{882b3d3d801557a77ceb095b496a3642}
+      \strng{authornamehash}{882b3d3d801557a77ceb095b496a3642}
+      \strng{authorfullhash}{882b3d3d801557a77ceb095b496a3642}
+      \strng{authorfullhashraw}{882b3d3d801557a77ceb095b496a3642}
+      \field{labelalpha}{RIG25}
+      \field{sortinit}{R}
+      \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Produktseite zur DHO900-Serie mit technischen Spezifikationen und Funktionen}
+      \field{title}{DHO900 Series – Digital Oscilloscopes}
+      \field{urlday}{24}
+      \field{urlmonth}{8}
+      \field{urlyear}{2025}
+      \field{year}{2025}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://eu.rigol.com/eu/products/detail/DHO900
+      \endverb
+      \verb{url}
+      \verb https://eu.rigol.com/eu/products/detail/DHO900
+      \endverb
+    \endentry
     \entry{stm32cube_ecosystem}{online}{}{}
       \name{author}{1}{}{%
         {{hash=c38884ab3cf908c2798725960369391b}{%

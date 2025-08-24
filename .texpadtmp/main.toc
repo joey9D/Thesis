@@ -51,10 +51,13 @@
 \contentsline {subsubsection}{\nonumberline Hardwareklassen}{40}{subsubsection*.49}%
 \contentsline {subsubsection}{\nonumberline Peripherieklassen}{41}{subsubsection*.51}%
 \contentsline {section}{\numberline {6.5}Validierung}{44}{section.6.5}%
-\contentsline {subsection}{\numberline {6.5.1}Testaufbau}{45}{subsection.6.5.1}%
+\contentsline {subsection}{\numberline {6.5.1}Testaufbau}{44}{subsection.6.5.1}%
 \contentsline {subsection}{\numberline {6.5.2}Testergebnisse}{45}{subsection.6.5.2}%
-\contentsline {chapter}{Abbildungsverzeichnis}{48}{chapter*.54}%
-\contentsline {chapter}{Tabellenverzeichnis}{49}{chapter*.55}%
-\contentsline {chapter}{Codeverzeichnis}{50}{chapter*.56}%
-\contentsline {chapter}{Quellenverzeichnis}{50}{chapter*.56}%
+\contentsline {subsubsection}{\nonumberline Struktur - Build, Flash, Erase, Debug}{45}{subsubsection*.53}%
+\contentsline {subsubsection}{\nonumberline GPIO}{46}{subsubsection*.55}%
+\contentsline {subsubsection}{\nonumberline SPI}{46}{subsubsection*.57}%
+\contentsline {chapter}{Abbildungsverzeichnis}{48}{chapter*.60}%
+\contentsline {chapter}{Tabellenverzeichnis}{49}{chapter*.61}%
+\contentsline {chapter}{Codeverzeichnis}{50}{chapter*.62}%
+\contentsline {chapter}{Quellenverzeichnis}{50}{chapter*.62}%
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 
