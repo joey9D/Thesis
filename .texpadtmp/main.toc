@@ -51,13 +51,15 @@
 \contentsline {subsubsection}{\nonumberline Hardwareklassen}{40}{subsubsection*.49}%
 \contentsline {subsubsection}{\nonumberline Peripherieklassen}{41}{subsubsection*.51}%
 \contentsline {section}{\numberline {6.5}Validierung}{44}{section.6.5}%
-\contentsline {subsection}{\numberline {6.5.1}Testaufbau}{44}{subsection.6.5.1}%
-\contentsline {subsection}{\numberline {6.5.2}Testergebnisse}{45}{subsection.6.5.2}%
-\contentsline {subsubsection}{\nonumberline Struktur - Build, Flash, Erase, Debug}{45}{subsubsection*.53}%
-\contentsline {subsubsection}{\nonumberline GPIO}{46}{subsubsection*.55}%
-\contentsline {subsubsection}{\nonumberline SPI}{46}{subsubsection*.57}%
-\contentsline {chapter}{Abbildungsverzeichnis}{48}{chapter*.60}%
-\contentsline {chapter}{Tabellenverzeichnis}{49}{chapter*.61}%
-\contentsline {chapter}{Codeverzeichnis}{50}{chapter*.62}%
-\contentsline {chapter}{Quellenverzeichnis}{50}{chapter*.62}%
+\contentsline {subsection}{\numberline {6.5.1}Tests}{44}{subsection.6.5.1}%
+\contentsline {subsubsection}{\nonumberline Struktur - Build, Flash, Erase, Debug}{45}{subsubsection*.55}%
+\contentsline {subsubsection}{\nonumberline GPIO}{46}{subsubsection*.57}%
+\contentsline {subsubsection}{\nonumberline SPI}{46}{subsubsection*.59}%
+\contentsline {subsection}{\numberline {6.5.2}Weitere Erkenntnisse}{48}{subsection.6.5.2}%
+\contentsline {chapter}{\numberline {7}Zusammenfassung und Fazit}{49}{chapter.7}%
+\contentsline {chapter}{\numberline {8}Ausblick}{50}{chapter.8}%
+\contentsline {chapter}{Abbildungsverzeichnis}{51}{chapter*.62}%
+\contentsline {chapter}{Tabellenverzeichnis}{52}{chapter*.63}%
+\contentsline {chapter}{Codeverzeichnis}{53}{chapter*.64}%
+\contentsline {chapter}{Quellenverzeichnis}{53}{chapter*.64}%
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

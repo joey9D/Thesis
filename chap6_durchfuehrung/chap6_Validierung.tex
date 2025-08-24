@@ -1,11 +1,13 @@
 \section{Validierung}
 Die Validierung der entwickelten Hardware-Abstraktionsschicht (HW\_API) dient dem Nachweis ihrer Funktionalität, Korrektheit und Plattformunabhängigkeit. 
-Ziel dieser Untersuchung ist es, sicherzustellen, dass die implementierten Klassen sowohl auf STM32- als auch auf ESP32-Plattformen zuverlässig arbeiten und den gestellten Anforderungen entsprechen.
+Ziel dieser Untersuchung ist es zum einen sicherzustellen, dass die implementierten Klassen sowohl auf STM32- als auch auf ESP32-Plattformen zuverlässig arbeiten und den gestellten Anforderungen entsprechen, zum anderen zu vergleichen, welche Änderungen die neue Zwischenschicht bezüglich Ressourcenverbrauch mit sich bringt.
+
+\subsection{Tests}
 Die Überprüfung der Funktionalität wurden mehreren Schritten gewährleistet.
 So musste zunächst bestätigt werden, dass der Code fehlerfrei kompiliert und gebaut wird.
 Beim Debuggen musste festgestellt werden, ob das Programm sich so verhält, wie es erwartet ist oder ob unerwünschte Seiteneffekte auftreten.
 
-\subsection{Testaufbau}
+\subsection*{Testaufbau}
 Um die korrekte Funktionsweise der Gpio-Klasse zu gewährleisten wurde mit einem Breadboard eine Schaltung mit einem Taster und einer LED aufgebaut.
 Diese konnte dann die verfügbaren \gls{mcu}s an den konfigurierten Pins angeschlossen werden.
 Für die Steuerung der Schaltung wurde ein Programm implementiert, dass bei Betätigung des Tasters die LED zum leuchten bringt. 
@@ -22,7 +24,7 @@ Die beiden MCUs wurden über die in der projct\_config.hpp definierte Gpio-Objek
 An die einzelnen Pins wurden dann Klammern eines Oszilloskops angeschlossen um die Signale der einzelnen Pins (SCK, MOSI, MISO, NSS/CS) zu beobachten und mit sauberen Signalen eine Beispielprojekts aus der STM32CubeIDE zu vergleichen.
 Damit sollte bestätigt werden, dass Kommunikation über den SPI-Bus mit den neuen Klassen funktionsfähig implementiert werden konnte. 
 
-\subsection{Testergebnisse}
+\subsection*{Testergebnisse}
 \subsubsection{Struktur - Build, Flash, Erase, Debug}
 % CMakeLists, Build, Compile
 Beginnend mit der Auswahl der Hardware durch die Kombination von Makefilekonfigurationen (stm32\_config.mk bzw. esp\_config.mk), CMakeLists-Struktur und Factory-Imlpementierung konnte Schritt für Schritt eine Struktur erarbeitet werden, die im weiteren Verlauf erfolgreich funktioniert hat und verwendet wurde.
@@ -82,25 +84,20 @@ Dessen Wechsel von $1$ auf $0$ liegt hier außerhalb des Sichfeldes.
 \end{figure}
 
 
-%Die Testumgebung umfasste sowohl das STM32C0-Board als auch ein ESP32-DevKit, jeweils verbunden mit Debug-Schnittstellen und notwendiger Peripherie.
-%Die Tests wurden systematisch durchgeführt, indem jeder GPIO-Pin und jedes Peripheriemodul einzeln initialisiert, konfiguriert und gemessen wurde. 
-%Für die SPI-Schnittstelle wurden verschiedene Kommunikationsszenarien simuliert, um mögliche Timing- oder Konfigurationsfehler zu erkennen.
-%
-%Die erzielten Ergebnisse zeigen, dass die HW\_API die spezifizierten Funktionen korrekt bereitstellt. 
-%GPIO-Pins verhielten sich entsprechend der konfigurierten Pull-Up/Pull-Down-Einstellungen, und die SPI-Kommunikation konnte zuverlässig Daten übertragen. 
-%Alle gemessenen Signalpegel lagen innerhalb der spezifizierten Grenzwerte der jeweiligen Plattformen. 
-%Auffälligkeiten traten nicht auf, und die statische Analyse ergab keine kritischen Warnungen oder Verstöße gegen etablierte Embedded-Coding-Standards.
-%
-%Die Interpretation dieser Ergebnisse bestätigt die Robustheit und Portabilität der entwickelten Abstraktionsschicht. 
-%Die modulare Struktur, die plattformspezifische Implementierungen sauber kapselt, erlaubt den Einsatz auf mehreren Mikrocontrollerfamilien, ohne dass Änderungen am Anwendungscode erforderlich sind. 
-%Einschränkungen bestehen lediglich in der begrenzten Testabdeckung anderer STM32-Familien, die nicht direkt validiert wurden.
-
+Die Testumgebung umfasste sowohl zwei Familien der STM32-Hardware (Nucleo-C031C6, Nucleo-G071RB, Nucleo-G0B1RE) als auch ein ESP32C6-DevKit, jeweils verbunden mit Debug-Schnittstellen und notwendiger Peripherie.
+Die modulare Struktur, in der plattformspezifische Implementierungen klar gekapselt sind, ermöglicht neben der Übertragung der Lösung, auf unterschiedliche \gls{mcu}-Familien, ohne Anpassungen des Applikationscodes, auch die Erweiterung um fehlende Funktionsmodule oder neuer Microcontroller.
+Einschränkungen bestehen lediglich in der begrenzten Testabdeckung, sowohl für STM32-Familien, als auch ESP32 Microcontroller, die nicht direkt validiert wurden.
+% TODO: Dieser Absatz ans Ende der Validierung
 Zusammenfassend zeigt die Validierung, dass die HW\_API die geforderten funktionalen Anforderungen erfüllt, korrekt arbeitet und eine stabile Grundlage für die Implementierung plattformunabhängiger Embedded-Anwendungen darstellt. 
 Die gewählten Testmethoden gewährleisten eine nachvollziehbare und reproduzierbare Überprüfung der Softwarequalität.
 
 
-
-
+\subsection{Weitere Erkenntnisse}
+\begin{itemize}
+	\item Größenänderung der Builddateien
+	\item Komplexität der Funktionen $\rightarrow$ vgl. Cube
+	\item 
+\end{itemize}
 
 
 
