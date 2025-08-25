@@ -1,0 +1,9 @@
+\begin{itemize}
+	\item Erweiterung um noch nicht implementierte Hardwarefunktionen $\rightarrow$ hohe Priorität für CAN
+	\item Erweiterung der unterstützten Hardware
+	\item Lösen offener Probleme $\rightarrow$ ESP32 Debug
+	\item Aktuell werden im Fall von STM32 die Treiber automatisch runtergeladen. Das ist auch so gewünscht; damit hat man immer die aktuellste Version der Treiber. Falls eines Tages die Github Repos gelöscht werden müssen vorher eigene Sicherungen dieser Treiber erstellt werden, um den weiteren Gebrauch der Hardware zu gewährleisten.
+	\item Stand am Ende der Thesis wird die HW\_API primär für BareMetal-Programmierung verwendet. Zukünftig soll das RTOS Zephyr in den Entwicklungsprozess integriert werden. Diese muss dann in die HW\_API um dieses RTOS erweitert und beide zusammen geführt werden.
+	\item Säuberung. Bisher wurde sich ausschließlich auf die Funktion der HW\_API konzentriert. Somit bisher die Optik und die Lesefreundlichkeit vernachlässigt.
+	\item Erstellung einer kompletten Dokumentation und User-Guide für die HW\_API, damit auch andere Entwickler diese API verwenden können.
+\end{itemize}

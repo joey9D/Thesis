@@ -3,13 +3,13 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {3.1}{\ignorespaces Allgemeine Darstellung der Schichtenarchitektur.\blx@tocontentsinit {0}\cite {RichardsFord2020}}}{15}{figure.caption.6}%
-\contentsline {figure}{\numberline {3.2}{\ignorespaces Ausschnitt einer Liste von verfügbaren Generatoren.}}{21}{figure.caption.24}%
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Ausschnitt einer Liste von verfügbaren Generatoren.}}{22}{figure.caption.24}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {6.1}{\ignorespaces Verzeichnisbaum des Beispielprojektes.}}{35}{figure.caption.39}%
-\contentsline {figure}{\numberline {6.2}{\ignorespaces Screenshot des Osziloskopbildschirms. Dieser zeigt die Wellen für SCK (blau/türkis), MOSI (magenta) und MISO (gelb).}}{47}{figure.caption.60}%
-\contentsline {figure}{\numberline {6.3}{\ignorespaces Screenshot einer erfolgreich SPI-Kommunikation, erstellt mit dem Code der HW\_API.}}{48}{figure.caption.61}%
+\contentsline {figure}{\numberline {6.1}{\ignorespaces Verzeichnisbaum des Beispielprojektes.}}{36}{figure.caption.39}%
+\contentsline {figure}{\numberline {6.2}{\ignorespaces Screenshot des Osziloskopbildschirms. Dieser zeigt die Wellen für SCK (blau/türkis), MOSI (magenta) und MISO (gelb).}}{48}{figure.caption.60}%
+\contentsline {figure}{\numberline {6.3}{\ignorespaces Screenshot einer erfolgreich SPI-Kommunikation, erstellt mit dem Code der HW\_API.}}{49}{figure.caption.61}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

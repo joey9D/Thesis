@@ -42,8 +42,18 @@ Der wesentliche Unterschied zwischen den beiden Verfahren liegt darin, dass ein 
 \gls{mmio} zeichnet sich zum einen durch die direkte Hardwaresteuerung aus.
 Jeder Registerzugriff löst eine konkrete Aktion aus.
 Ein Nachteil besteht in den Nebenwirkungen, die beispielsweise das automatische Löschen von Statusbits beim Lesen mit sich bringen.
+% Caching und Spekulationsmechanismen
 Ein weiteres Problem ist das fehlende Caching, da Peripheriebereiche von Cache- und Spekulationsmechanismen ausgeschlossen werden müssen. 
+Diese Peripheriebereiche liegen im \gls{mmio} Bereich.
+Damit dürfen diese nicht über einen Cache gelesen oder beschrieben werden, da der Prozessor sonst mit veralteten oder falschen Werten arbeiten oder Schreibzugriffe nicht korrekt bei der Hardware ankommen würden.
+Darüber hinaus setzen moderne Prozessoren häufig sogenannte Spekulationsmechanismen ein, bei denen Befehle vorab ausgeführt werden, um die Leistung zu steigern.
+Im Falle eines spekulativen Zugriffs einer CPU auf Speicherzugriffe im MMIO-Bereich besteht die Möglichkeit einer ungewollten Veränderung der Registerzustände, beispielsweise durch das vorzeitige Löschen von Statusbits.
+Um derartige Seiteneffekte zu unterbinden, werden Speicherbereiche für Peripherie explizit als \texttt{device memory} oder \texttt{strongly ordered} markiert, sodass spekulative Zugriffe auf diese Bereiche unterbunden werden.
+% Keyword: volatile
 Zudem besteht die Notwendigkeit, in höheren Programmiersprachen wie C oder C++ Registerzugriffe als \texttt{volatile} zu deklarieren, um unzulässige Compileroptimierungen zu verhindern.
+Das Schlüsselwort \texttt{volatile} weist den Compiler explizit darauf hin, dass der Wert einer Variablen oder eines Speicherbereichs sich jederzeit außerhalb der Programmlogik ändern kann. Ein Beispiel für eine solche Änderung sind Hardwareereignisse oder Interrupts.
+Dadurch wird verhindert, dass Lese- oder Schreibzugriffe wegoptimiert, zwischengespeichert oder in ihrer Reihenfolge verändert werden.
+Insbesondere bei Zugriffen auf Speicherbereiche im Kontext von \gls{mmio} ist dies von essenzieller Bedeutung, da jeder Zugriff direkt mit der Hardware interagiert und somit zwingend ausgeführt werden muss, um den korrekten Zustand der Peripherie sicherzustellen.
 
 
 \subsection{Microcontroller Unit (MCU)}
@@ -55,19 +65,11 @@ Die Geräte zeichnen sich durch einen geringen Energieverbrauch, eine kompakte B
 Im Vergleich zu Mikroprozessoren sind für den Grundbetrieb von Microcontrollern keine externen Komponenten erforderlich, was besonders kompakte und zuverlässige Systemlösungen ermöglicht.
 
 
-%\subsection*{Hardware Architektur}
-%- CISC vs. RISC
-%
-%- Cortex Familie
-
-
-
-
 \subsection{Peripherie}
 Unter dem Begriff der \emph{Peripherie} versteht man im Kontext der Embedded-Softwareentwicklung sämtliche Ein- und Ausgabeschnittstellen, die eine Interaktion des Microcontrollers mit seiner Umwelt ermöglichen.
 Peripheriegeräte stellen die Verbindung zwischen der digitalen Rechenlogik des Microcontrollers und der realen Welt her.
 Sie ermöglichen die Erfassung, Verarbeitung und Ausgabe physikalischer Signale wie Temperatur, Licht oder der Betätigung eines Tasters.
-Ein moderner Microcontroller, wie etwa ein STM32, ist bereits mit einer Vielzahl an integrierten Peripherieeinheiten ausgestattet, darunter digitale Ein-/Ausgänge (GPIOs), serielle Kommunikationsschnittstellen (UART, SPI, I2C, CAN), analoge Wandler (ADC, DAC), Timer oder PWM-Module. 
+Ein moderner Microcontroller, wie etwa ein STM32, ist bereits mit einer Vielzahl an integrierten Peripherieeinheiten ausgestattet, darunter digitale Ein-/Ausgänge (GPIOs), serielle Kommunikationsschnittstellen (UART, SPI, I2C, CAN), analoge Wandler (ADC, DAC), Timer oder PWM-Module (Pulsweitenmodulation). 
 Die als \emph{On-Chip} bezeichneten Komponenten sind integraler Bestandteil des Microcontrollers und können über zugehörige Register programmiert und gesteuert werden.
 Zusätzlich zur integrierten Peripherie besteht die Möglichkeit, über die physischen Pins des Microcontrollers auch externe Peripheriegeräte anzuschließen. 
 Die Verbindung erfolgt in der Regel mittels Steckverbindungen, wie etwa Jumper-Kabeln, Steckbrücken, Pin-Headern oder speziellen Anschlussleisten auf Entwicklungsboards. 
@@ -95,8 +97,8 @@ Die zentrale Eigenschaft von \gls{spi}, die das gleichzeitige Senden und Empfang
 % TODO: SPI: Quellenverweise einfügen.
 Der \gls{spi}-Bus verwendet meistens vier physikalische Leitungen:
 \begin{itemize}
-	\item \gls{miso} / \gls{cipo} für die Kommunikation vom Master zu den Peripheriegeräten (Slaves).
-	\item \gls{mosi} / \gls{copi} für die Kommunikation von den Peripheriegeräten zum Master.
+	\item \gls{mosi} / \gls{copi} für die Kommunikation vom Master zu den Peripheriegeräten (Slaves).
+	\item \gls{miso} / \gls{cipo} für die Kommunikation von den Peripheriegeräten zum Master.
 	\item \gls{ss} / \gls{cs} für die Auswahl des gewünschten Peripheriegerätes.
 	\item \gls{sclk} als Taktleitung, die den vom Master vorgegebenen Takt enthält.
 \end{itemize}
@@ -141,10 +143,11 @@ Der Einsatz von CAN in sicherheitskritischen Anwendungen beruht auf zwei wesentl
  
 Diese Eigenschaften gewährleisten eine hohe Ausfallsicherheit.
 Die CAN-Technologie basiert auf einem \emph{shared medium} mit Bus-Topologie, bei der alle Teilnehmer über zwei Leitungen mit einander verbunden sind.
-Jedes angeschlossene Gerät ist dazu befähigt, Nachrichten auf den Bus zu senden und alle Nachrichten auf dem Bus zu empfangen, allerdings verarbeitet jeder Knoten lediglich die Informationen, die für ihn relevant sind. 
-Eine zielgerichtete Adressierung von Empfängern ist im Protokoll nicht vorgesehen.
-Stattdessen findet bei CAN ein nachrichtenbasiertes Kommunikationsmodell Anwendung, bei dem jede Nachricht durch eine eindeutige Identifier (ID) gekennzeichnet ist. 
-Diese ID dient nicht der Beschreibung des Absenders oder Empfängers der Nachricht, sondern gibt Aufschluss über den Inhalt der Nachricht, z.B. ob es sich um Geschwindigkeit, das Drehmoment oder die Sensordaten handelt.
+Jede im CAN-Bus übertragene Nachricht ist durch eine eindeutige Identifikationsnummer gekennzeichnet, die sich auf die Art der übertragenen Information bezieht, beispielsweise Geschwindigkeit, Drehzahl oder Sensordaten. 
+Für jede Identifikationsnummer ist ausschließlich ein Knoten zur Übertragung von Nachrichten mit dieser Kennung vorgesehen, um Konflikte im Bus zu vermeiden. 
+Alle angeschlossenen Knoten sind prinzipiell in der Lage, diese Nachrichten zu empfangen, müssen dies jedoch nicht zwingend tun. 
+Jeder Knoten entscheidet autonom, welche Nachrichten für ihn relevant sind, und verarbeitet ausschließlich diese. 
+Ein Absender oder Empfänger ist in der Nachricht selbst nicht kodiert, sodass die Kommunikation vollständig nachrichtenbasiert und nicht adressbasiert erfolgt.
 Es ist grundsätzlich möglich, dass mehrere Knoten auf dieselbe Nachricht reagieren.
 
 Ein wesentliches Merkmal ist die prioritätsbasierte Arbitrierung. 
@@ -153,10 +156,19 @@ Das Protokoll verwendet ein bitweises Arbitrierungsverfahren.
 Nachrichten mit einer niedrigeren ID (höhere Priorität) durchdringen das System automatisch, ohne dass es zu Kollisionen oder Datenverlust kommt.
 Dieses Verfahren zeichnet sich durch seine besondere Effizienz aus und ist in der Lage, Echtzeitanforderungen zu erfüllen.
 
-Obwohl CAN asynchron ist, d. h. jeder Knoten hat seinen eigenen Takt, erfolgt die Synchronisation der Kommunikation durch ein fein abgestimmtes Zeitraster.
-Ein Bit lässt sich in sogenannte Zeitquanten unterteilen. 
-Diese sind in mehrere Segmente unterteilt, nämlich Synchronisation, Propagation, Phase 1 und Phase 2. 
-Der Abtastzeitpunkt befindet sich zwischen Phase 1 und Phase 2.
+Obwohl CAN asynchron arbeitet, d.h. jeder Knoten verfügt über einen eigenen Takt, erfolgt die Synchronisation der Kommunikation durch ein fein abgestimmtes Zeitraster innerhalb des CAN-Controllers. 
+Die Bitzeit wird in sogenannte Zeitquanten (Time Quanta, TQ) unterteilt, deren Definition relativ zur eingestellten Bus-Baudrate erfolgt. 
+Diese Zeitquanten lassen sich in mehrere Segmente unterteilen: 
+
+\begin{itemize}
+	\item Synchronisationssegment, das der Flankenerkennung dient, 
+	\item das Propagationssegment, das die Signallaufzeiten berücksichtigt,
+	\item die Segmente für die Phase 1 und Phase 2, die für die Feinjustierung des Abtastzeitpunkts verantwortlich sind.
+\end{itemize}
+
+Der Sample Point ist definiert als der Zeitpunkt, an dem der Wert des Bits für alle Knoten einheitlich abgetastet wird. 
+Dieser befindet sich zwischen Phase 1 und Phase 2. 
+Die interne Taktfrequenz der CPU beeinflusst lediglich die Genauigkeit der Generierung der Zeitquanten, während die tatsächliche Bitdauer durch die konfigurierte Baudrate des CAN-Busses bestimmt wird.
 
 
 \section{Software}
@@ -189,14 +201,17 @@ Sie dient als verteilende Zwischenschicht zwischen der Programm und der Abstrakt
 
 \paragraph{Betriebssystem} ist eine weitere optionale Schicht.
 Optional in dem Sinn, das ein Embedded System nicht zwingend eine Betriebssystem benötigt.
+Dann wird von Bare-Metal-Entwicklung gesprochen.
 Ohne das Betriebssystem werden direkt die Pins, d.h. die Hardware angesprochen und programmiert; z.B. wenn in kleinem Schaltkreis nur ein Schalter, mit dem ein Signal ein oder ausgeschalten werden soll, und eine LED, die mit dem Schaltersignal leuchtet oder nicht, verbaut sind.
+Das Programm befindet sich dann in einem sog. \textit{Superloop}, einer endlosen Schleife, in der alle Aufgaben des Systems sequentiell und wiederholt abgearbeitet werden, ohne dass ein Betriebssystem zur Ablaufsteuerung oder Taskverwaltung erforderlich ist.
 Wird ein Betriebssystem eingesetzt bringt das funktionale Erweiterungen mit sich, wie Multitasking oder besseres Zeitmanagement.
 Des weiteren muss bei mit einem OS (Operating System) auf die verfügbaren Ressourcen geachtet werden, da der Speicher bei Microcontrollern begrenzt ist.
 
 \paragraph{Hardwareabstraktionsschicht} (\gls{hal}) befindet sich unter der Middleware bzw. unter dem Betriebssystem.
 Gibt es keine zusätzlichen Funktionen in der Middlewareschicht und wird bare-metal entwickelt kann aus der Applikation direkt auf die hier gelagerten Funktionen zugreifen.
-Wie dieser direkte Zugriff auf die Abstraktionsschicht aussieht ist in Code \ref{lst:stm32_mx_gpio_init} % TODO: GPIO Code stm32clean
+Wie dieser direkte Zugriff auf die Abstraktionsschicht aussieht ist in Code \cref{lst:stm32_mx_gpio_init}
 zu sehen.
+\clearpage
 
 \begin{lstlisting}[language=C, caption={Funktion zur Initialisierung der GPIO-Pins aus einem STM32-Projekt.}, label={lst:stm32_mx_gpio_init}]
 int main(void)
@@ -220,14 +235,6 @@ static void MX_GPIO_Init(void)
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(LEDextern_GPIO_Port, LEDextern_Pin, GPIO_PIN_RESET);
 
-  /*Configure GPIO pins : VCP_USART2_TX_Pin VCP_USART2_RX_Pin */
-  GPIO_InitStruct.Pin = VCP_USART2_TX_Pin|VCP_USART2_RX_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
-  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-  GPIO_InitStruct.Alternate = GPIO_AF1_USART2;
-  HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
-
   /*Configure GPIO pin : LEDextern_Pin */
   GPIO_InitStruct.Pin = LEDextern_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
@@ -238,6 +245,21 @@ static void MX_GPIO_Init(void)
 \end{lstlisting}
 
 Aus der \texttt{int main(void)}, der Hauptfunktion wird die Funktion \texttt{static MX\_GPIO\_Init(void)} zur Initialisierung der Pins aufgerufen.
+
+In dieser Funktion wird erst eine Struktur \texttt{GPIO\_InitStruct} vom Typ \texttt{GPIO\_InitTypeDef} vorbereitet, indem alle Werte, die in der Struktur enthalten sind gleich $0$ gesetzt werden.
+Danach werden für die verwendeten Ports die jeweiligen Clocks gestartet, damit jeder Port auch eine Takt hat;
+gefolgt von dem Zurücksetzen des GPIO-Pins, damit dieser keine ungewünschten Werte ausgibt, die evtl. zuvor in dem Register standen.
+Mit \texttt{ HAL\_GPIO\_WritePin(LEDextern\_GPIO\_Port, LEDextern\_Pin, GPIO\_PIN\_RESET);} wird sichergestellt, dass der Pin auf $0$ gesetzt ist.
+Ab jetzt wird die vorbereitete Struktur mit Werten belegt.
+Damit die Funktion \texttt{HAL\_GPIO\_Init()} weiss, welchen Pin sie initialisieren muss, bekommt die Struktur die einzelnen Eigenschaften des Pins übergeben.
+So bestimmt 
+\begin{itemize}
+	\item \texttt{GPIO\_InitStruct.Pin} um welchen Pin es sich handelt, 
+	\item \texttt{GPIO\_InitStruct.Mode} in welchem Modus der Pin operieren soll,
+	\item \texttt{GPIO\_InitStruct.Pull} welche Art von internem Widerstande (Pull-Up, Pull-Down oder kein Pullwiderstand) verwendet werden soll,
+	\item \texttt{GPIO\_InitStruct.Speed} mit welcher Schaltgeschwindigkeit der Pin arbeitet, d.h. wie schnell ein Flankenwechsel erfolgen darf und welche Anstiegszeit für die Signale zugelassen wird.
+\end{itemize}
+
 Am Ende dieser Funktion sieht man \texttt{HAL\_GPIO\_Init(GPIO\_Port, \&GPIO\_InitStruct)}.
 Diese Funktion ist Teil der Hardwareabstraktionsschicht, auf die hier ohne weitere Zwischenschicht oder Betriebssystem zugegriffen wird.
 
@@ -260,6 +282,7 @@ Dabei wird unterschieden zwischen
 	\item \textbf{Verhaltensmuster}.
 \end{itemize}
 
+% TODO: Die Designmuster die später verwendet werden
 Erzeugungsmuster helfen dabei, die Art und Weise der Erzeugung von Objekten umzusetzen.
 Sie sorgen dafür, dass der eigentliche Erzeugungsprozess nicht direkt sichtbar.
 Der Fokus liegt auf der Trennung von der Erzeugung und Verwendung von Objekten, um Flexibilität, Wiederverwendbarkeit und Austauschbarkeit zu ermöglichen.
