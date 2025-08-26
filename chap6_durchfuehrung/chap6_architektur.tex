@@ -9,13 +9,14 @@ Diese \emph{architektonischen Eigenschaften} lassen sich (grob) in drei Teilbere
 \begin{table}[H]
 	\begin{center}
 		\begin{tabular}{ c | c | c }
+		\toprule
 			\textbf{Betriebsrelevante} & \textbf{Strukturelle} & \textbf{Bereichsübergreifende}\\
-			%\midrule
-			\hline
+			\midrule
 			Verfügbarkeit & Erweiterbarkeit & Sicherheit\\
 			Performance & Modularität & Rechtliches\\
 			Skalierbarkeit & Wartbarkeit & Usability\\
 			$\cdots$ & $\cdots$ & $\cdots$\\
+			\bottomrule
 		\end{tabular}
 		\caption{Teilbereiche architektonischer Eigenschaften}
 	    \label{tab:architektonische_eigenschaften}
@@ -146,7 +147,7 @@ Dieses Erzeugungsmuster dient der Entkopplung von Objektinstanziierung und -nutz
 Die Hardwareabstraktion definiert demnach ein allgemeines Hardwareinterface, das die notwendigen Basisfunktionen bereitstellt.
 Die konkrete Auswahl und Instanziierung einer spezifischen Implementierung erfolgt über eine \textit{Fabrik}, die anhand der in einer Konfiguration hinterlegten Zielplattform das passende Objekt erzeugt.
 Dadurch wird verhindert, dass anwendungsspezifischer Quellcode an hardwareabhängige Details gebunden ist.
-Die Factory-Methode trägt somit wesentlich zur Erreichung von Plattformunabhängigkeit und Wiederverwendbarkeit des Anwendungscodes bei, da es auch ermöglicht, weitere Hardwareplattformen hinzuzufügen
+Die Factory-Methode trägt somit wesentlich zur Erreichung von Plattformunabhängigkeit und Wiederverwendbarkeit des Anwendungscodes bei, da es auch ermöglicht, weitere Hardwareplattformen hinzuzufügen.
 
 % Facade Pattern
 In Erweiterung dessen findet das Fassade-Muster Verwendung. 
@@ -176,15 +177,15 @@ Diese Kombination gewährleistet, dass die Softwareportabilität, Erweiterbarkei
 \begin{table}[H]
 	\begin{center}
 		\begin{tabular}{p{3cm} | p{4cm} | p{7cm}}
+		\toprule
 			\textbf{Muster} & \textbf{Art der Verwendung} & \textbf{Rolle und Nutzen im System} \\
-			\hline
+			\midrule
 			Factory-Methode & bewusst & Entkopplung von Objektinstanziierung und -nutzung; Auswahl der korrekten Hardwareimplementierung anhand der Konfiguration. \\
 			Fassade & bewusst & Vereinfachung des Zugriffs auf komplexe Treiberdetails; Bereitstellung einer homogenen Schnittstelle für den Entwickler. \\
 			Strategy & implizit & Austauschbare Implementierungen für Hardwarefunktionen (z. B. verschiedene GPIO- oder SPI-Strategien je nach Plattform). \\
 			Adapter & implizit & Anpassung der definierten Schnittstellen an abweichende Funktionssignaturen der MCU HAL oder Registerzugriffe. \\
 			Singleton & implizit & Gewährleistung, dass bestimmte Peripherieinstanzen (z. B. ein bestimmter SPI-Bus) nur einmal existieren. \\
-%			Template Method & implizit & Definition generischer Abläufe in Basisklassen; Spezialisierung durch konkrete Implementierungen in abgeleiteten Klassen. \\
-			\hline
+			\bottomrule
 		\end{tabular}
 		\caption{Auflistung der bewusst verwendeten Designpattern. Daneben potentielle Muster, die während der Implementierung entstehen können.}
 		\label{tab:unconsious_design_pattern}

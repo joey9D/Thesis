@@ -59,16 +59,15 @@
 \contentsline {subsubsection}{\nonumberline Buildgröße}{52}{subsubsection*.63}%
 \contentsline {subsubsection}{\nonumberline Algorithmische Komplexität}{54}{subsubsection*.69}%
 \contentsline {subsubsection}{\nonumberline Cyclomatic Complexity}{54}{subsubsection*.71}%
-\contentsline {subsubsection}{\nonumberline Performanz und Latenzen}{54}{subsubsection*.73}%
-\contentsline {subsubsection}{\nonumberline Portabilität versus Optimierung}{54}{subsubsection*.75}%
-\contentsline {subsubsection}{\nonumberline Testbarkeit und Wartbarkeit}{55}{subsubsection*.77}%
-\contentsline {subsubsection}{\nonumberline Kopplung und Abhängigkeiten}{55}{subsubsection*.79}%
-\contentsline {subsubsection}{\nonumberline Codequalität}{55}{subsubsection*.81}%
-\contentsline {subsubsection}{\nonumberline Integration in Buildsysteme}{55}{subsubsection*.83}%
-\contentsline {chapter}{\numberline {7}Zusammenfassung und Fazit}{56}{chapter.7}%
-\contentsline {chapter}{\numberline {8}Ausblick}{57}{chapter.8}%
-\contentsline {chapter}{Abbildungsverzeichnis}{58}{chapter*.84}%
-\contentsline {chapter}{Tabellenverzeichnis}{59}{chapter*.85}%
-\contentsline {chapter}{Codeverzeichnis}{60}{chapter*.86}%
-\contentsline {chapter}{Quellenverzeichnis}{60}{chapter*.86}%
+\contentsline {subsubsection}{\nonumberline Portabilität versus Optimierung}{56}{subsubsection*.74}%
+\contentsline {subsubsection}{\nonumberline Testbarkeit und Wartbarkeit}{56}{subsubsection*.76}%
+\contentsline {subsubsection}{\nonumberline Kopplung und Abhängigkeiten}{56}{subsubsection*.78}%
+\contentsline {subsubsection}{\nonumberline Codequalität}{56}{subsubsection*.80}%
+\contentsline {subsubsection}{\nonumberline Integration in Buildsysteme}{56}{subsubsection*.82}%
+\contentsline {chapter}{\numberline {7}Zusammenfassung und Fazit}{58}{chapter.7}%
+\contentsline {chapter}{\numberline {8}Ausblick}{59}{chapter.8}%
+\contentsline {chapter}{Abbildungsverzeichnis}{60}{chapter*.83}%
+\contentsline {chapter}{Tabellenverzeichnis}{61}{chapter*.84}%
+\contentsline {chapter}{Codeverzeichnis}{62}{chapter*.85}%
+\contentsline {chapter}{Quellenverzeichnis}{62}{chapter*.85}%
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

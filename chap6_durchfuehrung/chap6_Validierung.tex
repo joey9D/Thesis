@@ -153,45 +153,96 @@ Die Bewertung der RAM-Auslastung anhand der kompakten Projektausgabe ist nicht d
 Die detaillierte ESP-IDF-Ausgabe des Default-Builds zeigt jedoch, dass neben Flash auch Bereiche wie DIRAM und LP SRAM genutzt werden. 
 Um eine Aussage bezüglich potenzieller Modifikationen der RAM-Nutzung durch die Zwischenschicht treffen zu können, bedingt die Ausführung eines erweiterten Speicherreports, wie beispielsweise mittels \texttt{idf.py size --all}.
 
-%\begin{figure}[H]
-%	\includegraphics[width=\textwidth]{Pics/esp32c6_sample_project_size.png}
-%	\caption{}
-%	\label{fig:}
-%\end{figure}
-%
-%\begin{figure}[H]
-%	\includegraphics[width=\textwidth]{Pics/esp32c6_sample_project_size.png}
-%	\caption{}
-%	\label{fig:}
-%\end{figure}
 
 \subsubsection{Algorithmische Komplexität}
-Die Analyse der wesentlichen Funktionen zeigt, dass die Laufzeitkomplexität in der Regel konstant bleibt (O(1)), da es sich überwiegend um direkte Hardwarezugriffe handelt. Kritischer sind hierbei weniger die theoretische Komplexität, sondern potenzielle Latenzen durch zusätzliche Funktionsaufrufe.
+Die Analyse der GPIO-Klassen für STM32 und ESP32 ergibt, dass die algorithmische Komplexität aller Methoden konstant bleibt, d.h. $O(1)$. 
+Die Tatsache, dass es sich in diesem Fall ausschließlich um Registerzugriffe oder Zustandsabfragen handelt, die unabhängig von der Anzahl der Pins oder der Systemgröße eine konstante Laufzeit aufweisen, ist für diese Beobachtung maßgeblich. 
+Unterschiede ergeben sich lediglich in der Implementierung der Initialisierung.
+Während beim STM32 ein Clock-Enable über eine switch-case-Struktur erforderlich ist, setzt der ESP32 direkt eine \texttt{gpio\_config\_t}-Struktur ein, in der die Pull-Widerstände ebenfalls über eine switch-case-Auswahl definiert werden. 
+Diese Details haben jedoch keinen Einfluss auf die theoretische Laufzeitkomplexität.
+
+Allerdings muss der Debounce-Funktionen eine besondere Aufmerksamkeit geschenkt werden muss. 
+Sowohl auf STM32 als auch auf ESP32 sind sie als Zustandsautomaten mit mehreren Zuständen und Übergängen realisiert.
+Obwohl die Komplexität auch hier konstant bleibt, resultiert die Vielzahl der Verzweigungen in einer höheren zyklomatischen Komplexität.
 
 \subsubsection{Cyclomatic Complexity}
-Diese Kennzahl misst die Anzahl unabhängiger Ausführungspfade innerhalb einer Funktion. 
-Je höher dieser Wert, desto schwieriger ist die Funktion zu verstehen und vollständig zu testen. 
-Erste Auswertungen zeigten, dass insbesondere Initialisierungsfunktionen mit vielen Konfigurationsoptionen zu erhöhten Komplexitätswerten neigen. 
-Hier bietet sich eine funktionale Aufteilung zur Reduktion der Komplexität an.
+Die zyklomatische Komplexität (CC) stellt ein Maß für die Komplexität des Kontrollflusses innerhalb einer Methode oder Funktion dar. Sie gibt an, wie viele unabhängige Pfade durch den Code existieren. 
 
-\subsubsection{Performanz und Latenzen}
-Die zusätzliche Abstraktionsschicht verursacht in manchen Fällen einen geringen Funktionsaufruf-Overhead. Für zeitkritische Peripherie wie SPI oder CAN muss daher geprüft werden, ob dieser Einfluss im zulässigen Bereich liegt.
+Die zyklomatische Komplexität kann gemäß der Formel nach McCabe $CC= E - N + 2P$ berechnet werden.
+mit 
+\begin{itemize}
+	\item $E$ die Anzahl der Kanten (Verbindungen zwischen Anweisungen/Blöcken) im Kontrollflussgraphen ist,
+	\item $N$ die Anzahl der Knoten (Anweisungen oder Blöcke) ist,
+	\item $P$ die Anzahl der zusammenhängenden Komponenten (typischerweise 1 für eine einzelne Funktion) ist.
+\end{itemize}
+
+In beiden Plattformvarianten weisen die meisten Funktionen triviale Werte zwischen $1$ und $2$ auf, was eine hohe Lesbarkeit und Wartbarkeit begünstigt.
+
+Im Fall von STM32 zeigt sich, dass die Funktion \texttt{port\_clock\_enable()} einen Ausreißer aufweist. 
+Dieser ist auf die Realisierung der Auswahl des Ports über eine switch-case-Struktur mit mehreren Fällen zurückzuführen. 
+Dies führt zu einer Erhöhung der CC auf Werte von $8$ bis $10$. 
+Auch die Funktion \texttt{isDebouncePinOn()} weist durch ihre State-Machine eine erhöhte CC von etwa $8$ auf.
+
+Die CC der Debounce-Funktion beträgt beim ESP32 ebenfalls in etwa $8$. 
+Die Initialisierungsmethode \texttt{gpio\_init()} weist aufgrund der Konfiguration der Pull-Widerstände per Switch-Case eine etwas höhere CC auf.
+
+Zusammenfassend lässt sich sagen, dass die Komplexität der GPIO-Implementierung insgesamt als überschaubar einzustufen ist. 
+Die erhöhten Werte manifestieren sich ausschließlich in Funktionen, die dafür gedacht sind, eine Vielzahl von Zuständen abzudecken.).
+
+\begin{table}[H]
+\centering
+	\begin{tabular}{@{}llp{4cm}p{2cm}p{2cm}@{}}
+	\toprule
+\textbf{Plattform} & \textbf{Methode} & \textbf{Beschreibung} & \textbf{Algorith. Komplex.} & \textbf{Cyclomatic Komplex.} \\ \midrule
+STM32 & Konstruktor & Initialisierung der Member & O(1) & 1 \\
+      & gpio\_init() & HAL-Struktur befüllen + Alternate & O(1) & 3 \\
+      & readPin() & Direkter HAL-Aufruf & O(1) & 1 \\
+      & writePin() & HAL-Aufruf mit Bedingung & O(1) & 2 \\
+      & togglePin() & HAL-Aufruf zum Umschalten & O(1) & 1 \\
+      & port\_clock\_enable() & Switch-case über Ports & O(1) & 8--10 \\
+      & isPinOn() & Abfrage + Invertierung & O(1) & 2 \\
+      & isDebouncePinOn() & Zustandsautomat, mehrere States & O(1) & 8 \\
+      & Getter & Zugriff auf Member & O(1) & 1 \\ \midrule
+ESP32 & Konstruktor & Initialisierung der Member & O(1) & 1 \\
+      & gpio\_init() & gpio\_config\_t setzen + Pull via switch-case & O(1) & 5 \\
+      & readPin() & Direkter HAL-Aufruf & O(1) & 1 \\
+      & writePin() & Direkter HAL-Aufruf & O(1) & 1 \\
+      & togglePin() & writePin(!readPin()) & O(1) & 1 \\
+      & isPinOn() & Abfrage + Invertierung & O(1) & 2 \\
+      & isDebouncePinOn() & Zustandsautomat mit 4 States & O(1) & 8 \\
+      & Getter & Zugriff auf Member & O(1) & 1 \\ 
+	\bottomrule
+	\end{tabular}
+	\caption{Algorithmische und zyklomatische Komplexität der GPIO-Klassen}
+	\label{tab:gpio_complexity}
+\end{table}
+
 
 \subsubsection{Portabilität versus Optimierung}
-Die HW\_API fördert die Portabilität des Anwendungscodes erheblich, kann jedoch plattformspezifische Optimierungen erschweren. Ein ausgewogenes Verhältnis zwischen generischen Schnittstellen und gezielten Plattformanpassungen ist daher erforderlich.
+Die Implementierung der Module mit einem objektorientierten Ansatz dient der Abstraktion der hardware-spezifischen Details über ein einheitliches Interface, wodurch identischer Anwendungscode sowohl auf STM32- als auch auf ESP32-Plattformen ausgeführt werden kann. 
+Dieser Ansatz resultiert in einer signifikant erhöhten Portabilität, ist jedoch mit einem gewissen Overhead verbunden, da direkte Hardwarezugriffe über Hilfsfunktionen (z. B. modeToHAL(), pullToHAL()) geleitet werden. 
 
 \subsubsection{Testbarkeit und Wartbarkeit}
-Die klare Trennung von Schnittstellen und Implementierungen erleichtert die Modularisierung und damit die Durchführung von Unit Tests. Zudem verbessert sich die Wartbarkeit, da Änderungen an plattformspezifischen Details keine Anpassungen im Anwendungscode erfordern.
+Die klare Trennung von Schnittstellen und Implementierungen erleichtert die Modularisierung und damit die Durchführung von Unit Tests.
+Die Kapselung der Pin-Initialisierung, Lese-/Schreiboperationen und Debouncing in klar abgegrenzte Methoden fördert die Testbarkeit. 
+So kann jede Methode separat zu testen. 
+Die Wartbarkeit wird durch konsistente Namenskonventionen und den modularen Aufbau des Systems zusätzlich unterstützt. 
+Dadurch haben Änderungen an der Hardware-Abstraktion minimalen Einfluss auf die Anwendungsschicht.
 
 \subsubsection{Kopplung und Abhängigkeiten}
-Bei der Integration neuer Abstraktionsschichten ist zu prüfen, ob nur notwendige Funktionen gekapselt werden, um unnötige Abhängigkeiten und eine enge Kopplung zwischen Modulen zu vermeiden.
+Die Modulklasesn verwenden interne Hilfsfunktionen und Mappings der Enum-Classes, was eine geringen Kopplung an konkrete Hardwareregister zur Folge hat. 
+Externe Abhängigkeiten beschränken sich auf HAL-Bibliotheken (STM32) oder ESP-IDF-Funktionen, wodurch der Rest des Codes unabhängig von der Plattform bleibt. 
+Die Trennung von Interface und Implementierung reduziert die Kopplung weiter, sodass der Austausch einer Plattformimplementierung nur minimale Änderungen erfordert.
 
 \subsubsection{Codequalität}
-Einheitliche Namenskonventionen, konsistente Verwendung von enum class, klar dokumentierte Schnittstellen sowie eine einheitliche Factory-Struktur tragen zu einer höheren Lesbarkeit und langfristigen Wartbarkeit des Codes bei.
+Die Klassen weisen durchgängig einen modernen, lesbaren C++-Stil auf, der durch klare Initialisierung, Nutzung von \texttt{enum class}, \texttt{[[nodiscard]]}-Attributen und \texttt{assert}-basierten Sicherheitsprüfungen gekennzeichnet ist. 
+Zyklomatische und algorithmische Komplexität bleiben in einem überschaubaren Bereich, was die Verständlichkeit und Wartbarkeit des Systems unterstützt.
+Weiterhin besteht die Möglichkeit, die Performance durch potenzielle Optimierungen, wie die Reduzierung von Switch-Statements oder Inline-Funktionen, leicht zu erhöhen.
 
 \subsubsection{Integration in Buildsysteme}
-Ein wichtiger Aspekt ist die einfache Einbindung der HW\_API in unterschiedliche Entwicklungsumgebungen wie STM32CubeIDE, ESP-IDF oder CMake-basierte Projekte. Die Flexibilität in diesem Bereich ist ein entscheidender Faktor für die praktische Nutzbarkeit.
-
+Die Trennung von plattformunabhängiger HW\_API und plattformspezifischer Implementierung erleichtert die Integration in unterschiedliche Buildsysteme wie STM32CubeIDE oder ESP-IDF. 
+Die Struktur verwendet bereits mit \texttt{\#ifdef} bedingte Kompilierung, sodass je nach Zielplattform die korrekte Implementierung kompiliert wird, ohne dass eine Anpassung des Anwendungscodes erforderlich ist. 
+Dies gewährleistet reproduzierbare Builds und reduziert das Risiko von Konfigurationsfehlern.
 
 Zusammenfassend lässt sich festhalten, dass die Einführung der HW\_API nicht nur funktionale Vorteile in Bezug auf die Portabilität bietet, sondern auch Auswirkungen auf Ressourcenverbrauch, Komplexität und Wartbarkeit hat. 
 Diese müssen in der Embedded-Entwicklung stets berücksichtigt und gegeneinander abgewogen werden. 

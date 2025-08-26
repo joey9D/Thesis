@@ -78,7 +78,7 @@
 \@writefile{toc}{\contentsline {subsection}{\numberline {6.3.1}Architektonische Eigenschaften der Treiber-API}{34}{subsection.6.3.1}\protected@file@percent }
 \@writefile{lot}{\contentsline {table}{\numberline {6.1}{\ignorespaces Teilbereiche architektonischer Eigenschaften}}{34}{table.caption.37}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {6.3.2}Architektur- und Designmuster der Treiber-API}{35}{subsection.6.3.2}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {6.2}{\ignorespaces Auflistung der bewusst verwendeten Designpattern. Daneben potentielle Muster, die während der Implementierung entstehen können.}}{36}{table.caption.38}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {6.2}{\ignorespaces Auflistung der bewusst verwendeten Designpattern. Daneben potentielle Muster, die während der Implementierung entstehen können.}}{37}{table.caption.38}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {6.4}Implementierung}{37}{section.6.4}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {6.4.1}Struktur}{38}{subsection.6.4.1}\protected@file@percent }
 \@writefile{lof}{\contentsline {figure}{\numberline {6.1}{\ignorespaces Verzeichnisbaum des Beispielprojektes.}}{38}{figure.caption.39}\protected@file@percent }
@@ -102,26 +102,26 @@
 \@writefile{lof}{\contentsline {figure}{\numberline {6.7}{\ignorespaces Ausgabe des belegten Speicher eines ESP32-Projektes mit der HW\_API-Zwischenschicht.}}{54}{figure.caption.67}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsubsection}{\nonumberline Algorithmische Komplexität}{54}{subsubsection*.69}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsubsection}{\nonumberline Cyclomatic Complexity}{54}{subsubsection*.71}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\nonumberline Performanz und Latenzen}{54}{subsubsection*.73}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\nonumberline Portabilität versus Optimierung}{54}{subsubsection*.75}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\nonumberline Testbarkeit und Wartbarkeit}{55}{subsubsection*.77}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\nonumberline Kopplung und Abhängigkeiten}{55}{subsubsection*.79}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\nonumberline Codequalität}{55}{subsubsection*.81}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\nonumberline Integration in Buildsysteme}{55}{subsubsection*.83}\protected@file@percent }
-\@writefile{toc}{\contentsline {chapter}{\numberline {7}Zusammenfassung und Fazit}{56}{chapter.7}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {6.3}{\ignorespaces Algorithmische und zyklomatische Komplexität der GPIO-Klassen}}{55}{table.caption.72}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\nonumberline Portabilität versus Optimierung}{56}{subsubsection*.74}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\nonumberline Testbarkeit und Wartbarkeit}{56}{subsubsection*.76}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\nonumberline Kopplung und Abhängigkeiten}{56}{subsubsection*.78}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\nonumberline Codequalität}{56}{subsubsection*.80}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\nonumberline Integration in Buildsysteme}{56}{subsubsection*.82}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{\numberline {7}Zusammenfassung und Fazit}{58}{chapter.7}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \@writefile{lol}{\addvspace {10\p@ }}
 \@writefile{lopytx}{\addvspace {10\p@ }}
-\@writefile{toc}{\contentsline {chapter}{\numberline {8}Ausblick}{57}{chapter.8}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{\numberline {8}Ausblick}{59}{chapter.8}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \@writefile{lol}{\addvspace {10\p@ }}
 \@writefile{lopytx}{\addvspace {10\p@ }}
-\@writefile{toc}{\contentsline {chapter}{Abbildungsverzeichnis}{58}{chapter*.84}\protected@file@percent }
-\@writefile{toc}{\contentsline {chapter}{Tabellenverzeichnis}{59}{chapter*.85}\protected@file@percent }
-\@writefile{toc}{\contentsline {chapter}{Codeverzeichnis}{60}{chapter*.86}\protected@file@percent }
-\@writefile{toc}{\contentsline {chapter}{Quellenverzeichnis}{60}{chapter*.86}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{Abbildungsverzeichnis}{60}{chapter*.83}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{Tabellenverzeichnis}{61}{chapter*.84}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{Codeverzeichnis}{62}{chapter*.85}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{Quellenverzeichnis}{62}{chapter*.85}\protected@file@percent }
 \@writefile{toc}{\providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file }
 \@writefile{lof}{\providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file }
 \@writefile{lot}{\providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file }
