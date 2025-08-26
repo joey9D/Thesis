@@ -1,7 +1,34 @@
 
-In der vorliegenden Arbeit wurde ein Ansatz erprobt, der eine Trennung zwischen plattformspezifischer Implementierung und applikationsnaher Logik ermöglicht. 
-Zu diesem Zweck wurde eine abstrahierte Hardware-Schnittstelle entwickelt. 
-Die folgende Analyse fasst die wesentlichen Erkenntnisse zur erzielten Portabilität zusammen, evaluiert die Eignung des gewählten Ansatzes für den praktischen Einsatz und leitet daraus ein abschließendes Fazit ab.
-% Zusammenfassung
-Um das Problem der Portabilität von Applikationscode für Microcontroller zu beheben sollte eine neue Abstraktionsschicht entwickelt und implementiert werden.
-Dafür wurden die Ansätze von verschieden Projekten untersucht und Ähnlichkeiten über Architektur- Designmuster, Bereitstellung der Treiber 
+Die vorliegende Arbeit befasste sich mit der Entwicklung und Validierung einer plattformübergreifenden Hardware-Abstraktionsschicht für Embedded-Systeme, exemplarisch umgesetzt für STM32- und ESP32-Microcontroller. 
+Das Ziel bestand darin, die Portabilität von Anwendungscode zu erhöhen, die Wiederverwendbarkeit zu fördern und die Wartbarkeit zu verbessern, ohne dabei die Effizienz und die deterministischen Eigenschaften der zugrunde liegenden Hardware zu beeinträchtigen.
+
+Im ersten Teil der Arbeit wurden die theoretischen Grundlagen der Embedded-Entwicklung erörtert, dabei waren hardwarebezogene Begriffe wie Eingebettete System, die Bedeutung von \texttt{volatile} Deklarationen für Hardwareregister oder einzelne Peripheriefunktionen.
+Außerdem galt es softwarespezifische Begriffe wie Architektur- und Designmuster zu erläutern, die die Grundlage für die spätere Implementierung der HW\_API bilden.
+
+Im Anschluss daran erfolgte eine Analyse des Standes der Technik. 
+Zu diesem Zweck wurde ein Blick auf Leichtgewichtige Betriebssystem, Retargetierbare Compiler und das Arduino Framework gemacht und analysiert wie diese Technologien das Problem der Codeportabilität angehen.
+Weitere Ziele bestanden in der Identifizierung von Unterschieden in der Struktur, dem API-Design, der Portabilität und der Handhabung von Peripheriegeräten. 
+Die Analyse offenbarte signifikante Diskrepanzen in der Handhabung von GPIOs, SPI, Interrupts und der Pin-Initialisierung zwischen den diversen Plattformen. 
+Darüber hinaus wurden die Stärken und Schwächen bestehender Abstraktionsansätze evaluiert.
+
+Für die Implementierung wurde zusätzlich der Aufbau der Bibliotheken der verwendetet \gls{mcu}s und zweier Open-Source-Projekte von Github untersucht.
+Die Analyse offenbarte typische Herausforderungen der Embedded-Entwicklung, darunter Unterschiede in Registerzugriffen, fehlendes Caching, Nebenwirkungen bei Lese-/Schreiboperationen, verschiedene Interrupt-Mechanismen und die Notwendigkeit expliziter Initialisierungsstrukturen.
+Neben den Unterschieden galt es auch Ähnlichkeiten herauszufinden, die einen Hinweis auf mögliche Implementierungsmethoden geben konnten.
+Im Zuge der Implementierung wurde eine klare Trennung zwischen abstrakten Schnittstellen und konkreten Hardware-Implementierungen vorgenommen. 
+Die Definition von Interfaces wie den Bezeichnungen \text{IGpioBase} und \texttt{ISpi} ermöglichte eine konsequente Abstraktion der Hardware. 
+Auf Basis dieser Schnittstellen wurden plattformspezifische Klassen wie \texttt{GpioStm32} und \texttt{GpioEsp32} implementiert.
+
+In diesem Prozess der Initialisierung von Hardware und einzelnen Modulen kamen unterschiedliche Designmuster zum Einsatz.
+So wurde für die Erstellung einer Hardwareinstanz das Factory-Muster angewandt, während für die Initialisierung der Pins das Builder-Prinzip angewandt, bei dem Konfigurationsstrukturen sukzessive aufgebaut wurden, bevor die finale Initialisierung erfolgte. 
+Diese Vorgehensweise trägt zur Reduzierung der Wahrscheinlichkeit fehlerhafter Parameter bei und verbessert die Lesbarkeit des Codes. 
+Dabei bildet HW\_API eine Sammlung von Funktionen, die die Initialisierung und Handhabung von GPIOs und SPI auf STM32- und ESP32-Plattformen kapselt. 
+Durch den Einsatz von Mapping-Funktionen und strukturierten Konfigurationsdateien wird die Portabilität gewährleistet, sodass der Anwendungscode ohne Änderungen auf beiden Plattformen ausgeführt werden kann.
+
+Die Prüfung der HW\_API erfolgte auf den Boards STM32Nucleo-C031C6, -Nucleo-G071RB, -NucleoG0B1RE und ESP32C6-DevKit1.
+Funktionale Tests, statische Analysen und Speicherverbrauchsmessungen belegen die korrekte Funktionsweise der Abstraktionsschicht und die Erfüllung der geforderten Funktionalitäten. 
+Die algorithmische Komplexität der Kernfunktionen ist mit $O(1)$ in der Regel konstant, während die Cyclomatic Complexity innerhalb der Methoden vereinzelt leicht schwank, dennoch überschaubar bleibt. 
+Der moderate Overhead durch die Abstraktionsschicht wird durch erhöhte Lesbarkeit, Wartbarkeit und Portabilität kompensiert.
+
+Die HW\_API stellt eine stabile, robuste und plattformunabhängige Grundlage für Embedded-Anwendungen dar. 
+Die konsequente Trennung von Interface und Implementierung, die Nutzung bewährter Designmuster sowie die sorgfältige Validierung gewährleisten eine hohe Qualität, Portabilität und Wiederverwendbarkeit. 
+Die vorliegende Arbeit demonstriert, dass die Entwicklung einer solchen Abstraktionsschicht möglich ist, ohne die Performance oder die deterministischen Eigenschaften der zugrunde liegenden Hardware zu beeinträchtigen.

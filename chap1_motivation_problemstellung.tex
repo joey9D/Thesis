@@ -9,8 +9,6 @@ Die konkrete Implementierung sowie die Adressierung und Bedeutung einzelner Bits
 Diese signifikante Varianz in Bezug auf die Hardware-Komponenten führt dazu, dass Softwarelösungen und Applikationen, für jede neue Plattform entweder vollständig neu entwickelt oder zumindest aufwendig angepasst werden müssen.
 Obwohl Abstraktionschichten, sog. \gls{hal}, eine gewisse Erleichterung bei der Entwicklung bieten, resultieren daraus gleichzeitig starke Bindungen an die zugrunde liegende Hardwareplattform.
 
-% TODO: chap1 Motivation: viele MCUs pro Projekt? Nochmal Michael fragen
-% TODO: chap1: Quellen zu den Behauptungen finden/raussuchen. Dieses Wissen kommt nur von Michaels Erzählung
 Insbesondere in Projekten, in denen mehrere Microcontroller-Plattformen parallel eingesetzt werden oder ein Wechsel der Zielplattform absehbar ist, steigt der Bedarf an portabler und modularer Software signifikant an. 
 In der Praxis zeigt sich, dass das Fehlen von Abstraktion häufig zu redundantem Code, fehleranfälliger Portierung und ineffizienter Entwicklung führt.
 
@@ -21,7 +19,6 @@ In der Praxis zeigt sich, dass das Fehlen von Abstraktion häufig zu redundantem
 Die Arbeit entsteht in der Produktentwicklung der Schaefer GmbH.
 Hier werden die Produkte von Grund auf konzipiert, implementiert und getestet.
 Dabei arbeiten Hardware- und Softwareentwicklung eng zusammen, denn es muss bekannt sein, welche Microcontroller verwendet und wie Displays und Taster angesprochen werden können, um den Anforderungen zu entsprechen.
-% TODO: chap1: Ausgangssituation: Welche Produktlinien werden hauptsächlich verwendet?
 Hauptsächliche kommen hier die STM32 Microcontroller der Firma ST zum Einsatz.
 Diese bieten ein umfangreiches Portfolio, das von stromsparenden IoT-Bausteinen bis hin zu leistungsfähigen Controllern für grafikfähige Anwendungen reicht.
 Die Auswahl und die damit verbundene Skalierbarkeit der Hardware ermöglichen eine flexible Anpassung an die unterschiedlichsten Leistungs- und Energieanforderungen.

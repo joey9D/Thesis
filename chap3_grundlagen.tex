@@ -78,7 +78,6 @@ Externe Bauteile, wie etwa Sensoren (Temperatursensor), Aktoren (LED), Displays 
 Die Kommunikation mit externen Geräten wird durch die Peripheriemodule des Microcontrollers realisiert. 
 Für den zuverlässigen Betrieb sind in der Regel spezifische Softwaretreiber erforderlich, die die Initialisierung, Datenübertragung und gegebenenfalls die Fehlerbehandlung übernehmen.
 
-% TODO: chap3 Peripherie: Parallel/Seriell; synchron/asynchron; für alle nochmal drüber gehen
 \subsubsection*{General Purpose Input Output}
 Der Begriff "General Purpose Input/Output" (GPIO) bezeichnet universelle, digitale Pins eines Microcontrollers, die flexibel als Eingang oder Ausgang konfiguriert werden können.
 Sie stellen die grundlegendste Form der Interaktion mit der Außenwelt dar und gestatten die Erfassung externer digitaler Signale, z.B. von Tastern oder Sensoren, sowie die Erzeugung entsprechender Signale etwa zur Steuerung von LEDs oder Relais.
@@ -110,71 +109,55 @@ Dabei ist darauf zu achten, dass jeweils nur ein Slave die Kommunikation aktiv d
 \gls{spi} zeichnet sich im Vergleich zu anderen seriellen Protokollen wie \gls{i2c} durch eine vereinfachte Implementierung und eine deutlich höhere Datenübertragungsrate aus. 
 Allerdings fehlen eine standardisierte Adressierung und Fehlerprüfung, was den Einsatz auf kurze Distanzen und überschaubare Topologien begrenzt. 
 
-% UART
-% TODO: UART Löschen da nicht verwendet.
-%\subsubsection*{Universal Asynchronous Receiver Transmitter}
-%Der \emph{Universal Asynchronous Receiver Transmitter} (UART) ist ein asynchrones Kommunikationsprotokoll, das insbesondere für die serielle, asynchrone Punkt-zu-Punkt-Kommunikation zwischen zwei Geräten eingesetzt wird. 
-%Das Protokoll eignet sich für verschiedene Anwendungsbereiche, darunter als Debugging-Schnittstelle, der Kommunikation von Sensoren, GPS-Modulen sowie die Kommunikation mit Computern über USB-zu-Seriell-Wandler. 
-%Im Gegensatz zu synchronen Schnittstellen wie SPI ist für UART kein gemeinsames Taktsignal erforderlich.
-%Die Datenübertragung passiert hier asynchron über zwei Leitungen: eine für das Senden (Transmitter TX) und eine für das Empfangen (Receiver RX).
-%Die Synchronisation basiert auf einer zuvor festgelegten Baudrate (Bits pro Sekunde), die von beiden Geräten unabhängig voneinander eingehalten werden muss.
-%Die Kommunikation, d.h. die Datenübertragung erfolgt in sogenannten Frames. Ein typisches \gls{uart}-Frame besteht aus:
+%\subsubsection*{Controller Area Network}
+%Das \emph{Controller Area Network} (CAN) ist ein robustes, serielles, asynchrones Bussystem, das insbesondere in der Automobilindustrie eine weite Verbreitung findet. 
+%Es ermöglicht eine zuverlässige Kommunikation zwischen mehreren Steuergeräten (Nodes), auch unter schwierigen elektromagnetischen Bedingungen. 
+%Der Einsatz von CAN in sicherheitskritischen Anwendungen beruht auf zwei wesentlichen Eigenschaften: 
 %\begin{itemize}
-%	\item \textbf{Startbit}, das den Begin eines Datenframes signalisiert,
-%	\item \textbf{Datenframe}, bestehend aus fünf bis acht Bits,
-%	\item \textbf{Paritätsbit}, das einer einfacheren Fehlererkennung dient und
-%	\item \textbf{Stopbit}, das das Ende des Datenframes markiert.
+%	\item der prioritätsbasierten Arbitrierung
+%	\item der integrierten Fehlererkennung
+%\end{itemize}
+% 
+%Diese Eigenschaften gewährleisten eine hohe Ausfallsicherheit.
+%Die CAN-Technologie basiert auf einem \emph{shared medium} mit Bus-Topologie, bei der alle Teilnehmer über zwei Leitungen mit einander verbunden sind.
+%Jede im CAN-Bus übertragene Nachricht ist durch eine eindeutige Identifikationsnummer gekennzeichnet, die sich auf die Art der übertragenen Information bezieht, beispielsweise Geschwindigkeit, Drehzahl oder Sensordaten. 
+%Für jede Identifikationsnummer ist ausschließlich ein Knoten zur Übertragung von Nachrichten mit dieser Kennung vorgesehen, um Konflikte im Bus zu vermeiden. 
+%Alle angeschlossenen Knoten sind prinzipiell in der Lage, diese Nachrichten zu empfangen, müssen dies jedoch nicht zwingend tun. 
+%Jeder Knoten entscheidet autonom, welche Nachrichten für ihn relevant sind, und verarbeitet ausschließlich diese. 
+%Ein Absender oder Empfänger ist in der Nachricht selbst nicht kodiert, sodass die Kommunikation vollständig nachrichtenbasiert und nicht adressbasiert erfolgt.
+%Es ist grundsätzlich möglich, dass mehrere Knoten auf dieselbe Nachricht reagieren.
+%
+%Ein wesentliches Merkmal ist die prioritätsbasierte Arbitrierung. 
+%Jeder Knoten hat die Möglichkeit, eine Nachricht gleichzeitig zu senden. 
+%Das Protokoll verwendet ein bitweises Arbitrierungsverfahren. 
+%Nachrichten mit einer niedrigeren ID (höhere Priorität) durchdringen das System automatisch, ohne dass es zu Kollisionen oder Datenverlust kommt.
+%Dieses Verfahren zeichnet sich durch seine besondere Effizienz aus und ist in der Lage, Echtzeitanforderungen zu erfüllen.
+%
+%Obwohl CAN asynchron arbeitet, d.h. jeder Knoten verfügt über einen eigenen Takt, erfolgt die Synchronisation der Kommunikation durch ein fein abgestimmtes Zeitraster innerhalb des CAN-Controllers. 
+%Die Bitzeit wird in sogenannte Zeitquanten (Time Quanta, TQ) unterteilt, deren Definition relativ zur eingestellten Bus-Baudrate erfolgt. 
+%Diese Zeitquanten lassen sich in mehrere Segmente unterteilen: 
+%
+%\begin{itemize}
+%	\item Synchronisationssegment, das der Flankenerkennung dient, 
+%	\item das Propagationssegment, das die Signallaufzeiten berücksichtigt,
+%	\item die Segmente für die Phase 1 und Phase 2, die für die Feinjustierung des Abtastzeitpunkts verantwortlich sind.
 %\end{itemize}
 %
-%In Abhängigkeit von der Implementierung unterstützt UART Simplex-, Halbduplex- und Vollduplex-Kommunikation. 
-%In einer Vielzahl von Microcontrollern ist UART als Hardwaremodul integriert, wodurch die serielle Kommunikation effizient und mit minimalem Softwareaufwand realisiert werden kann. 
-%Dennoch erfordert die korrekte Konfiguration – insbesondere die Wahl der Baudrate, des Paritätsmodus und der Anzahl von Stoppbits – besondere Sorgfalt, da Abweichungen zu Datenverlust oder Kommunikationsfehlern führen können.
-%Ein weiterer Vorteil von UART ist seine Einfachheit in Aufbau und Handhabung: Es werden lediglich zwei Leitungen benötigt. 
-%Die Kommunikation ist prinzipiell auf zwei Geräte beschränkt (Punkt-zu-Punkt-Verbindung), da UART keine native Unterstützung für Bussysteme mit mehreren Teilnehmern bietet.
-
-\subsubsection*{Controller Area Network}
-Das \emph{Controller Area Network} (CAN) ist ein robustes, serielles, asynchrones Bussystem, das insbesondere in der Automobilindustrie eine weite Verbreitung findet. 
-Es ermöglicht eine zuverlässige Kommunikation zwischen mehreren Steuergeräten (Nodes), auch unter schwierigen elektromagnetischen Bedingungen. 
-Der Einsatz von CAN in sicherheitskritischen Anwendungen beruht auf zwei wesentlichen Eigenschaften: 
-\begin{itemize}
-	\item der prioritätsbasierten Arbitrierung
-	\item der integrierten Fehlererkennung
-\end{itemize}
- 
-Diese Eigenschaften gewährleisten eine hohe Ausfallsicherheit.
-Die CAN-Technologie basiert auf einem \emph{shared medium} mit Bus-Topologie, bei der alle Teilnehmer über zwei Leitungen mit einander verbunden sind.
-Jede im CAN-Bus übertragene Nachricht ist durch eine eindeutige Identifikationsnummer gekennzeichnet, die sich auf die Art der übertragenen Information bezieht, beispielsweise Geschwindigkeit, Drehzahl oder Sensordaten. 
-Für jede Identifikationsnummer ist ausschließlich ein Knoten zur Übertragung von Nachrichten mit dieser Kennung vorgesehen, um Konflikte im Bus zu vermeiden. 
-Alle angeschlossenen Knoten sind prinzipiell in der Lage, diese Nachrichten zu empfangen, müssen dies jedoch nicht zwingend tun. 
-Jeder Knoten entscheidet autonom, welche Nachrichten für ihn relevant sind, und verarbeitet ausschließlich diese. 
-Ein Absender oder Empfänger ist in der Nachricht selbst nicht kodiert, sodass die Kommunikation vollständig nachrichtenbasiert und nicht adressbasiert erfolgt.
-Es ist grundsätzlich möglich, dass mehrere Knoten auf dieselbe Nachricht reagieren.
-
-Ein wesentliches Merkmal ist die prioritätsbasierte Arbitrierung. 
-Jeder Knoten hat die Möglichkeit, eine Nachricht gleichzeitig zu senden. 
-Das Protokoll verwendet ein bitweises Arbitrierungsverfahren. 
-Nachrichten mit einer niedrigeren ID (höhere Priorität) durchdringen das System automatisch, ohne dass es zu Kollisionen oder Datenverlust kommt.
-Dieses Verfahren zeichnet sich durch seine besondere Effizienz aus und ist in der Lage, Echtzeitanforderungen zu erfüllen.
-
-Obwohl CAN asynchron arbeitet, d.h. jeder Knoten verfügt über einen eigenen Takt, erfolgt die Synchronisation der Kommunikation durch ein fein abgestimmtes Zeitraster innerhalb des CAN-Controllers. 
-Die Bitzeit wird in sogenannte Zeitquanten (Time Quanta, TQ) unterteilt, deren Definition relativ zur eingestellten Bus-Baudrate erfolgt. 
-Diese Zeitquanten lassen sich in mehrere Segmente unterteilen: 
-
-\begin{itemize}
-	\item Synchronisationssegment, das der Flankenerkennung dient, 
-	\item das Propagationssegment, das die Signallaufzeiten berücksichtigt,
-	\item die Segmente für die Phase 1 und Phase 2, die für die Feinjustierung des Abtastzeitpunkts verantwortlich sind.
-\end{itemize}
-
-Der Sample Point ist definiert als der Zeitpunkt, an dem der Wert des Bits für alle Knoten einheitlich abgetastet wird. 
-Dieser befindet sich zwischen Phase 1 und Phase 2. 
-Die interne Taktfrequenz der CPU beeinflusst dabei lediglich die Genauigkeit der Generierung der Zeitquanten, während die tatsächliche Bitdauer durch die konfigurierte \emph{Baudrate} des CAN-Busses bestimmt wird.
-
+%Der Sample Point ist definiert als der Zeitpunkt, an dem der Wert des Bits für alle Knoten einheitlich abgetastet wird. 
+%Dieser befindet sich zwischen Phase 1 und Phase 2. 
+%Die interne Taktfrequenz der CPU beeinflusst dabei lediglich die Genauigkeit der Generierung der Zeitquanten, während die tatsächliche Bitdauer durch die konfigurierte \emph{Baudrate} des CAN-Busses bestimmt wird.
+%
 
 \section{Software}
 
 \label{sec:architecture_design_pattern}
 \subsection{Architektur- und Designmuster}
+
+\begin{figure}[H]
+	\includegraphics[width=\textwidth]{Pics/layer_architecture_hw_api.png}
+	\caption{Darstellung der Schichtenarchitektur inklusive der neuen Hardware-API.}
+	\label{fig:layer_architecture_hw_api}
+\end{figure}
 
 \subsubsection{Architekturmuster}
 %Unter Architektur, speziell \emph{Softwarearchitektur} versteht man den Prozess eine allgemeine Struktur für ein Softwaresystem zu erstellen.
@@ -198,6 +181,8 @@ Stattdessen werden die Funktionen der nächst tieferen Schicht verwendet.
 \paragraph{Mittelschicht/Middleware}
 als optionale zweite Schicht, befasst sich mit möglichen Zusatzfunktionen wie USB, Netzwerkanschlüsse (WLAN), Bluetooth oder IoT (Internet of Things) oder \gls{api}-Funktionen.
 Sie dient als verteilende Zwischenschicht zwischen der Programm und der Abstraktionsschicht der Hardware.
+\cref{fig:layer_architecture_hw_api} zeigt, wo die neu entwickelte Hardware-API in den Bereich der Middleware platziert sein wird.
+
 
 \paragraph{Betriebssystem} ist eine weitere optionale Schicht.
 Optional in dem Sinn, das ein Embedded System nicht zwingend eine Betriebssystem benötigt.

@@ -1,9 +1,14 @@
-\begin{itemize}
-	\item Erweiterung um noch nicht implementierte Hardwarefunktionen $\rightarrow$ hohe Priorität für CAN
-	\item Erweiterung der unterstützten Hardware
-	\item Lösen offener Probleme $\rightarrow$ ESP32 Debug
-	\item Aktuell werden im Fall von STM32 die Treiber automatisch runtergeladen. Das ist auch so gewünscht; damit hat man immer die aktuellste Version der Treiber. Falls eines Tages die Github Repos gelöscht werden müssen vorher eigene Sicherungen dieser Treiber erstellt werden, um den weiteren Gebrauch der Hardware zu gewährleisten.
-	\item Stand am Ende der Thesis wird die HW\_API primär für BareMetal-Programmierung verwendet. Zukünftig soll das RTOS Zephyr in den Entwicklungsprozess integriert werden. Diese muss dann in die HW\_API um dieses RTOS erweitert und beide zusammen geführt werden.
-	\item Säuberung. Bisher wurde sich ausschließlich auf die Funktion der HW\_API konzentriert. Somit bisher die Optik und die Lesefreundlichkeit vernachlässigt.
-	\item Erstellung einer kompletten Dokumentation und User-Guide für die HW\_API, damit auch andere Entwickler diese API verwenden können.
-\end{itemize}
+
+Die HW\_API stellt bereits eine solide Grundlage für die plattformübergreifende Embedded-Entwicklung bereit, jedoch bestehen in mehreren Bereichen Verbesserungspotenziale. 
+Die Erweiterung um bisher nicht implementierte Hardwarefunktionen wird zukünftig einen hohen Stellenwert einnehmen, insbesondere im Hinblick auf die Integration von CAN. 
+Des Weiteren soll die Unterstützung zusätzlicher Hardwareplattformen erweitert werden, um die Flexibilität der API weiter zu erhöhen.
+
+Die noch offenen Probleme, wie etwa der ESP32-Debug, müssen einer Lösung zugeführt werden, um eine vollständig stabile Nutzung zu gewährleisten.
+Derzeit erfolgt der Download der Treiber für STM32 automatisch, was die Nutzung vereinfacht und stets die aktuellste Version sicherstellt. 
+Um die mit der Nutzung dieser Repositories verbundenen Risiken zu minimieren, wird die Erstellung eigener Sicherungen der Treiber empfohlen, falls die entsprechenden GitHub-Repositories nicht mehr verfügbar sein sollten.
+
+Ein weiterer signifikanter Entwicklungsschritt besteht in der Integration des \gls{rtos} Zephyr in den Entwicklungsprozess. 
+Um die Realisierung einer parallelen und konsistenten Umsetzung von Bare-Metal- und \gls{rtos}-basierten Anwendungen zu gewährleisten, ist eine Erweiterung der HW\_API um die Unterstützung des RTOS erforderlich.
+
+Darüber hinaus ist eine Optimierung der Lesefreundlichkeit und Struktur des Codes vorgesehen, da bisher der Fokus primär auf der Funktionalität lag.
+Abschließend soll eine umfassende Dokumentation und ein User-Guide erstellt werden, um die HW\_API auch für andere Entwickler zugänglich und leicht nutzbar zu machen.
