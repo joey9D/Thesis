@@ -39,76 +39,87 @@
 \@writefile{lol}{\contentsline {lstlisting}{\numberline {3.1}{\ignorespaces Funktion zur Initialisierung der GPIO-Pins aus einem STM32-Projekt.}}{20}{lstlisting.3.1}\protected@file@percent }
 \@writefile{toc}{\contentsline {paragraph}{\nonumberline Die Treiberschicht}{21}{paragraph*.21}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsubsection}{\nonumberline Designmuster}{21}{subsubsection*.23}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.2}Application Programming Interface}{21}{subsection.3.2.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.2}Application Programming Interface}{22}{subsection.3.2.2}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.2.3}CMake}{22}{subsection.3.2.3}\protected@file@percent }
 \@writefile{lof}{\contentsline {figure}{\numberline {3.2}{\ignorespaces Ausschnitt einer Liste von verfügbaren Generatoren.}}{22}{figure.caption.24}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.4}Make und Makefiles}{22}{subsection.3.2.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {chapter}{\numberline {4}Stand der Technik}{23}{chapter.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.4}Make und Makefiles}{23}{subsection.3.2.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{\numberline {4}Stand der Technik}{24}{chapter.4}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \@writefile{lol}{\addvspace {10\p@ }}
 \@writefile{lopytx}{\addvspace {10\p@ }}
-\@writefile{toc}{\contentsline {section}{\numberline {4.1}Lightweight Operation Systems}{23}{section.4.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {4.2}Retargetierbare Compiler}{23}{section.4.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {4.3}Arduino-Framework}{24}{section.4.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {chapter}{\numberline {5}Konzeption der API}{25}{chapter.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {4.1}Lightweight Operation Systems}{24}{section.4.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {4.2}Retargetierbare Compiler}{24}{section.4.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {4.3}Arduino-Framework}{25}{section.4.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{\numberline {5}Konzeption der API}{26}{chapter.5}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \@writefile{lol}{\addvspace {10\p@ }}
 \@writefile{lopytx}{\addvspace {10\p@ }}
-\@writefile{toc}{\contentsline {chapter}{\numberline {6}Durchführung}{26}{chapter.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{\numberline {6}Durchführung}{27}{chapter.6}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \@writefile{lol}{\addvspace {10\p@ }}
 \@writefile{lopytx}{\addvspace {10\p@ }}
-\@writefile{toc}{\contentsline {section}{\numberline {6.1}Anforderungsanalyse}{26}{section.6.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {6.2}Betrachtung bestehender Lösungen}{27}{section.6.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.2.1}STM32Cube}{27}{subsection.6.2.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{\nonumberline STM32CubeMX}{27}{paragraph*.26}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{\nonumberline STM32CubeIDE}{27}{paragraph*.28}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.2.2}Espressif-IDF}{28}{subsection.6.2.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{\nonumberline Toolchain}{29}{paragraph*.30}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{\nonumberline Build-Tools}{29}{paragraph*.32}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{\nonumberline Python Skripte}{29}{paragraph*.34}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{\nonumberline Debug-Tools}{29}{paragraph*.36}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.2.3}mcu-cpp}{30}{subsection.6.2.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.2.4}modm}{31}{subsection.6.2.4}\protected@file@percent }
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {6.1}{\ignorespaces Konsolenbefehl um verf\"ugbare Module aufgelistet zu bekommen; hier f\"ur den STM32C031C6T6 Microcontroller.}}{31}{lstlisting.6.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {6.3}Architekturentwurf}{32}{section.6.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.3.1}Architektonische Eigenschaften der Treiber-API}{32}{subsection.6.3.1}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {6.1}{\ignorespaces Teilbereiche architektonischer Eigenschaften}}{33}{table.caption.37}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.3.2}Architektur- und Designmuster der Treiber-API}{33}{subsection.6.3.2}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {6.2}{\ignorespaces Auflistung der bewusst verwendeten Designpattern. Daneben potentielle Muster, die während der Implementierung entstehen können.}}{35}{table.caption.38}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {6.4}Implementierung}{35}{section.6.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.4.1}Struktur}{36}{subsection.6.4.1}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {6.1}{\ignorespaces Verzeichnisbaum des Beispielprojektes.}}{36}{figure.caption.39}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.4.2}Klassen}{41}{subsection.6.4.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\nonumberline Hardwareklassen}{41}{subsubsection*.49}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\nonumberline Peripherieklassen}{42}{subsubsection*.51}\protected@file@percent }
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {6.2}{\ignorespaces Ausschnitt aus der Interfaceklasse IGpioBase.}}{43}{lstlisting.6.2}\protected@file@percent }
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {6.3}{\ignorespaces Beispiel eines Gpio Objektes.}}{43}{lstlisting.6.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {6.5}Validierung}{45}{section.6.5}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.5.1}Tests}{45}{subsection.6.5.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\nonumberline Struktur - Build, Flash, Erase, Debug}{46}{subsubsection*.55}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\nonumberline GPIO}{47}{subsubsection*.57}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\nonumberline SPI}{47}{subsubsection*.59}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {6.2}{\ignorespaces Screenshot des Osziloskopbildschirms. Dieser zeigt die Wellen für SCK (blau/türkis), MOSI (magenta) und MISO (gelb).}}{48}{figure.caption.60}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {6.3}{\ignorespaces Screenshot einer erfolgreich SPI-Kommunikation, erstellt mit dem Code der HW\_API.}}{49}{figure.caption.61}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.5.2}Weitere Erkenntnisse}{49}{subsection.6.5.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {chapter}{\numberline {7}Zusammenfassung und Fazit}{50}{chapter.7}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {6.1}Anforderungsanalyse}{27}{section.6.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {6.2}Betrachtung bestehender Lösungen}{28}{section.6.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.2.1}STM32Cube}{28}{subsection.6.2.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{\nonumberline STM32CubeMX}{28}{paragraph*.26}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{\nonumberline STM32CubeIDE}{28}{paragraph*.28}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.2.2}Espressif-IDF}{30}{subsection.6.2.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{\nonumberline Toolchain}{30}{paragraph*.30}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{\nonumberline Build-Tools}{30}{paragraph*.32}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{\nonumberline Python Skripte}{30}{paragraph*.34}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{\nonumberline Debug-Tools}{30}{paragraph*.36}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.2.3}mcu-cpp}{31}{subsection.6.2.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.2.4}modm}{32}{subsection.6.2.4}\protected@file@percent }
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {6.1}{\ignorespaces Konsolenbefehl um verf\"ugbare Module aufgelistet zu bekommen; hier f\"ur den STM32C031C6T6 Microcontroller.}}{32}{lstlisting.6.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {6.3}Architekturentwurf}{34}{section.6.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.3.1}Architektonische Eigenschaften der Treiber-API}{34}{subsection.6.3.1}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {6.1}{\ignorespaces Teilbereiche architektonischer Eigenschaften}}{34}{table.caption.37}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.3.2}Architektur- und Designmuster der Treiber-API}{35}{subsection.6.3.2}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {6.2}{\ignorespaces Auflistung der bewusst verwendeten Designpattern. Daneben potentielle Muster, die während der Implementierung entstehen können.}}{36}{table.caption.38}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {6.4}Implementierung}{37}{section.6.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.4.1}Struktur}{38}{subsection.6.4.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {6.1}{\ignorespaces Verzeichnisbaum des Beispielprojektes.}}{38}{figure.caption.39}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.4.2}Klassen}{43}{subsection.6.4.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\nonumberline Hardwareklassen}{43}{subsubsection*.49}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\nonumberline Peripherieklassen}{44}{subsubsection*.51}\protected@file@percent }
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {6.2}{\ignorespaces Ausschnitt aus der Interfaceklasse IGpioBase.}}{45}{lstlisting.6.2}\protected@file@percent }
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {6.3}{\ignorespaces Beispiel eines Gpio Objektes.}}{46}{lstlisting.6.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {6.5}Validierung}{48}{section.6.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.5.1}Tests}{48}{subsection.6.5.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\nonumberline Struktur - Build, Flash, Erase, Debug}{49}{subsubsection*.55}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\nonumberline GPIO}{50}{subsubsection*.57}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\nonumberline SPI}{50}{subsubsection*.59}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {6.2}{\ignorespaces Screenshot des Osziloskopbildschirms. Dieser zeigt die Wellen für SCK (blau/türkis), MOSI (magenta) und MISO (gelb).}}{51}{figure.caption.60}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {6.3}{\ignorespaces Screenshot einer erfolgreich SPI-Kommunikation, erstellt mit dem Code der HW\_API.}}{51}{figure.caption.61}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.5.2}Weitere Erkenntnisse}{52}{subsection.6.5.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\nonumberline Metriken zur Softwarekomplexität und Ressourcennutzung}{52}{subsubsection*.63}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{\nonumberline Buildgröße}{52}{paragraph*.65}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{\nonumberline Algorithmische Komplexität}{52}{paragraph*.67}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{\nonumberline Cyclomatic Complexity}{52}{paragraph*.69}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\nonumberline Qualitative Aspekte}{52}{subsubsection*.71}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{\nonumberline Performanz und Latenzen}{52}{paragraph*.73}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{\nonumberline Portabilität versus Optimierung}{52}{paragraph*.75}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{\nonumberline Testbarkeit und Wartbarkeit}{52}{paragraph*.77}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{\nonumberline Kopplung und Abhängigkeiten}{53}{paragraph*.79}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{\nonumberline Codequalität}{53}{paragraph*.81}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{\nonumberline Integration in Buildsysteme}{53}{paragraph*.83}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{\numberline {7}Zusammenfassung und Fazit}{54}{chapter.7}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \@writefile{lol}{\addvspace {10\p@ }}
 \@writefile{lopytx}{\addvspace {10\p@ }}
-\@writefile{toc}{\contentsline {chapter}{\numberline {8}Ausblick}{51}{chapter.8}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{\numberline {8}Ausblick}{55}{chapter.8}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \@writefile{lol}{\addvspace {10\p@ }}
 \@writefile{lopytx}{\addvspace {10\p@ }}
-\@writefile{toc}{\contentsline {chapter}{Abbildungsverzeichnis}{52}{chapter*.62}\protected@file@percent }
-\@writefile{toc}{\contentsline {chapter}{Tabellenverzeichnis}{53}{chapter*.63}\protected@file@percent }
-\@writefile{toc}{\contentsline {chapter}{Codeverzeichnis}{54}{chapter*.64}\protected@file@percent }
-\@writefile{toc}{\contentsline {chapter}{Quellenverzeichnis}{54}{chapter*.64}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{Abbildungsverzeichnis}{56}{chapter*.84}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{Tabellenverzeichnis}{57}{chapter*.85}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{Codeverzeichnis}{58}{chapter*.86}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{Quellenverzeichnis}{58}{chapter*.86}\protected@file@percent }
 \@writefile{toc}{\providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file }
 \@writefile{lof}{\providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file }
 \@writefile{lot}{\providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file }

@@ -235,7 +235,7 @@ Ein weiterer essenzieller Bestandteil ist das Hardware-Mapping, das die logische
 Die Interrupt-Handler-Dateien sind für die plattformspezifische Ereignisbehandlung zuständig, sodass Interrupts korrekt verarbeitet und an die übergeordneten Schichten weitergeleitet werden. 
 Schließlich beinhaltet die Clock-Konfiguration die Definition von Takteinstellungen und Power-Management-Parametern, die für jede Mikrocontroller-Familie spezifisch angepasst werden müssen.
 
-Die Plattformschicht greift dabei auf die HAL-Wrapper aus dem Verzeichnis "drivers" zurück, stellt jedoch nach oben stets eine einheitliche Schnittstelle bereit. 
+Die Plattformschicht greift dabei auf die HAL-Wrapper aus dem Verzeichnis \textit{drivers} zurück, stellt jedoch nach oben stets eine einheitliche Schnittstelle bereit. 
 Ein zentrales Designprinzip besteht darin, dass alle hardwarespezifischen Details innerhalb dieser Schicht gekapselt bleiben und nicht in höhere Ebenen durchsickern. 
 Die Gewährleistung der Portabilität und Wiederverwendbarkeit der gesamten Hardware-API wird durch diesen Prozess sichergestellt.
 
@@ -259,11 +259,11 @@ Diese Toolchain-Dateien definieren unter anderem die Pfade zu den entsprechenden
 Darüber hinaus werden auch Optimierungs-Settings für Debug- und Release-Builds berücksichtigt. Darüber hinaus werden die Einstellungen für das Speicherlayout, die Garbage Collection sowie spezifische Embedded-Flags festgelegt. 
 Hier finden Hilfswerkzeuge wie \texttt{objcopy}, \texttt{objdump} und \texttt{size} Anwendung.
 Der Aufruf von CMake mit dem Parameter \texttt{-DCMAKE\_TOOLCHAIN\_FILE} führt zur Einbindung der entsprechenden Toolchain. 
-Daraufhin wird für den gesamten Build-Prozess die Bereitstellung der geeigneten Werkzeuge für die jeweilige Plattform sichergestellt
+Daraufhin wird für den gesamten Build-Prozess die Bereitstellung der geeigneten Werkzeuge für die jeweilige Plattform sichergestellt.
 
-\vspace{0.5em}
-\noindent\rule{\linewidth}{0.4pt}
-\vspace{0.5em}
+\vspace{0.5cm}
+%\noindent\rule{\linewidth}{0.4pt}
+\vspace{0.5cm}
 
 Die sorgfältig entworfenen CMake-Konfiguration ermöglicht eine flexible Cross-Compilation für verschiedene Mikrocontroller-Plattformen.
 In diesem Fall aufgebaut und getestet mit STM32 und ESP32. 
@@ -287,7 +287,7 @@ Die Toolchain definiert den Cross-Compile-Kontext, konfiguriert den verwendeten 
 Für ESP32 wird analog die esp32-toolchain.cmake genutzt, die auf das IDF verweist.
 Zusätzlich sind hier auch hardwarespezifische Informationen, die beschreiben um welchen Prozessor es sich handelt, welcher Chip die Hardware hat oder welche explizite Hardware verwendet wird.
 Auch sind das Zielverzeichnis des Builds und die Art des Build, d.h. Debug oder Release, hier benannt.
-Diese Informationen werden im Code selber verwendet, um bestimmte Teil aktivieren zu können.
+Diese Informationen werden im Code selber verwendet, um bestimmte Teile aktivieren zu können.
 Stichwort \textit{bedingte Kompilierung}, was bedeutet, dass Codeteile, die nicht definiert sind durch solche Makros, im Kompilier- und Buildprozess garnicht erst beachtet werden und auch nicht im entgültigen Programm enthalten sind, wodurch Speicher eingespart wird.
 Neben dem Entgegennehmen und der Weiterverarbeitung der Informationen aus dem Makefile, setzt die Root-Datei globalen Standards wie C11 und C++17, legt Compiler-Flags für Debug- und Release-Builds fest und steuert die Reihenfolge der Subdirectory-Builds.
 Für diese Reihenfolge ist es entscheidend, das erst die HW\_API-Libraries und zuletzt die Applikation gelistet ist, da diese die Funktionen verwendet, die in der HW\_API definiert sind.
@@ -390,6 +390,7 @@ gpio\_interface.hpp, das in \cref{lst:gpio_interface} zu sehen ist, stellt mit \
 	\item ESP32: uint64\_t
 \end{itemize}
 
+Über die definierten Makros \texttt{STM32\_PLATFORM} und \texttt{ESP\_PLATFORM}, die in den Kompilierdefinitionen in den Makefiles gesetzt werden, wählt der Code bei der Erstellung von Objekten automatisch den richtigen Typen aus.
 \newpage
 
 \begin{lstlisting}[language=C++, caption={Ausschnitt aus der Interfaceklasse IGpioBase.}, label={lst:gpio_interface}]
@@ -404,31 +405,65 @@ class IGpioBase
 // Platform-specific Type-Aliases
 #ifdef STM32_PLATFORM
 using IGpio = IGpioBase<uint16_t>;
-#elif defined(ESP_PLATFORM) || defined(ESP32_PLATFORM)
+#elif defined(ESP_PLATFORM)
 using IGpio = IGpioBase<uint64_t>;
 #endif
 \end{lstlisting}
 
-Die STM32-Implementierungen (gpio\_stm32.hpp/.cpp) binden die HAL über einen Wrapper-Header (stm32\_hal\_inc.hpp) ein und weist die API-Enums (Mode, Pull, Speed, Alternate) über lokale Helper-Funktionen auf HAL-Konstanten.
-So eine \texttt{enum class} fasst die HAL-spezifischen Makros in sich zusammen und weist diesesn jeweils eine vereinfachte und generische Bezeichnungen (None statt GPIO\_NOPULL) zu.
-Damit im späteren Verlauf des Codes keine zusätzliche Typumwandlung stattfinden muss, wird die Enumeration mit der Typenzuweisung uint32\_t deklariert.
-Anhand dieser Bezeichnungen wählen die Hilfsfunktionen mit swtich-case-Strukturen die richtigen Werte für die Initialisierung aus.
+Die STM32-Implementierungen der einzelnen Module, wie gpio\_stm32.hpp und gpio\_stm32.cpp, binden die \gls{hal}-Dateien über einen Wrapper-Header stm32\_hal\_inc.hpp ein und verweisen über Enum Classes, wie \texttt{Mode}, \texttt{Pull} oder \texttt{Speed}, und lokale Helper-Funktionen, wie \texttt{speedToHAL()} oder \texttt{modeToHAL()}, auf die in der \gls{hal} hardcodierten und definierten Makros und Konstanten.
+Der Wrapper-Header enthält die Verweise auf die Headerdateien der Hardwareabstraktionsschicht, die die Funktionen enthält, mit denen auf die Register des Microcontrollers zugegriffen wird.
+So eine \texttt{enum class} fasst die HAL-spezifischen Makros in sich zusammen und weist diesen jeweils eine vereinfachte und generische Bezeichnungen, beispielsweise \texttt{None} statt \texttt{GPIO\_NOPULL}, zu.
+Mit dem Gedanken, dass im späteren Verlauf des Codes keine zusätzliche Typumwandlung stattfinden muss, sind die Enumeration bereits mit der Typenzuweisung \texttt{uint32\_t} implementiert worden.
+Anhand dieser Bezeichnungen wählen die Hilfsfunktionen mit sogenannten swtich-case-Strukturen die richtigen Werte für die Initialisierung aus.
+Bei diesen Strukturen handelt es sich um sogenannte Kontrollflussanweisungen.
+Diese Anweisungen überprüfen eine Variable oder einen Ausdruck auf mehrere mögliche Werte prüft.
+Im Gegensatz zu einer langen Kette von if-else-Abfragen, die jeweils einzeln überprüft werden, ob ein Wert eine Bedingung erfüllt, erlaubt switch-case eine übersichtlichere und in der Regel effizientere Verzweigung.
+Jeder \texttt{case} repräsentiert dabei einen möglichen Wert der Variablen, und der dazugehörige Code wird ausgeführt, sobald der Wert mit dem Case übereinstimmen.
+Die switch-case-Anweisung erweist sich insbesondere dann als vorteilhaft, wenn eine Vielzahl klar unterscheidbarer Zustände oder Optionen zu überprüfen ist. 
 
-Die Methode \texttt{gpio\_init()} übernimmt die gesamte Konfiguration, ähnlich der der Funktion \texttt{MX\_GPIO\_init()}, die in einem STM32CubeIDE Projekt generiert wird und die Pins initialisiert.
-So werden hier, je nach im Objekt definierten Port, die entsprechende interne Clock aktiviert, für den gewünschten Pin eine Maske erstellt und über die Hilfsfunktionen, die den entsprechenden Wert mit übergeben bekommen, z.B. \texttt{modeToHAL(Mode mode)} bekommt den Wert \texttt{Alternate\_Push\_Pull}, die richtigen HAL-Makros ausgewählt und in die Initialisierungsstruktur eingefügt. 
+Die Funktion \texttt{gpio\_init()} übernimmt die Initialisierung der Pins, ähnlich der Funktion \texttt{MX\_GPIO\_init()} aus \cref{lst:stm32_mx_gpio_init} eines STM32CubeIDE Projektes.
+Die Attribute eines GPIO-Objekts der HW\_API, wie es in \cref{lst:gpio_onject} dargestellt ist, entsprechen größtenteils den Attributen einer \texttt{GPIO\_InitTypeDef}-Struktur der STM32-\gls{hal}.
+Sie bestimmen mit \texttt{pin} welcher Pin verwendet wird, mit \texttt{port} in welchem Port sich dieser Pin befindet, mit \texttt{mode} in welchem Modus dieser Pin eingestellt werden muss, mit \texttt{pull} welche Art von innerer Widerstand gesetzt werden muss, mit \texttt{speed} in welcher Geschwindigkeit ein Flankenwechsel stattfinden darf, mit \texttt{alternate} welche alternative Funktion der Pin hat, z.B. als SPI-Pin statt eines normalen GPIO-Pins.
+Über \texttt{isPinInverted} kann die Option gesetzt werden, ob der Pin invertiert ist, d.h. ob bei einem aktiven logischen High auf der einen Seite (Eingang oder Ausgang), ein aktives logisches Low auf der anderen Seite resultiert.
+\texttt{debounceTime} bestimmt eine Zeitspanne in Millisekunden $ms$, die angibt, wie lange ein Signal stabil anliegen muss, bevor es als gültig erkannt wird. 
+Dadurch werden Störungen oder Prell-Effekte, wie sie insbesondere bei mechanischen Tastern auftreten, gefiltert.
+Der \texttt{debounceState} setzt den aktuellen logischen Zustand des Pins im Rahmen der Entprellung. 
+Das Attribut dient als Referenz, um zwischen temporären Störungen und einer tatsächlichen Zustandsänderung zu differenzieren.
+Und mit \texttt{extiTrigger} wird die Art des Interrupt-Auslösers für externe Ereignisse festgelegt. 
+Zu den typischen Optionen zählen Flankensteuerungen wie steigende Flanke, fallende Flanke oder beide Flanken. 
+Dabei besteht die Möglichkeit, die Signaländerungen zu bestimmen, unter welchen ein Interrupt ausgelöst werden soll.
+
+In der Funktion \texttt{gpio\_init()} werden die Attribute \texttt{pin, port, mode, pull} und \texttt{speed} mit den Hilfsfunktionen, wie \texttt{modeToHAL()}, so verarbeitet, dass die Initialisierungstruktur \texttt{GPIO\_InitStruct}, die eigene Attribute \texttt{pin, port, mode, pull} und \texttt{speed} definiert, die Werte der Attribute zugewiesen bekommt, die mit den Funktionen der \gls{hal} kompatibel sind.
+Der Pin des Objektes muss vor der Übergabe an die Struktur umgewandelt werden.
+Die Register werden mit $0$ oder $1$ belegt um zu zeigen ob eine Teil aktiviert ist oder nicht.
+Um beispielsweise den Pin $5$ aus \cref{lst:gpio_object} verwenden zu können muss dieser in das richtige Format gebracht werden.
+Dafür wird eine Bitmaske erzeugt. 
+Bei einer Bitmaske handelt es sich um eine Binärzahl, die es erlaubt, gezielt einzelne Bits innerhalb eines Registers auszuwählen, ohne die übrigen Bits zu beeinflussen. 
+Am Beispiel des Pins im Objekts vom Typ \texttt{uint16\_t}, der aus 16 Bits besteht, können über eine Bitmaske bis zu 16 einzelne Positionen adressiert werden. 
+Durch eine Linksverschiebung der Binärzahl $1$ um die gewünschte Anzahl an Stellen, wird das Bit an der entsprechenden Position auf $1$ gesetzt, während alle anderen Bits $0$ bleiben. 
+Auf diese Weise lässt sich eine eindeutige Maske erzeugen, mit der ein bestimmter Pin innerhalb des Registers angesprochen werden kann.
+Dieser Prozess wird durch eine Linksverschiebung der Binärzahl $1$ um \texttt{pin = 5;} Stellen realisiert. 
+Demnach wird ausschließlich jenes Bit auf 1 gesetzt, dessen Position mit dem gewünschten Pin übereinstimmt, während alle übrigen Bits auf 0 verbleiben. 
+Mittels dieser Bitmaske kann anschließend das zugehörige Registerfeld eindeutig gesetzt und der entsprechende Pin aktiviert oder überprüft werden.
+
+Zusätzlich muss die Clock für den verwendeten Port aktiviert werden.
+Dies passiert über eine Hilfsfunktion, die die entsprechende \gls{hal}-Funktion \texttt{\_\_HAL\_RCC\_GPIOx\_CLK\_ENABLE()} anhand des gewünschten Ports auswählt.
+Das x steht hier für den Port.
+
+Die Struktur mit den kompatiblen Werte besetzt, wird an die STM32-spezifische Funktion \texttt{HAL\_GPIO\_Init()} übergeben, die den Pin dann initialisiert.
 
 \begin{lstlisting}[language=C++, caption={Beispiel eines Gpio Objektes.}, label={lst:gpio_object}]
 Gpio spi1_mosi{
-	5,							// uin16_t pin
-	Port::B, 					// Port port
+	5, 													// uin16_t pin
+	Port::B, 										// Port port
 	Mode::Alternate_Push_Pull,	// Mode mode
-	Pull::None, 					// Pull pull
-	Speed::Very_High, 			// Speed speed
-	Alternate::SPI_AF0, 		// Alternate Funciton
-	false, 						// bool isPinInverted
-	0, 							// uin32_t debounceTime
-	0, 							// uin32_t debounceState
-	ExtiTrigger::None			// External Interrupt Trigger
+	Pull::None, 								// Pull pull
+	Speed::Very_High, 					// Speed speed
+	Alternate::SPI_AF0, 				// Alternate Funciton
+	false, 											// bool isPinInverted
+	0, 													// uin32_t debounceTime
+	0, 													// uin32_t debounceState
+	ExtiTrigger::None						// External Interrupt Trigger
 };
 \end{lstlisting}
 
@@ -443,8 +478,7 @@ Für weitere Hardware muss diese Datei um deren Portdefinitionen erweitert werde
 Die Implementierung für die ESP32-Hardware (gpio\_esp32.hpp/.cpp) arbeitet dementsprechend mit \texttt{gpio\_config\_t} und \texttt{gpio\_set\_level} und \texttt{gpio\_get\_level} der ESP-IDF und setzt Entprellen mit \texttt{esp\_timer\_get\_time()} um.
 
 Die tatsächliche Hardwarekonfiguration geschieht bewusst nicht im Konstruktor, sondern in der expliziten Methode \texttt{gpio\_init()}; ein Destruktor zur Deinitialisierung ist nicht vorgesehen.
-Dadurch bleibt das Objekt leichtgewichtig, die Kontrolle über den Initialisierugn-Zeitpunkt liegt bei der aufrufenden Schicht.
-\\
+Dadurch bleibt das Objekt leichtgewichtig, die Kontrolle über den Initialisierungszeitpunkt liegt bei der aufrufenden Schicht.
 \\
 Die STM32-Implementierung (spi\_stm32.hpp/.cpp) kapselt neben den Konfigurationsparametern auch die beteiligten GPIO-Objekte (SCK, MISO, MOSI, CS) per Komposition. 
 Im Konstruktor werden auch hier, ähnlich der Gpio Klasse und in späteren Klassen, ausschließlich die Parameter übernommen. 
@@ -465,9 +499,9 @@ Mittels der Abfragen \texttt{isDmaTransferInProgress()} und \texttt{abortDmaTran
 Es ist zu berücksichtigen, dass die Initialisierung in diesem Fall explizit über \texttt{dma\_init(), dma\_init\_TX()} und \texttt{dma\_init\_RX()} erfolgt, während die Destruktoren keine Aufräumfunktion übernehmen.
 Diese Umsetzung zeichnet sich durch klare, definierte Lebenszyklen und Zustandsprüfungen aus, anstatt eine automatische Freigabe zu ermöglichen.
 
-\vspace{0.5em}
-\noindent\rule{\linewidth}{0.4pt}
-\vspace{0.5em}
+\vspace{0.5cm}
+%\noindent\rule{\linewidth}{0.4pt}
+\vspace{0.5cm}
 
 Die Analyse der Architektur verdeutlicht mehrere zentrale Gestaltungsprinzipien, die eine robuste und plattformübergreifende Hardware-Abstraktionsschicht ermöglichen. 
 Im Vordergrund steht die konsequente Trennung von abstrakten Schnittstellen und konkreten Implementierungen. 

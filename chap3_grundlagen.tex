@@ -168,7 +168,7 @@ Diese Zeitquanten lassen sich in mehrere Segmente unterteilen:
 
 Der Sample Point ist definiert als der Zeitpunkt, an dem der Wert des Bits für alle Knoten einheitlich abgetastet wird. 
 Dieser befindet sich zwischen Phase 1 und Phase 2. 
-Die interne Taktfrequenz der CPU beeinflusst lediglich die Genauigkeit der Generierung der Zeitquanten, während die tatsächliche Bitdauer durch die konfigurierte Baudrate des CAN-Busses bestimmt wird.
+Die interne Taktfrequenz der CPU beeinflusst dabei lediglich die Genauigkeit der Generierung der Zeitquanten, während die tatsächliche Bitdauer durch die konfigurierte \emph{Baudrate} des CAN-Busses bestimmt wird.
 
 
 \section{Software}
@@ -269,7 +269,7 @@ Diese Schicht arbeitet eng mit der Abstraktionsschicht zusammen.
 Sie enthält neben den Low-Level-Treibern, die direkten Zugriff auf die Register haben, den in Assembler geschriebenen Startupcode und Initialisierungsroutinen.
 
 
-\subsubsection{Designmuster}
+\subsubsection{Designmuster} \label{chap3_2_1_designmuster}
 % TODO: Designpattern: Nur für OOP?
 Neben dem Architekturmuster, das für die Struktur des gesamten Projekts verantwortlich ist, stehen die \emph{Designmuster}.
 Unter diesem Begriff versteht man das Designen von einzelnen Softwarekomponenten, wie diese aufgebaut sein sollen, wie sie miteinander kommunizieren, welche Eigenschaften sie haben und hilft dabei die Software zu implementieren.
@@ -282,15 +282,37 @@ Dabei wird unterschieden zwischen
 	\item \textbf{Verhaltensmuster}.
 \end{itemize}
 
-% TODO: Die Designmuster die später verwendet werden
 Erzeugungsmuster helfen dabei, die Art und Weise der Erzeugung von Objekten umzusetzen.
 Sie sorgen dafür, dass der eigentliche Erzeugungsprozess nicht direkt sichtbar.
 Der Fokus liegt auf der Trennung von der Erzeugung und Verwendung von Objekten, um Flexibilität, Wiederverwendbarkeit und Austauschbarkeit zu ermöglichen.
+Beispiel, die im Laufe dieser Arbeit noch erscheinen sind das Factory-Pattern, das Singleton-Pattern oder das Builder-Pattern.
+%% Factory
+Das Factory-Pattern dient der Kapselung des Erzeugungsprozesses, indem die Instanziierung von Objekten an eine spezielle Fabrikklasse oder -methode ausgelagert wird. 
+Es ist nicht erforderlich, dass dem aufrufenden Code der konkrete Typ des zurückgegebenen Objekts bekannt ist. 
+Dies hat eine erhöhte Austauschbarkeit und Erweiterbarkeit zur Folge.
+
+%% Singleton
+Das sogenannte Singleton-Pattern stellt sicher, dass von einer bestimmten Klasse lediglich eine Instanz existiert und diese global zugänglich ist. 
+Typischerweise findet es Anwendung, um zentrale Ressourcen wie Konfigurationsobjekte oder Schnittstellen konsistent bereitzustellen.
+
+%% Builder
+Das Builder-Pattern dient der schrittweisen und flexiblen Erzeugung komplexer Objekte.
+Dabei werden die Eigenschaften dieser Objekte nacheinander gesetzt. 
+Auf diese Weise wird eine klare Trennung zwischen dem Erstellungsprozess und der finalen Darstellung erreicht.
+
 Strukturmuster helfen dabei, die erstellten Klassen und Objekte zu organisieren.
-Fokussieren sich auf das Miteinander unabhängig entwickelter Klassenbibliotheken.
+Der Fokus liegt auf dem Zusammenspiel unabhängig entwickelter Klassenbibliotheken sowie der Vereinfachung von Schnittstellen und dem modularen Aufbau von Systemen.
+%% Facade
+Das sogenannte Facade-Pattern dabei stellt eine Methode dar, um eine einheitliche und vereinfachte Schnittstelle zu einem komplexen Subsystem bereitzustellen. 
+Dies hat den Vorteil, dass Implementierungsdetails verborgen werden und die Verwendung der Schnittstelle für den Anwender erheblich vereinfacht wird.
+
 Verhaltensmuster definieren, wie Objekte miteinander interagieren, wie Zuständigkeiten aufgeteilt werden und wie der Kontrollfluss zwischen ihnen abläuft.
 Der Fokus liegt nicht ausschließlich auf dem ''Was'' (z. B. ein Event), sondern auch auf dem ''Wie'', ''Wann'' und ''Wer''.
-
+Ein Beispiel hierfür ist die Template Method. 
+In Muster definiert eine Basisklasse einen Algorithmus, d.h. eine feststehende Reihenfolge von Befehlen oder Funktionen. 
+Die Implementierung aller Schritte wird dabei nicht durch die Basisklasse selbst vorgenommen, sondern kann für die jeweiligen einzelnen Zwischenschritte, sogenannter Hooks, individuell durch Unterklassen erfolgen.
+Im Rahmen der STM32-HAL wird dieses Muster bei Callback-Funktionen für Interrupts verwendet. 
+Die Funktion \texttt{HAL\_GPIO\_EXTI\_IRQHandler(uint16\_t GPIO\_Pin)} fungiert als Template, während die Funktion \texttt{HAL\_GPIO\_EXTI\_Callback(uint16\_t GPIO\_Pin)} als Hook vom Entwickler selbst implementiert werden muss.
 
 \subsection{Application Programming Interface}
 Eine \emph{Anwendungsprogrammierschnittstelle} (\gls{api}) wird von IBM beschrieben ''eine Reihe von Regeln oder Protokollen, die es Softwareanwendungen ermöglichen, miteinander zu kommunizieren, um Daten, Funktionen und Funktionalitäten auszutauschen.''\cite{ibmAPI}.

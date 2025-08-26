@@ -59,14 +59,8 @@ Wird ein Slave ausgewählt, zieht der Master das Chip Select Signal von logisch 
 Die Störungen, die in den einzelnen Signalen zu sehen sind stammen vom Testaufbau selber.
 Da die Klammern an den jeweiligen Pins sich sehr nahe waren und teilweise überlappten, kann es dadurch zu unsauberen Signalen kommen.
 Nichtsdestotrotz diente diese Darstellung der Signale als Referenz, die es mit den neuen Klassen zu erreichen galt.
-
-% Oszi-Bild , wie es aussehen sollte
-\begin{figure}[H]
-	\includegraphics[width=\textwidth]{Pics/oszi_cube_spi_example.png}
-	\caption{Screenshot des Osziloskopbildschirms. Dieser zeigt die Wellen für SCK (blau/türkis), MOSI (magenta) und MISO (gelb).}
-	\label{fig:oszi_cube_spi_example}
-\end{figure}
-
+\\
+\\
 Mit den ersten Tests konnten SCK, MOSI und NSS (Negative Slave Select; andere Schreibweise für Chip Select) erfolgreich erzeugt werden.
 Lediglich das MISO-Signale hatte nicht die erwartete Form.
 Dieser Fehler rührte von einer falschen Einstellung des NSS Gpio-Objektes her.
@@ -76,6 +70,15 @@ Nach der Korrektur des Objektes, konnte Schema der Signale aus \cref{fig:oszi_cu
 Das Ergebnis ist in \cref{fig:oszi_spi_signal_test} zu sehen.
 Die dunkelblaue Linie zeigt das NSS-Signal, das hier nur auf dem Wert $0$ liegt.
 Dessen Wechsel von $1$ auf $0$ liegt hier außerhalb des Sichfeldes.
+
+% Oszi-Bild , wie es aussehen sollte
+\begin{figure}[H]
+	\includegraphics[width=\textwidth]{Pics/oszi_cube_spi_example.png}
+	\caption{Screenshot des Osziloskopbildschirms. Dieser zeigt die Wellen für SCK (blau/türkis), MOSI (magenta) und MISO (gelb).}
+	\label{fig:oszi_cube_spi_example}
+\end{figure}
+
+
 
 \begin{figure}[H]
 	\includegraphics[width=\textwidth]{Pics/spi_signal_test.png}
@@ -87,26 +90,53 @@ Dessen Wechsel von $1$ auf $0$ liegt hier außerhalb des Sichfeldes.
 Die Testumgebung umfasste sowohl zwei Familien der STM32-Hardware (Nucleo-C031C6, Nucleo-G071RB, Nucleo-G0B1RE) als auch ein ESP32C6-DevKit, jeweils verbunden mit Debug-Schnittstellen und notwendiger Peripherie.
 Die modulare Struktur, in der plattformspezifische Implementierungen klar gekapselt sind, ermöglicht neben der Übertragung der Lösung, auf unterschiedliche \gls{mcu}-Familien, ohne Anpassungen des Applikationscodes, auch die Erweiterung um fehlende Funktionsmodule oder neuer Microcontroller.
 Einschränkungen bestehen lediglich in der begrenzten Testabdeckung, sowohl für STM32-Familien, als auch ESP32 Microcontroller, die nicht direkt validiert wurden.
-% TODO: Dieser Absatz ans Ende der Validierung
-Zusammenfassend zeigt die Validierung, dass die HW\_API die geforderten funktionalen Anforderungen erfüllt, korrekt arbeitet und eine stabile Grundlage für die Implementierung plattformunabhängiger Embedded-Anwendungen darstellt. 
-Die gewählten Testmethoden gewährleisten eine nachvollziehbare und reproduzierbare Überprüfung der Softwarequalität.
 
 
 \subsection{Weitere Erkenntnisse}
-\begin{itemize}
-	\item Größenänderung der Builddateien
-	\item Komplexität der Funktionen $\rightarrow$ vgl. Cube
-	\item 
-\end{itemize}
+Im Zuge der Validierung der entwickelten HW\_API und deren Integration in bestehende HAL-Strukturen (STM32HAL, ESP32HAL) konnten neben den funktionalen Tests auch weitere technische Aspekte analysiert werden. 
+Diese liefern zusätzliche Erkenntnisse über die Auswirkungen der neu eingeführten Abstraktionsschicht auf Codequalität, Performanz und Wartbarkeit.
+
+\subsubsection{Metriken zur Softwarekomplexität und Ressourcennutzung}
+
+\paragraph{Buildgröße}
+Durch die Einführung der HW\_API ergaben sich messbare Änderungen in den Binärgrößen der erzeugten Builddateien. 
+Insbesondere die Segmente .text, .data und .bss geben Aufschluss darüber, in welchem Umfang zusätzlicher Programm- und Arbeitsspeicher benötigt wird. 
+Ein solcher Vergleich erlaubt eine objektive Einschätzung des durch die Abstraktionsschicht verursachten Overheads.
+
+\paragraph{Algorithmische Komplexität}
+Die Analyse der wesentlichen Funktionen zeigt, dass die Laufzeitkomplexität in der Regel konstant bleibt (O(1)), da es sich überwiegend um direkte Hardwarezugriffe handelt. Kritischer sind hierbei weniger die theoretische Komplexität, sondern potenzielle Latenzen durch zusätzliche Funktionsaufrufe.
+
+\paragraph{Cyclomatic Complexity}
+Diese Kennzahl misst die Anzahl unabhängiger Ausführungspfade innerhalb einer Funktion. 
+Je höher dieser Wert, desto schwieriger ist die Funktion zu verstehen und vollständig zu testen. 
+Erste Auswertungen zeigten, dass insbesondere Initialisierungsfunktionen mit vielen Konfigurationsoptionen zu erhöhten Komplexitätswerten neigen. 
+Hier bietet sich eine funktionale Aufteilung zur Reduktion der Komplexität an.
+
+\subsubsection{Qualitative Aspekte}
+
+\paragraph{Performanz und Latenzen}
+Die zusätzliche Abstraktionsschicht verursacht in manchen Fällen einen geringen Funktionsaufruf-Overhead. Für zeitkritische Peripherie wie SPI oder CAN muss daher geprüft werden, ob dieser Einfluss im zulässigen Bereich liegt.
+
+\paragraph{Portabilität versus Optimierung}
+Die HW\_API fördert die Portabilität des Anwendungscodes erheblich, kann jedoch plattformspezifische Optimierungen erschweren. Ein ausgewogenes Verhältnis zwischen generischen Schnittstellen und gezielten Plattformanpassungen ist daher erforderlich.
+
+\paragraph{Testbarkeit und Wartbarkeit}
+Die klare Trennung von Schnittstellen und Implementierungen erleichtert die Modularisierung und damit die Durchführung von Unit Tests. Zudem verbessert sich die Wartbarkeit, da Änderungen an plattformspezifischen Details keine Anpassungen im Anwendungscode erfordern.
+
+\paragraph{Kopplung und Abhängigkeiten}
+Bei der Integration neuer Abstraktionsschichten ist zu prüfen, ob nur notwendige Funktionen gekapselt werden, um unnötige Abhängigkeiten und eine enge Kopplung zwischen Modulen zu vermeiden.
+
+\paragraph{Codequalität}
+Einheitliche Namenskonventionen, konsistente Verwendung von enum class, klar dokumentierte Schnittstellen sowie eine einheitliche Factory-Struktur tragen zu einer höheren Lesbarkeit und langfristigen Wartbarkeit des Codes bei.
+
+\paragraph{Integration in Buildsysteme}
+Ein wichtiger Aspekt ist die einfache Einbindung der HW\_API in unterschiedliche Entwicklungsumgebungen wie STM32CubeIDE, ESP-IDF oder CMake-basierte Projekte. Die Flexibilität in diesem Bereich ist ein entscheidender Faktor für die praktische Nutzbarkeit.
 
 
-
-
-
-
-
-
-
+Zusammenfassend lässt sich festhalten, dass die Einführung der HW\_API nicht nur funktionale Vorteile in Bezug auf die Portabilität bietet, sondern auch Auswirkungen auf Ressourcenverbrauch, Komplexität und Wartbarkeit hat. 
+Diese müssen in der Embedded-Entwicklung stets berücksichtigt und gegeneinander abgewogen werden. 
+Die Validierung hat ergeben, dass die HW\_API die geforderten funktionalen Anforderungen erfüllt, korrekt arbeitet und somit eine stabile Grundlage für die Implementierung plattformunabhängiger Embedded-Anwendungen darstellt. 
+Die gewählten Testmethoden ermöglichten zudem eine nachvollziehbare und reproduzierbare Überprüfung der Softwarequalität.
 
 
 
