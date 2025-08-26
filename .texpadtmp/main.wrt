@@ -95,31 +95,33 @@
 \@writefile{lof}{\contentsline {figure}{\numberline {6.2}{\ignorespaces Screenshot des Osziloskopbildschirms. Dieser zeigt die Wellen für SCK (blau/türkis), MOSI (magenta) und MISO (gelb).}}{51}{figure.caption.60}\protected@file@percent }
 \@writefile{lof}{\contentsline {figure}{\numberline {6.3}{\ignorespaces Screenshot einer erfolgreich SPI-Kommunikation, erstellt mit dem Code der HW\_API.}}{51}{figure.caption.61}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {6.5.2}Weitere Erkenntnisse}{52}{subsection.6.5.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\nonumberline Metriken zur Softwarekomplexität und Ressourcennutzung}{52}{subsubsection*.63}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{\nonumberline Buildgröße}{52}{paragraph*.65}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{\nonumberline Algorithmische Komplexität}{52}{paragraph*.67}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{\nonumberline Cyclomatic Complexity}{52}{paragraph*.69}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\nonumberline Qualitative Aspekte}{52}{subsubsection*.71}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{\nonumberline Performanz und Latenzen}{52}{paragraph*.73}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{\nonumberline Portabilität versus Optimierung}{52}{paragraph*.75}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{\nonumberline Testbarkeit und Wartbarkeit}{52}{paragraph*.77}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{\nonumberline Kopplung und Abhängigkeiten}{53}{paragraph*.79}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{\nonumberline Codequalität}{53}{paragraph*.81}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{\nonumberline Integration in Buildsysteme}{53}{paragraph*.83}\protected@file@percent }
-\@writefile{toc}{\contentsline {chapter}{\numberline {7}Zusammenfassung und Fazit}{54}{chapter.7}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\nonumberline Buildgröße}{52}{subsubsection*.63}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {6.4}{\ignorespaces Ausgabe des belegten Speichers in einem STM32CubeIDE Projekt.}}{52}{figure.caption.64}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {6.5}{\ignorespaces Ausgabe des belegten Speichers ein Projektes mit der HW\_API als zusätzliche Zwischenschicht.}}{53}{figure.caption.65}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {6.6}{\ignorespaces Ausgabe des belegten Speichers eines Beispielprojekts mit der ESP-IDF.}}{53}{figure.caption.66}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {6.7}{\ignorespaces Ausgabe des belegten Speicher eines ESP32-Projektes mit der HW\_API-Zwischenschicht.}}{54}{figure.caption.67}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\nonumberline Algorithmische Komplexität}{54}{subsubsection*.69}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\nonumberline Cyclomatic Complexity}{54}{subsubsection*.71}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\nonumberline Performanz und Latenzen}{54}{subsubsection*.73}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\nonumberline Portabilität versus Optimierung}{54}{subsubsection*.75}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\nonumberline Testbarkeit und Wartbarkeit}{55}{subsubsection*.77}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\nonumberline Kopplung und Abhängigkeiten}{55}{subsubsection*.79}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\nonumberline Codequalität}{55}{subsubsection*.81}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\nonumberline Integration in Buildsysteme}{55}{subsubsection*.83}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{\numberline {7}Zusammenfassung und Fazit}{56}{chapter.7}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \@writefile{lol}{\addvspace {10\p@ }}
 \@writefile{lopytx}{\addvspace {10\p@ }}
-\@writefile{toc}{\contentsline {chapter}{\numberline {8}Ausblick}{55}{chapter.8}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{\numberline {8}Ausblick}{57}{chapter.8}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \@writefile{lol}{\addvspace {10\p@ }}
 \@writefile{lopytx}{\addvspace {10\p@ }}
-\@writefile{toc}{\contentsline {chapter}{Abbildungsverzeichnis}{56}{chapter*.84}\protected@file@percent }
-\@writefile{toc}{\contentsline {chapter}{Tabellenverzeichnis}{57}{chapter*.85}\protected@file@percent }
-\@writefile{toc}{\contentsline {chapter}{Codeverzeichnis}{58}{chapter*.86}\protected@file@percent }
-\@writefile{toc}{\contentsline {chapter}{Quellenverzeichnis}{58}{chapter*.86}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{Abbildungsverzeichnis}{58}{chapter*.84}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{Tabellenverzeichnis}{59}{chapter*.85}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{Codeverzeichnis}{60}{chapter*.86}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{Quellenverzeichnis}{60}{chapter*.86}\protected@file@percent }
 \@writefile{toc}{\providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file }
 \@writefile{lof}{\providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file }
 \@writefile{lot}{\providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file }

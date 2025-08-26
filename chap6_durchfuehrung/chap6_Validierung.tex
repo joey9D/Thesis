@@ -96,40 +96,100 @@ Einschränkungen bestehen lediglich in der begrenzten Testabdeckung, sowohl für
 Im Zuge der Validierung der entwickelten HW\_API und deren Integration in bestehende HAL-Strukturen (STM32HAL, ESP32HAL) konnten neben den funktionalen Tests auch weitere technische Aspekte analysiert werden. 
 Diese liefern zusätzliche Erkenntnisse über die Auswirkungen der neu eingeführten Abstraktionsschicht auf Codequalität, Performanz und Wartbarkeit.
 
-\subsubsection{Metriken zur Softwarekomplexität und Ressourcennutzung}
+\subsubsection{Buildgröße}
+Um die Auswirkungen der Abstraktionsschicht \texttt{HW\_API} auf den Ressourcenverbrauch zu bewerten, wurden die Ausgaben am Ende des Buildprozesses mit einander verglichen.
+In \cref{fig:stm32_cube_gpio_debug_size} präsentiert die Spalten Text, Data, Bss, Dec, Hex sowie den Dateinamen.
+Die Spalte text repräsentiert den Programmspeicher (Flash), der neben dem  ausführbaren Code auch konstante Daten enthält. 
+Die Spalten data und bss bilden auf den Arbeitsspeicher (RAM), wobei \textit{data} initialisierte globale und statische Variablen umfasst, die beim Start vom Flash in den RAM kopiert werden, während \textit{bss} uninitialisierte globale und statische Variablen beinhaltet, die beim Systemstart auf Null gesetzt werden. 
+Die Spalten dec und hex repräsentieren die Gesamtspeicherbelegung in dezimaler bzw. hexadezimaler Form.
+Das in VSCode erstellte Projekt, das die HW\_API mit verwendet, stellt die genannten Größen anders dar.
+\cref{fig:stm32_hw_api_gpio_debug_size} zeigt die genutzte Größe (Used Size), die Gesamtgröße der Region (Region Size) und den prozentualen Anteil (\%age Used) für die Speicherbereiche RAM und Flash auf. 
+Für die Analyse von Speicheränderungen ist die korrekte Zuordnung von Speicherbereichen von entscheidender Bedeutung. 
+Die Flash-Belegung entspricht dabei der Text-Spalte, während die RAM-Belegung der Summe von data und bss entspricht; $RAM\ =\ data\ +\ bss$.
 
-\paragraph{Buildgröße}
-Durch die Einführung der HW\_API ergaben sich messbare Änderungen in den Binärgrößen der erzeugten Builddateien. 
-Insbesondere die Segmente .text, .data und .bss geben Aufschluss darüber, in welchem Umfang zusätzlicher Programm- und Arbeitsspeicher benötigt wird. 
-Ein solcher Vergleich erlaubt eine objektive Einschätzung des durch die Abstraktionsschicht verursachten Overheads.
 
-\paragraph{Algorithmische Komplexität}
+% stm32 cube debug
+\begin{figure}[H]
+	\includegraphics[width=\textwidth]{Pics/stm32c031c6_gpio_debug_size.png}
+	\caption{Ausgabe des belegten Speichers in einem STM32CubeIDE Projekt.}
+	\label{fig:stm32_cube_gpio_debug_size}
+\end{figure}
+
+% stm32 hw_api debug
+\begin{figure}[H]
+	\includegraphics[width=\textwidth]{Pics/stm32c031c6_gpio_debug_size_hw_api.png}
+	\caption{Ausgabe des belegten Speichers ein Projektes mit der HW\_API als zusätzliche Zwischenschicht.}
+	\label{fig:stm32_hw_api_gpio_debug_size}
+\end{figure}
+
+Im Default-Build (\cref{fig:stm32_cube_gpio_debug_size}) zeigt die Speicherübersicht für das ELF-File C031C6\_clean.elf eine Flash-Belegung von $4\ 544$ Bytes (text) und eine RAM-Belegung von $1\ 584$ Bytes, die zusammengesetzt ist aus initialisierten (data, $12$ Bytes) und uninitialisierten (bss, $1\ 572$ Bytes) globalen bzw. statischen Variablen.
+
+Dagegen zeigt das eigene Projekte mit der neuen HW\_API, eine Flash-Belegung von $12\ 396$ Bytes und eine RAM-Belegung von $2\ 128$ Bytes auf. Der Vergleich zeigt, dass die Einführung der Zwischenschicht zu einer Steigerung der Flash-Auslastung um $7\ 852$ Bytes und der RAM-Auslastung um $544$ Bytes geführt hat. 
+Die Flash-Auslastung weist eine prozentuale Zunahme von etwa $14$\% auf knapp $38$\% auf, während die RAM-Auslastung von rund $13$\% auf $17$\% ansteigt.
+
+Da es sich um Debug-Builds handelt, fallen die Binärgrößen aufgrund zusätzlicher Debug-Informationen größer aus als in optimierten Release-Builds und sind daher nicht direkt vergleichbar. 
+Der Vergleich zeigt jedoch, dass die Einführung einer Zwischenschicht vor allem den Flash-Speicher deutlich stärker belastet, während die RAM-Nutzung nur moderat ansteigt. 
+Dies veranschaulicht den signifikanten Einfluss zusätzlicher Abstraktionsschichten auf die Speicherressourcen und betont die Notwendigkeit einer sorgfältigen Planung hinsichtlich Flash- und RAM-Auslastung.
+
+% esp sample
+\begin{figure}[H]
+	\includegraphics[width=\textwidth]{Pics/esp32c6_sample_project_size.png}
+	\caption{Ausgabe des belegten Speichers eines Beispielprojekts mit der ESP-IDF.}
+	\label{fig:esp32_sample_size}
+\end{figure}
+
+% esp hw_api
+\begin{figure}[H]
+	\includegraphics[width=\textwidth]{Pics/esp32c6_hw_api_debug_size.png}
+	\caption{Ausgabe des belegten Speicher eines ESP32-Projektes mit der HW\_API-Zwischenschicht.}
+	\label{fig:esp32_hw_api_size}
+\end{figure}
+
+Die Analyse der Speicherbelegung für den ESP32 zeigt, dass die Einführung einer zusätzlichen Zwischenschicht vor allem die Flash-Auslastung deutlich erhöht hat. 
+Im Default-Build belegt das Programm $107\ 070$ Bytes Flash-Speicher, während das eigene Projekt mit Zwischenschicht eine Binärgröße von $158\ 944$ Bytes aufweist. 
+Dies entspricht einer Zunahme von rund $51$ KB, also nahezu $48$\%. Unter Berücksichtigung einer verfügbaren App-Partition von $1$ MB ergibt sich eine Flash-Auslastung von ca. $15$\%, womit trotz des Anstiegs ausreichend Speicherreserven zur Verfügung stehen.
+
+Die Bewertung der RAM-Auslastung anhand der kompakten Projektausgabe ist nicht direkt möglich, da diese lediglich die Flash-Größe ausweist. 
+Die detaillierte ESP-IDF-Ausgabe des Default-Builds zeigt jedoch, dass neben Flash auch Bereiche wie DIRAM und LP SRAM genutzt werden. 
+Um eine Aussage bezüglich potenzieller Modifikationen der RAM-Nutzung durch die Zwischenschicht treffen zu können, bedingt die Ausführung eines erweiterten Speicherreports, wie beispielsweise mittels \texttt{idf.py size --all}.
+
+%\begin{figure}[H]
+%	\includegraphics[width=\textwidth]{Pics/esp32c6_sample_project_size.png}
+%	\caption{}
+%	\label{fig:}
+%\end{figure}
+%
+%\begin{figure}[H]
+%	\includegraphics[width=\textwidth]{Pics/esp32c6_sample_project_size.png}
+%	\caption{}
+%	\label{fig:}
+%\end{figure}
+
+\subsubsection{Algorithmische Komplexität}
 Die Analyse der wesentlichen Funktionen zeigt, dass die Laufzeitkomplexität in der Regel konstant bleibt (O(1)), da es sich überwiegend um direkte Hardwarezugriffe handelt. Kritischer sind hierbei weniger die theoretische Komplexität, sondern potenzielle Latenzen durch zusätzliche Funktionsaufrufe.
 
-\paragraph{Cyclomatic Complexity}
+\subsubsection{Cyclomatic Complexity}
 Diese Kennzahl misst die Anzahl unabhängiger Ausführungspfade innerhalb einer Funktion. 
 Je höher dieser Wert, desto schwieriger ist die Funktion zu verstehen und vollständig zu testen. 
 Erste Auswertungen zeigten, dass insbesondere Initialisierungsfunktionen mit vielen Konfigurationsoptionen zu erhöhten Komplexitätswerten neigen. 
 Hier bietet sich eine funktionale Aufteilung zur Reduktion der Komplexität an.
 
-\subsubsection{Qualitative Aspekte}
-
-\paragraph{Performanz und Latenzen}
+\subsubsection{Performanz und Latenzen}
 Die zusätzliche Abstraktionsschicht verursacht in manchen Fällen einen geringen Funktionsaufruf-Overhead. Für zeitkritische Peripherie wie SPI oder CAN muss daher geprüft werden, ob dieser Einfluss im zulässigen Bereich liegt.
 
-\paragraph{Portabilität versus Optimierung}
+\subsubsection{Portabilität versus Optimierung}
 Die HW\_API fördert die Portabilität des Anwendungscodes erheblich, kann jedoch plattformspezifische Optimierungen erschweren. Ein ausgewogenes Verhältnis zwischen generischen Schnittstellen und gezielten Plattformanpassungen ist daher erforderlich.
 
-\paragraph{Testbarkeit und Wartbarkeit}
+\subsubsection{Testbarkeit und Wartbarkeit}
 Die klare Trennung von Schnittstellen und Implementierungen erleichtert die Modularisierung und damit die Durchführung von Unit Tests. Zudem verbessert sich die Wartbarkeit, da Änderungen an plattformspezifischen Details keine Anpassungen im Anwendungscode erfordern.
 
-\paragraph{Kopplung und Abhängigkeiten}
+\subsubsection{Kopplung und Abhängigkeiten}
 Bei der Integration neuer Abstraktionsschichten ist zu prüfen, ob nur notwendige Funktionen gekapselt werden, um unnötige Abhängigkeiten und eine enge Kopplung zwischen Modulen zu vermeiden.
 
-\paragraph{Codequalität}
+\subsubsection{Codequalität}
 Einheitliche Namenskonventionen, konsistente Verwendung von enum class, klar dokumentierte Schnittstellen sowie eine einheitliche Factory-Struktur tragen zu einer höheren Lesbarkeit und langfristigen Wartbarkeit des Codes bei.
 
-\paragraph{Integration in Buildsysteme}
+\subsubsection{Integration in Buildsysteme}
 Ein wichtiger Aspekt ist die einfache Einbindung der HW\_API in unterschiedliche Entwicklungsumgebungen wie STM32CubeIDE, ESP-IDF oder CMake-basierte Projekte. Die Flexibilität in diesem Bereich ist ein entscheidender Faktor für die praktische Nutzbarkeit.
 
 
