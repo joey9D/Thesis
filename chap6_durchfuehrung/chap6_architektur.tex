@@ -24,7 +24,7 @@ Diese \emph{architektonischen Eigenschaften} lassen sich (grob) in drei Teilbere
 \end{table}
 
 Aus diesen Eigenschaften gilt es, die wichtigsten für die Treiber-API zu identifizieren. 
-Mit diesem Hintergrund lässt sich ein Struktur für das Projekt bilden.
+Mit diesem Hintergrund lässt sich eine Struktur für das Projekt bilden.
 
 Die Entwicklung einer plattformunabhängigen, wiederverwendbaren Treiber-API für Micro-controller stellt hohe Anforderungen an die Architektur der Softwarebibliothek.
 
@@ -51,7 +51,7 @@ Die Vielfalt verfügbarer MCUs erfordert eine abstrahierte und flexibel erweiter
 %Die Installation und Konfiguration der dafür benötigten Werkzeuge wird nachvollziehbar dokumentiert, um den Einstieg für die Nutzer zu erleichtern.
 
 % Erweiterbarkeit
-Darüber hinaus ist die Erweiterbarkeit ein wesentliches Architekturprinzip
+Darüber hinaus ist die Erweiterbarkeit ein wesentliches Architekturprinzip.
 Der Einsatz von leistungsstärkeren Microcontrollern hängt in der Regel mit einer Erweiterung der Funktionalitäten zusammen, die in die bestehenden Treiber- und API-Strukturen integriert werden müssen.
 Daher wird großer Wert auf eine modulare und offen gestaltete Architektur gelegt, die neue Features ohne grundlegende Umbauten aufnehmen kann.
 
@@ -150,7 +150,7 @@ Dadurch wird verhindert, dass anwendungsspezifischer Quellcode an hardwareabhän
 Die Factory-Methode trägt somit wesentlich zur Erreichung von Plattformunabhängigkeit und Wiederverwendbarkeit des Anwendungscodes bei, da es auch ermöglicht, weitere Hardwareplattformen hinzuzufügen.
 
 % Facade Pattern
-In Erweiterung dessen findet das Fassade-Muster Verwendung. 
+In Erweiterung dessen findet das Facade-Pattern Verwendung. 
 Dieses Strukturmuster dient der Vereinfachung des Zugriffs auf komplexe Subsysteme, indem es eine einheitliche Schnittstelle zur Verfügung stellt. 
 In der vorliegenden Architektur werden die konkreten Implementierungen der im Interface definierten Kernfunktionen von hardwarespezifischen Kindklassen übernommen. 
 Die Implementierungen werden dem Anwendungsentwickler über die Fassade in abstrahierter Form zugänglich gemacht. 
@@ -158,18 +158,18 @@ Hierdurch wird die interne Komplexität der hardwarenahen Treiber verborgen, wä
 
 % Modularisierung
 Die Architektur kann durch die Modularisierung der Peripheriefunktionen weiter verfeinert werden. 
-Funktionen wie GPIO, SPI oder CAN werden jeweils als eigenständige Module entworfen, die wiederum dem Prinzip von Interface und spezifischer Implementierung folgen. 
+Funktionen wie GPIO und SPI werden jeweils als eigenständige Module entworfen, die wiederum dem Prinzip von Interface und spezifischer Implementierung folgen. 
 Es ist zu berücksichtigen, dass jedes Modul die hardwarespezifischen Details hinter einer definierten Abstraktionsschicht kapselt. 
 Diese konsequente Trennung gewährleistet, dass Änderungen in der Hardware oder den zugrunde liegenden Treibern keine Anpassungen am Anwendungscode erforderlich machen.
 
 % Unbewusste Verwendung von Pattern
-Im Rahmen der Implementierung von Entwurfsmustern, wie etwa der Factory-Methode und der Fassade, entstehen weitere Muster sowohl bewusst als auch implizit. In \cref{tab:unconsious_design_pattern} sind neben den bewusst eingesetzten Muster auch mögliche Designmuster aufgelistet, die sich potentiell im Laufe der Implementierung unbewusst herausbilden und durch die gewählte Architektur- und Klassenstruktur realisiert werden.
+Im Rahmen der Implementierung von Entwurfsmustern, wie etwa der Factory- und des Facade-Pattern, entstehen weitere Muster sowohl bewusst als auch implizit. In \cref{tab:unconsious_design_pattern} sind neben den bewusst eingesetzten Muster auch mögliche Designmuster aufgelistet, die sich potentiell im Laufe der Implementierung unbewusst herausbilden und durch die gewählte Architektur- und Klassenstruktur realisiert werden.
 % Strategy
 Die Verwendung von Interfaces mit plattformspezifischen Implementierungen kann dem Strategy-Muster zugeordnet werden, da auf diese Weise unterschiedliche \textit{Strategien} zur Realisierung derselben Funktionalität austauschbar bereitgestellt werden.
 % Adapter 
 In Fällen, in denen die Schnittstellen der Hardware-API von den Funktionen der MCU HAL abweichen, ergibt sich zudem eine Abbildung auf das Adapter-Muster. 
 % Singleton
-Sofern die Anzahl der für bestimmte Peripherieeinheiten zulässigen Instanzen limitiert ist, beispielsweise auf eine konkrete SPI-Schnittstelle, resultieren daraus Strukturen, welche dem sogenannten Singleton-Muster entsprechen. 
+Sofern die Anzahl der für bestimmte Peripherieeinheiten zulässigen Instanzen limitiert ist, beispielsweise auf eine konkrete SPI-Schnittstelle, resultieren daraus Strukturen, welche dem sog. Singleton-Muster entsprechen. 
 
 Die Architektur fußt auf den Prinzipien der Schichtenarchitektur, der Objektorientierung sowie einer Kombination expliziter (Factory, Fassade) und impliziter (Strategy, Adapter, Singleton) Designmuster. 
 Diese Kombination gewährleistet, dass die Softwareportabilität, Erweiterbarkeit und Wartbarkeit erreicht werden, während gleichzeitig die Komplexität für den Anwendungsentwickler reduziert wird.

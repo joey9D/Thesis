@@ -17,7 +17,7 @@
 \contentsline {subsubsection}{\nonumberline Architekturmuster}{18}{subsubsection*.11}%
 \contentsline {paragraph}{\nonumberline Anwendungsschicht/Application Layer}{18}{paragraph*.13}%
 \contentsline {paragraph}{\nonumberline Mittelschicht/Middleware}{19}{paragraph*.15}%
-\contentsline {paragraph}{\nonumberline Betriebssystem}{19}{paragraph*.17}%
+\contentsline {paragraph}{\nonumberline Betriebssysteme}{19}{paragraph*.17}%
 \contentsline {paragraph}{\nonumberline Hardwareabstraktionsschicht}{19}{paragraph*.19}%
 \contentsline {paragraph}{\nonumberline Die Treiberschicht}{21}{paragraph*.21}%
 \contentsline {subsubsection}{\nonumberline Designmuster}{21}{subsubsection*.23}%
@@ -42,32 +42,32 @@
 \contentsline {paragraph}{\nonumberline Debug-Tools}{30}{paragraph*.36}%
 \contentsline {subsection}{\numberline {6.2.3}mcu-cpp}{31}{subsection.6.2.3}%
 \contentsline {subsection}{\numberline {6.2.4}modm}{32}{subsection.6.2.4}%
-\contentsline {section}{\numberline {6.3}Architekturentwurf}{34}{section.6.3}%
-\contentsline {subsection}{\numberline {6.3.1}Architektonische Eigenschaften der Treiber-API}{34}{subsection.6.3.1}%
-\contentsline {subsection}{\numberline {6.3.2}Architektur- und Designmuster der Treiber-API}{35}{subsection.6.3.2}%
-\contentsline {section}{\numberline {6.4}Implementierung}{37}{section.6.4}%
-\contentsline {subsection}{\numberline {6.4.1}Struktur}{38}{subsection.6.4.1}%
-\contentsline {subsection}{\numberline {6.4.2}Klassen}{43}{subsection.6.4.2}%
-\contentsline {subsubsection}{\nonumberline Hardwareklassen}{43}{subsubsection*.49}%
-\contentsline {subsubsection}{\nonumberline Peripherieklassen}{44}{subsubsection*.51}%
-\contentsline {section}{\numberline {6.5}Validierung}{48}{section.6.5}%
-\contentsline {subsection}{\numberline {6.5.1}Tests}{48}{subsection.6.5.1}%
-\contentsline {subsubsection}{\nonumberline Struktur - Build, Flash, Erase, Debug}{49}{subsubsection*.55}%
-\contentsline {subsubsection}{\nonumberline GPIO}{50}{subsubsection*.57}%
-\contentsline {subsubsection}{\nonumberline SPI}{50}{subsubsection*.59}%
-\contentsline {subsection}{\numberline {6.5.2}Weitere Erkenntnisse}{52}{subsection.6.5.2}%
-\contentsline {subsubsection}{\nonumberline Buildgröße}{52}{subsubsection*.63}%
-\contentsline {subsubsection}{\nonumberline Algorithmische Komplexität}{54}{subsubsection*.69}%
+\contentsline {section}{\numberline {6.3}Architekturentwurf}{33}{section.6.3}%
+\contentsline {subsection}{\numberline {6.3.1}Architektonische Eigenschaften der Treiber-API}{33}{subsection.6.3.1}%
+\contentsline {subsection}{\numberline {6.3.2}Architektur- und Designmuster der Treiber-API}{34}{subsection.6.3.2}%
+\contentsline {section}{\numberline {6.4}Implementierung}{36}{section.6.4}%
+\contentsline {subsection}{\numberline {6.4.1}Struktur}{37}{subsection.6.4.1}%
+\contentsline {subsection}{\numberline {6.4.2}Klassen}{42}{subsection.6.4.2}%
+\contentsline {subsubsection}{\nonumberline Hardwareklassen}{42}{subsubsection*.49}%
+\contentsline {subsubsection}{\nonumberline Peripherieklassen}{43}{subsubsection*.51}%
+\contentsline {section}{\numberline {6.5}Validierung}{47}{section.6.5}%
+\contentsline {subsection}{\numberline {6.5.1}Tests}{47}{subsection.6.5.1}%
+\contentsline {subsubsection}{\nonumberline Struktur - Build, Flash, Erase, Debug}{48}{subsubsection*.55}%
+\contentsline {subsubsection}{\nonumberline GPIO}{49}{subsubsection*.57}%
+\contentsline {subsubsection}{\nonumberline SPI}{49}{subsubsection*.59}%
+\contentsline {subsection}{\numberline {6.5.2}Weitere Erkenntnisse}{51}{subsection.6.5.2}%
+\contentsline {subsubsection}{\nonumberline Buildgröße}{51}{subsubsection*.63}%
+\contentsline {subsubsection}{\nonumberline Algorithmische Komplexität}{53}{subsubsection*.69}%
 \contentsline {subsubsection}{\nonumberline Cyclomatic Complexity}{54}{subsubsection*.71}%
-\contentsline {subsubsection}{\nonumberline Portabilität versus Optimierung}{56}{subsubsection*.74}%
+\contentsline {subsubsection}{\nonumberline Portabilität vs. Optimierung}{55}{subsubsection*.74}%
 \contentsline {subsubsection}{\nonumberline Testbarkeit und Wartbarkeit}{56}{subsubsection*.76}%
 \contentsline {subsubsection}{\nonumberline Kopplung und Abhängigkeiten}{56}{subsubsection*.78}%
 \contentsline {subsubsection}{\nonumberline Codequalität}{56}{subsubsection*.80}%
 \contentsline {subsubsection}{\nonumberline Integration in Buildsysteme}{56}{subsubsection*.82}%
-\contentsline {chapter}{\numberline {7}Zusammenfassung und Fazit}{58}{chapter.7}%
-\contentsline {chapter}{\numberline {8}Ausblick}{60}{chapter.8}%
-\contentsline {chapter}{Abbildungsverzeichnis}{61}{chapter*.83}%
-\contentsline {chapter}{Tabellenverzeichnis}{62}{chapter*.84}%
-\contentsline {chapter}{Codeverzeichnis}{63}{chapter*.85}%
-\contentsline {chapter}{Quellenverzeichnis}{63}{chapter*.85}%
+\contentsline {chapter}{\numberline {7}Zusammenfassung und Fazit}{57}{chapter.7}%
+\contentsline {chapter}{\numberline {8}Ausblick}{59}{chapter.8}%
+\contentsline {chapter}{Abbildungsverzeichnis}{60}{chapter*.83}%
+\contentsline {chapter}{Tabellenverzeichnis}{61}{chapter*.84}%
+\contentsline {chapter}{Codeverzeichnis}{62}{chapter*.85}%
+\contentsline {chapter}{Quellenverzeichnis}{62}{chapter*.85}%
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

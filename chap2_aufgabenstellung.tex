@@ -1,6 +1,6 @@
 Das Ziel dieser Arbeit ist es die Basis einer Treiber-API zu erstellen, mit der je nach Zielhardware die passenden Treiber integriert werden können.
 Dafür muss eine Programmstruktur entwickelt werden, die es ermöglicht erstellte Softwarelösungen und Applikationen auf verschiedenen Microcontrollern anwenden zu können, indem die spezifischen Hardwaretreiber, nach geringer Konfiguration, automatisch in den Buildprozess mit integriert werden.
-Die Struktur soll erste grundlegenden Funktionen für GPIO, SPI und CAN enthalten. 
+Die Struktur soll erste grundlegenden Funktionen für \gls{gpio}, \gls{spi} und \gls{can} enthalten. 
 Damit können die Funktionen für generelles Lesen, Schreiben und die Kommunikation über Busse getestet werden.
 
 
@@ -36,10 +36,10 @@ Dieses beinhaltet alle für die moderne C++-Entwicklung relevanten Paket:
 	\item cmake-format  v0.6.11 by cheshirekow
 \end{itemize}
 
-Dabei handelt es sich bei jeder Extension um die aktuellste Version.
+Dabei handelt es sich bei jeder Erweiterung um die aktuellste Version.
 %Diese dreizehn Erweiterungen lassen sich zusammenfassen zu C/C++ relevant, Buildsystem, Dokumentation und Formatierung \& Optik.
-Für die Nutzung von VSCode mit den verwendeten MCUs gibt es ebenfalls entsprechende Extensions.
-Um STM32-\gls{mcu}s zu programmieren gibt es offizielle Extensions von\\STMicroelectronics.
+Für die Nutzung von VSCode mit den verwendeten MCUs gibt es ebenfalls entsprechende Erweiterungen.
+Um STM32-\gls{mcu}s zu programmieren gibt es offizielle Erweiterungen von  STMicroelectronics.
 Zu installieren ist hier \emph{STM32Cube for Visual Studio Code}.
 Zusätzlich empfiehlt es sich zu den bereits genannt \gls{ide}s, STM32CubeIDE und Espressif-IDE, auch deren Umgebungen mit zu installieren.
 Für ST-Hardware sind das STM32CubeMX um die \gls{mcu}s zu konfigurieren, STM32Programmer um die Hardware zu Programmieren % STM32-Finder um die richtigen \gls{mcu}s auswählen zu können.
@@ -62,7 +62,7 @@ Im Rahmen dieser Arbeit sollen die grundlegenden Funktionen wie Lesen und Schrei
 	\item \gls{can}
 \end{itemize}
 
-In einen Schaltkreis sind eine LED und ein Taster verbaut. 
+In einen Schaltkreis werden eine LED und ein Taster verbaut. 
 Um die Kommunikation über \gls{gpio} zu testen soll das Betätigen des Tasters die LED zum leuchten bringen.
 Auf diese Weise kann das Lesen, der Input, des Tasters und das Schreiben, der Output über das Leuchten der LED getestet werden.
 % TODO: chap3: Bedingungen für die Bussysteme nochmal überarbeiten; wenn es dann so weit ist.

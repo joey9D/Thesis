@@ -1,15 +1,15 @@
 \section{Implementierung}
-Die Implementierung der zuvor entworfenen Architektur erfordert die sukzessive Übertragung der zuvor definierten Konzepte in lauffähigen Quellcode. 
+Die Implementierung der zuvor entworfenen Architektur erfordert die sukzessive Übertragung der definierten Konzepte in lauffähigen Quellcode. 
 Im Zentrum der Untersuchung stehen dabei zentrale Fragen: 
 Wie wird ein bestimmter Architekturpunkt konkret umgesetzt?  
-Welche Werkzeuge und Entwicklungsumgebungen sich für die jeweiligen Arbeitsschritte eignen? 
-Aus welchen Gründen bestimmte Lösungswege gegenüber möglichen Alternativen bevorzugt wurden.
+Welche Werkzeuge und Entwicklungsumgebungen eignen sich für die jeweiligen Arbeitsschritte? 
+Aus welchen Gründen bestimmte Lösungswege gegenüber möglichen Alternativen bevorzugt werden.
 
 
 Im Folgenden wird die praktische Umsetzung einzelner Architekturkomponenten dargestellt.
  Im vorliegenden Kontext sind zunächst die Mechanismen zur Hardwareauswahl und Objekterstellung zu berücksichtigen, die im Rahmen des Factory-Patterns realisiert werden. 
- In der Folge werden die Peripheriemodule GPIO und SPI betrachtet, bei denen die Implementierung der Schnittstellen sowie die Abbildung auf plattformspezifische Details im Vordergrund stehen. 
- In einer sequenziellen Abfolge wird der Prozess veranschaulicht, in dessen Verlauf aus den Abstraktionen konkrete Funktionalität emergiert und die einzelnen Elemente in ihrer Interaktion dargestellt, um eine portable und erweiterbare Hardware-API bereitzustellen.
+ Daraufhin werden die Peripheriemodule GPIO und SPI betrachtet, bei denen die Implementierung der Schnittstellen sowie die Abbildung auf plattformspezifische Details im Vordergrund stehen. 
+Der Prozess wird schrittweise dargestellt: Aus den abstrakten Konzepten entstehen konkrete Funktionen, und die Zusammenarbeit der einzelnen Elemente wird gezeigt. Auf diese Weise entsteht eine Hardware-API, die sowohl portabel als auch erweiterbar ist.
  
 % Fragen
 %Wie wird der jeweilige Punkt umgesetzt?
@@ -180,12 +180,14 @@ Im Projekt-Root-Verzeichnis befindet sich dazu das Hauptverzeichnis HW\_API, das
 Zu den erforderlichen Komponenten zählen Treiber, Peripherie-Module, Debug-Hilfen, Toolchains sowie die notwendigen Build-Dateien (CMake-Struktur, Makefile). 
 Diese Struktur gewährleistet, dass das Projekt modular, portierbar und für verschiedene Mikrocontroller-Familien leicht erweiterbar bleibt.
 Zunächst wird eine grundlegende CMake-Struktur aufgesetzt. 
-Jedes Unterverzeichnis enthält dabei ein eigene CMakeLists.txt, sodass sich einzelne Komponenten unabhängig in das Build-System integrieren lassen. 
+Jedes Unterverzeichnis enthält dabei eine eigene CMakeLists.txt-Datei, sodass sich einzelne Komponenten unabhängig in das Build-System integrieren lassen. 
 Die gesamte verwendete Struktur ist in \cref{fig:project_tree} zu sehen.
 Zu den relevanten Verzeichnissen zählen:
 
-\subsection*{app}
+\subsection*{app/main}
 Dieses Verzeichnis beinhaltet die Anwendungsebene mit der main.cpp sowie einer zugehörigen main.hpp. 
+Dabei wird unterschieden zwischen dem app Verzeichnis für STM32 \gls{mcu}s und dem main Verzeichnis für ESP32 \gls{mcu}s.
+Das liegt daran, dass der Buildprozess der ESP-IDF einen Pfad der Form \textit{main/main.cpp} erwartet, der zur main-Datei des Projekts führt.
 In diesem Bereich erfolgt die Implementierung der eigentlichen Applikationslogik, die in ihrer Funktionsweise vollständig unabhängig von den unterliegenden, hardwarespezifischen Schichten bleibt.
 
 \subsection*{HW\_API}
@@ -199,7 +201,7 @@ Ein Beispiel dafür ist die Hardware Factory, die anhand vordefinierter Makros d
 Des Weiteren beinhaltet core das zentrale Hardware-Interface, von dem alle unterstützten Plattformen abgeleitet werden.
 
 \subsubsection*{debug\_probes}
-Das vorliegende Verzeichnis beinhaltet Hilfsdateien, die für das Debuggen von Software verwendet werden können.
+Das Verzeichnis beinhaltet Hilfsdateien, die für das Debuggen von Software verwendet werden können.
 Abhängig von der gewählten Debug-Methode oder der Zielhardware werden hier spezifische Programme aufgerufen, beispielsweise STLink für STM32-Hardware.
 Dadurch ist es dem Entwickler möglich, eine einheitliche Debug-Schnittstelle zu nutzen, ohne sich mit plattformspezifischen Details befassen zu müssen.
 
@@ -211,17 +213,17 @@ Die Konfigurationsdateien definieren unter anderem:
 	\item Hardwareressourcen wie Speichergrößen, Peripherie-Ausstattung, Taktfrequenzen,
 	\item Peripherie-Aktivierung, d.h. welche Module (GPIO, SPI, I²C etc.) aktiv sind,
 	\item Feature-Flags, die definieren, welche speziellen Funktionen der jeweiligen HAL genutzt werden,
-	\item Interrupt-Prioritäten, die die Reihenfolge festlegen, in der verschiedene Interruptquellen vom NVIC abgearbeitet werden und
+	\item Interrupt-Prioritäten, die die Reihenfolge festlegen, in der verschiedene Interruptquellen vom NVIC (Nested Vectored Interrupt Controller) abgearbeitet werden und
 	\item Low-Level-Initialisierung, die plattformabhängige Sequenzen beim Start beschreiben.
 \end{itemize}
 
-Auf diese Weise wird gewährleistet, dass die HW\_API auf sämtlichen Plattformen mit identischer Schnittstelle operiert, während die plattformspezifischen Unterschiede verborgen bleiben.
+Auf diese Weise wird gewährleistet, dass die HW\_API auf sämtlichen Plattformen mit identischer Schnittstelle operieren kann, während die plattformspezifischen Unterschiede verborgen bleiben.
 
 \subsubsection*{platform}
 Dieses Verzeichnis nimmt eine zentrale Stellung im Rahmen der Hardwareabstraktion ein, da es die plattformspezifischen Implementierungen der HW\_API enthält.
 Die Struktur zeichnet sich durch eine mehrere Ebenen umfassende Aufteilung aus.
 
-Im Rahmen der Plattform-Trennung werden zunächst separate Unterordner für jede unterstützte Plattform, wie beispielsweise \textit{stm32} oder \textit{esp32}, erstellt. 
+Im Rahmen der Plattform-Trennung werden zunächst separate Unterordner für jede unterstützte Plattform, wie beispielsweise stm32 oder esp32, erstellt. 
 Innerhalb dieser Plattformverzeichnisse erfolgt eine weitere Unterteilung nach spezifischen Mikrocontroller-Familien, etwa \textit{stm32c0}, \textit{stm32f4} oder \textit{esp32s3}. 
 Diese Struktur ermöglicht eine klare Trennung der Implementierungen und erleichtert die Erweiterbarkeit um zusätzliche Plattformen.
 
@@ -235,12 +237,12 @@ Ein weiterer essenzieller Bestandteil ist das Hardware-Mapping, das die logische
 Die Interrupt-Handler-Dateien sind für die plattformspezifische Ereignisbehandlung zuständig, sodass Interrupts korrekt verarbeitet und an die übergeordneten Schichten weitergeleitet werden. 
 Schließlich beinhaltet die Clock-Konfiguration die Definition von Takteinstellungen und Power-Management-Parametern, die für jede Mikrocontroller-Familie spezifisch angepasst werden müssen.
 
-Die Plattformschicht greift dabei auf die HAL-Wrapper aus dem Verzeichnis \textit{drivers} zurück, stellt jedoch nach oben stets eine einheitliche Schnittstelle bereit. 
+Das Plattformverzeichnis greift dabei auf die HAL-Wrapper aus dem Verzeichnis \textit{drivers} zurück, stellt jedoch nach oben stets eine einheitliche Schnittstelle bereit. 
 Ein zentrales Designprinzip besteht darin, dass alle hardwarespezifischen Details innerhalb dieser Schicht gekapselt bleiben und nicht in höhere Ebenen durchsickern. 
 Die Gewährleistung der Portabilität und Wiederverwendbarkeit der gesamten Hardware-API wird durch diesen Prozess sichergestellt.
 
 \subsubsection*{Peripheriemodule}
-In Unterordnern wie gpio, spi oder can sind die Peripherie-spezifischen Module organisiert. 
+In Unterordnern wie gpio oder spi sind die Peripherie-spezifischen Module organisiert. 
 Diese Module bilden die Schnittstelle zwischen den abstrakten Interfaces und den plattformspezifischen Implementierungen.
 Zu den typischen Inhalten zählen:
 \begin{itemize}
@@ -250,13 +252,15 @@ Zu den typischen Inhalten zählen:
 \end{itemize}
 
 Auf diese Weise muss nur die Implementierung für die verwendete Hardware in das Projekt inkludiert werden.
-Dies erleichtert die Erweiterbarkeit erheblich, da neue Plattformen durch Hinzufügen neuer Implementierungen integriert werden können, ohne die bereits bestehenden Dateien zu verändern.
+Dies erleichtert die Erweiterbarkeit erheblich, da neue Module durch Hinzufügen neuer Implementierungen integriert werden können, ohne die bereits bestehenden Dateien zu verändern.
 
 
 \subsection*{toolchains}
 Dieses Verzeichnis beinhaltet die erforderlichen .cmake-Dateien, die für die Cross-Compilation auf unterschiedlichen Zielplattformen essenziell sind.
-Diese Toolchain-Dateien definieren unter anderem die Pfade zu den entsprechenden Compilern, wie beispielsweise arm-none-eabi-gcc oder xtensa-esp32-elf-gcc. Darüber hinaus umfassen sie die notwendigen Compiler-Flags, die den CPU-Typ, die FPU (Floating Point Unit)-Einstellungen sowie das ABI (Application Binary Interface) festlegen. 
-Darüber hinaus werden auch Optimierungs-Settings für Debug- und Release-Builds berücksichtigt. Darüber hinaus werden die Einstellungen für das Speicherlayout, die Garbage Collection sowie spezifische Embedded-Flags festgelegt. 
+Diese Toolchain-Dateien definieren unter anderem die Pfade zu den entsprechenden Compilern, wie beispielsweise arm-none-eabi-gcc oder xtensa-esp32-elf-gcc. 
+Außerdem umfassen sie die notwendigen Compiler-Flags, die den CPU-Typ, die FPU (Floating Point Unit)-Einstellungen sowie das ABI (Application Binary Interface) festlegen. 
+Darüber hinaus werden auch Optimierungs-Settings für Debug- und Release-Builds berücksichtigt. 
+Zusätzlich werden die Einstellungen für das Speicherlayout, die Garbage Collection sowie spezifische Embedded-Flags festgelegt. 
 Hier finden Hilfswerkzeuge wie \texttt{objcopy}, \texttt{objdump} und \texttt{size} Anwendung.
 Der Aufruf von CMake mit dem Parameter \texttt{-DCMAKE\_TOOLCHAIN\_FILE} führt zur Einbindung der entsprechenden Toolchain. 
 Daraufhin wird für den gesamten Build-Prozess die Bereitstellung der geeigneten Werkzeuge für die jeweilige Plattform sichergestellt.
@@ -288,7 +292,8 @@ Für ESP32 wird analog die esp32-toolchain.cmake genutzt, die auf das IDF verwei
 Zusätzlich sind hier auch hardwarespezifische Informationen, die beschreiben um welchen Prozessor es sich handelt, welcher Chip die Hardware hat oder welche explizite Hardware verwendet wird.
 Auch sind das Zielverzeichnis des Builds und die Art des Build, d.h. Debug oder Release, hier benannt.
 Diese Informationen werden im Code selber verwendet, um bestimmte Teile aktivieren zu können.
-Stichwort \textit{bedingte Kompilierung}, was bedeutet, dass Codeteile, die nicht definiert sind durch solche Makros, im Kompilier- und Buildprozess garnicht erst beachtet werden und auch nicht im entgültigen Programm enthalten sind, wodurch Speicher eingespart wird.
+Das Stichwort \textit{bedingte Kompilierung} beschreibt die Technik, bei der definierte Codeteile durch nicht definierte Makros im Laufe des Kompilier- und Buildprozesses außer Acht gelassen werden. 
+Dies hat zur Folge, dass die betreffenden Teile nicht in das endgültige Programm integriert und der Speicher somit optimiert wird.
 Neben dem Entgegennehmen und der Weiterverarbeitung der Informationen aus dem Makefile, setzt die Root-Datei globalen Standards wie C11 und C++17, legt Compiler-Flags für Debug- und Release-Builds fest und steuert die Reihenfolge der Subdirectory-Builds.
 Für diese Reihenfolge ist es entscheidend, das erst die HW\_API-Libraries und zuletzt die Applikation gelistet ist, da diese die Funktionen verwendet, die in der HW\_API definiert sind.
 
@@ -317,7 +322,8 @@ Die Abhängigkeiten werden dynamisch verwaltet, indem die STM32-Bibliotheken via
 Die modulare Bibliotheksstruktur ermöglicht es, jedes Modul isoliert zu bauen und dabei klare Schnittstellen und Abhängigkeiten einzuhalten. 
 Während STM32 einem klassischen Cross-Compilation-Ansatz mit Toolchain-Datei folgt, wird ESP32 über das Component-System des eigenen ESP-IDF integriert.
 
-Besondere Robustheit erzielt das System durch umfangreiche Diagnoseausgaben und Validierungen: Bereits in der Root-CMakeLists werden Plattform und Parameter geprüft, während die Drivers-CMakeLists ausführliche STATUS-Meldungen zum Repositories, Familienauswahl und aktiven Quellen liefern. 
+Besondere Robustheit erzielt das System durch umfangreiche Diagnoseausgaben und Validierungen.
+Bereits in der Root-CMakeLists werden Plattform und Parameter geprüft, während die CMakeLists des drivers Verzeichnisses ausführliche STATUS-Meldungen zum Repositories, Familienauswahl und aktiven Quellen liefert. 
 Fehlerhafte oder fehlende Pflichtparameter führen zu einem FATAL\_ERROR und verhindern so inkonsistente Builds. 
 Ergänzt wird dies durch eine flexible Include-Hierarchie mit PUBLIC/PRIVATE/INTERFACE-Abstufungen, wodurch eine präzise Abgrenzung der API erreicht wird.
 
@@ -325,7 +331,7 @@ Insgesamt ermöglicht diese CMake-Struktur die Kapselung von hardwarespezifische
 Damit bildet sie eine robuste Grundlage für eine effektive und plattformübergreifende Hardware-Abstraktionsschicht, die sowohl STM32- als auch ESP32-Umgebungen unterstützt.
 
 \subsection{Klassen}
-Die Hardware-Abstraktionsschicht des HW\_API-Projekts demonstriert ein klassisches objektbasiertes Interface-Implementierung-Muster und trennt strikt zwischen plattformunabhängigen Interfaces und plattformspezifischen Konkretisierungen. 
+Die Hardware-Abstraktionsschicht des HW\_API-Projekts demonstriert ein klassisches objektbasiertes Interface-Implementierungs-Muster und trennt strikt zwischen plattformunabhängigen Interfaces und plattformspezifischen Konkretisierungen. 
 Im Verzeichnis core definieren hw\_interface.hpp und hw\_enum\_classes.hpp die gemeinsame Abstraktionseben:\\
 % TODO: chap6: UML Diagramme einfügen
 Die Auswahl der passenden Plattformklasse erfolgt zur Compile-Zeit über hw\_factory.hpp.
@@ -345,7 +351,7 @@ Im Zentrum steht die abstrakte Basisklasse \texttt{HardwareInterface}, die in hw
 
 Durch den virtuellen Destruktor wird eine saubere polymorphe Ressourcenfreigabe sichergestellt.
 Die konkreten Hardware-Implementierungen teilen sich in zwei klar getrennte Plattformzweige auf: STM32 und ESP32. 
-Hier können zukünftige weitere Zweige hizukommen.
+Hier können zukünftige weitere Zweige hinzukommen.
 Die STM32c0xx\_HW-Klasse in stm32c0xx\_hw.hpp/.cpp ist für das STM32-spezifische Hardware-Setup zuständig.
 Ihre \texttt{init\_sys()}-Methode enthält einen besonderen Mechanismus mit dem potentielle Fehler verhindert werden:
 Durch den Aufruf von \texttt{MSP\_ForceInclude()} wird sichergestellt, dass der Linker die kritische MSP-Initialisierungsfunktion \texttt{HAL\_MspInit()} einbindet. 
@@ -370,7 +376,7 @@ Darüber hinaus bietet die ESP32-Implementierung plattformspezifische Erweiterun
 
 Zu beachten ist die gemeinsame Strategie für \texttt{initAllPins()}, die in beiden Implementierungen identisch ist: 
 Eine for-Schleife iteriert durch \texttt{boardPins.allPins}.
-Dabei handelt es sich um ein Array, das in definiert project\_config.hpp ist und alle definierten Gpio-Objekte enthält.
+Dabei handelt es sich um ein Array, das in project\_config.hpp definiert ist und alle Gpio-Objekte enthält.
 Innerhalb der Schleife wird für jeden Pin \texttt{gpio\_init()} aufgerufen.
 Diese elegante Lösung zentralisiert die Pin-Konfiguration an einer Stelle und vereinfacht die Board-Migration erheblich. 
 Sie ist ein Beispiel für die Verwendung der Komposition Designs, da die tatsächlichen Pin-Objekte nicht Teil der HardwareInterface-Hierarchie sind, sondern als separate Komponenten verwaltet werden.
@@ -411,18 +417,18 @@ using IGpio = IGpioBase<uint64_t>;
 \end{lstlisting}
 
 Die STM32-Implementierungen der einzelnen Module, wie gpio\_stm32.hpp und gpio\_stm32.cpp, binden die \gls{hal}-Dateien über einen Wrapper-Header stm32\_hal\_inc.hpp ein und verweisen über Enum Classes, wie \texttt{Mode}, \texttt{Pull} oder \texttt{Speed}, und lokale Helper-Funktionen, wie \texttt{speedToHAL()} oder \texttt{modeToHAL()}, auf die in der \gls{hal} hardcodierten und definierten Makros und Konstanten.
-Der Wrapper-Header enthält die Verweise auf die Headerdateien der Hardwareabstraktionsschicht, die die Funktionen enthält, mit denen auf die Register des Microcontrollers zugegriffen wird.
-So eine \texttt{enum class} fasst die HAL-spezifischen Makros in sich zusammen und weist diesen jeweils eine vereinfachte und generische Bezeichnungen, beispielsweise \texttt{None} statt \texttt{GPIO\_NOPULL}, zu.
+Der Wrapper-Header enthält die Verweise auf die Headerdateien der \gls{hal}, die die Funktionen enthält, mit denen auf die Register des Microcontrollers zugegriffen wird.
+So eine \texttt{enum class} fasst die HAL-spezifischen Makros in sich zusammen und weist diesen jeweils eine vereinfachte und generische Bezeichnungen zu, beispielsweise \texttt{None} statt \texttt{GPIO\_NOPULL}.
 Mit dem Gedanken, dass im späteren Verlauf des Codes keine zusätzliche Typumwandlung stattfinden muss, sind die Enumeration bereits mit der Typenzuweisung \texttt{uint32\_t} implementiert worden.
-Anhand dieser Bezeichnungen wählen die Hilfsfunktionen mit sogenannten swtich-case-Strukturen die richtigen Werte für die Initialisierung aus.
-Bei diesen Strukturen handelt es sich um sogenannte Kontrollflussanweisungen.
+Anhand dieser Bezeichnungen wählen die Hilfsfunktionen mit sog. swtich-case-Strukturen die richtigen Werte für die Initialisierung aus.
+Bei diesen Strukturen handelt es sich um sog. Kontrollflussanweisungen.
 Diese Anweisungen überprüfen eine Variable oder einen Ausdruck auf mehrere mögliche Werte prüft.
 Im Gegensatz zu einer langen Kette von if-else-Abfragen, die jeweils einzeln überprüft werden, ob ein Wert eine Bedingung erfüllt, erlaubt switch-case eine übersichtlichere und in der Regel effizientere Verzweigung.
 Jeder \texttt{case} repräsentiert dabei einen möglichen Wert der Variablen, und der dazugehörige Code wird ausgeführt, sobald der Wert mit dem Case übereinstimmen.
 Die switch-case-Anweisung erweist sich insbesondere dann als vorteilhaft, wenn eine Vielzahl klar unterscheidbarer Zustände oder Optionen zu überprüfen ist. 
 
 Die Funktion \texttt{gpio\_init()} übernimmt die Initialisierung der Pins, ähnlich der Funktion \texttt{MX\_GPIO\_init()} aus \cref{lst:stm32_mx_gpio_init} eines STM32CubeIDE Projektes.
-Die Attribute eines GPIO-Objekts der HW\_API, wie es in \cref{lst:gpio_onject} dargestellt ist, entsprechen größtenteils den Attributen einer \texttt{GPIO\_InitTypeDef}-Struktur der STM32-\gls{hal}.
+Die Attribute eines GPIO-Objekts der HW\_API, wie es in \cref{lst:gpio_object} dargestellt ist, entsprechen größtenteils den Attributen einer \texttt{GPIO\_InitTypeDef}-Struktur der STM32-\gls{hal}.
 Sie bestimmen mit \texttt{pin} welcher Pin verwendet wird, mit \texttt{port} in welchem Port sich dieser Pin befindet, mit \texttt{mode} in welchem Modus dieser Pin eingestellt werden muss, mit \texttt{pull} welche Art von innerer Widerstand gesetzt werden muss, mit \texttt{speed} in welcher Geschwindigkeit ein Flankenwechsel stattfinden darf, mit \texttt{alternate} welche alternative Funktion der Pin hat, z.B. als SPI-Pin statt eines normalen GPIO-Pins.
 Über \texttt{isPinInverted} kann die Option gesetzt werden, ob der Pin invertiert ist, d.h. ob bei einem aktiven logischen High auf der einen Seite (Eingang oder Ausgang), ein aktives logisches Low auf der anderen Seite resultiert.
 \texttt{debounceTime} bestimmt eine Zeitspanne in Millisekunden $ms$, die angibt, wie lange ein Signal stabil anliegen muss, bevor es als gültig erkannt wird. 
@@ -434,7 +440,7 @@ Zu den typischen Optionen zählen Flankensteuerungen wie steigende Flanke, falle
 Dabei besteht die Möglichkeit, die Signaländerungen zu bestimmen, unter welchen ein Interrupt ausgelöst werden soll.
 
 In der Funktion \texttt{gpio\_init()} werden die Attribute \texttt{pin, port, mode, pull} und \texttt{speed} mit den Hilfsfunktionen, wie \texttt{modeToHAL()}, so verarbeitet, dass die Initialisierungstruktur \texttt{GPIO\_InitStruct}, die eigene Attribute \texttt{pin, port, mode, pull} und \texttt{speed} definiert, die Werte der Attribute zugewiesen bekommt, die mit den Funktionen der \gls{hal} kompatibel sind.
-Der Pin des Objektes muss vor der Übergabe an die Struktur umgewandelt werden.
+Der Pin des Objektes muss vor der Übergabe an die Struktur, umgewandelt werden.
 Die Register werden mit $0$ oder $1$ belegt um zu zeigen ob eine Teil aktiviert ist oder nicht.
 Um beispielsweise den Pin $5$ aus \cref{lst:gpio_object} verwenden zu können muss dieser in das richtige Format gebracht werden.
 Dafür wird eine Bitmaske erzeugt. 
@@ -442,8 +448,8 @@ Bei einer Bitmaske handelt es sich um eine Binärzahl, die es erlaubt, gezielt e
 Am Beispiel des Pins im Objekts vom Typ \texttt{uint16\_t}, der aus 16 Bits besteht, können über eine Bitmaske bis zu 16 einzelne Positionen adressiert werden. 
 Durch eine Linksverschiebung der Binärzahl $1$ um die gewünschte Anzahl an Stellen, wird das Bit an der entsprechenden Position auf $1$ gesetzt, während alle anderen Bits $0$ bleiben. 
 Auf diese Weise lässt sich eine eindeutige Maske erzeugen, mit der ein bestimmter Pin innerhalb des Registers angesprochen werden kann.
-Dieser Prozess wird durch eine Linksverschiebung der Binärzahl $1$ um \texttt{pin = 5;} Stellen realisiert. 
-Demnach wird ausschließlich jenes Bit auf 1 gesetzt, dessen Position mit dem gewünschten Pin übereinstimmt, während alle übrigen Bits auf 0 verbleiben. 
+Dieser Prozess wird durch eine Bit-Shift-Operation nach Links der Binärzahl $1$ um \texttt{pin = 5;} Stellen realisiert. 
+Demnach wird ausschließlich jenes Bit auf 1 gesetzt. 
 Mittels dieser Bitmaske kann anschließend das zugehörige Registerfeld eindeutig gesetzt und der entsprechende Pin aktiviert oder überprüft werden.
 
 Zusätzlich muss die Clock für den verwendeten Port aktiviert werden.
@@ -472,10 +478,10 @@ Das Objekt \texttt{spi1\_mosi} setzt dem Muster des Konstruktors nach die Werte 
 Die Methoden \texttt{readPin}, \texttt{writePin}, \texttt{togglePin} sind dünne Wrapper um die HAL-Funktionen.
 Funktionen wie \texttt{isPinOn()} und \texttt{isDebouncePinOn()} modellieren Entprelllogik als kleinen Zustandsautomaten und berücksichtigen ob ein Pin möglicherweise invertiert ist.
 Die korrekte Wahl des Ports erfolgt über stm32x0\_gpio\_mapping.hpp, das die Port-Enums auf GPIO\_TypeDef*-Zeiger abbildet.
-Da nicht jede STM32-Hardware die gleiche Anzahl an Ports und teilweise nicht alle verfügbar sind, findet hier das Mapping statt.
+Da nicht jede STM32-Hardware die gleiche Anzahl an Ports hat und teilweise nicht alle verfügbar sind, findet hier das Mapping statt.
 Aktuell sind hier die Ports definiert für die in der Arbeit verwendete Hardware.
 Für weitere Hardware muss diese Datei um deren Portdefinitionen erweitert werden.
-Die Implementierung für die ESP32-Hardware (gpio\_esp32.hpp/.cpp) arbeitet dementsprechend mit \texttt{gpio\_config\_t} und \texttt{gpio\_set\_level} und \texttt{gpio\_get\_level} der ESP-IDF und setzt Entprellen mit \texttt{esp\_timer\_get\_time()} um.
+Die Implementierung für die ESP32-Hardware (gpio\_esp32.hpp/.cpp) arbeitet dementsprechend mit \texttt{gpio\_config\_t}, \texttt{gpio\_set\_level} und \texttt{gpio\_get\_level} der ESP-IDF und setzt Entprellen mit \texttt{esp\_timer\_get\_time()} um.
 
 Die tatsächliche Hardwarekonfiguration geschieht bewusst nicht im Konstruktor, sondern in der expliziten Methode \texttt{gpio\_init()}; ein Destruktor zur Deinitialisierung ist nicht vorgesehen.
 Dadurch bleibt das Objekt leichtgewichtig, die Kontrolle über den Initialisierungszeitpunkt liegt bei der aufrufenden Schicht.
@@ -487,16 +493,16 @@ Die GPIO-Initialisierungen geschieht über die \texttt{gpio\_init()};
 die Befüllung des \texttt{SPI\_HandleTypeDef}  erfolgt über Spi-spezifische Hilfsfunktion, wie \texttt{spiModeToHAL()}, \texttt{spiDataSizeToHAL()}, \texttt{spiClockPhaseToHAL()}). 
 Diese arbeiten gleich wie die Hilfsfunktionen der Gpio-Klasse.
 Dieser Initialisierungsprozess ist in der Methode \texttt{spi\_init()} gekapselt und folgt einem an die STM32CubeIDE angelehnten Ablauf.
-Für Datentransfers stehen blockierende Varianten der entsprechenden Funktionen bereit: \texttt{transmit(), receive()} und \texttt{transmitReceive()}.% sowie DMA-basierte Wege bereit.
-Die weiteren Varianten der Transferfunktionen mit Interrupt und DMA-Verhalten werden in der weiteren Entwicklung implementiert.
-Für die Option \texttt{transmit\_DMA()} steht die Klasse Dma (dma\_stm32.hpp/.cpp) bereit.
-Um eine Verbindung des SPI-Objektes mit einem DMA-Objekt zu schaffen, werden die Funktionen \texttt{setSpiHandle()} der DMA-Klasse und \texttt{set\_dma()} der SPI-Klasse verwendet.
+Für Datentransfers stehen blockierende Varianten der entsprechenden Funktionen bereit: \texttt{transmit(), receive()} und \texttt{transmitReceive()}.% sowie Dma-basierte Wege bereit.
+Die weiteren Varianten der Transferfunktionen mit Interrupt und Dma-Verhalten werden in der weiteren Entwicklung implementiert.
+Für die Option \texttt{transmit\_Dma()} steht die Klasse Dma (dma\_stm32.hpp/.cpp) bereit.
+Um eine Verbindung des SPI-Objektes mit einem Dma-Objekt zu schaffen, werden die Funktionen \texttt{setSpiHandle()} der Dma-Klasse und \texttt{set\_dma()} der SPI-Klasse verwendet.
 Dabei bekommt \texttt{setSpiHandle()} den Handle des SPI-Objekts übergeben.
-Mit \texttt{set\_dma()} und der übergebenen Adresse des DMA-Objektes (\texttt{\&dmaObjekt}), wird dieses im SPI-Objekt registriert.
-Schlussendlich wird während der Initialisierung des DMA-Objektes, die genau so abläuft wie bei SPI und GPIO mit der jeweiligen Befüllung der Initalilisierungstrukturen, werden SPI und DMA via \texttt{\_\_HAL\_LINKDMA} verbunden.
+Mit \texttt{set\_dma()} und der übergebenen Adresse des Dma-Objektes (\texttt{\&dmaObjekt}), wird dieses im SPI-Objekt registriert.
+Schlussendlich wird während der Initialisierung des Dma-Objektes, die mit der Befüllung der Initalilisierungstrukturen, genau so abläuft wie bei SPI und GPIO, die Spi- und Dma-Objekte mit der Funktion \texttt{\_\_HAL\_LINKDma} mit einander verlinkt.
 Zudem werden NVIC-Prioritäten (Nested Vectored Interrupt Controller) gesetzt und Interrupts aktiviert.
 Mittels der Abfragen \texttt{isDmaTransferInProgress()} und \texttt{abortDmaTransfer()} ist es möglich, den Status zu kontrollieren und die Logik des Abbruchs zu implementieren.
-Es ist zu berücksichtigen, dass die Initialisierung in diesem Fall explizit über \texttt{dma\_init(), dma\_init\_TX()} und \texttt{dma\_init\_RX()} erfolgt, während die Destruktoren keine Aufräumfunktion übernehmen.
+Es ist zu berücksichtigen, dass die Initialisierung in diesem Fall explizit über \texttt{dma\_init(), dma\_init\_TX()} und \texttt{dma\_init\_RX()} erfolgt, während die Destruktoren keine Aufräumfunktionen übernehmen.
 Diese Umsetzung zeichnet sich durch klare, definierte Lebenszyklen und Zustandsprüfungen aus, anstatt eine automatische Freigabe zu ermöglichen.
 
 \vspace{0.5cm}
@@ -508,20 +514,20 @@ Im Vordergrund steht die konsequente Trennung von abstrakten Schnittstellen und 
 Schnittstellen, wie beispielsweise HardwareInterface, IGpioBase oder ISpi, definieren den plattformneutralen Zugriff. 
 Die hardwarespezifische Realisierung wird hingegen durch Implementierungen wie Stm32c0xx\_hw oder GpioStm32 übernommen.
 Dies führt zu einer klaren Trennung der Verantwortlichkeiten (Separation of Concerns), was wiederum die Portabilität und Wiederverwendbarkeit der Komponenten fördert.
-Ein wesentliches Charakteristikum stellt die bewusste Entscheidung zugunsten expliziter Initialisierungsmethoden dar. 
-Anstelle einer vollständigen Umsetzung des RAII-Paradigmas (Resource Acquisition Is Initialization) werden Methoden wie init\_sys(), gpio\_init() oder spi\_init() bereitgestellt. 
+Ein wesentliches Charakteristikum stellt die bewusste Entscheidung für explizite Initialisierungsmethoden dar. 
+Anstelle einer vollständigen Umsetzung des RAII-Paradigmas (Resource Acquisition Is Initialization) werden Methoden wie \texttt{init\_sys(), gpio\_init()} oder \texttt{spi\_init()} bereitgestellt. 
 Diese Vorgehensweise erlaubt eine präzise Steuerung des Initialisierungszeitpunkts sowie der Reihenfolge der Hardwarekonfiguration, was insbesondere in ressourcenbeschränkten Embedded-Systemen mit engen Abhängigkeiten zwischen einzelnen Subsystemen von erheblicher Relevanz ist.
 
-Zur Gewährleistung einer typsicheren und stabilen Schnittstelle kommen stark typisierte Enumerationen (enum class) in den Dateien hw\_enum\_*.hpp zum Einsatz. 
-Diese Konstruktion fungiert als semantische Brücke zwischen plattformneutraler API und hardwarespezifischen Konstanten, wodurch Fehlkonfigurationen zur Compile-Zeit erkannt und inkonsistente Zustände vermieden werden können. 
-Ergänzend tragen Factory-Singletons und klar definierte Besitzverhältnisse, wie etwa die Referenzierung von GPIO-Pins innerhalb der SPI-Klasse, zu deterministischen Objektlebenszyklen und einem vorhersagbaren Ressourcenmanagement bei.
+Zur Gewährleistung einer typsicheren und stabilen Schnittstelle kommen stark typisierte Enumerationen \texttt{enum class} in den Dateien hw\_enum\_*.hpp zum Einsatz. 
+Diese Konstruktion fungiert als semantische Brücke zwischen plattformneutraler API und hardwarespezifischen Konstanten, wodurch Fehlkonfigurationen zur Kompilierzeit erkannt und inkonsistente Zustände vermieden werden können. 
+Ergänzend tragen Factory, Singletons und klar definierte Besitzverhältnisse, wie etwa die Referenzierung von GPIO-Pins innerhalb der SPI-Klasse, zu deterministischen Objektlebenszyklen und einem vorhersagbaren Ressourcenmanagement bei.
 
 Ein weiteres Gestaltungsprinzip ist die Bevorzugung von Komposition gegenüber Vererbung. 
-Durch die kompositorische Struktur, wie beispielsweise in der Methode initAllPins(), wird eine lose Kopplung zwischen den Komponenten erzielt. 
+Durch die kompositorische Struktur, wie beispielsweise in der Methode \texttt{initAllPins()}, wird eine lose Kopplung zwischen den Komponenten erzielt. 
 Diese Vorgehensweise erleichtert nicht nur die Anpassung an neue Hardwareplattformen, sondern verbessert zugleich die Testbarkeit und Erweiterbarkeit der Architektur.
 
 Besonders hervorzuheben ist die Entscheidung für ein Konzept des partiellen RAII. 
-In klassischen Softwarearchitekturen wird RAII eingesetzt, um Ressourcen automatisch im Destruktor freizugeben. 
+In klassischen Softwarearchitekturen wird dieses eingesetzt, um Ressourcen automatisch im Destruktor freizugeben. 
 Im Embedded-Kontext kann diese Vorgehensweise jedoch unerwünschte Seiteneffekte hervorrufen, etwa durch nicht-deterministische Zeitpunkte der Ressourcenfreigabe. 
 Die bewusste Vermeidung von versteckter Destruktor-Logik erlaubt eine explizite Kontrolle über die Lebenszyklen von Hardware-Ressourcen und minimiert das Risiko von Timing-Problemen oder nicht reproduzierbaren Zuständen.
 

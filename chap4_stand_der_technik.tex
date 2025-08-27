@@ -1,6 +1,6 @@
 
 Unter Portabilität von Software in eingebetteten Systemen wird im Kontext dieser Arbeit die Fähigkeit verstanden, einmal entwickelten Quellcode mit möglichst geringem Anpassungsaufwand auf unterschiedliche Mikrocontrollerarchitekturen und Hardwareplattformen zu übertragen. 
-Dieses Ziel besitzt insbesondere im Hinblick auf die potenziellen Änderungen der Hardwareanforderungen im Produktlebenszyklus eine hohe Relevanz, da es zu einer Migration auf alternative Controllerfamilien kommen kann.
+Dieses Ziel besitzt insbesondere im Hinblick auf die potenziellen Änderungen der Hardwareanforderungen im Produktlebenszyklus eine hohe Relevanz, da es zu einer Migration auf alternative Microcontrollerfamilien kommen kann.
 Von zentraler Bedeutung sind hierbei die Auswahl geeigneter Treiber sowie die Abstraktionsebene der Hardwarezugriffe, die die Entkopplung zwischen Anwendungscode und konkreter Zielhardware bestimmen.
 
 In der Praxis existieren verschiedene Ansätze, die versuchen, mit jeweils eigene Stärken und Einschränkungen, dieses Problem zu lösen.
@@ -8,16 +8,16 @@ In der Praxis existieren verschiedene Ansätze, die versuchen, mit jeweils eigen
 \section{Lightweight Operation Systems}
 Die Abstraktion von Hardwarefunktionen kann durch den Einsatz schlanker Betriebssysteme wie FreeRTOS, Zephyr oder RIOT-OS erfolgen. 
 Diese bieten einheitliche Schnittstellen für Multitasking, Synchronisation und Peripheriezugriffe und erleichtern dadurch die Übertragbarkeit von Anwendungen zwischen unterschiedlichen Mikrocontrollerarchitekturen. 
-Gleichzeitig verursachen sie jedoch einen zusätzlichen Ressourcenverbrauch, der auf sehr leistungslimitierten Controllern problematisch sein kann.
+Gleichzeitig verursachen sie jedoch einen zusätzlichen Ressourcenverbrauch, der auf sehr leistungslimitierten Microcontrollern problematisch sein kann.
  Darüber hinaus ist anzumerken, dass die Abhängigkeit von den jeweiligen Hardwareabstraktionsschichten (\gls{hal}) bestehen bleibt, sodass eine vollständige Unabhängigkeit von der Zielhardware nicht erreicht wird. \cite{freertos}\cite{zephyr}\cite{riot}.  
 
 
 \section{Retargetierbare Compiler}
 Ein alternativer Ansatz besteht im Einsatz retargetierbarer Compiler. 
-Die Verwendung von Systemen wie GCC oder LLVM erlaubt die Übertragung identischer Quellcodes auf unterschiedliche Zielarchitekturen, wobei lediglich das Backend an die spezifische Plattform angepasst wird.
+Die Verwendung von Systemen wie GCC (Gnu Compiler Collection) oder LLVM (Low Level Virtual Machine) erlaubt die Übertragung identischer Quellcodes auf unterschiedliche Zielarchitekturen, wobei lediglich das Backend an die spezifische Plattform angepasst wird.
 Dadurch wird eine hohe Flexibilität auf der Ebene der Codegenerierung gewährleistet. 
 Allerdings erfolgt keine Abstraktion der hardwarenahen Zugriffe.
-Die Funktion \texttt{HAL\_GPIO\_WritePin()} wie bei STM32 verwendet wird, kann somit nicht für ESP32 verwendet werden.
+Die Funktion \texttt{HAL\_GPIO\_WritePin()} die bei STM32 verwendet wird, kann somit nicht für ESP32 verwendet werden.
 Hier kommt die Funktion \texttt{gpio\_set\_level()} zum Einsatz.
 Ein retargetierbarer Compiler allein kann diese Unterschiede nicht kompensieren. 
 Peripheriezugriffe und Registerkonfigurationen bleiben plattformspezifisch, sodass diese für jeden Mikrocontroller individuell implementiert werden müssen. 
@@ -25,10 +25,10 @@ Ohne eine zusätzliche Abstraktionsschicht muss der Quellcode für jede Plattfor
 
 \section{Arduino-Framework}
 Das Arduino-Ökosystem zeichnet sich durch einen pragmatischen, anwendungsorientierten Ansatz aus.
-Ursprünglich für AVR-Mikrocontroller konzipiert, existieren heute Erweiterungen sowohl für STM32- als auch für ESP32-Micorcontroller. 
+Ursprünglich für AVR ()-Mikrocontroller konzipiert, existieren heute Erweiterungen sowohl für STM32- als auch für ESP32-Micorcontroller. 
 Die Entwicklung und Portierung wird durch die Verwendung einer einheitlichen und stark vereinfachten API erleichtert, die die Hardwarezugriffe abstrahiert. 
 Dadurch lassen sich schnelle Prototypen erstellen. 
-Dieser Ansatz hat sich insbesondere in der Maker-Community etabliert, weist jedoch im industriellen Umfeld gewisse Einschränkungen auf. 
+In der Maker-Community ist dieser Ansatz insbesondere beliebt; hinsichtlich des industriellen Umfelds bestehen jedoch gewisse Einschränkungen.
 Die Abstraktionsebene weist eine vergleichsweise geringe Detailtiefe auf, die Effizienz ist in nicht allen Szenarien ausreichend und Aspekte wie Modularität oder langfristige Wartbarkeit sind nur eingeschränkt gewährleistet.\cite{stm32duino}\cite{arduinoesp32}. 
 
 \vspace{0.5cm}

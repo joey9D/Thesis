@@ -2,7 +2,7 @@
 Die vorliegende Arbeit befasste sich mit der Entwicklung und Validierung einer plattformübergreifenden Hardware-Abstraktionsschicht für Embedded-Systeme, exemplarisch umgesetzt für STM32- und ESP32-Microcontroller. 
 Das Ziel bestand darin, die Portabilität von Anwendungscode zu erhöhen, die Wiederverwendbarkeit zu fördern und die Wartbarkeit zu verbessern, ohne dabei die Effizienz und die deterministischen Eigenschaften der zugrunde liegenden Hardware zu beeinträchtigen.
 
-Im ersten Teil der Arbeit wurden die theoretischen Grundlagen der Embedded-Entwicklung erörtert, dabei waren hardwarebezogene Begriffe wie Eingebettete System, die Bedeutung von \texttt{volatile} Deklarationen für Hardwareregister oder einzelne Peripheriefunktionen.
+Im ersten Teil der Arbeit wurden die theoretischen Grundlagen der Embedded-Entwicklung erörtert, dazu gehören hardwarebezogene Begriffe wie Eingebettete System, die Bedeutung von \texttt{volatile} Deklarationen für Hardwareregister oder einzelne Peripheriefunktionen.
 Außerdem galt es softwarespezifische Begriffe wie Architektur- und Designmuster zu erläutern, die die Grundlage für die spätere Implementierung der HW\_API bilden.
 
 Im Anschluss daran erfolgte eine Analyse des Standes der Technik. 
@@ -15,7 +15,7 @@ Für die Implementierung wurde zusätzlich der Aufbau der Bibliotheken der verwe
 Die Analyse offenbarte typische Herausforderungen der Embedded-Entwicklung, darunter Unterschiede in Registerzugriffen, fehlendes Caching, Nebenwirkungen bei Lese-/Schreiboperationen, verschiedene Interrupt-Mechanismen und die Notwendigkeit expliziter Initialisierungsstrukturen.
 Neben den Unterschieden galt es auch Ähnlichkeiten herauszufinden, die einen Hinweis auf mögliche Implementierungsmethoden geben konnten.
 Im Zuge der Implementierung wurde eine klare Trennung zwischen abstrakten Schnittstellen und konkreten Hardware-Implementierungen vorgenommen. 
-Die Definition von Interfaces wie den Bezeichnungen \text{IGpioBase} und \texttt{ISpi} ermöglichte eine konsequente Abstraktion der Hardware. 
+Die Definition von Interfaces wie den Bezeichnungen \texttt{IGpioBase} und \texttt{ISpi} ermöglichte eine konsequente Abstraktion der Hardware. 
 Auf Basis dieser Schnittstellen wurden plattformspezifische Klassen wie \texttt{GpioStm32} und \texttt{GpioEsp32} implementiert.
 
 In diesem Prozess der Initialisierung von Hardware und einzelnen Modulen kamen unterschiedliche Designmuster zum Einsatz.

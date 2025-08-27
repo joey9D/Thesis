@@ -1,10 +1,10 @@
-Aufbau / Ebenene
-\begin{itemize}
-	\item main
-	\item Funktionen
-	\item Funktionen $\rightarrow$ HAL-Funktion
-	\item HAL-Funktion $\rightarrow$ LL-Funktion
-\end{itemize}
+%Aufbau / Ebenene
+%\begin{itemize}
+%	\item main
+%	\item Funktionen
+%	\item Funktionen $\rightarrow$ HAL-Funktion
+%	\item HAL-Funktion $\rightarrow$ LL-Funktion
+%\end{itemize}
 
 Das ESP-IDF (Espressif IoT Development Framework) stellt ein offizielles Entwicklungsframework für die Microcontroller der Firma Espressif dar, wie etwa das ESP32 und dessen Varianten. 
 Es stellt ein umfangreiches Ökosystem bereit, das sowohl die Auswahl und Konfiguration der Hardware als auch die Entwicklung, das Flashen und Debugging von Software einschließt.
@@ -14,7 +14,7 @@ Im Rahmen dieser Installation werden die erforderlichen Softwarekomponenten auto
 Zu diesen Komponenten zählen:
 
 \paragraph{Toolchain}
-bringt passende Compiler und die erforderlichen Werkzeuge zum Übersetzen des Quellcodes für die jeweilige ESP32-Plattform. 
+, die die passenden Compiler und die erforderlichen Werkzeuge zum Übersetzen des Quellcodes für die jeweilige ESP32-Plattform mit sich bringt. 
 Diese beinhalten die Xtensa GCC Toolchain (\texttt{xtensa-esp32-elf-gcc}) für ältere Modelle wie  ESP32-, ESP32-S2- und ESP32-S3-Modelle.
 Für neuere Modelle wie den ESP32-C3 und ESP32-C6, die auf RISC-V basieren, wird die RISC-V GCC Toolchain (\texttt{riscv32-esp-elf-gcc}) verwendet.
 
@@ -33,6 +33,7 @@ wie beispielsweise \texttt{OpenOCD} werden mit installiert.
 Diese Werkzeuge ermöglichen neben dem Flashen der Firmware auf die Zielhardware, auch das Setzen von Breakpoints sowie das Debugging direkt auf dem Microcontroller. 
 Sie unterstützen verschiedene Schnittstellen (z.\,B. JTAG oder USB) und lassen sich mit gängigen IDEs und Entwicklungsumgebungen integrieren.
 
+\vspace{0.5cm}
 
 Wird ein neues Projekt mit dem ESP-IDF Framework gestartet, erfolgt die Einrichtung der Projektstruktur und der benötigten Komponenten ebenfalls weitgehend automatisiert.
 Die Generierung eines neuen Projekts kann über die Kommandozeile des IDF-Terminal oder entsprechende Assistenten wie der ESP-IDF Erweiterung in VSCode erfolgen.
@@ -43,8 +44,8 @@ Die erforderlichen Hardwaretreiber, Bibliotheken und Tools wurden bereits mit de
 Der grundlegende Aufbau eines Projekts im ESP-IDF ist durch eine hierarchische Struktur gekennzeichnet, bei der die einzelnen Ebenen klar voneinander getrennt sind.
 Auf oberster Ebene befindet sich die main-Funktion, die den Einstiegspunkt des Programms darstellt.
 Von diesem Punkt aus werden die zentralen Initialisierungen ausgeführt und die Steuerung des weiteren Programmablaufs initiiert.
-Aus Main-Funktion erfolgt der Aufruf spezifischer Anwendungsfunktionen.
-In der Regel erfolgt der Zugriff auf diese Funktionen durch die Verwendung der sogenannten \gls{hal}-Funktionen (Hardware Abstraction Layer).
+Aus der \texttt{main}-Funktion erfolgt der Aufruf spezifischer Anwendungsfunktionen.
+In der Regel erfolgt der Zugriff auf diese Funktionen durch die Verwendung der sog. \gls{hal}-Funktionen.
 Das Framework stellt damit einen standardisierten Zugriff auf die zugrunde liegende Hardware bereit.
 Die \gls{hal}-Funktionen selbst basieren wiederum auf Low-Level-(LL)-Funktionen, die den direkten Zugriff auf Register und Peripherie des ESP32 ermöglichen.
 Diese Schichtung resultiert in einer klare Abstraktion, da die Anwendung hardwareunabhängig entwickelt werden kann, während der Zugriff auf die Peripherie über wohldefinierte Schnittstellen erfolgt.

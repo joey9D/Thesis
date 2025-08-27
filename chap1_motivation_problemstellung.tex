@@ -18,21 +18,21 @@ In der Praxis zeigt sich, dass das Fehlen von Abstraktion häufig zu redundantem
 % Ausgangssituation in der Firma
 Die Arbeit entsteht in der Produktentwicklung der Schaefer GmbH.
 Hier werden die Produkte von Grund auf konzipiert, implementiert und getestet.
-Dabei arbeiten Hardware- und Softwareentwicklung eng zusammen, denn es muss bekannt sein, welche Microcontroller verwendet und wie Displays und Taster angesprochen werden können, um den Anforderungen zu entsprechen.
-Hauptsächliche kommen hier die STM32 Microcontroller der Firma ST zum Einsatz.
-Diese bieten ein umfangreiches Portfolio, das von stromsparenden IoT-Bausteinen bis hin zu leistungsfähigen Controllern für grafikfähige Anwendungen reicht.
+Dabei arbeiten Hardware- und Softwareentwicklung eng zusammen, denn es muss bekannt sein, welche Microcontroller verwendet und wie einzelne externe Hardwarekomponenten (Displays, Taster) angesprochen werden können, um den Anforderungen zu entsprechen.
+Hauptsächliche kommen hier die STM32 Microcontroller der Firma ST \cite{stm32_highperf} zum Einsatz.
+Diese bieten ein umfangreiches Portfolio, das von stromsparenden IoT-Bausteinen bis hin zu leistungsfähigen Microcontroller für grafikfähige Anwendungen reicht.
 Die Auswahl und die damit verbundene Skalierbarkeit der Hardware ermöglichen eine flexible Anpassung an die unterschiedlichsten Leistungs- und Energieanforderungen.
 Zusätzlich steht eine Vielzahl an integrierten Schnittstellen für Peripherie und Funktionsblöcken zur Verfügung, wodurch die Abdeckung verschiedenster Anwendungsbereiche ermöglicht wird.
 Um die Software zu implementieren und mit der Hardware zu arbeiten, wird die STM32Cube-Umgebung bereitgestellt, auf die in \cref{sec:stm32cube} genauer eingegangen wird.
 Außerdem kommen zum Teil eigens in C++ erstellte Klassen zum Einsatz, um über die HAL hinaus eine klarere Abstraktion und bessere Wiederverwendbarkeit zu erreichen.
 Ein wesentliches Problem aktueller Entwicklungen besteht darin, dass Programme in vielen Fällen für jede Zielhardware neu implementiert oder stark angepasst werden müssen.
 Innerhalb der STM32-Familie lässt sich dies vergleichsweise einfach durch Konfigurationen lösen. 
-Beim Wechsel auf hardwarefremde Plattformen, wie etwa den ESP32, sind umfangreiche Anpassungen erforderlich. 
+Beim Wechsel auf hardwarefremde Plattformen, wie etwa den ESP32-\gls{mcu}s, sind umfangreiche Anpassungen erforderlich. 
 Diese reichen bis hin zu einer nahezu vollständigen Neuentwicklung des Codes.
 
 % Ziel
 Das Ziel dieser Arbeit besteht somit in der Entwicklung einer modularen, plattformunabhängigen und ressourceneffizienten Treiberbibliothek mit einer einheitlichen Schnittstelle. 
-Diese soll eine nachhaltige, wartbare und flexible Softwarebasis schaffen, die den Herausforderungen der modernen Embedded-Entwicklung adäquat begegnen kann und eine  leicht Erweiterung um Funktionen und den evtl. Einsatz von \gls{rtos} ermöglicht.
+Diese soll eine nachhaltige, wartbare und flexible Softwarebasis schaffen, die den Herausforderungen der modernen Embedded-Entwicklung adäquat begegnen kann und eine  leichte Erweiterung um Funktionen und den evtl. Einsatz von \gls{rtos} ermöglicht.
 
 
 \section{Aufbau der Arbeit}

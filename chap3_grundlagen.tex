@@ -18,12 +18,11 @@ Typischerweise handelt es sich dabei um Maschinen, Geräte oder Anlagen, in dene
 Ein wesentliches Merkmal eingebetteter Systeme besteht darin, dass sie nicht als eigenständige Recheneinheiten agieren, sondern als integraler Bestandteil eines übergeordneten Gesamtsystems dienen.
 In der Regel operieren sie im Hintergrund und sind nicht direkt mit den Benutzern verbunden. In einigen Fällen erfolgt die Interaktion automatisch, in anderen durch Eingaben des Nutzers.
 
-%\paragraph{Definition:}
-%Ein Embedded System ist ein spezialisiertes, in sich geschlossenes Computersystem, das für eine klar definierte Aufgabe innerhalb eines übergeordneten technischen Systems konzipiert wurde.
-%
-%\vspace{6 mm}
-
 Die Entwicklung von Software für eingebettete Systeme ist mit besonderen Anforderungen verbunden, die sich signifikant von denen unterscheiden, die etwa in der Web- oder Anwendungsentwicklung üblich sind.
+Zu diesen Anforderungen zählen unteranderem in welcher Umgebung des System eingesetzt werden soll und welcher Leistungsaufwand dafür benötigt wird.
+Aber auch Randbedingung wie Kosten der Anschaffung der Hardware und der Umsetzung des Systems, sowie mögliche Auswirkungen auf die Umwelt.
+Nicht zu letzt Gestaltungsgrundsätze, die bestimmen wie modular des Systems sein soll, welche Grundlagen dieses erfüllen muss oder wie viel Fehlertoleranz erlaubt ist.
+
 Es ist von besonderer Bedeutung, hardwarenahe Aspekte zu berücksichtigen, da die Software unmittelbar mit der zugrunde liegenden Microcontroller-Hardware interagiert.
 Ein zentraler Aspekt dabei ist die Integration geeigneter Treiber für die jeweilige Microcontroller-Architektur.
 \begin{figure}[H]
@@ -31,13 +30,13 @@ Ein zentraler Aspekt dabei ist die Integration geeigneter Treiber für die jewei
 	\caption{Allgemeine Darstellung der Schichtenarchitektur.\cite{RichardsFord2020}}
 	\label{fig:embedded_layer_architecture}
 \end{figure}
-Die betreffenden Treiber beinhalten Funktionen, welche den Zugriff auf die Hardware mittels sogenannter Register erlauben.
-Register sind spezifische Speicherbereiche innerhalb des Microcontrollers, welche eine unmittelbare Manipulation des Hardware-Verhaltens ermöglichen.
+Die betreffenden Treiber beinhalten Funktionen, die den Zugriff auf die Hardware mittels sog. Register erlauben.
+Register sind spezifische Speicherbereiche innerhalb des Microcontrollers, die eine unmittelbare Manipulation des Hardware-Verhaltens ermöglichen.
 Durch das gezielte Setzen oder Auslesen einzelner Bits in diesen Registern ist es möglich, beispielsweise Sensorwerte zu erfassen (z. B. das Drücken eines Tasters) oder Ausgaben zu erzeugen (z. B. das Anzeigen eines Textes auf einem Display).
 % Memory Mapped IO
 Der Zugriff auf diese Register erfolgt typischerweise über den Mechanismus des \gls{mmio}. 
-In diesem Prozess werden die Peripherieregister in denselben Adressraum eingebunden wie der Arbeitsspeicher (RAM). 
-Für den Prozessor ist es somit irrelevant, ob er Daten im RAM oder in einem Peripherieregister liest oder schreibt – beide Zugriffe erfolgen über die gleichen Speicherbefehle. 
+In diesem Prozess werden die Peripherieregister in denselben Adressraum eingebunden wie der Arbeitsspeicher (\gls{ram}). 
+Für den Prozessor ist es somit irrelevant, ob er Daten im \gls{ram} oder in einem Peripherieregister liest oder schreibt, beide Zugriffe erfolgen über die gleichen Speicherbefehle. 
 Der wesentliche Unterschied zwischen den beiden Verfahren liegt darin, dass ein Zugriff auf ein Register nicht nur die Daten verändert, sondern auch das Verhalten der Hardware steuert oder deren aktuellen Status zurückgibt.
 \gls{mmio} zeichnet sich zum einen durch die direkte Hardwaresteuerung aus.
 Jeder Registerzugriff löst eine konkrete Aktion aus.
@@ -46,8 +45,8 @@ Ein Nachteil besteht in den Nebenwirkungen, die beispielsweise das automatische 
 Ein weiteres Problem ist das fehlende Caching, da Peripheriebereiche von Cache- und Spekulationsmechanismen ausgeschlossen werden müssen. 
 Diese Peripheriebereiche liegen im \gls{mmio} Bereich.
 Damit dürfen diese nicht über einen Cache gelesen oder beschrieben werden, da der Prozessor sonst mit veralteten oder falschen Werten arbeiten oder Schreibzugriffe nicht korrekt bei der Hardware ankommen würden.
-Darüber hinaus setzen moderne Prozessoren häufig sogenannte Spekulationsmechanismen ein, bei denen Befehle vorab ausgeführt werden, um die Leistung zu steigern.
-Im Falle eines spekulativen Zugriffs einer CPU auf Speicherzugriffe im MMIO-Bereich besteht die Möglichkeit einer ungewollten Veränderung der Registerzustände, beispielsweise durch das vorzeitige Löschen von Statusbits.
+Darüber hinaus setzen moderne Prozessoren häufig sog. Spekulationsmechanismen ein, bei denen Befehle vorab ausgeführt werden, um die Leistung zu steigern.
+Im Falle eines spekulativen Zugriffs einer CPU auf Speicherzugriffe im MMIO-Bereich, besteht die Möglichkeit einer ungewollten Veränderung der Registerzustände, beispielsweise durch das vorzeitige Löschen von Statusbits.
 Um derartige Seiteneffekte zu unterbinden, werden Speicherbereiche für Peripherie explizit als \texttt{device memory} oder \texttt{strongly ordered} markiert, sodass spekulative Zugriffe auf diese Bereiche unterbunden werden.
 % Keyword: volatile
 Zudem besteht die Notwendigkeit, in höheren Programmiersprachen wie C oder C++ Registerzugriffe als \texttt{volatile} zu deklarieren, um unzulässige Compileroptimierungen zu verhindern.
@@ -58,7 +57,7 @@ Insbesondere bei Zugriffen auf Speicherbereiche im Kontext von \gls{mmio} ist di
 
 \subsection{Microcontroller Unit (MCU)}
 Ein Microcontroller ist ein vollständig auf einem einzigen Chip realisierter Mikrocomputer, der neben dem eigentlichen Prozessor (CPU) auch sämtliche für den Betrieb notwendigen Komponenten integriert. 
-Zu den Komponenten eines solchen Systems zählen in der Regel Programmspeicher (Flash), Datenspeicher (\gls{ram}), digitale Ein- und Ausgänge (\gls{gpio}), Timer, Kommunikationsschnittstellen (wie \gls{uart}, \gls{spi}, \gls{i2c}, \gls{can}) sowie in vielen Fällen analoge Peripheriekomponenten wie Analog/Digital-Wandler oder Pulsweitenmodulation-Einheiten.
+Zu den Komponenten eines solchen Systems zählen in der Regel Programmspeicher (Flash), Datenspeicher (\gls{ram}), digitale Ein- und Ausgänge (\gls{gpio}), Timer, Kommunikationsschnittstellen (wie \gls{uart}, \gls{spi}, \gls{i2c}, \gls{can}) sowie in vielen Fällen analoge Peripheriekomponenten wie Analog/Digital-Wandler oder Pulsweitenmodulations-Einheiten.
 
 Microcontroller werden für spezifische Steuerungs- und Regelungsaufgaben konzipiert und finden typischerweise Anwendung in eingebetteten Systemen, wie beispielsweise Haushaltsgeräten, Fahrzeugsteuerungen, Industrieanlagen oder IoT-Geräten. 
 Die Geräte zeichnen sich durch einen geringen Energieverbrauch, eine kompakte Bauform, niedrige Kosten und eine direkte Hardwareansteuerung aus. 
@@ -74,15 +73,15 @@ Die als \emph{On-Chip} bezeichneten Komponenten sind integraler Bestandteil des 
 Zusätzlich zur integrierten Peripherie besteht die Möglichkeit, über die physischen Pins des Microcontrollers auch externe Peripheriegeräte anzuschließen. 
 Die Verbindung erfolgt in der Regel mittels Steckverbindungen, wie etwa Jumper-Kabeln, Steckbrücken, Pin-Headern oder speziellen Anschlussleisten auf Entwicklungsboards. 
 In der Regel werden zu diesem Zweck Steckbretter (Breadboards) oder Lochrasterplatinen verwendet, um eine übersichtliche und flexible Verdrahtung zu gewährleisten. 
-Externe Bauteile, wie etwa Sensoren (Temperatursensor), Aktoren (LED), Displays oder Speicherbausteine, werden über gängige Schnittstellen wie I2C, SPI, UART oder digitale GPIOs mit dem Microcontroller verbunden.
+Externe Bauteile, wie etwa Sensoren (Temperatursensor), Aktoren (LED), Displays oder Speicherbausteine, werden über die genannten gängigen Schnittstellen wie I2C, SPI, UART oder digitale GPIOs mit dem Microcontroller verbunden.
 Die Kommunikation mit externen Geräten wird durch die Peripheriemodule des Microcontrollers realisiert. 
 Für den zuverlässigen Betrieb sind in der Regel spezifische Softwaretreiber erforderlich, die die Initialisierung, Datenübertragung und gegebenenfalls die Fehlerbehandlung übernehmen.
 
 \subsubsection*{General Purpose Input Output}
-Der Begriff "General Purpose Input/Output" (GPIO) bezeichnet universelle, digitale Pins eines Microcontrollers, die flexibel als Eingang oder Ausgang konfiguriert werden können.
+Der Begriff \textit{General Purpose Input/Output} (GPIO) bezeichnet universelle, digitale Pins eines Microcontrollers, die flexibel als Eingang oder Ausgang konfiguriert werden können.
 Sie stellen die grundlegendste Form der Interaktion mit der Außenwelt dar und gestatten die Erfassung externer digitaler Signale, z.B. von Tastern oder Sensoren, sowie die Erzeugung entsprechender Signale etwa zur Steuerung von LEDs oder Relais.
 Grundsätzlich können GPIOs flexibel als Eingang oder Ausgang verwendet werden.
-Typischerweise erfolgt die Konfiguration solcher Embedded-Systeme statisch während der Initialisierung, entweder automatisch durch Codegeneratoren wie STM32CubeMX oder manuell in der Startkonfiguration der Firmware.
+Die Konfiguration solcher Embedded-Systeme erfolgt typischerweise statisch während der Initialisierung, entweder automatisch durch Codegeneratoren wie STM32CubeMX oder manuell in der Startkonfiguration der Firmware.
 Obwohl eine Änderung der GPIO-Funktionalität zur Laufzeit technisch möglich wäre, wird dies in der Praxis häufig vermieden, um ein deterministisches und stabiles Systemverhalten zu gewährleisten.
 In der praktischen Anwendung bilden sie die Grundlage für einfache Steuerungs- und Überwachungsaufgaben und sind daher von zentraler Bedeutung für die hardwarenahe Embedded-Programmierung.
 
@@ -93,8 +92,7 @@ SPI arbeitet synchron, d.h. Sender und Empfänger teilen sich ein gemeinsames Ta
 Der Master ist derjenige, der diesen Takt vorgibt und bereitgestellt.
 Dadurch wird eine präzise, zeit-sensitive Übertragung ermöglicht. 
 Die zentrale Eigenschaft von \gls{spi}, die das gleichzeitige Senden und Empfangen ermöglicht ist die Unterstützung der Voll-Duplex-Kommunikation.
-% TODO: SPI: Quellenverweise einfügen.
-Der \gls{spi}-Bus verwendet meistens vier physikalische Leitungen:
+Der \gls{spi}-Bus verwendet meistens vier physikalische Leitungen :
 \begin{itemize}
 	\item \gls{mosi} / \gls{copi} für die Kommunikation vom Master zu den Peripheriegeräten (Slaves).
 	\item \gls{miso} / \gls{cipo} für die Kommunikation von den Peripheriegeräten zum Master.
@@ -104,7 +102,7 @@ Der \gls{spi}-Bus verwendet meistens vier physikalische Leitungen:
 
 In der Regel dient der Microcontroller als Master, der den Datenfluss steuert.
 Mittels des Slave-Signals ist es der \gls{mcu} möglich, gezielt Slaves anzusprechen.
-Dabei ist darauf zu achten, dass jeweils nur ein Slave die Kommunikation aktiv durchführen darf, um eine Kollision auf Bus zu vermeiden.
+Dabei ist darauf zu achten, dass jeweils nur ein Slave die Kommunikation aktiv durchführen darf, um eine Kollision auf dem Bus zu vermeiden.
 
 \gls{spi} zeichnet sich im Vergleich zu anderen seriellen Protokollen wie \gls{i2c} durch eine vereinfachte Implementierung und eine deutlich höhere Datenübertragungsrate aus. 
 Allerdings fehlen eine standardisierte Adressierung und Fehlerprüfung, was den Einsatz auf kurze Distanzen und überschaubare Topologien begrenzt. 
@@ -134,7 +132,7 @@ Allerdings fehlen eine standardisierte Adressierung und Fehlerprüfung, was den 
 %Dieses Verfahren zeichnet sich durch seine besondere Effizienz aus und ist in der Lage, Echtzeitanforderungen zu erfüllen.
 %
 %Obwohl CAN asynchron arbeitet, d.h. jeder Knoten verfügt über einen eigenen Takt, erfolgt die Synchronisation der Kommunikation durch ein fein abgestimmtes Zeitraster innerhalb des CAN-Controllers. 
-%Die Bitzeit wird in sogenannte Zeitquanten (Time Quanta, TQ) unterteilt, deren Definition relativ zur eingestellten Bus-Baudrate erfolgt. 
+%Die Bitzeit wird in sog. Zeitquanten (Time Quanta, TQ) unterteilt, deren Definition relativ zur eingestellten Bus-Baudrate erfolgt. 
 %Diese Zeitquanten lassen sich in mehrere Segmente unterteilen: 
 %
 %\begin{itemize}
@@ -162,7 +160,7 @@ Allerdings fehlen eine standardisierte Adressierung und Fehlerprüfung, was den 
 \subsubsection{Architekturmuster}
 %Unter Architektur, speziell \emph{Softwarearchitektur} versteht man den Prozess eine allgemeine Struktur für ein Softwaresystem zu erstellen.
 Helmut Balzert definiert den Begriff als ''eine strukturierte oder hierarchische Anordnung der Systemkomponenten sowie Beschreibung ihrer Beziehungen'' \cite{balzert2011softwaretechnik2}.
-In diesem Prozess gilt es, die Komponenten in eine grobe (high-level) Gliederung zu bringen.
+Bei der Erstellungen eines Architekturmusters gilt es, die Komponenten in eine grobe (high-level) Gliederung zu bringen.
 Im Kontext der Embedded Systeme und Entwicklung und speziell dieser Arbeit, wird sich primär mit der \emph{Schichtenarchitektur} befasst.
 
 Bei diesem Architekturmuster wird das gesamte System in Schichten unterteilt, die  Handlungsbereiche darstellen.
@@ -184,17 +182,17 @@ Sie dient als verteilende Zwischenschicht zwischen der Programm und der Abstrakt
 \cref{fig:layer_architecture_hw_api} zeigt, wo die neu entwickelte Hardware-API in den Bereich der Middleware platziert sein wird.
 
 
-\paragraph{Betriebssystem} ist eine weitere optionale Schicht.
+\paragraph{Betriebssysteme} sind eine weitere optionale Schicht.
 Optional in dem Sinn, das ein Embedded System nicht zwingend eine Betriebssystem benötigt.
-Dann wird von Bare-Metal-Entwicklung gesprochen.
+In diesem Fall wird von Bare-Metal-Entwicklung gesprochen.
 Ohne das Betriebssystem werden direkt die Pins, d.h. die Hardware angesprochen und programmiert; z.B. wenn in kleinem Schaltkreis nur ein Schalter, mit dem ein Signal ein oder ausgeschalten werden soll, und eine LED, die mit dem Schaltersignal leuchtet oder nicht, verbaut sind.
 Das Programm befindet sich dann in einem sog. \textit{Superloop}, einer endlosen Schleife, in der alle Aufgaben des Systems sequentiell und wiederholt abgearbeitet werden, ohne dass ein Betriebssystem zur Ablaufsteuerung oder Taskverwaltung erforderlich ist.
 Wird ein Betriebssystem eingesetzt bringt das funktionale Erweiterungen mit sich, wie Multitasking oder besseres Zeitmanagement.
 Des weiteren muss bei mit einem OS (Operating System) auf die verfügbaren Ressourcen geachtet werden, da der Speicher bei Microcontrollern begrenzt ist.
 
 \paragraph{Hardwareabstraktionsschicht} (\gls{hal}) befindet sich unter der Middleware bzw. unter dem Betriebssystem.
-Gibt es keine zusätzlichen Funktionen in der Middlewareschicht und wird bare-metal entwickelt kann aus der Applikation direkt auf die hier gelagerten Funktionen zugreifen.
-Wie dieser direkte Zugriff auf die Abstraktionsschicht aussieht ist in Code \cref{lst:stm32_mx_gpio_init}
+Gibt es keine zusätzlichen Funktionen in der Middlewareschicht und wird bare-metal entwickelt, kann aus der Applikation direkt auf die hier gelagerten Funktionen zugegriffen werden.
+Wie dieser direkte Zugriff auf die Abstraktionsschicht aussieht ist in \cref{lst:stm32_mx_gpio_init}
 zu sehen.
 \clearpage
 
@@ -257,7 +255,8 @@ Sie enthält neben den Low-Level-Treibern, die direkten Zugriff auf die Register
 \subsubsection{Designmuster} \label{chap3_2_1_designmuster}
 % TODO: Designpattern: Nur für OOP?
 Neben dem Architekturmuster, das für die Struktur des gesamten Projekts verantwortlich ist, stehen die \emph{Designmuster}.
-Unter diesem Begriff versteht man das Designen von einzelnen Softwarekomponenten, wie diese aufgebaut sein sollen, wie sie miteinander kommunizieren, welche Eigenschaften sie haben und hilft dabei die Software zu implementieren.
+Unter diesem Begriff versteht man das Designen von einzelnen Softwarekomponenten, wie diese aufgebaut sein sollen, wie sie miteinander kommunizieren, welche Eigenschaften sie haben.
+Dies hilft dabei die Software zu implementieren.
 Designmuster konzentrieren sich somit auf das Innenleben eines Projekts.\cite{gfg_DesignVsArchitecture}
 
 Dabei wird unterschieden zwischen
@@ -268,16 +267,16 @@ Dabei wird unterschieden zwischen
 \end{itemize}
 
 Erzeugungsmuster helfen dabei, die Art und Weise der Erzeugung von Objekten umzusetzen.
-Sie sorgen dafür, dass der eigentliche Erzeugungsprozess nicht direkt sichtbar.
+Sie sorgen dafür, dass der eigentliche Erzeugungsprozess nicht direkt sichtbar ist.
 Der Fokus liegt auf der Trennung von der Erzeugung und Verwendung von Objekten, um Flexibilität, Wiederverwendbarkeit und Austauschbarkeit zu ermöglichen.
-Beispiel, die im Laufe dieser Arbeit noch erscheinen sind das Factory-Pattern, das Singleton-Pattern oder das Builder-Pattern.
+Beispiele, die im Laufe dieser Arbeit noch erscheinen sind das Factory-Pattern, das Singleton-Pattern oder das Builder-Pattern.
 %% Factory
 Das Factory-Pattern dient der Kapselung des Erzeugungsprozesses, indem die Instanziierung von Objekten an eine spezielle Fabrikklasse oder -methode ausgelagert wird. 
 Es ist nicht erforderlich, dass dem aufrufenden Code der konkrete Typ des zurückgegebenen Objekts bekannt ist. 
 Dies hat eine erhöhte Austauschbarkeit und Erweiterbarkeit zur Folge.
 
 %% Singleton
-Das sogenannte Singleton-Pattern stellt sicher, dass von einer bestimmten Klasse lediglich eine Instanz existiert und diese global zugänglich ist. 
+Das sog. Singleton-Pattern stellt sicher, dass von einer bestimmten Klasse lediglich eine Instanz existiert und diese global zugänglich ist. 
 Typischerweise findet es Anwendung, um zentrale Ressourcen wie Konfigurationsobjekte oder Schnittstellen konsistent bereitzustellen.
 
 %% Builder
@@ -288,19 +287,19 @@ Auf diese Weise wird eine klare Trennung zwischen dem Erstellungsprozess und der
 Strukturmuster helfen dabei, die erstellten Klassen und Objekte zu organisieren.
 Der Fokus liegt auf dem Zusammenspiel unabhängig entwickelter Klassenbibliotheken sowie der Vereinfachung von Schnittstellen und dem modularen Aufbau von Systemen.
 %% Facade
-Das sogenannte Facade-Pattern dabei stellt eine Methode dar, um eine einheitliche und vereinfachte Schnittstelle zu einem komplexen Subsystem bereitzustellen. 
+Das sog. Facade-Pattern stellt dabei eine Methode dar, um eine einheitliche und vereinfachte Schnittstelle zu einem komplexen Subsystem bereitzustellen. 
 Dies hat den Vorteil, dass Implementierungsdetails verborgen werden und die Verwendung der Schnittstelle für den Anwender erheblich vereinfacht wird.
 
 Verhaltensmuster definieren, wie Objekte miteinander interagieren, wie Zuständigkeiten aufgeteilt werden und wie der Kontrollfluss zwischen ihnen abläuft.
-Der Fokus liegt nicht ausschließlich auf dem ''Was'' (z. B. ein Event), sondern auch auf dem ''Wie'', ''Wann'' und ''Wer''.
-Ein Beispiel hierfür ist die Template Method. 
-In Muster definiert eine Basisklasse einen Algorithmus, d.h. eine feststehende Reihenfolge von Befehlen oder Funktionen. 
-Die Implementierung aller Schritte wird dabei nicht durch die Basisklasse selbst vorgenommen, sondern kann für die jeweiligen einzelnen Zwischenschritte, sogenannter Hooks, individuell durch Unterklassen erfolgen.
+Der Fokus liegt nicht ausschließlich auf dem ''Was'', z. B. ein Event, sondern auch auf dem ''Wie'', ''Wann'' und ''Wer''.
+Ein Beispiel hierfür ist das Template-Method Pattern. 
+Ein Muster definiert eine Basisklasse einen Algorithmus, d.h. eine feststehende Reihenfolge von Befehlen oder Funktionen. 
+Die Implementierung aller Schritte wird dabei nicht durch die Basisklasse selbst vorgenommen, sondern kann für die jeweiligen einzelnen Zwischenschritte, sog. Hooks, individuell durch Unterklassen erfolgen.
 Im Rahmen der STM32-HAL wird dieses Muster bei Callback-Funktionen für Interrupts verwendet. 
 Die Funktion \texttt{HAL\_GPIO\_EXTI\_IRQHandler(uint16\_t GPIO\_Pin)} fungiert als Template, während die Funktion \texttt{HAL\_GPIO\_EXTI\_Callback(uint16\_t GPIO\_Pin)} als Hook vom Entwickler selbst implementiert werden muss.
 
 \subsection{Application Programming Interface}
-Eine \emph{Anwendungsprogrammierschnittstelle} (\gls{api}) wird von IBM beschrieben ''eine Reihe von Regeln oder Protokollen, die es Softwareanwendungen ermöglichen, miteinander zu kommunizieren, um Daten, Funktionen und Funktionalitäten auszutauschen.''\cite{ibmAPI}.
+Eine \emph{Anwendungsprogrammierschnittstelle} (\gls{api}) wird von IBM beschrieben als ''eine Reihe von Regeln oder Protokollen, die es Softwareanwendungen ermöglichen, miteinander zu kommunizieren, um Daten, Funktionen und Funktionalitäten auszutauschen.''\cite{ibmAPI}.
 Damit soll eine Vereinfachung und Effizienzsteigerung für die Softwareentwicklung erreicht werden.
 \glspl{api} dienen als Zwischenschicht zwischen verschiedenen Softwarekomponenten oder Systemen.
 Sie ermöglichen eine klare Abgrenzung der Zuständigkeiten und stellen eine Abstraktion komplexer interner Abläufe hinter einer standardisierten Schnittstelle bereit.
@@ -311,8 +310,8 @@ Gleichzeitig wird zur allgemeinen Sicherheit beigetragen, da nur definierte Info
 %Dies hat zur Folge, dass Geräte oder Server ihre Daten nicht vollständig aufdecken müssen.
 
 \subsection{CMake}
-CMake ist ein plattformübergreifendes Open-Source-Werkzeug zur Automatisierung des Buildprozesses in der Softwareentwicklung
-Der sogenannte Metabuild-Generator (\autoref{fig:cmake_generators}) dient als eine Art universeller Konfigurator, der mithilfe Konfigurationsdateien, den \texttt{CMakeLists.txt}-Dateien, spezifische Build-Systeme für eine Vielzahl unterschiedlicher Plattformen und Entwicklungsumgebungen generiert.
+CMake ist ein plattformübergreifendes Open-Source-Werkzeug zur Automatisierung des Buildprozesses in der Softwareentwicklung.
+Der sog. Metabuild-Generator von dem in \cref{fig:cmake_generators} ein paar gelistet sind, dient als eine Art universeller Konfigurator, der mithilfe Konfigurationsdateien, den \texttt{CMakeLists.txt}-Dateien, spezifische Build-Systeme für eine Vielzahl unterschiedlicher Plattformen und Entwicklungsumgebungen generiert.
 Unter diesen Build-Systemen finden sich beispielsweise Makefiles für Unix/Linux, Projektdateien für Visual Studio oder Xcode.
 
 \begin{figure}[H]
@@ -321,17 +320,17 @@ Unter diesen Build-Systemen finden sich beispielsweise Makefiles für Unix/Linux
 	\label{fig:cmake_generators}
 \end{figure}
 
-Ein wesentlicher Vorteil von CMake liegt in der Trennung von Quell- und Build-Verzeichnissen, was sogenannte Out-of-Source-Builds ermöglicht.
+Ein wesentlicher Vorteil von CMake liegt in der Trennung von Quell- und Build-Verzeichnissen, was sog. Out-of-Source-Builds ermöglicht.
 Diese Vorgehensweise trägt zur Schaffung einer übersichtlichen Projektstruktur bei und vereinfacht die Verwaltung von Build-Artefakten.
 Zusätlich fördert CMake die hierarchische Strukturierung von Projekten mittels der Implementierung von modularen CMakeLists.txt-Dateien in Unterverzeichnissen.
 Dieser Ansatz steigert die Wartbarkeit und Skalierbarkeit komplexer Softwareprojekte.
 
 \subsection{Make und Makefiles}
-Make ist ein traditionelles Werkzeug zur Automatisierung von Build-Prozessen, das sogenannte Makefiles zur Steuerung dieser Prozesse einsetzt.
+Make ist ein traditionelles Werkzeug zur Automatisierung von Build-Prozessen, das sog. Makefiles zur Steuerung dieser Prozesse einsetzt.
 Die Makefiles definieren Regeln, mit deren Hilfe der Quellcode, abhängig davon ob sich etwas im Code geändert hat, kompiliert und verlinkt wird.
 Make findet für gewöhnlich Anwendung in der direkten Steuerung von Kompilierungsprozessen.
  Es besteht jedoch auch die Möglichkeit, es zur Steuerung anderer Build-Systeme einzusetzen.
-In einigen Projekten findet ein manuelles Makefile Verwendung, welches ausschließlich CMake mit spezifischen Parametern aufruft, um den eigentlichen Build-Prozess zu initialisieren.
+In einigen Projekten findet ein manuelles Makefile Verwendung, das ausschließlich CMake mit spezifischen Parametern aufruft, um den eigentlichen Build-Prozess zu initialisieren.
 In einem solchen Szenario fungiert Make als Wrapper über CMake und ersetzt nicht dessen eigentliche Build-Logik.
 
 

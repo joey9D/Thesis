@@ -1,7 +1,7 @@
 
 Das Open-Source-Projekt \emph{modm} \cite{github_modm}\cite{modm_io}   dient als Baukasten um zugeschnittene und anpassbare Bibliotheken für Microcontroller zu generieren.
 Dadurch ist es möglich, dass eine Bibliothek nur aus den Teilen besteht, die tatsächlich in der Applikation und im Code verwendet werden müssen, ohne das es einen unnötig großen Overhead gibt.
-Um das zu bewerkstelligen wird eine Kombination aus \texttt{Jinja2}-Template-Dateien, \texttt{lbuild}-Pyhton-Skripte und eigenen Moduldefinitionen verwendet, mit der der Code für die Bibliotheken generiert wird.
+Um das zu bewerkstelligen wird eine Kombination aus \texttt{Jinja2}-Template-Dateien, \texttt{lbuild}-Python-Skripten und eigenen Moduldefinitionen verwendet, mit der der Code für die Bibliotheken generiert wird.
 Die Templatedateien enthalten Platzhalter.
 Die Werte kommen aus \texttt{YAML} und \texttt{JSON}-Dateien, die von den \texttt{lbuild}-Pyhtonskripten gelesen und in die entsprechenden Positionen der Platzhalter, während des Buildprozesses, eingefügt werden.
  
@@ -18,7 +18,7 @@ Um sehen zu können welche Module zur Verfügung stehen muss folgende Zeile in d
 	lbuild --option modm:target=stm32c031c6t6 discover
 \end{lstlisting}
 
-Sobald die gewünschten Module hinzugefügt wurde, beginnt der Installations- bzw. der Generierungsprozess der Library. 
+Sobald die gewünschten Module hinzugefügt wurden, beginnt der Installations- bzw. der Generierungsprozess der Library. 
 Gibt man nun \texttt{lbuild builld} in der Konsole ein wenn man sich im \texttt{app/project}-Verzeichnis befindet, kann die Bibliothek erstellt werden.
 Nach erfolgreichem Build erscheint in dem Projektverzeichnis ein neuer Ordner \emph{modm}.
 Dieser enthält die generierten Dateien der ausgewählten Module.
@@ -31,8 +31,8 @@ Dieser enthält die generierten Dateien der ausgewählten Module.
 
 % Architektur
 Wird ein Projekt erstellt, dass eine generierte modm-Bibliothek verwendet, lassen sich auch hier bereits bekannte Muster, wie die Schichtenarchitektur, erkennen.
-Anwendungs- und Middlewareschicht unterscheiden sich im Inhalt nicht von dem bereits bekannten aus mcu-cpp und STM32CubeIDE.
-Die Anwendungsschicht enthält weiterhin die Hauptdatei, die Businesslogik und eigene erstellt Klassen, die die Funktionen der tieferliegenden Schichten verwenden.
+Anwendungs- und Middlewareschicht unterscheiden sich im Inhalt nicht von dem bereits Bekannten aus mcu-cpp und STM32CubeIDE.
+Die Anwendungsschicht enthält weiterhin die Hauptdatei, die Businesslogik und eigene erstellte Klassen, die die Funktionen der tieferliegenden Schichten verwenden.
 Die Middlewareschicht ist weiterhin optional.
 Wurde im Konfigurationsprozess der Bibliothek keine \gls{rtos} oder keine erweiternden Funktionen wie USB und Netzwerkanbindung ausgewählt, sind diese im Projekt ebenfalls nicht vorhanden.
 Unterschiede sind in der Abstraktionsschicht zu finden.
@@ -43,7 +43,7 @@ Die unterhalb liegende Hardwareschicht besteht aus templatespezifischen Register
 Funktionen wie \texttt{GpioA0::setOutput()} ermöglichen den direkten Zugriff auf die Register. 
 Der Einsatz dieser Low-Level-Operationen erfolgt ausschließlich über die Abstraktionsschicht.
 % Designmuster
-Im modm-Projekt findet bewusst auf die Verwendung klassischer Designmuster in ihrer typischen objektorientierten Form, verzichtet. 
+Im modm-Projekt wird bewusst auf die Verwendung klassischer Designmuster in ihrer typischen objektorientierten Form verzichtet. 
 Stattdessen werden zahlreiche Funktionalitäten durch statische Metaprogrammierung, Templates und generische Programmierung abgebildet. 
 Nichtsdestotrotz lassen sich in der Struktur und Verwendung bestimmter Klassen Parallelen zu bekannten Entwurfsmustern erkennen.
 %Erzeugungmuster
@@ -53,7 +53,7 @@ Dadurch wird eine einzige, globale Instanz je Pin bereitgestellt.
 
 Die Initialisierung über \texttt{Board::initialize()} oder die vordefinierten Aliase wie \texttt{Board::LedD13} können als eine Art Factory betrachtet werden. 
 Dies liegt an einer einheitlichen, zentralisierten Bereitstellung von Komponenten für die Anwendung.
-Eine echte Factory-Methode im GoF-Sinn ist jedoch nicht implementiert, da keine polymorphe Objekterzeugung zur Laufzeit stattfindet.
+Eine echte Factory-Methode im eigentlichen Sinn ist jedoch nicht implementiert, da keine polymorphe Objekterzeugung zur Laufzeit stattfindet.
 
 Mit Blick auf Strukturmuster können Ähnlichkeiten zum Composite Muster gezogen werden.
 Strukturen wie \texttt{GpioSet<GpioA0, GpioA1, GpioA2>} fungieren hierbei als logische Zusammenfassung mehrerer GPIOs.

@@ -9,11 +9,13 @@ Dies liegt unter anderem an den unterschiedlichen Prozessorarchitekturen, der An
 Um eine Pinkonfiguration mit Code zu lösen und von der graphischen Oberfläche wegzukommen, liegt der Gedanke nahe, Objekte zu verwenden.
 Besonders im Kontext der Verwendung von C++.
 Solche Objekt werden mittels eines Konstruktors, der die Werte für die Attribute der Pins übergeben bekommt, erstellt.
-Bevor eine Erstellung dieser Pin-Objekte stattfinden kann, Aufgrund der angesprochen Unterschiede, muss erst die Hardware ausgewählt werden.
+Bevor eine Erstellung dieser Pin-Objekte stattfinden kann, Aufgrund der angesprochen Unterschiede, muss erst die Hardware bekannt sein und kann darauf hin ausgewählt werden.
 % Hardware- und Treiberauswahl
-Damit die Pin-Objekte auch verwendet werden können, muss vorher die Hardware ausgewählt und initialisiert werden.
-Beginnend mit der Auswahl, muss die API in der Lage sein, nach einer Art der Definition, welche Hardware real zur Verfügung steht, die passenden Treiber auszuwählen, eine Instanz der Hardware zu erstellen, mit der im Programm gearbeitet werden kann und aus diesem heraus die Hardware über allgemein definierte Funktionen mit den richtigen Treibern zu initialisieren.
-Diese Definition kann beispielsweise über ein \texttt{\#define}, dass den Namen der Hardware beinhaltet gelöst werden.
+Damit die Pin-Objekte auch verwendet werden können, muss vorher die gewählte Hardware initialisiert werden.
+Zu Beginn muss festgelegt werden, welche Hardware tatsächlich vorhanden ist. 
+Auf dieser Basis muss die API automatisch die passenden Treiber auswählen, eine entsprechende Hardwareinstanz erstellen und diese dem Programm übergeben können. 
+Über allgemein definierte Funktionen kann diese Instanz anschließend mit den richtigen Treibern initialisiert und verwendet werden.
+Diese Definition kann beispielsweise über ein \texttt{\#define}, dass den Namen der Hardware beinhaltet, gelöst werden.
 Mit Blick auf zukünftige Veränderungen sollte es auch so einfach wie möglich sein, weitere Hardware der API hinzu zu fügen, um die Auswahl zu erweitern.
 Diese Veränderungen und Erweiterungen würden auch die jeweiligen Peripheriefunktionen betreffen.
 Um einen klaren Überblick über diese Funktionen zu behalten, ist der Gedanke an Module zu betrachten.

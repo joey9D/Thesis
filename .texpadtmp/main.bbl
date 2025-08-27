@@ -558,6 +558,70 @@
       \verb https://www.st.com/en/development-tools/stm32cubemx.html
       \endverb
     \endentry
+    \entry{stm32_highperf}{online}{}{}
+      \name{author}{1}{}{%
+        {{hash=c38884ab3cf908c2798725960369391b}{%
+           family={{STMicroelectronics}},
+           familyi={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{c38884ab3cf908c2798725960369391b}
+      \strng{fullhash}{c38884ab3cf908c2798725960369391b}
+      \strng{fullhashraw}{c38884ab3cf908c2798725960369391b}
+      \strng{bibnamehash}{c38884ab3cf908c2798725960369391b}
+      \strng{authorbibnamehash}{c38884ab3cf908c2798725960369391b}
+      \strng{authornamehash}{c38884ab3cf908c2798725960369391b}
+      \strng{authorfullhash}{c38884ab3cf908c2798725960369391b}
+      \strng{authorfullhashraw}{c38884ab3cf908c2798725960369391b}
+      \field{extraname}{4}
+      \field{labelalpha}{STM2525}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{label}{STM25}
+      \field{note}{Übersichtsseite zur STM32 High-Performance MCU-Plattform, Produktübersicht und technologische Merkmale}
+      \field{title}{STM32 high-performance MCUs}
+      \field{urlday}{26}
+      \field{urlmonth}{8}
+      \field{urlyear}{2025}
+      \field{year}{2025}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.st.com/en/microcontrollers-microprocessors/stm32-high-performance-mcus.html
+      \endverb
+      \verb{url}
+      \verb https://www.st.com/en/microcontrollers-microprocessors/stm32-high-performance-mcus.html
+      \endverb
+    \endentry
+    \entry{McCabeMetrik}{online}{}{}
+      \name{author}{1}{}{%
+        {{hash=5a2ffc08ef28cdf5582bd3746b259651}{%
+           family={{Wikipedia-Autoren}},
+           familyi={W\bibinitperiod}}}%
+      }
+      \strng{namehash}{5a2ffc08ef28cdf5582bd3746b259651}
+      \strng{fullhash}{5a2ffc08ef28cdf5582bd3746b259651}
+      \strng{fullhashraw}{5a2ffc08ef28cdf5582bd3746b259651}
+      \strng{bibnamehash}{5a2ffc08ef28cdf5582bd3746b259651}
+      \strng{authorbibnamehash}{5a2ffc08ef28cdf5582bd3746b259651}
+      \strng{authornamehash}{5a2ffc08ef28cdf5582bd3746b259651}
+      \strng{authorfullhash}{5a2ffc08ef28cdf5582bd3746b259651}
+      \strng{authorfullhashraw}{5a2ffc08ef28cdf5582bd3746b259651}
+      \field{labelalpha}{Wik25}
+      \field{sortinit}{W}
+      \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Zugriff am 26. August 2025}
+      \field{title}{McCabe-Metrik}
+      \field{year}{2025}
+      \verb{urlraw}
+      \verb https://de.wikipedia.org/wiki/McCabe-Metrik
+      \endverb
+      \verb{url}
+      \verb https://de.wikipedia.org/wiki/McCabe-Metrik
+      \endverb
+    \endentry
     \entry{github_mcu_cpp}{online}{}{}
       \name{author}{1}{}{%
         {{hash=6e609b7644824ed4b1df51aa94f6985d}{%

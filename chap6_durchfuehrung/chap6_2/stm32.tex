@@ -1,5 +1,4 @@
 Das STM32Cube-Ecosystem \cite{stm32cube_ecosystem} der Firma STMicroelectronics bietet ein gesamtes System, von der Auswahl und der Konfiguration der Hardware bis hin zu einer IDE zur Softwareentwicklung und einer Software um den internen Speicher der MCUs zu programmieren.
-Die Kernprogramme sind dabei:
 
 \paragraph{STM32CubeMX} 
 	dient der Konfiguration der Hardware, d.h. Benennung und Funktionszuweisung der Pins, Aktivieren oder Deaktivieren von Registern und Protokollen, Konfiguration der internen Frequenzen über ein graphische Oberfläche.
@@ -7,7 +6,7 @@ Die Kernprogramme sind dabei:
 	In diesem Schritt werden die notwendigen Pakete, Treiber (\gls{hal}, CMSIS) und Firmware für die ausgewählte Hardware geladen. \cite{stm32cubemx}
 
 \paragraph{STM32CubeIDE}
-	dient der Softwareentwicklung für die MCUs zu entwickeln und implementieren.
+	wird dafür genutzt, Software für die MCUs zu entwickeln und implementieren.
 	Die Entwicklungsumgebung, basierend auf Eclipse, bietet neben dem Codeeditor ein eigenes Buildsystem, das mit Make und der \texttt{arm-none-ebai-gcc}-Toolchain arbeitet und einen Debugger hat, mit dem nicht nur Code sondern auch das Verhalten der Hardware beobachtet werden kann um Fehler zu erkennen. \cite{stm32cubeide}
 \\
 \\
@@ -16,9 +15,9 @@ Wird ein neues Projekt über STM32CubeMX gestartet werden automatisch die benöt
 %In der Hauptprogrammdatei (main.c) sind generierte Funktionen für die Hardwareinitialisierung und die Pininitialisierung zu finden.
 
 Dies Funktioniert im Kosmos der STM32Cube-Plattform sehr gut, allerdings ist dies auch Aspekt der beachtet werden muss:\\
-Das Softwarepaket funktioniert nur mit der STM32-Hardware, der Einsatz mit \gls{mcu}s anderer Hersteller ist nicht vorgesehen.
+Das Softwarepaket funktioniert primär mit der STM32-Hardware, der Einsatz mit \gls{mcu}s anderer Hersteller ist nicht vorgesehen.
 Für allgemeine Projekte bzw. st-fremde Hardware besteht die Möglichkeit, in der STM32CubeIDE leere CMake-Projekte zu erstellen.
-Die benötigten Pakete und Treiber, sowie ein Buildsystem müssen dann selber inkludiert und mit eigenen CMake-Dateien implementiert werden.
+Die benötigten Pakete und Treiber, sowie ein Buildsystem müssen jedoch selber inkludiert und mit eigenen CMake-Dateien implementiert werden.
 
 
 % Schichtenarchitektur
@@ -28,21 +27,21 @@ Die Anwendungsschicht beinhaltet das Hautprogramm inklusive des Hauptheaders.
 % Middleware & RTOS
 Ein explizite Middleware und Betriebssystemschicht fehlen in einem blanken Projekt, wenn man diese während des Konfigurationsprozesses nicht explizit hinzugefügt hat.
 % CMSIS & HAL
-In der Treiber- und Abstraktionsschicht finden sich \gls{hal} und CMSIS-Treiber, mit allen benötigten Funktionen und Definitionen um auf Register zuzugreifen und Pins steuern zu können. 
+In der Treiber- und Abstraktionsschicht finden sich \gls{hal} und CMSIS-Treiber, mit allen benötigten Funktionen und Definitionen um auf Register zugreifen und Pins steuern zu können. 
 
 % Designpattern
-Sucht man den Code nach Designmuster lassen sich für alle drei Kategorien Exemplare finden.
-Für Erzeugungsmuster lassen sich Vergleiche zu Singleton und Builder finden.
+Untersucht man den Code nach Designmuster lassen sich für alle drei Kategorien Exemplare finden.
+Für Erzeugungsmuster lassen sich Vergleiche zu Singleton und Builder erkennen.
 Im Rahmen des Grundlagenkapitels zu Designmuster in \cref{chap3_2_1_designmuster} wurde bereits  ausgeführt, dass mit dem Singleton-Pattern lediglich eine Instanz von einer Klasse existieren darf.
 Das Builder-Pattern hingegen beschreibt, wie Objekte aufgebaut werden können.
 Anstatt sämtliche Parameter in einem einzigen Aufruf zu übergeben, erfolgt die Konfigurierung sukzessive mittels einer Konfigurationsstruktur, wie beispielsweise der Struktur \texttt{GPIO\_InitStruct}. 
-Die vollständige Konfiguration wird erst nach Abschluss des Prozesses mit einem finalen Aufruf initiiert, z. B. findet die eigentliche Initialisierung erst durch die Funktion \texttt{HAL\_GPIO\_Init()}. 
+Die vollständige Konfiguration wird erst nach Abschluss des Prozesses mit einem finalen Aufruf initiiert, z. B. findet die eigentliche Initialisierung erst durch die Funktion \texttt{HAL\_GPIO\_Init()} statt. 
 Dies führt zu einer verbesserten Lesbarkeit und Wartbarkeit des Codes und reduziert potenzielle Fehler, die durch inkonsistente Parameterübergaben verursacht werden.
-Die \texttt{GPIO\_InitStruct}, die man bereits in \cref{lst:stm32_mx_gpio_init} sehen kann, zeigt Ähnlichkeiten zu dem Builder-Muster.
+%Die \texttt{GPIO\_InitStruct}, die man bereits in \cref{lst:stm32_mx_gpio_init} sehen kann, zeigt Ähnlichkeiten zu dem Builder-Muster.
 Die Struktur wird hier ebenfalls Option für Option aufgebaut und erweitert.
 Wird \gls{spi} verwendet, kommt eine globale \texttt{SPI\_HandleTypeDef} Instanz dazu, ähnlich dem Singleton-Pattern.
 %%% Facade
-Bei der Suche nach Strukturmustern lässt sich das Facade-Pattern gut an Code \cref{lst:stm32_mx_gpio_init} erkennen.
+Bei der Suche nach Strukturmustern lässt sich das Facade-Pattern gut an \cref{lst:stm32_mx_gpio_init} erkennen.
 Die Funktion \texttt{MX\_GPIO\_Init()} fungiert in diesem Kontext als Fassade, indem sie die komplexe Initialisierung mehrerer GPIOs hinter einem einzigen Funktionsaufruf verschleiert.
 Anstatt dass der Entwickler die einzelnen Schritte wie Taktfreigabe, Pin-Reset und Konfiguration mit \texttt{HAL\_GPIO\_Init()} selbst durchführen muss, werden diese Details verborgen und über eine einheitliche Schnittstelle bereitgestellt. 
 Diese Vorgehensweise dient der Vereinfachung der Benutzung, ohne dabei die zugrunde liegende Funktionalität zu beeinträchtigen.

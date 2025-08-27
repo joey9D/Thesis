@@ -8,13 +8,13 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {6.1}{\ignorespaces Verzeichnisbaum des Beispielprojektes.}}{38}{figure.caption.39}%
-\contentsline {figure}{\numberline {6.2}{\ignorespaces Screenshot des Osziloskopbildschirms. Dieser zeigt die Wellen für SCK (blau/türkis), MOSI (magenta) und MISO (gelb).}}{51}{figure.caption.60}%
-\contentsline {figure}{\numberline {6.3}{\ignorespaces Screenshot einer erfolgreich SPI-Kommunikation, erstellt mit dem Code der HW\_API.}}{51}{figure.caption.61}%
-\contentsline {figure}{\numberline {6.4}{\ignorespaces Ausgabe des belegten Speichers in einem STM32CubeIDE Projekt.}}{52}{figure.caption.64}%
-\contentsline {figure}{\numberline {6.5}{\ignorespaces Ausgabe des belegten Speichers ein Projektes mit der HW\_API als zusätzliche Zwischenschicht.}}{53}{figure.caption.65}%
-\contentsline {figure}{\numberline {6.6}{\ignorespaces Ausgabe des belegten Speichers eines Beispielprojekts mit der ESP-IDF.}}{53}{figure.caption.66}%
-\contentsline {figure}{\numberline {6.7}{\ignorespaces Ausgabe des belegten Speicher eines ESP32-Projektes mit der HW\_API-Zwischenschicht.}}{54}{figure.caption.67}%
+\contentsline {figure}{\numberline {6.1}{\ignorespaces Verzeichnisbaum des Beispielprojektes.}}{37}{figure.caption.39}%
+\contentsline {figure}{\numberline {6.2}{\ignorespaces Screenshot des Osziloskopbildschirms. Dieser zeigt die Wellen für SCK (blau/türkis), MOSI (magenta) und MISO (gelb).}}{50}{figure.caption.60}%
+\contentsline {figure}{\numberline {6.3}{\ignorespaces Screenshot einer erfolgreich SPI-Kommunikation, erstellt mit dem Code der HW\_API.}}{50}{figure.caption.61}%
+\contentsline {figure}{\numberline {6.4}{\ignorespaces Ausgabe des belegten Speichers in einem STM32CubeIDE Projekt.}}{51}{figure.caption.64}%
+\contentsline {figure}{\numberline {6.5}{\ignorespaces Ausgabe des belegten Speichers ein Projektes mit der HW\_API als zusätzliche Zwischenschicht.}}{52}{figure.caption.65}%
+\contentsline {figure}{\numberline {6.6}{\ignorespaces Ausgabe des belegten Speichers eines Beispielprojekts mit der ESP-IDF.}}{52}{figure.caption.66}%
+\contentsline {figure}{\numberline {6.7}{\ignorespaces Ausgabe des belegten Speicher eines ESP32-Projektes mit der HW\_API-Zwischenschicht.}}{53}{figure.caption.67}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

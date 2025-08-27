@@ -1,8 +1,8 @@
 \section{Betrachtung bestehender Lösungen}
-In diesem Abschnitt erfolgt eine Untersuchung des aktuellen Stands der Technik im Bereich der hardwarenahen Softwareentwicklung für Microcontroller.
+In diesem Abschnitt erfolgt eine Untersuchung der hardwarespezifischen Plattformen und Entwicklungsumgebungen.
 Das Ziel besteht darin, gemeinsame Eigenschaften heraus zu arbeiten, verwendete Architekturmuster zu identifizieren und bestehende Ansätze und Konzepte zu analysieren, die das Problem der Treiberauswahl und -abstraktion lösen – insbesondere im Hinblick auf Portabilität und Wiederverwendbarkeit. 
 
-Die Analyse dient zudem der Identifikation möglicher Lücken oder Einschränkungen bestehender Lösungen und trägt somit zur Begründung der Relevanz und Zielsetzung dieser Arbeit bei.
+Die Analyse dient zudem der Identifikation möglicher Lücken oder Einschränkungen der bestehenden Lösungen und trägt somit zur Begründung der Relevanz und Zielsetzung dieser Arbeit bei.
 
 Im Rahmen der Untersuchung wurden neben Onlinerecherchen speziell praxisnahe Quellen herangezogen. 
 Zu diesen zählen technische Dokumentationen, Open-Source-Projekte und Herstellerdokumentationen.
@@ -14,7 +14,7 @@ Die Common Microcontroller Software Interface Standard (CMSIS)-Bibliothek ist ei
 Sie bietet eine einheitliche Zugriffsebene für Cortex-M-Prozessoren. 
 Herstellerbezogene Entwicklungsumgebungen wie die STM32CubeIDE von STMicroelectronics und die Espressif-IDE bieten umfangreiche Hardware-Abstraktionsbibliotheken, die gezielt auf ihre jeweiligen Microcontroller-Familien zugeschnitten sind.
 
-Darüber hinaus wurden zwei Open-Source-Projekte auf GitHub analysiert: mcu-cpp und modm. 
+Darüber hinaus wurden zwei Open-Source-Projekte auf GitHub analysiert: mcu-cpp\cite{github_mcu_cpp} und modm\cite{github_modm}. 
 Die Zielsetzung beider Ansätze besteht in der Modularisierung der Treiberentwicklung in C++ sowie der Bereitstellung portabler, wiederverwendbarer Hardware-APIs. 
 Die Projekte zeigen eine Reihe unterschiedlicher Herangehensweisen in Bezug auf Abstraktionslevel, Architektur und Hardwareunterstützung, was wertvolle Erkenntnisse für die eigene Lösungsentwicklung bietet.
 \\
