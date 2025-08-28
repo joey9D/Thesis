@@ -1,17 +1,17 @@
 [0] Config.pm:308> INFO - This is Biber 2.20
 [0] Config.pm:311> INFO - Logfile is '/Users/joey/Documents/Studium/8_Sem/Thesis/Thesis/.texpadtmp/main.blg'
-[32] biber-darwin:340> INFO - === Wed Aug 27, 2025, 21:08:26
-[41] Biber.pm:420> INFO - Reading '/Users/joey/Documents/Studium/8_Sem/Thesis/Thesis/.texpadtmp/main.bcf'
-[77] Biber.pm:994> INFO - Found 22 citekeys in bib section 0
-[85] Biber.pm:4463> INFO - Processing section 0
-[91] Biber.pm:4654> INFO - Looking for bibtex file '/Users/joey/Documents/Studium/8_Sem/Thesis/Thesis/reference.bib' for section 0
-[93] bibtex.pm:1713> INFO - LaTeX decoding ...
-[116] bibtex.pm:1519> INFO - Found BibTeX data source '/Users/joey/Documents/Studium/8_Sem/Thesis/Thesis/reference.bib'
-[181] UCollate.pm:68> INFO - Overriding locale 'de-DE' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[181] UCollate.pm:68> INFO - Overriding locale 'de-DE' defaults 'variable = shifted' with 'variable = non-ignorable'
-[181] Biber.pm:4283> INFO - Sorting list 'anyt/global//global/global/global' of type 'entry' with template 'anyt' and locale 'de-DE'
-[181] Biber.pm:4289> INFO - No sort tailoring available for locale 'de-DE'
-[193] bbl.pm:676> INFO - Writing '/Users/joey/Documents/Studium/8_Sem/Thesis/Thesis/.texpadtmp/main.bbl' with encoding 'UTF-8'
-[196] bbl.pm:779> INFO - Output to /Users/joey/Documents/Studium/8_Sem/Thesis/Thesis/.texpadtmp/main.bbl
-[196] Biber.pm:131> WARN - ISBN '978-3-86490-722-6' in entry 'RichardsFord2020' is invalid - run biber with '--validate_datamodel' for details.
-[196] Biber.pm:133> INFO - WARNINGS: 1
+[30] biber-darwin:340> INFO - === Thu Aug 28, 2025, 10:07:02
+[36] Biber.pm:420> INFO - Reading '/Users/joey/Documents/Studium/8_Sem/Thesis/Thesis/.texpadtmp/main.bcf'
+[70] Biber.pm:994> INFO - Found 22 citekeys in bib section 0
+[77] Biber.pm:4463> INFO - Processing section 0
+[81] Biber.pm:4654> INFO - Looking for bibtex file '/Users/joey/Documents/Studium/8_Sem/Thesis/Thesis/reference.bib' for section 0
+[83] bibtex.pm:1713> INFO - LaTeX decoding ...
+[105] bibtex.pm:1519> INFO - Found BibTeX data source '/Users/joey/Documents/Studium/8_Sem/Thesis/Thesis/reference.bib'
+[162] UCollate.pm:68> INFO - Overriding locale 'de-DE' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[162] UCollate.pm:68> INFO - Overriding locale 'de-DE' defaults 'variable = shifted' with 'variable = non-ignorable'
+[162] Biber.pm:4283> INFO - Sorting list 'anyt/global//global/global/global' of type 'entry' with template 'anyt' and locale 'de-DE'
+[162] Biber.pm:4289> INFO - No sort tailoring available for locale 'de-DE'
+[171] bbl.pm:676> INFO - Writing '/Users/joey/Documents/Studium/8_Sem/Thesis/Thesis/.texpadtmp/main.bbl' with encoding 'UTF-8'
+[175] bbl.pm:779> INFO - Output to /Users/joey/Documents/Studium/8_Sem/Thesis/Thesis/.texpadtmp/main.bbl
+[175] Biber.pm:131> WARN - ISBN '978-3-86490-722-6' in entry 'RichardsFord2020' is invalid - run biber with '--validate_datamodel' for details.
+[175] Biber.pm:133> INFO - WARNINGS: 1

@@ -146,26 +146,17 @@ Dies veranschaulicht den signifikanten Einfluss zusätzlicher Abstraktionsschich
 	\label{fig:esp32_hw_api_size}
 \end{figure}
 
-%Die Analyse der Speicherbelegung für den ESP32 zeigt, dass die Einführung einer zusätzlichen Zwischenschicht vor allem die Flash-Auslastung deutlich erhöht hat. 
-%Im Default-Build belegt das Programm $107\ 070$ Bytes Flash-Speicher, während das eigene Projekt mit Zwischenschicht eine Binärgröße von $158\ 944$ Bytes aufweist. 
-%Dies entspricht einer Zunahme von rund $51$ KB, also nahezu $48$\%. Unter Berücksichtigung einer verfügbaren Applikastionspartition von $1$ MB ergibt sich eine Flash-Auslastung von ca. $15$\%, womit trotz des Anstiegs ausreichend Speicherreserven zur Verfügung stehen.
-%
-%Die Bewertung der RAM-Auslastung anhand der kompakten Projektausgabe ist nicht direkt möglich, da diese lediglich die Flash-Größe ausweist. 
-%Die detaillierte ESP-IDF-Ausgabe des Default-Builds zeigt jedoch, dass neben Flash auch Bereiche wie DIRAM und LP SRAM genutzt werden. 
-%Um eine Aussage bezüglich potenzieller Modifikationen der RAM-Nutzung durch die Zwischenschicht treffen zu können, erfordert die Ausführung eines erweiterten Speicherreports, wie beispielsweise mittels \texttt{idf.py size --all}.
-Der Analyse der Speicherbelegung zwischen dem ESP32-Beispielprojekt und dem eigenen Projekt mit Zwischenschicht offenbart signifikante Diskrepanzen in Bezug auf die Flash- und RAM-Auslastung. 
-Das Beispielprojekt belegt insgesamt $123\ 114$ Bytes Flash-Speicher, bestehend aus $82\ 158$ Bytes ausführbarem Code (.text), $40\ 700$ Bytes konstanten Daten (.rodata) sowie $256$ Bytes Applikationsbeschreibung. 
-Demgegenüber beansprucht das eigene Projekt $81\ 502$ Bytes Flash, wovon $67\ 826$ Bytes dem Segment .text, $13\ 420$ Bytes dem Segment .rodata und $256$ Bytes dem Segment .appdesc zuzuordnen sind. 
-Demzufolge erfordert das eigene Projekt eine um rund $41\ 612$ Bytes reduzierte Flash-Speicheranforderung, was insbesondere auf die signifikant verringerte Menge an konstanten Daten zurückzuführen ist.
+Die Gegenüberstellung der Speicherbelegungen zeigt, dass das eigene Projekt mit Zwischenschicht im Flash signifikant sparsamer ist als das ESP32-Beispielprojekt. Das Beispielprojekt belegt $123\ 718$ Bytes, während das eigene Projekt nur $81\ 502$ Bytes benötigt, was einer Reduktion von über $42$ KB entspricht. 
+Diese signifikante Reduktion ist insbesondere auf eine deutlich geringere Anzahl an konstanten Daten in der .rodata-Sektion zurückzuführen.
 
-Auch im \gls{ram} zeigen sich Unterschiede.
-So beanspruchte das Beispielprojekt in DIRAM $58\ 421$ Bytes, während das eigene Projekt $48\ 491$ Bytes benötigte, d. h. etwa $9\ 930$ Bytes weniger. 
-Die Reduktion des Datenvolumens manifestiert sich insbesondere in einer Verringerung der Datenmenge kleinerer .data-Sektionen; $6\ 897$ Bytes im vorliegenden Beispielprojekt im Vergleich zu $5\ 121$ Bytes im eigenen Projekt. 
-Der BSS-Anteil ist im eigenen Projekt hingegen leicht höher $4\ 208$ Bytes gegenüber $3\ 928$ Bytes. 
-Die Nutzung des Low-Power-SRAM, $24$ Bytes, .rtc\_reserved, ist in beiden Projekten identisch und vernachlässigbar gering.
+Auch beim RAM zeigt sich eine moderate Entlastung: Das Beispielprojekt belegt $63\ 054$ Bytes in IRAM und DIRAM, während das eigene Projekt $48\ 491$ Bytes in DIRAM nutzt. Dies entspricht einer Reduktion des Datenvolumens um ca. $4,5$ KB. 
+Die Nutzung des RTC-Slow-RAM ist in beiden Projekten vernachlässigbar gering und identisch.
 
-Insgesamt zeigt die Analyse, dass die Einführung einer Zwischenschicht im eigenen Projekt nicht zwangsläufig zu einer Vergrößerung der Speicherbelegung führt.
-Die Tatsache, dass das eigene Projekt weniger Speicher belegt als das Beispielprojekt, rührt daher, dass dieses in seinem unveränderten Code zusätzlich Funktionen implementiert, die in den tieferen Schichten mehr Ressourcen benötigen als die Basisfunktionen der eigenen HW\_API.
+Der Vergleich zeigt, dass die Implementierung einer Zwischenschicht im Rahmen des eigenen Projekts nicht zu einer Steigerung, sondern vielmehr zu einer Reduzierung des Speicherverbrauchs geführt hat.
+Es fällt auf, dass der Anteil der .rodata-Nutzung signifikant gesunken ist. 
+Im Vergleich zum Beispielprojekt fallen die Werte der Code- und RAM-Nutzung sogar leicht niedriger aus. 
+Dies demonstriert, dass die Implementierung zusätzlicher Abstraktionsschichten nicht zwangsläufig zu einem erhöhten Speicherbedarf führt, sondern dass durch eine angepasste Implementierung auch Einsparungen erzielt werden können.
+Dies Diskrepanz kann daher rühren, dass verschieden Prozesse im Hintergrund des Beispielprojektes ablaufen, die es weiter zu untersuchen gilt.
 
 \subsubsection{Algorithmische Komplexität}
 Die Analyse am Beispiel der GPIO-Klassen für STM32 und ESP32 ergibt, dass die algorithmische Komplexität aller Methoden konstant bleibt, d.h. $O(1)$, wie in der dritten Spalte von \cref{tab:gpio_complexity} aufgeführt ist.
